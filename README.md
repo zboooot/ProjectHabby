@@ -1,2 +1,2 @@
 # ProjectHabby
-This is 怪兽101
+This is a GitHub for 怪兽101
