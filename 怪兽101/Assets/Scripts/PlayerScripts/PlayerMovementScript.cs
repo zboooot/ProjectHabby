@@ -23,10 +23,10 @@ public class PlayerMovementScript : MonoBehaviour
         inputVector = Vector2.ClampMagnitude(inputVector, 1); //This stops diagonal movement from being faster
         Vector2 movement = inputVector * movementSpeed;
         Vector2 newPos = currentPos + movement * Time.deltaTime;
-        isoRenderer.SetDirection(movement);
+        //(uncomment when you are implementing animation) isoRenderer.SetDirection(movement);
         rbody.MovePosition(newPos);
 
-       // CameraShake.Instance.ShakeCamera(5f, .1f);// This causes screenshake, just uncomment it
+        //CameraShake.Instance.ShakeCamera(5f, .1f);// This causes screenshake, just uncomment it
 
     }
 
