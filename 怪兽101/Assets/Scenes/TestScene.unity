@@ -133,6 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 398799027}
   - component: {fileID: 398799026}
+  - component: {fileID: 398799028}
   m_Layer: 0
   m_Name: CM vcam1
   m_TagString: Untagged
@@ -194,6 +195,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &398799028
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 398799025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c6c1eb472edc6488e6a60210a38194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -324,6 +337,7 @@ GameObject:
   - component: {fileID: 786492148}
   - component: {fileID: 786492150}
   - component: {fileID: 786492149}
+  - component: {fileID: 786492151}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -401,6 +415,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &786492151
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 786492147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 1.31
+  m_FrequencyGain: 1.54
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1 &844623334
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,6 +528,7 @@ GameObject:
   - component: {fileID: 1906272459}
   - component: {fileID: 1906272458}
   - component: {fileID: 1906272461}
+  - component: {fileID: 1906272462}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -605,3 +637,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 1
+--- !u!114 &1906272462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1906272456}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0826794c6b30f4247a443d89db29c51d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
