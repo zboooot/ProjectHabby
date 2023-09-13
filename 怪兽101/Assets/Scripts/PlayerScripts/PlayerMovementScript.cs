@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class PlayerMovementScript : MonoBehaviour
 {
-    public float movementSpeed = 1f;
+
+    public PlayerStatScriptableObject playerSO;
+    //public float movementSpeed = 1f;
     IsometricCharacterRenderer isoRenderer;
     Rigidbody2D rbody;
 
@@ -21,7 +23,7 @@ public class PlayerMovementScript : MonoBehaviour
         float verticalInput = Input.GetAxis("Vertical");
         Vector2 inputVector = new Vector2(horizontalInput, verticalInput);
         inputVector = Vector2.ClampMagnitude(inputVector, 1); //This stops diagonal movement from being faster
-        Vector2 movement = inputVector * movementSpeed;
+        Vector2 movement = inputVector * playerSO.speed;
         Vector2 newPos = currentPos + movement * Time.deltaTime;
         //(uncomment when you are implementing animation) isoRenderer.SetDirection(movement);
         rbody.MovePosition(newPos);
