@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: DemoPlayer
   m_EditorClassIdentifier: 
   health: 100
-  speed: 500
+  speed: 10
   playerAttackSO: {fileID: 11400000, guid: 149d5aa4d8422324b8f66f909066742b, type: 2}
