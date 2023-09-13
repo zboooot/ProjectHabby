@@ -16,7 +16,7 @@ public class PlayerHealthScript : MonoBehaviour
     private void Start()
     {
         shakeMe = healthSlider.gameObject.GetComponent<ShakeScript>();
-        playerSO.health = 100;
+        //playerSO.health = 100;
         currentHealth = playerSO.health; // Set initial health to full
         UpdateHealthBar();
     }
