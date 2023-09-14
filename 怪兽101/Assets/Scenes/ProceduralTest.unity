@@ -487,10 +487,6 @@ MonoBehaviour:
   y_offset: 0
   tileWidth: 1.3
   tileHeight: 0.325
-  grassThreshold: 0.6
-  stoneThreshold: 0.4
-  sandThreshold: 0.3
-  waterThreshold: 0.8
   size: 1
 --- !u!1 &1356687400
 GameObject:
