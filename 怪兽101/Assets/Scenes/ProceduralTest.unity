@@ -476,17 +476,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 705eee23ef9fba14380fcc728cff608b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefab_water: {fileID: 4266251049100149751, guid: 58b84b9aa795bef4b976b2c087d5b884, type: 3}
   prefab_grass: {fileID: 2490826407677246408, guid: cfc40666086e3954ea9b321bab0421ca, type: 3}
   prefab_stone: {fileID: 3213301099915014007, guid: 2f5432ae3ce02a84fb7aa468e6e9da04, type: 3}
-  prefab_water: {fileID: 5737929577465541210, guid: cac7c1f808e068646bacf2b43926316a, type: 3}
   prefab_sand: {fileID: 2660236468704405807, guid: 333a6676846854646bf622866241f665, type: 3}
-  map_width: 30
-  map_height: 130
+  map_width: 60
+  map_height: 300
   magnification: 7
   x_offset: 0
   y_offset: 0
   tileWidth: 1.3
   tileHeight: 0.325
+  grassThreshold: 0.6
+  stoneThreshold: 0.4
+  sandThreshold: 0.3
+  waterThreshold: 0.8
+  size: 1
 --- !u!1 &1356687400
 GameObject:
   m_ObjectHideFlags: 0

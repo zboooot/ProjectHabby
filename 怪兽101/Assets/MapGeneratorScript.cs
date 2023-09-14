@@ -8,9 +8,9 @@ thanks - delete me! :) */
 
 public class MapGeneratorScript : MonoBehaviour
 {
+    public GameObject prefab_water;
     public GameObject prefab_grass;
     public GameObject prefab_stone;
-    public GameObject prefab_water;
     public GameObject prefab_sand;
 
     public int map_width = 160;
@@ -32,6 +32,13 @@ public class MapGeneratorScript : MonoBehaviour
 
     // Flag to control map generation
     private bool mapGenerated = false;
+
+    // Adjusted thresholds for other tile types (grass, stone, sand)
+    public float grassThreshold = 0.2f;
+    public float stoneThreshold = 0.4f;
+    public float sandThreshold = 0.6f;
+    public float waterThreshold = 0.7f;  // Adjust this threshold for water
+    public float size;
 
     void Start()
     {
@@ -61,6 +68,10 @@ public class MapGeneratorScript : MonoBehaviour
     }
     void GenerateMap()
     {
+        // Randomize the Perlin noise seed every time the map generates
+        x_offset = Random.Range(0f, 1000f);
+        y_offset = Random.Range(0f, 1000f);
+
         for (int x = 0; x < map_width; x++)
         {
             noise_grid.Add(new List<int>());
@@ -77,45 +88,47 @@ public class MapGeneratorScript : MonoBehaviour
         // Sort tiles by Y-coordinate to ensure proper layering
         SortTilesByY();
     }
-
     int GetIdUsingPerlin(int x, int y)
     {
 
         float raw_perlin = Mathf.PerlinNoise(
-            (x - x_offset) / magnification,
-            (y - y_offset) / magnification
-        );
+               (x - x_offset) / magnification,
+               (y - y_offset) / magnification
+           );
 
-        float clamp_perlin = Mathf.Clamp01(raw_perlin);
+        float falloff = Falloff(x, y); // Get the falloff value
+
+        float adjusted_perlin = raw_perlin * falloff; // Apply falloff
 
         // Adjusted thresholds for each tile type, including sand
-        float grassThreshold = 0.2f;  // grass threshold
-        float stoneThreshold = 0.4f;  // Stone threshold
-        float waterThreshold = 0.0f;  // Water threshold
-        float sandThreshold = 0.6f;   // Sand threshold
+        float waterThreshold = 0.2f;  // grass threshold
+        float grassThreshold = 0.4f;  // Stone threshold
+        float StoneThreshold = 0.6f;   // Sand threshold
+        float SandThreshold = 0.6f;   // Sand threshold
 
-
-        if (clamp_perlin < grassThreshold)
+        if (adjusted_perlin < waterThreshold)
         {
-            return 0; // Grass tile
+            return 0; // water
         }
-        else if (clamp_perlin < stoneThreshold)
+        else if (adjusted_perlin < grassThreshold)
         {
-            return 1; // Stone tile
+            return 1; // grass tile
         }
-        else if (clamp_perlin < waterThreshold)
-        {
-            return 2; // Water tile
-        }
-        else if (clamp_perlin < sandThreshold)
+        else if (adjusted_perlin < StoneThreshold)
         {
             return 3; // Sand tile
         }
+        else if (adjusted_perlin < SandThreshold)
+        {
+            return 2; // Sand tile
+        }
         else
         {
-            return 4; // Additional tile type, if needed
+            return 0; // Water tile
         }
     }
+
+   
 
     void CreateTile(int tile_id, int x, int y)
     {
@@ -147,16 +160,33 @@ public class MapGeneratorScript : MonoBehaviour
         switch (tile_id)
         {
             case 0:
-                return prefab_grass;
-            case 1:
-                return prefab_stone;
-            case 2:
                 return prefab_water;
+            case 1:
+                return prefab_grass;
+            case 2:
+                return prefab_stone;
             case 3:
                 return prefab_sand;
             default:
-                return prefab_grass;
+                return prefab_water;
         }
+    }
+
+
+
+    float Falloff(int x, int y)
+    {
+        // Calculate the normalized distance from the center of the map
+        float centerX = map_width * 0.5f;
+        float centerY = map_height * 0.5f;
+        float distanceX = Mathf.Abs(x - centerX) / (map_width * 0.5f);
+        float distanceY = Mathf.Abs(y - centerY) / (map_height * 0.5f);
+
+        // Use a maximum of the X and Y distances
+        float distanceFromCenter = Mathf.Max(distanceX, distanceY);
+
+        // Apply a steeper falloff curve to create the island effect
+        return Mathf.Clamp01(1 - Mathf.Pow(distanceFromCenter, size)); // Adjust the exponent as needed
     }
 
     void SortTilesByY()
