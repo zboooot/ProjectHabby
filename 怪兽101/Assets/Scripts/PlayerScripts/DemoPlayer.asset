@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aeb07c1b768f2714daf1d8f4277cf921, type: 3}
   m_Name: DemoPlayer
   m_EditorClassIdentifier: 
+  maxhealth: 100
   health: 100
-  speed: 10
+  speed: 1.5
   playerAttackSO: {fileID: 11400000, guid: 149d5aa4d8422324b8f66f909066742b, type: 2}

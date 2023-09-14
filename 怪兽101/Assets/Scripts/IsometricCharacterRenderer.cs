@@ -4,26 +4,28 @@ using UnityEngine;
 
 public class IsometricCharacterRenderer : MonoBehaviour
 {
-    public static readonly string[] staticDirections = { };
-    public static readonly string[] runDirections = { };
+    public static readonly string[] staticDirections = { "Static N", "Static NW", "Static W", "Static SW", "Static S", "Static SE", "Static E", "Static NE"};
+    public static readonly string[] runDirections = { "Move N", "Move NW", "Move W", "Move SW", "Move S", "Move SE", "Move E", "Move NE" };
+    public static readonly string[] attackDirections = { "Attack N", "Attack NW", "Attack W", "Attack SW", "Attack S", "Attack SE", "Attack E", "Attack NE" };
 
     Animator animator;
     int lastDirection;
-
+    public Vector2 faceDirection;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
+        
     }
-
 
     public void SetDirection(Vector2 direction)
     {
         //Use the move states by default
         string[] directionArray = null; //not sure if its a int or string, might have to change above
 
+           
         //measure magnitude of input
-        if(direction.magnitude < .01f)
+        if (direction.magnitude < .01f)
         {
             //when standing still, we will use static states
             directionArray = staticDirections;
@@ -38,7 +40,8 @@ public class IsometricCharacterRenderer : MonoBehaviour
             lastDirection = DirectionToIndex(direction, 8);
 
         }
-
+        
+        readFaceDir(direction);
         animator.Play(directionArray[lastDirection]);
 
     }
@@ -67,5 +70,10 @@ public class IsometricCharacterRenderer : MonoBehaviour
         float stepCount = angle / step;
         //round it and get the answer
         return Mathf.FloorToInt(stepCount);
+    }
+
+    public void readFaceDir(Vector2 facePos)
+    {
+        faceDirection = facePos;
     }
 }

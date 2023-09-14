@@ -1,6 +1,5 @@
 using UnityEngine;
 
-
 [CreateAssetMenu(fileName = "PlayerAttackScriptableObject", menuName = "ScriptableObject/PlayerAttack")]
 public class PlayerAttackScriptableObject : ScriptableObject
 {
