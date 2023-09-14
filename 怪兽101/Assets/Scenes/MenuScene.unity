@@ -384,6 +384,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a9b234ec21d1194fb151b10cbba12e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PauseMenu: {fileID: 0}
+  PauseButton: {fileID: 0}
 --- !u!1 &701221902
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,7 +659,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 535830056}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: EnterGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

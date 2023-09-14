@@ -8,9 +8,9 @@ public class MenuController : MonoBehaviour
 	public GameObject PauseMenu;
 	public GameObject PauseButton;
 
-	public void PlayGame()
+	public void EnterGame()
 	{
-		SceneManager.LoadScene("GameplayScene");
+		SceneManager.LoadScene("LobbyScene");
 	}
 
 	public void PauseGame()
@@ -27,5 +27,15 @@ public class MenuController : MonoBehaviour
 		PauseMenu.SetActive(false);
 		PauseButton.SetActive(true);
 		Time.timeScale = 1;
+	}
+
+	public void LoadLab()
+    {
+		SceneManager.LoadScene("LabScene");
+    }
+
+	public void LoadGame()
+	{
+		SceneManager.LoadScene("GameplayScene");
 	}
 }
