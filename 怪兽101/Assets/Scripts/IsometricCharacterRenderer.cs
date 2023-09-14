@@ -11,6 +11,7 @@ public class IsometricCharacterRenderer : MonoBehaviour
     Animator animator;
     int lastDirection;
     public Vector2 faceDirection;
+    public Vector2 lastFaceDir;
 
     private void Awake()
     {
@@ -74,6 +75,20 @@ public class IsometricCharacterRenderer : MonoBehaviour
 
     public void readFaceDir(Vector2 facePos)
     {
-        faceDirection = facePos;
+        if(facePos.x != 0 && facePos.y != 0)
+        {
+            faceDirection = facePos;
+            lastFaceDir = facePos;
+        }
+
+        else if(facePos.x != 0 || facePos.y != 0)
+        {
+            faceDirection = facePos;
+        }
+
+        else
+        {
+            faceDirection = lastFaceDir;
+        }
     }
 }

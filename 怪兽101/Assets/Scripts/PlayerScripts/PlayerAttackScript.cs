@@ -30,7 +30,7 @@ public class PlayerAttackScript : MonoBehaviour
     void FixedUpdate()
     {
         rayCastLength = playerSO.attackRange;
-        faceDir = isoRenderer.faceDirection;
+        faceDir = isoRenderer.lastFaceDir;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, faceDir, rayCastLength);
         if(hit.collider != null)
         {

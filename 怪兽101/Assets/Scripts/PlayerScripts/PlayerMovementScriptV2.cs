@@ -17,17 +17,17 @@ public class PlayerMovementScriptV2 : MonoBehaviour
 
     private void FixedUpdate()
     {
-            Vector2 currentPos = rbody.position;
-            float horizontalInput = Input.GetAxis("Horizontal");
-            float verticalInput = Input.GetAxis("Vertical");
-            Vector2 inputVector = new Vector2(horizontalInput, verticalInput);
-            inputVector = Vector2.ClampMagnitude(inputVector, 1); //This stops diagonal movement from being faster
-            Vector2 movement = inputVector * playerSO.speed;
-            Vector2 newPos = currentPos + movement * Time.deltaTime;
-            isoRenderer.SetDirection(movement);
-            //(uncomment when you are implementing animation) isoRenderer.SetDirection(movement);
-            rbody.MovePosition(newPos);
-            //CameraShake.Instance.ShakeCamera(5f, .1f);// This causes screenshake, just uncomment it
+        Vector2 currentPos = rbody.position;
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+        Vector2 inputVector = new Vector2(horizontalInput, verticalInput);
+        inputVector = Vector2.ClampMagnitude(inputVector, 1); //This stops diagonal movement from being faster
+        Vector2 movement = inputVector * playerSO.speed;
+        Vector2 newPos = currentPos + movement * Time.deltaTime;
+        isoRenderer.SetDirection(movement);
+        //(uncomment when you are implementing animation) isoRenderer.SetDirection(movement);
+        rbody.MovePosition(newPos);
+        //CameraShake.Instance.ShakeCamera(5f, .1f);// This causes screenshake, just uncomment it
     }
 
 }
