@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealthScript : MonoBehaviour
 {
@@ -30,16 +31,22 @@ public class PlayerHealthScript : MonoBehaviour
             UpdateHealthBar();
         }
 
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    TakeDamage();
-        //}
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            TakeDamage();
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            playerSO.health = 100;
+            SceneManager.LoadScene("ProceduralMap");
+        }
     }
 
     public void TakeDamage()
     {
         shakeMe.StartShake();
-        playerSO.health -= 5; // Adjust the damage amount as needed
+        playerSO.health -= 100; // Adjust the damage amount as needed
         Debug.Log("ouch" + playerSO.health);
     }
 
