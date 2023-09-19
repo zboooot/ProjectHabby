@@ -30,10 +30,10 @@ public class PlayerHealthScript : MonoBehaviour
             UpdateHealthBar();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage();
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    TakeDamage();
+        //}
     }
 
     public void TakeDamage()
