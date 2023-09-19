@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8093915057781599639
 Transform:
   m_ObjectHideFlags: 0
@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8093915057781599638}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: 0, z: 0}
+  m_LocalPosition: {x: 0.75, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -57,7 +57,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 1}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &8093915057781599637
 MonoBehaviour:
@@ -71,6 +71,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17e6c45382c560b438fca3e2fdd78e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SO_player: {fileID: 11400000, guid: 59dab0eb911ed154a9696246ede0b205, type: 2}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!1 &8093915059412899083
 GameObject:
   m_ObjectHideFlags: 0
@@ -91,7 +95,7 @@ GameObject:
   - component: {fileID: 8093915059412899199}
   m_Layer: 6
   m_Name: NewPlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -273,7 +277,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.75, y: 0.85}
+  m_Size: {x: 0.4, y: 0.6}
   m_EdgeRadius: 0
 --- !u!114 &8093915059412899198
 MonoBehaviour:
@@ -289,6 +293,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSO: {fileID: 11400000, guid: 59dab0eb911ed154a9696246ede0b205, type: 2}
   attackNow: 0
+  boxSize: {x: 4, y: 4}
+  enemyLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  selectedEnemy: {fileID: 0}
+  attackCD: 0
 --- !u!114 &8093915059412899199
 MonoBehaviour:
   m_ObjectHideFlags: 0

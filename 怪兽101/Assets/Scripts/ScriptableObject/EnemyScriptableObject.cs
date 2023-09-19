@@ -7,7 +7,7 @@ public class EnemyScriptableObject : ScriptableObject
 {
     public string enemyName;
     public string description;
-    public int health;
+    public float health;
     public float speed;
     public float attackDamage;
     public float attackSpeed;

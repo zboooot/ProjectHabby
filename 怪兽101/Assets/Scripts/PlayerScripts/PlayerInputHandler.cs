@@ -9,6 +9,12 @@ public class PlayerInputHandler : MonoBehaviour
     private Rigidbody2D rb;
     public bool attackNow;
 
+    public Vector2 boxSize = new Vector2(4f, 4f); // Adjust the size as needed.
+    public LayerMask enemyLayer;
+    public Collider2D selectedEnemy;
+
+    public float attackCD;
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -17,6 +23,17 @@ public class PlayerInputHandler : MonoBehaviour
     private void Update()
     {
         ProcessInput();
+        Debug.Log("Is player attacking" + attackNow);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, boxSize, 0f, enemyLayer);
+
+        if (colliders.Length > 0)
+        {
+            Collider2D nearestEnemy = FindNearestEnemy(colliders);
+            selectedEnemy = nearestEnemy;
+            CheckAttack(true);
+        }
+
+        else { selectedEnemy = null; }
     }
 
     private void FixedUpdate()
@@ -35,6 +52,40 @@ public class PlayerInputHandler : MonoBehaviour
     public void CheckAttack(bool canAttack)
     {
         attackNow = canAttack;
+    }
+
+    public void StopAttackAnimation()
+    {
+        attackNow = false;
+    }
+
+    private Collider2D FindNearestEnemy(Collider2D[] enemies)
+    {
+        selectedEnemy = null;
+        float nearestDistance = float.MaxValue;
+        Vector2 playerPosition = transform.position;
+
+        foreach (Collider2D enemy in enemies)
+        {
+            float distance = Vector2.Distance(playerPosition, enemy.transform.position);
+            if (distance < nearestDistance)
+            {
+                nearestDistance = distance;
+                selectedEnemy = enemy;
+            }
+        }
+
+        return selectedEnemy;
+    }
+
+    public void Attack()
+    {
+        if(selectedEnemy != null)
+        {
+            selectedEnemy.GetComponent<Enemy>().TakeDamage(playerSO.attackDamage);
+        }
+
+        else { return; }
     }
 
     void OnAnimationMove()

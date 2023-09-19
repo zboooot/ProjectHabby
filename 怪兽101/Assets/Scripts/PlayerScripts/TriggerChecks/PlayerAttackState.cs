@@ -17,7 +17,7 @@ public class PlayerAttackState : PlayerIdleState
     public override void Enter()
     {
         base.Enter();
-        isAttacking = true;
+
     }
 
     public override void Exit()
@@ -28,12 +28,11 @@ public class PlayerAttackState : PlayerIdleState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
-        if(player.InputHandler.attackNow == false)
+        if (player.InputHandler.attackNow == false)
         {
-            isAttacking = false;
             stateMachine.ChangeState(player.IdleState);
         }
+
     }
 
     public override void PhysicsUpdate()
