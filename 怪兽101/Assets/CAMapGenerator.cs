@@ -11,12 +11,16 @@ public class CAMapGenerator : MonoBehaviour
     public int randomFillPercent;
     public bool useRandomSeed;
 
-    public GameObject Ground_prefab;
+    public GameObject Ground_prefab1;
+    public GameObject Ground_prefab2;
+    public GameObject Ground_prefab3;
     public GameObject Water_prefab;
     public GameObject Building1_prefab;
     public GameObject Building2_prefab;
     public GameObject Building3_prefab;
 
+    public GameObject MapParent;
+   
 
 
     int[,] map;
@@ -28,6 +32,7 @@ public class CAMapGenerator : MonoBehaviour
 
     private void Update()
     {
+
         if (Input.GetKey(KeyCode.R))
         {
             GenerateMap();
@@ -53,14 +58,18 @@ public class CAMapGenerator : MonoBehaviour
 
                     if (map[x, y] == 1)
                     {
-                        Instantiate(Water_prefab, position, Quaternion.identity);
+                        
+                        Instantiate(Water_prefab, position, Quaternion.identity, MapParent.transform);
+                        
+
 
                     }
                     else if (map[x, y] == 0)
                     {
+                        GameObject groundPrefab = GetRandomGround();
+                        Instantiate(groundPrefab, position, Quaternion.identity,MapParent.transform);
                         
-                        Instantiate(Ground_prefab, position, Quaternion.identity);
-
+                        
                     }
 
                 }
@@ -88,7 +97,9 @@ public class CAMapGenerator : MonoBehaviour
                             GameObject buildingPrefab = GetRandomBuildingPrefab();
 
                             // Instantiate the building prefab at the calculated position
-                            Instantiate(buildingPrefab, position, Quaternion.identity);
+                            Instantiate(buildingPrefab, position, Quaternion.identity, MapParent.transform);
+                            
+                            Debug.Log("Parent");
 
                             // Store the building position
                             buildingPositions.Add(position);
@@ -113,6 +124,22 @@ public class CAMapGenerator : MonoBehaviour
                     return Building3_prefab;
                 default:
                     return Building1_prefab; ; // Default to the first prefab
+            }
+        }
+
+        GameObject GetRandomGround()
+        {
+            int randomGroundIndex = Random.Range(0, 3);
+            switch(randomGroundIndex)
+            {
+                case 0:
+                    return Ground_prefab1;
+                case 1:
+                    return Ground_prefab2;
+                case 2:
+                    return Ground_prefab3;
+                default:
+                    return Ground_prefab1; ; // Default to the first prefab
             }
         }
 
