@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: DemoPlayer
   m_EditorClassIdentifier: 
   maxhealth: 100
-  health: 96
-  speed: 6
-  attackDamage: 1
-  attackRange: 5
+  health: 99
+  speed: 5
+  attackDamage: 5
+  attackRange: 12
   attackSpeed: 1.5

@@ -14,6 +14,7 @@ public class NewEnemyScript : MonoBehaviour
     public Sprite upSprite;
     public Sprite downSprite;
     public Sprite leftSprite;
+    public Sprite destroyedSprite;
     float tempHealth;
     float attackCDLeft;
 
@@ -33,13 +34,10 @@ public class NewEnemyScript : MonoBehaviour
     public void TakeDamage(float damage)
     {
         tempHealth -= damage;
+        Debug.Log("Tank health remaining:" + tempHealth);
         if (tempHealth <= 0)
         {
             currentState = EnemyState.death;
-        }
-        else
-        {
-            Debug.Log(tempHealth);
         }
     }
 
@@ -78,13 +76,13 @@ public class NewEnemyScript : MonoBehaviour
             Transform bulletTransform = Instantiate(pfBullet, bulletSpawn.position, Quaternion.identity);
             Vector3 shootDir = (playerLastLoc.position - bulletSpawn.position).normalized;
             bulletTransform.GetComponent<Bullet>().SetUp(shootDir);
-            Debug.Log(enemyData.enemyName + " is attacking");
         }
     }
 
     void Death()
     {
-        Destroy(gameObject);
+        spriteRenderer.sprite = destroyedSprite;
+        Destroy(gameObject, 5f);
     }
 
     void CheckFlip()

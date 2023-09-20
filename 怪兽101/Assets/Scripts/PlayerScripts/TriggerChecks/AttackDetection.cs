@@ -43,7 +43,7 @@ public class AttackDetection : MonoBehaviour
 
     public void Attack(GameObject enemy)
     {
-        enemy.GetComponent<Enemy>().TakeDamage(SO_player.attackDamage);
+        //enemy.GetComponent<Enemy>().TakeDamage(SO_player.attackDamage);
     }
 
     private void OnTriggerEnter2D(Collider2D other)

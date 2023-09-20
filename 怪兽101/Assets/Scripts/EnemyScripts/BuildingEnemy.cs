@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class BuildingEnemy : MonoBehaviour
 {
 
     public EnemyScriptableObject SO_enemy;
     float tempHealth;
+    private SpriteRenderer spriteRenderer;
+    public Sprite destroyedSprite;
+    public Targetable buildingType;
 
     // Start is called before the first frame update
     void Start()
     {
-        tempHealth = SO_enemy.health;
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }   
 
     public void TakeDamage(float damage)
@@ -29,7 +33,7 @@ public class Enemy : MonoBehaviour
     void Death()
     {
         Debug.Log("Boom Doomz Goomz CRASH");
-        Destroy(gameObject);
+        spriteRenderer.sprite = destroyedSprite;
     }
 
     // Update is called once per frame
