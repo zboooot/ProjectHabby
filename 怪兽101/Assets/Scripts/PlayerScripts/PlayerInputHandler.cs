@@ -82,7 +82,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if(selectedEnemy != null)
         {
-            selectedEnemy.GetComponent<Enemy>().TakeDamage(playerSO.attackDamage);
+            selectedEnemy.GetComponent<NewEnemyScript>().TakeDamage(playerSO.attackDamage);
         }
 
         else { return; }

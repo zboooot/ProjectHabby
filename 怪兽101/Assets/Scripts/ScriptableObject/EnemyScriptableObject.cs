@@ -11,4 +11,5 @@ public class EnemyScriptableObject : ScriptableObject
     public float speed;
     public float attackDamage;
     public float attackSpeed;
+    public float attackRange;
 }

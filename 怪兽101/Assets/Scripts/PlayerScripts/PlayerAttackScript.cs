@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttackScript : MonoBehaviour
 {
-    public PlayerAttackScriptableObject playerSO;
+    public PlayerStatScriptableObject playerSO;
     IsometricCharacterRenderer isoRenderer;
     //public float movementSpeed = 1f;d
     Rigidbody2D rbody;
