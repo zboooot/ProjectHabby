@@ -9,7 +9,9 @@ public class PlayerInputHandler : MonoBehaviour
     private Rigidbody2D rb;
     public bool attackNow;
 
-    public Vector2 boxSize = new Vector2(4f, 4f); // Adjust the size as needed.
+    public Vector2 boxSize; // Adjust the size as needed.
+    private float rangeX;
+    private float rangeY;
     public LayerMask enemyLayer;
     public Collider2D selectedEnemy;
 
@@ -18,6 +20,9 @@ public class PlayerInputHandler : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        rangeX = playerSO.attackRange;
+        rangeY = playerSO.attackRange;
+        boxSize = new Vector2(rangeX, rangeY);
     }
 
     private void Update()
