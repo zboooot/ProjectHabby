@@ -9,7 +9,7 @@ public class EnemyScriptableObject : ScriptableObject
     public string description;
     public float health;
     public float speed;
-    public float attackDamage;
+    public int attackDamage;
     public float attackSpeed;
     public float attackRange;
 }

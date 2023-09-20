@@ -8,15 +8,21 @@ public class NewEnemyScript : MonoBehaviour
     public enum EnemyState { move, attack, death }
     public EnemyState currentState;
 
-
     public Transform player;
+    private Transform playerLastLoc;
     float tempHealth;
+    float attackCDLeft;
+
+    [SerializeField] private Transform pfBullet;
+    private Transform bulletSpawn;
+
     void Start()
     {
         // Initialize to the initial state (e.g., Idle)
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         tempHealth = enemyData.health;
         currentState = EnemyState.move;
+        bulletSpawn = GetComponentInChildren<Transform>();
     }
 
     public void TakeDamage(float damage)
@@ -59,12 +65,20 @@ public class NewEnemyScript : MonoBehaviour
 
     void Attack()
     {
-        Debug.Log(enemyData.enemyName + " is attacking");
+        attackCDLeft -= Time.deltaTime;
+        if(attackCDLeft <= 0f)
+        {
+            playerLastLoc = player.transform;
+            attackCDLeft = enemyData.attackSpeed;
+            Transform bulletTransform = Instantiate(pfBullet, bulletSpawn.position, Quaternion.identity);
+            Vector3 shootDir = (playerLastLoc.position - bulletSpawn.position).normalized;
+            bulletTransform.GetComponent<Bullet>().SetUp(shootDir);
+            Debug.Log(enemyData.enemyName + " is attacking");
+        }
     }
 
     void Death()
     {
-        Debug.Log("Boom Doomz Goomz CRASH");
         Destroy(gameObject);
     }
 

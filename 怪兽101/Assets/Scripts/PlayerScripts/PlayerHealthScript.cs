@@ -33,7 +33,7 @@ public class PlayerHealthScript : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            TakeDamage();
+            TakeDamage(1);
         }
 
         if (Input.GetKeyDown(KeyCode.R))
@@ -43,10 +43,10 @@ public class PlayerHealthScript : MonoBehaviour
         }
     }
 
-    public void TakeDamage()
+    public void TakeDamage(int damage)
     {
         shakeMe.StartShake();
-        playerSO.health -= 100; // Adjust the damage amount as needed
+        playerSO.health -= damage; // Adjust the damage amount as needed
         Debug.Log("ouch" + playerSO.health);
     }
 
