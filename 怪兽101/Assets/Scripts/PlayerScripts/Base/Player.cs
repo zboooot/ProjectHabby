@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     private PlayerStatScriptableObject playerData;
 
     public Vector2 CurrentVelocity;
+
     public int FacingDirection { get; private set; }
 
     private Vector2 workspace;

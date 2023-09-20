@@ -10,6 +10,10 @@ public class NewEnemyScript : MonoBehaviour
 
     public Transform player;
     private Transform playerLastLoc;
+    private SpriteRenderer spriteRenderer;
+    public Sprite upSprite;
+    public Sprite downSprite;
+    public Sprite leftSprite;
     float tempHealth;
     float attackCDLeft;
 
@@ -23,6 +27,7 @@ public class NewEnemyScript : MonoBehaviour
         tempHealth = enemyData.health;
         currentState = EnemyState.move;
         bulletSpawn = GetComponentInChildren<Transform>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     public void TakeDamage(float damage)
@@ -82,10 +87,43 @@ public class NewEnemyScript : MonoBehaviour
         Destroy(gameObject);
     }
 
+    void CheckFlip()
+    {
+        Vector3 direction = player.position - transform.position;
+
+        // Check the direction and set the sprite accordingly.
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        {
+
+            spriteRenderer.sprite = leftSprite;
+
+            if (direction.x > 0)
+            {
+                spriteRenderer.flipX = true;
+            }
+            else
+            {
+                spriteRenderer.flipX = false;
+            }
+        }
+        else
+        {
+            if (direction.y > 0)
+            {
+                spriteRenderer.sprite = upSprite;
+            }
+            else
+            {
+                spriteRenderer.sprite = downSprite;
+            }
+        }
+
+    }
+
     private void Update()
     {
         float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-
+        CheckFlip();
         CheckState(distanceToPlayer);
 
         switch (currentState)
