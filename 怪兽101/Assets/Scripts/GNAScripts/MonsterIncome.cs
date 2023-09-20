@@ -6,7 +6,7 @@ using TMPro;
 public class MonsterIncome : MonoBehaviour
 {
     public PlayerStatScriptableObject playerData;
-    public int incomePerSecond = 1;
+   
     public int currentIncome = 0;
     public int Storedincome = 0;
     private float timer = 0.0f;
@@ -27,8 +27,10 @@ public class MonsterIncome : MonoBehaviour
             timer += Time.deltaTime;
             if (timer >= 1.0f)
             {
-                currentIncome += incomePerSecond;
-                
+                currentIncome += playerData.incomePerSecond;
+                Storedincome =  Storedincome + currentIncome;
+                currentIncome = 0;
+                Debug.Log(Storedincome);
                 timer = 0.0f;
             }
         }

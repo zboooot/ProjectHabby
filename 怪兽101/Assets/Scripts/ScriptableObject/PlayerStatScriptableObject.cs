@@ -11,6 +11,8 @@ public class PlayerStatScriptableObject : ScriptableObject
     public float attackRange = 5f;
     public float attackSpeed = 0.8f;
 
+    public int incomePerSecond = 1;
+
     private void OnEnable()
     {
         health = maxhealth;
