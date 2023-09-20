@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: Tank
   description: 
-  health: 100
+  health: 5
   speed: 1
   attackDamage: 1
   attackSpeed: 1
-  attackRange: 0.1
+  attackRange: 4
