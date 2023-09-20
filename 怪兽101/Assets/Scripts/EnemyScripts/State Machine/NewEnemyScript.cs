@@ -17,6 +17,7 @@ public class NewEnemyScript : MonoBehaviour
     public Sprite destroyedSprite;
     float tempHealth;
     float attackCDLeft;
+    private Collider2D entityCollider;
 
     [SerializeField] private Transform pfBullet;
     private Transform bulletSpawn;
@@ -29,6 +30,7 @@ public class NewEnemyScript : MonoBehaviour
         currentState = EnemyState.move;
         bulletSpawn = GetComponentInChildren<Transform>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        entityCollider = GetComponent<Collider2D>();
     }
 
     public void TakeDamage(float damage)
@@ -81,6 +83,7 @@ public class NewEnemyScript : MonoBehaviour
 
     void Death()
     {
+        entityCollider.enabled = false;
         spriteRenderer.sprite = destroyedSprite;
         Destroy(gameObject, 5f);
     }

@@ -590,7 +590,7 @@ GameObject:
   - component: {fileID: 648231901}
   - component: {fileID: 648231906}
   m_Layer: 7
-  m_Name: Building (1)
+  m_Name: BigBuilding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1327,5 +1327,6 @@ PrefabInstance:
       propertyPath: healthSlider
       value: 
       objectReference: {fileID: 1059164966}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8093915059412899184, guid: 72d89ddeb588d0446ad9f4ee64a43dfa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 72d89ddeb588d0446ad9f4ee64a43dfa, type: 3}

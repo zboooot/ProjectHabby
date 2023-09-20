@@ -12,4 +12,5 @@ public class EnemyScriptableObject : ScriptableObject
     public int attackDamage;
     public float attackSpeed;
     public float attackRange;
+    public bool isDead;
 }
