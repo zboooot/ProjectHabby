@@ -17,7 +17,6 @@ public class PlayerAttackState : PlayerIdleState
     public override void Enter()
     {
         base.Enter();
-
     }
 
     public override void Exit()

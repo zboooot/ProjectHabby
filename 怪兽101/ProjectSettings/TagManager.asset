@@ -10,6 +10,7 @@ TagManager:
   - Storage
   - BigBuilding
   - Tank
+  - PlayerLeg
   layers:
   - Default
   - TransparentFX
