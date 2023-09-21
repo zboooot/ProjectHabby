@@ -36,6 +36,8 @@ public class CAMapGenerator : MonoBehaviour
         if (Input.GetKey(KeyCode.R))
         {
             GenerateMap();
+
+
         }
     }
 
@@ -67,7 +69,7 @@ public class CAMapGenerator : MonoBehaviour
                     else if (map[x, y] == 0)
                     {
                         GameObject groundPrefab = GetRandomGround();
-                        Instantiate(groundPrefab, position, Quaternion.identity,MapParent.transform);
+                       Instantiate(groundPrefab, position, Quaternion.identity,MapParent.transform);
                         
                         
                     }
@@ -212,6 +214,7 @@ public class CAMapGenerator : MonoBehaviour
                     }
                 }
             }
+            Debug.Log("DoneGenerating");
         }
 
         bool IsAreaClearOfBuildings(Vector3 position, float minDistance)
