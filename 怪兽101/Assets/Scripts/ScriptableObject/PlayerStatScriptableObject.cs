@@ -12,9 +12,13 @@ public class PlayerStatScriptableObject : ScriptableObject
     public float attackSpeed = 0.8f;
 
     public int incomePerSecond = 1;
+    public int incomeEarned = 0;
+    public int Storedincome = 0;
+    
 
     private void OnEnable()
     {
+        
         health = maxhealth;
     }
 }

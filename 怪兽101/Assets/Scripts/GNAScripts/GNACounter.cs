@@ -9,26 +9,38 @@ public class GNACounter : MonoBehaviour
 
     public TMP_Text GNAText;
 
-    public int StoredGNA = 0;
+    public int TotalGNA = 0;
 
     public MonsterIncome monsterincome;
 
-     void Awake()
+    public PlayerStatScriptableObject monster1;
+    public PlayerStatScriptableObject monster2;
+
+    
+
+    void Awake()
     {
-        instance = this;  
+        instance = this;
+        
     }
 
      void Start()
     {
-        GNAText.text = "GNA:" + StoredGNA.ToString();
+        GNAText.text = "GNA:" + TotalGNA.ToString();
+    }
+    private void Update()
+    {
+        
     }
 
-    
 
     public void UpdateIncomeUI()
     {
         // Update the UI text element with the current income.
-        GNAText.text = "GNA:" + monsterincome.Storedincome.ToString();
+        TotalGNA = monster1.Storedincome + monster2.Storedincome;
+        GNAText.text = "GNA:" + TotalGNA.ToString();
+        Debug.Log("Printthisshit");
+
 
     }
 }
