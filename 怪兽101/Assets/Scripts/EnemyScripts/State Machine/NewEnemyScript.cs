@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class NewEnemyScript : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class NewEnemyScript : MonoBehaviour
     public enum EnemyState { move, attack, death }
     public EnemyState currentState;
 
-    public Transform player;
+    private Transform player;
     private Transform playerLastLoc;
     private SpriteRenderer spriteRenderer;
     public Sprite upSprite;
@@ -22,6 +23,9 @@ public class NewEnemyScript : MonoBehaviour
     [SerializeField] private Transform pfBullet;
     private Transform bulletSpawn;
 
+    //NavMeshProperties
+    NavMeshAgent agent;
+
     void Start()
     {
         // Initialize to the initial state (e.g., Idle)
@@ -31,6 +35,13 @@ public class NewEnemyScript : MonoBehaviour
         bulletSpawn = GetComponentInChildren<Transform>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         entityCollider = GetComponent<Collider2D>();
+        
+        //NavMeshAgent
+        agent = GetComponent<NavMeshAgent>();
+        agent.updateRotation = false;
+        agent.updateUpAxis = false;
+        agent.stoppingDistance = enemyData.attackRange;
+
     }
 
     public void TakeDamage(float damage)
@@ -47,7 +58,7 @@ public class NewEnemyScript : MonoBehaviour
     {
         if (currentState != EnemyState.death)
         {
-            if (dis <= enemyData.attackRange)
+            if (dis <= agent.stoppingDistance)
             {
                 // Attack the player
                 currentState = EnemyState.attack;
@@ -64,8 +75,10 @@ public class NewEnemyScript : MonoBehaviour
 
     void MovetoPlayer()
     {
-        Vector3 direction = (player.transform.position - transform.position).normalized;
-        transform.Translate(direction * enemyData.speed * Time.deltaTime);
+        //Vector3 direction = (player.transform.position - transform.position).normalized;
+        //transform.Translate(direction * enemyData.speed * Time.deltaTime);
+        agent.SetDestination(player.position);
+
     }
 
     void Attack()
@@ -123,6 +136,7 @@ public class NewEnemyScript : MonoBehaviour
 
     private void Update()
     {
+
         float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
         CheckFlip();
         CheckState(distanceToPlayer);
