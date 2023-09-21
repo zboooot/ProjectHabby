@@ -18,4 +18,8 @@ MonoBehaviour:
   attackDamage: 10
   attackRange: 5
   attackSpeed: 0.8
-  incomePerSecond: 100
+  incomePerSecond: 3
+  incomeEarned: 0
+  Storedincome: 0
+  tempIncome: 0
+  tempIncomeEarned: 0

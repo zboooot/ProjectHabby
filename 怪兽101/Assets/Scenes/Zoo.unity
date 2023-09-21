@@ -430,7 +430,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 59dab0eb911ed154a9696246ede0b205, type: 2}
   currentIncome: 0
-  Storedincome: 0
   incomeText: {fileID: 1514926959}
 --- !u!60 &847157193
 PolygonCollider2D:
@@ -723,7 +722,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 9e4a49ba1264de344b3452f25c1c8bf9, type: 2}
   currentIncome: 0
-  Storedincome: 0
   incomeText: {fileID: 1514926959}
 --- !u!212 &1504755569
 SpriteRenderer:
@@ -767,7 +765,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 82ed673881b709040963d4afe1a305d1, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0.99356484, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1384,8 +1382,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GNAText: {fileID: 1514926959}
-  StoredGNA: 0
+  TotalGNA: 0
   monsterincome: {fileID: 847157192}
+  monster1: {fileID: 11400000, guid: 59dab0eb911ed154a9696246ede0b205, type: 2}
+  monster2: {fileID: 11400000, guid: 9e4a49ba1264de344b3452f25c1c8bf9, type: 2}
 --- !u!4 &1697722894
 Transform:
   m_ObjectHideFlags: 0
