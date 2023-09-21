@@ -25,7 +25,7 @@ public class NewEnemyScript : MonoBehaviour
 
     //Coin variables
     [SerializeField] private GameObject pfCoin;
-    private float dropForce = 5f;
+    bool hasSpawned;
     
     //NavMeshProperties
     NavMeshAgent agent;
@@ -102,7 +102,11 @@ public class NewEnemyScript : MonoBehaviour
     {
         entityCollider.enabled = false;
         spriteRenderer.sprite = destroyedSprite;
-        Invoke("SpawnCoin", 3f);
+        if (!hasSpawned)
+        {
+            SpawnCoin();
+            hasSpawned = true;
+        }
         Destroy(gameObject, 3f);
     }
 
@@ -111,11 +115,6 @@ public class NewEnemyScript : MonoBehaviour
         //Spawn GNA
         Vector2 randomDirection = Random.insideUnitCircle.normalized;
         GameObject coin = Instantiate(pfCoin, transform.position, Quaternion.identity);
-        Rigidbody2D coinRigidBody = coin.GetComponent<Rigidbody2D>();
-        if (coinRigidBody != null)
-        {
-            coinRigidBody.AddForce(randomDirection * dropForce, ForceMode2D.Impulse);
-        }
     }
 
     void CheckFlip()
