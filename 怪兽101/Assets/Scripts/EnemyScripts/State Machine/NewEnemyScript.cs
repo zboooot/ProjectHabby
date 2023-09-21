@@ -23,6 +23,10 @@ public class NewEnemyScript : MonoBehaviour
     [SerializeField] private Transform pfBullet;
     private Transform bulletSpawn;
 
+    //Coin variables
+    [SerializeField] private GameObject pfCoin;
+    private float dropForce = 5f;
+    
     //NavMeshProperties
     NavMeshAgent agent;
 
@@ -98,7 +102,20 @@ public class NewEnemyScript : MonoBehaviour
     {
         entityCollider.enabled = false;
         spriteRenderer.sprite = destroyedSprite;
-        Destroy(gameObject, 5f);
+        Invoke("SpawnCoin", 3f);
+        Destroy(gameObject, 3f);
+    }
+
+    private void SpawnCoin()
+    {
+        //Spawn GNA
+        Vector2 randomDirection = Random.insideUnitCircle.normalized;
+        GameObject coin = Instantiate(pfCoin, transform.position, Quaternion.identity);
+        Rigidbody2D coinRigidBody = coin.GetComponent<Rigidbody2D>();
+        if (coinRigidBody != null)
+        {
+            coinRigidBody.AddForce(randomDirection * dropForce, ForceMode2D.Impulse);
+        }
     }
 
     void CheckFlip()

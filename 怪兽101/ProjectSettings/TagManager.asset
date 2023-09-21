@@ -8,6 +8,8 @@ TagManager:
   - MapObject
   - Building
   - Storage
+  - BigBuilding
+  - Tank
   layers:
   - Default
   - TransparentFX

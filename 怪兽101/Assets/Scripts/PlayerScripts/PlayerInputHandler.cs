@@ -87,7 +87,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if(selectedEnemy != null)
         {
-            selectedEnemy.GetComponent<NewEnemyScript>().TakeDamage(playerSO.attackDamage);
+            selectedEnemy.GetComponent<Targetable>().TakeDamage();
         }
 
         else { return; }
