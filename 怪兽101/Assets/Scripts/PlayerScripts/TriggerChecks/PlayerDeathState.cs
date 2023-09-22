@@ -16,7 +16,6 @@ public class PlayerDeathState : PlayerIdleState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("afterlife");
     }
 
     public override void Exit()

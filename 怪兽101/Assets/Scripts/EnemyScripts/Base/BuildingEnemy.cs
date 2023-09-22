@@ -22,7 +22,6 @@ public class BuildingEnemy : MonoBehaviour
         tempHealth -= damage;
         if (tempHealth == 0)
         {
-            Debug.Log("Building Health:" + tempHealth);
             Death();
         }
         else return;
@@ -31,7 +30,6 @@ public class BuildingEnemy : MonoBehaviour
 
     void Death()
     {
-        Debug.Log("Boom Doomz Goomz CRASH");
         spriteRenderer.sprite = destroyedSprite;
     }
 
