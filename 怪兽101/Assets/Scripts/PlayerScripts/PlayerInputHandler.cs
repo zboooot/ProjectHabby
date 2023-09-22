@@ -31,7 +31,6 @@ public class PlayerInputHandler : MonoBehaviour
     private void Update()
     {
         ProcessInput();
-        Debug.Log("Is player attacking" + attackNow);
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, boxSize, 0f, enemyLayer);
 
         if (colliders.Length > 0)

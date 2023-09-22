@@ -39,7 +39,7 @@ public class PlayerHealthScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             playerSO.health = 100;
-            SceneManager.LoadScene("ProceduralMap");
+            SceneManager.LoadScene("Gymbox");
         }
     }
 
@@ -47,7 +47,6 @@ public class PlayerHealthScript : MonoBehaviour
     {
         shakeMe.StartShake();
         playerSO.health -= damage; // Adjust the damage amount as needed
-        Debug.Log("ouch" + playerSO.health);
     }
 
     private void UpdateHealthBar()

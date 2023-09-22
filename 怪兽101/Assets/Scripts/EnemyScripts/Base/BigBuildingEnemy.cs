@@ -13,6 +13,11 @@ public class BigBuildingEnemy : MonoBehaviour
 
     [SerializeField] private GameObject pfCoin;
 
+    [SerializeField] private GameObject pfDelvin;
+    public int minEntities = 1; // Minimum number of entities to spawn
+    public int maxEntities = 4; // Maximum number of entities to spawn
+    public float spawnRadius = 3.0f; // Maximum distance from the current position
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +29,10 @@ public class BigBuildingEnemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         tempHealth -= damage;
+        SpawnCivilian();
+
         if (tempHealth == 0)
         {
-            Debug.Log("Building Health:" + tempHealth);
             SpawnCoin();
             Death();
         }
@@ -35,7 +41,6 @@ public class BigBuildingEnemy : MonoBehaviour
 
     void Death()
     {
-        Debug.Log("Boom Doomz Goomz CRASH");
         buildingCollider.enabled = false;
         spriteRenderer.sprite = destroyedSprite;
     }
@@ -44,6 +49,21 @@ public class BigBuildingEnemy : MonoBehaviour
         //Spawn GNA
         Vector2 randomDirection = Random.insideUnitCircle.normalized;
         GameObject coin = Instantiate(pfCoin, transform.position, Quaternion.identity);
+    }
+
+    private void SpawnCivilian()
+    {
+        int numberOfEntities = Random.Range(minEntities, maxEntities + 1);
+        for (int i = 0; i < numberOfEntities; i++)
+        {
+            Vector3 randomDirection = Random.insideUnitCircle.normalized;
+            Vector3 spawnPos = transform.position + randomDirection * Random.Range(0.0f, spawnRadius);
+            GameObject civilian = Instantiate(pfDelvin, spawnPos, Quaternion.identity);
+            //Sets the civilian state upon initialization
+            civilian.GetComponent<Civilian>().enemyState = Civilian.EnemyState.fall;
+
+        }
+        
     }
 
     // Update is called once per frame
