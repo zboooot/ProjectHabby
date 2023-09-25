@@ -154,7 +154,6 @@ public class NewEnemyScript : MonoBehaviour
     {
 
         float distanceToPlayer = Vector3.Distance(transform.position, player.transform.position);
-        CheckFlip();
         CheckState(distanceToPlayer);
 
         switch (currentState)
@@ -164,10 +163,12 @@ public class NewEnemyScript : MonoBehaviour
                 break;
 
             case EnemyState.attack:
+                CheckFlip();
                 Attack();
                 break;
 
             case EnemyState.move:
+                CheckFlip();
                 MovetoPlayer();
                 break;
 
