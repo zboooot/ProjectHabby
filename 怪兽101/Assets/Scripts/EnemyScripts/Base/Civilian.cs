@@ -39,7 +39,7 @@ public class Civilian : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "PlayerLeg")
+        if (collision.gameObject.tag == "PlayerLeg" || collision.gameObject.tag == "End")
         {
             entityCollider.enabled = false;
             enemyState = EnemyState.death;

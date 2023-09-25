@@ -11,6 +11,8 @@ TagManager:
   - BigBuilding
   - Tank
   - PlayerLeg
+  - Landmark
+  - End
   layers:
   - Default
   - TransparentFX
