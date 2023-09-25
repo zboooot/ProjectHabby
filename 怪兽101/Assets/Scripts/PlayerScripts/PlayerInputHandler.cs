@@ -15,14 +15,12 @@ public class PlayerInputHandler : MonoBehaviour
     public LayerMask enemyLayer;
     public Collider2D selectedEnemy;
 
-    private Animator anim;
 
     public float attackCD;
 
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
         rangeX = playerSO.attackRange;
         rangeY = playerSO.attackRange;
         boxSize = new Vector2(rangeX, rangeY);
@@ -37,7 +35,7 @@ public class PlayerInputHandler : MonoBehaviour
         {
             Collider2D nearestEnemy = FindNearestEnemy(colliders);
             selectedEnemy = nearestEnemy;
-            CheckAttack(true);
+            //CheckAttack(true);
         }
 
         else { selectedEnemy = null; }
