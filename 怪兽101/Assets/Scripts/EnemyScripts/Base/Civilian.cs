@@ -23,15 +23,21 @@ public class Civilian : MonoBehaviour
     private Vector2 targetPosition;
     private float timeSinceLastDirectionChange = 0.0f;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
+        rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         entityCollider = GetComponent<Collider2D>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+
         lastPosX = transform.position.x;
-        rb = GetComponent<Rigidbody2D>();
 
         targetPosition = transform.position;
     }
@@ -115,7 +121,7 @@ public class Civilian : MonoBehaviour
 
     void FallToRun()
     {
-        Invoke("ChangeState", 3f);
+        Invoke("ChangeState", 1.5f);
     }
 
     void Death()

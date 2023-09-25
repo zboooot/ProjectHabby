@@ -18,6 +18,9 @@ public class BigBuildingEnemy : MonoBehaviour
     public int maxEntities = 4; // Maximum number of entities to spawn
     public float spawnRadius = 3.0f; // Maximum distance from the current position
 
+    float pushForce = 2f;
+    float upForce = 5f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -59,10 +62,17 @@ public class BigBuildingEnemy : MonoBehaviour
             Vector3 randomDirection = Random.insideUnitCircle.normalized;
             Vector3 spawnPos = transform.position + randomDirection * Random.Range(0.0f, spawnRadius);
             GameObject civilian = Instantiate(pfDelvin, spawnPos, Quaternion.identity);
+            civilian.GetComponent<Rigidbody2D>().AddForce(Vector2.up * upForce, ForceMode2D.Impulse);
+            civilian.GetComponent<Rigidbody2D>().AddForce(randomDirection * pushForce, ForceMode2D.Impulse);
             //Sets the civilian state upon initialization
             civilian.GetComponent<Civilian>().enemyState = Civilian.EnemyState.fall;
 
         }
+        
+    }
+
+    private void OnDrawGizmosSelected()
+    {
         
     }
 
