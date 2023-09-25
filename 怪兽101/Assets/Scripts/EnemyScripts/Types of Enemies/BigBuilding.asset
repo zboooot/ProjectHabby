@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyName: BigBuilding
   description: 
-  health: 25
+  health: 15
   speed: 0
   attackDamage: 0
   attackSpeed: 0

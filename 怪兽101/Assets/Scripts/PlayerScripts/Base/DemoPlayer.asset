@@ -16,7 +16,7 @@ MonoBehaviour:
   health: 100
   speed: 5
   attackDamage: 5
-  attackRange: 10
+  attackRange: 6.5
   attackSpeed: 1.5
   incomePerSecond: 1
   incomeEarned: 0
