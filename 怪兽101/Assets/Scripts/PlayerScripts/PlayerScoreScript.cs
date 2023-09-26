@@ -28,7 +28,7 @@ public class PlayerScoreScript : MonoBehaviour
         entitiesDestroyedCount++;
         Debug.Log("Enemies Destroyed: " + entitiesDestroyedCount);
 
-        if (entitiesDestroyedCount >= 1)
+        if (entitiesDestroyedCount >= 10)
         {
             ActivateSkill();
             Debug.Log("Player can use ultimate skill!");
@@ -40,22 +40,34 @@ public class PlayerScoreScript : MonoBehaviour
     {
         if (enemyPlane != null)
         {
+            Invoke("DeactiveBanner", 3f);
+
             anim.SetBool("Close", true);
 
-            // Randomly choose a spawn point
-            Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-
-            // Instantiate the GameObject at the desired position
-            SpawnObject(randomSpawnPoint);
+            Invoke("RandomizeAndSpawn", 6f);
 
             Debug.Log("Ultimate skill activated!");
             entitiesDestroyedCount = 0;
-
         }
+    }
+
+    void DeactiveBanner()
+    {
+        anim.SetBool("Close", false);
+    }
+
+    public void RandomizeAndSpawn()
+    {
+        // Randomly choose a spawn point
+        Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
+
+        // Instantiate the GameObject at the desired position
+        SpawnObject(randomSpawnPoint);
     }
 
     public void SpawnObject(Transform spawnPoint)
     {
+
         GameObject fighterJet = Instantiate(enemyPlane, spawnPoint.position, spawnPoint.rotation);
         fighterJet.transform.position = new Vector3(fighterJet.transform.position.x, fighterJet.transform.position.y, 0f);
     }
