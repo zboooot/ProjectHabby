@@ -78,7 +78,45 @@ public class EnemySpawner : MonoBehaviour
 
     public void GenerateWave()
     {
-        waveValue =  pointsforSpawning;
+        switch (currWave)
+        {
+            case 1:
+                waveValue = 10;
+                break;
+            case 2:
+                waveValue = 20;
+                break;
+            case 3:
+                waveValue = 30;
+                break;
+            case 4:
+                waveValue = 40;
+                break;
+            case 5:
+                waveValue = 50;
+                break;
+            case 6:
+                waveValue = 60;
+                break;
+            case 7:
+                waveValue = 70;
+                break;
+            case 8:
+                waveValue = 80;
+                break;
+            case 9:
+                waveValue = 90;
+                break;
+            case 10:
+                waveValue = 100;
+                break;
+            default:
+                // Set a default wave value for other waves
+                waveValue = 10; // Change this value as needed
+                break;
+        }
+        pointsforSpawning = waveValue;
+
         GenerateEnemies();
 
         // Calculate spawn interval based on your desired rate
