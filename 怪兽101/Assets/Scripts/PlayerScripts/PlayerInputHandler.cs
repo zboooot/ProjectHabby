@@ -8,6 +8,7 @@ public class PlayerInputHandler : MonoBehaviour
     public PlayerStatScriptableObject playerSO;
     private Rigidbody2D rb;
     public bool attackNow;
+    public bool ultimating;
 
     public Vector2 boxSize; // Adjust the size as needed.
     private float rangeX;
@@ -59,6 +60,11 @@ public class PlayerInputHandler : MonoBehaviour
     public void StopAttackAnimation()
     {
         attackNow = false;
+    }
+
+    public void DeactivateUltimate()
+    {
+        ultimating = false;
     }
 
     private Collider2D FindNearestEnemy(Collider2D[] enemies)

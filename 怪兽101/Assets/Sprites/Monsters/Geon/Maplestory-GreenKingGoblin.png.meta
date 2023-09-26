@@ -701,8 +701,8 @@ TextureImporter:
         serializedVersion: 2
         x: 22
         y: 147
-        width: 131
-        height: 114
+        width: 216
+        height: 148
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -851,7 +851,7 @@ TextureImporter:
         width: 108
         height: 106
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -884,6 +884,279 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_110
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 861
+        width: 132
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: db53e8e8ff67ebc489eaeeaa5c15c4e5
+      internalID: 52143227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_111
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 860
+        width: 138
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65f8aebde00f00e4abc10321867cd5b4
+      internalID: -945952566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_112
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 862
+        width: 127
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bafbf589afc630b4190859f383074d7d
+      internalID: 547376120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_113
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 862
+        width: 134
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c18339674cd5b814da7592f96137ad5f
+      internalID: 2101330295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_114
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 868
+        width: 133
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 354ca0a9f4115fc4488c65f0eaa604e0
+      internalID: -850597182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_115
+      rect:
+        serializedVersion: 2
+        x: 762
+        y: 832
+        width: 132
+        height: 144
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f04da085218aea4b824c9e731f2a356
+      internalID: 591920505
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_116
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 658
+        width: 134
+        height: 148
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5210e60d6e5a3484292069432e2a91aa
+      internalID: 464350039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_119
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 652
+        width: 229
+        height: 153
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1fd83297c5f2e64f9594f37f0cf9de0
+      internalID: 397362213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_123
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 658
+        width: 230
+        height: 142
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ee235c161ca8ec4da26d40ebb974e11
+      internalID: -1575620880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_128
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 657
+        width: 231
+        height: 129
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6677e2bd742dcb5489c7c484e72362c3
+      internalID: 2116403735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_166
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 514
+        width: 234
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe944bf1fa72347438a068185dbc3e9a
+      internalID: -1691671610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_173
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 515
+        width: 232
+        height: 115
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bef23823be61c84e97bb06a084f541f
+      internalID: -1089665845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_178
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 515
+        width: 231
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfb0720eb1c10e045934cb7058999214
+      internalID: 2028922502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -898,17 +1171,121 @@ TextureImporter:
       Maplestory-GreenKingGoblin_0: 1798254550
       Maplestory-GreenKingGoblin_1: 1741385865
       Maplestory-GreenKingGoblin_10: -797177970
+      Maplestory-GreenKingGoblin_100: 1542283548
+      Maplestory-GreenKingGoblin_101: -1195463915
+      Maplestory-GreenKingGoblin_102: 50188785
+      Maplestory-GreenKingGoblin_103: 777119230
+      Maplestory-GreenKingGoblin_104: -1835732851
+      Maplestory-GreenKingGoblin_105: -879058517
+      Maplestory-GreenKingGoblin_106: -199759919
+      Maplestory-GreenKingGoblin_107: 1812815551
+      Maplestory-GreenKingGoblin_108: -288263093
+      Maplestory-GreenKingGoblin_109: 1481630588
       Maplestory-GreenKingGoblin_11: 287145776
+      Maplestory-GreenKingGoblin_110: 52143227
+      Maplestory-GreenKingGoblin_111: -945952566
+      Maplestory-GreenKingGoblin_112: 547376120
+      Maplestory-GreenKingGoblin_113: 2101330295
+      Maplestory-GreenKingGoblin_114: -850597182
+      Maplestory-GreenKingGoblin_115: 591920505
+      Maplestory-GreenKingGoblin_116: 464350039
+      Maplestory-GreenKingGoblin_117: -2023397934
+      Maplestory-GreenKingGoblin_118: -1961137193
+      Maplestory-GreenKingGoblin_119: 397362213
       Maplestory-GreenKingGoblin_12: -1732352032
+      Maplestory-GreenKingGoblin_120: 1579170259
+      Maplestory-GreenKingGoblin_121: -801509906
+      Maplestory-GreenKingGoblin_122: -1217096169
+      Maplestory-GreenKingGoblin_123: -1575620880
+      Maplestory-GreenKingGoblin_124: -250976375
+      Maplestory-GreenKingGoblin_125: -221171117
+      Maplestory-GreenKingGoblin_126: 185382644
+      Maplestory-GreenKingGoblin_127: -2031450132
+      Maplestory-GreenKingGoblin_128: 2116403735
+      Maplestory-GreenKingGoblin_129: -129829954
       Maplestory-GreenKingGoblin_13: -1359187732
+      Maplestory-GreenKingGoblin_130: 1759342947
+      Maplestory-GreenKingGoblin_131: 985039364
+      Maplestory-GreenKingGoblin_132: 1068167336
+      Maplestory-GreenKingGoblin_133: -1789722394
+      Maplestory-GreenKingGoblin_134: 636985991
+      Maplestory-GreenKingGoblin_135: -1879634930
+      Maplestory-GreenKingGoblin_136: -4081287
+      Maplestory-GreenKingGoblin_137: 1092982628
+      Maplestory-GreenKingGoblin_138: 866987808
+      Maplestory-GreenKingGoblin_139: 228181418
       Maplestory-GreenKingGoblin_14: -746372487
+      Maplestory-GreenKingGoblin_140: 1202573827
+      Maplestory-GreenKingGoblin_141: 1317123755
+      Maplestory-GreenKingGoblin_142: -764394663
+      Maplestory-GreenKingGoblin_143: -1391971644
+      Maplestory-GreenKingGoblin_144: 908477028
+      Maplestory-GreenKingGoblin_145: -1129406627
+      Maplestory-GreenKingGoblin_146: 1979513421
+      Maplestory-GreenKingGoblin_147: -459037179
+      Maplestory-GreenKingGoblin_148: -1428798422
+      Maplestory-GreenKingGoblin_149: 1928258625
       Maplestory-GreenKingGoblin_15: 1325922128
+      Maplestory-GreenKingGoblin_150: 484765573
+      Maplestory-GreenKingGoblin_151: 1761192786
+      Maplestory-GreenKingGoblin_152: 1162086213
+      Maplestory-GreenKingGoblin_153: 1255083217
+      Maplestory-GreenKingGoblin_154: -1992319216
+      Maplestory-GreenKingGoblin_155: -263516290
+      Maplestory-GreenKingGoblin_156: 994500030
+      Maplestory-GreenKingGoblin_157: 1376503175
+      Maplestory-GreenKingGoblin_158: 1719447284
+      Maplestory-GreenKingGoblin_159: 2099225294
       Maplestory-GreenKingGoblin_16: 6318754
+      Maplestory-GreenKingGoblin_160: -1784852577
+      Maplestory-GreenKingGoblin_161: -1915516285
+      Maplestory-GreenKingGoblin_162: -1148463146
+      Maplestory-GreenKingGoblin_163: -1629988819
+      Maplestory-GreenKingGoblin_164: 190515308
+      Maplestory-GreenKingGoblin_165: -197265748
+      Maplestory-GreenKingGoblin_166: -1691671610
+      Maplestory-GreenKingGoblin_167: -770600438
+      Maplestory-GreenKingGoblin_168: -1183397101
+      Maplestory-GreenKingGoblin_169: 627137548
       Maplestory-GreenKingGoblin_17: -934148634
+      Maplestory-GreenKingGoblin_170: -1202149641
+      Maplestory-GreenKingGoblin_171: -593049838
+      Maplestory-GreenKingGoblin_172: -443118703
+      Maplestory-GreenKingGoblin_173: -1089665845
+      Maplestory-GreenKingGoblin_174: -802077071
+      Maplestory-GreenKingGoblin_175: -327123362
+      Maplestory-GreenKingGoblin_176: 372933921
+      Maplestory-GreenKingGoblin_177: -760323981
+      Maplestory-GreenKingGoblin_178: 2028922502
+      Maplestory-GreenKingGoblin_179: -1722189769
       Maplestory-GreenKingGoblin_18: -317571055
+      Maplestory-GreenKingGoblin_180: -990870445
+      Maplestory-GreenKingGoblin_181: -1723404709
+      Maplestory-GreenKingGoblin_182: 396914859
+      Maplestory-GreenKingGoblin_183: -1279411086
+      Maplestory-GreenKingGoblin_184: -588065887
+      Maplestory-GreenKingGoblin_185: 1501828145
+      Maplestory-GreenKingGoblin_186: -2038917053
+      Maplestory-GreenKingGoblin_187: 1889526943
+      Maplestory-GreenKingGoblin_188: 308163622
+      Maplestory-GreenKingGoblin_189: -349418453
       Maplestory-GreenKingGoblin_19: 565826232
+      Maplestory-GreenKingGoblin_190: -186821120
+      Maplestory-GreenKingGoblin_191: 1192124133
+      Maplestory-GreenKingGoblin_192: -243724517
+      Maplestory-GreenKingGoblin_193: 475484640
+      Maplestory-GreenKingGoblin_194: 1041603725
+      Maplestory-GreenKingGoblin_195: 197845495
+      Maplestory-GreenKingGoblin_196: 1337351287
+      Maplestory-GreenKingGoblin_197: 1644305524
+      Maplestory-GreenKingGoblin_198: 1476418620
+      Maplestory-GreenKingGoblin_199: -1618289899
       Maplestory-GreenKingGoblin_2: -575685226
       Maplestory-GreenKingGoblin_20: -1382288159
+      Maplestory-GreenKingGoblin_200: 292562918
+      Maplestory-GreenKingGoblin_201: -1514947385
+      Maplestory-GreenKingGoblin_202: 1120285216
+      Maplestory-GreenKingGoblin_203: 174021288
       Maplestory-GreenKingGoblin_21: -759365823
       Maplestory-GreenKingGoblin_22: 909644045
       Maplestory-GreenKingGoblin_23: 355334409
@@ -926,12 +1303,75 @@ TextureImporter:
       Maplestory-GreenKingGoblin_34: 1573851325
       Maplestory-GreenKingGoblin_35: 1084387157
       Maplestory-GreenKingGoblin_36: -744252310
+      Maplestory-GreenKingGoblin_37: -125970821
+      Maplestory-GreenKingGoblin_38: 1821208013
+      Maplestory-GreenKingGoblin_39: -1705254422
       Maplestory-GreenKingGoblin_4: 490360257
+      Maplestory-GreenKingGoblin_40: -1954100760
+      Maplestory-GreenKingGoblin_41: 1179992940
+      Maplestory-GreenKingGoblin_42: -917626698
+      Maplestory-GreenKingGoblin_43: 694208072
+      Maplestory-GreenKingGoblin_44: -903189020
+      Maplestory-GreenKingGoblin_45: 146994091
+      Maplestory-GreenKingGoblin_46: 1611216535
+      Maplestory-GreenKingGoblin_47: 1013807730
+      Maplestory-GreenKingGoblin_48: -2097518775
+      Maplestory-GreenKingGoblin_49: -1593927555
       Maplestory-GreenKingGoblin_5: 1119413928
+      Maplestory-GreenKingGoblin_50: -667339159
+      Maplestory-GreenKingGoblin_51: -1675451642
+      Maplestory-GreenKingGoblin_52: 2102440228
+      Maplestory-GreenKingGoblin_53: 1367235538
+      Maplestory-GreenKingGoblin_54: 1872993385
+      Maplestory-GreenKingGoblin_55: 1453202919
+      Maplestory-GreenKingGoblin_56: 2068989605
+      Maplestory-GreenKingGoblin_57: -1162329770
+      Maplestory-GreenKingGoblin_58: 877904144
+      Maplestory-GreenKingGoblin_59: -1065803570
       Maplestory-GreenKingGoblin_6: 673972924
+      Maplestory-GreenKingGoblin_60: -1830196653
+      Maplestory-GreenKingGoblin_61: 357058522
+      Maplestory-GreenKingGoblin_62: -132385662
+      Maplestory-GreenKingGoblin_63: 1421262037
+      Maplestory-GreenKingGoblin_64: -2013338252
+      Maplestory-GreenKingGoblin_65: -983832154
+      Maplestory-GreenKingGoblin_66: -405886195
+      Maplestory-GreenKingGoblin_67: -398403699
+      Maplestory-GreenKingGoblin_68: 1157061353
+      Maplestory-GreenKingGoblin_69: -1879735649
       Maplestory-GreenKingGoblin_7: -529169050
+      Maplestory-GreenKingGoblin_70: -1351358412
+      Maplestory-GreenKingGoblin_71: -1229705189
+      Maplestory-GreenKingGoblin_72: -1790690706
+      Maplestory-GreenKingGoblin_73: 570536038
+      Maplestory-GreenKingGoblin_74: -1810761648
+      Maplestory-GreenKingGoblin_75: -1998329546
+      Maplestory-GreenKingGoblin_76: 361854152
+      Maplestory-GreenKingGoblin_77: -2088735038
+      Maplestory-GreenKingGoblin_78: -746280653
+      Maplestory-GreenKingGoblin_79: -495175530
       Maplestory-GreenKingGoblin_8: -1769715782
+      Maplestory-GreenKingGoblin_80: -206664673
+      Maplestory-GreenKingGoblin_81: 216185325
+      Maplestory-GreenKingGoblin_82: 1275817922
+      Maplestory-GreenKingGoblin_83: 649565289
+      Maplestory-GreenKingGoblin_84: -1665854782
+      Maplestory-GreenKingGoblin_85: -1832580652
+      Maplestory-GreenKingGoblin_86: 1210169472
+      Maplestory-GreenKingGoblin_87: -1238871286
+      Maplestory-GreenKingGoblin_88: -537884495
+      Maplestory-GreenKingGoblin_89: 1899577231
       Maplestory-GreenKingGoblin_9: -2077518868
+      Maplestory-GreenKingGoblin_90: 1360298677
+      Maplestory-GreenKingGoblin_91: -185905196
+      Maplestory-GreenKingGoblin_92: -1980712179
+      Maplestory-GreenKingGoblin_93: 1404981567
+      Maplestory-GreenKingGoblin_94: 942478927
+      Maplestory-GreenKingGoblin_95: 1515651635
+      Maplestory-GreenKingGoblin_96: 1180202847
+      Maplestory-GreenKingGoblin_97: -921051018
+      Maplestory-GreenKingGoblin_98: -1053253330
+      Maplestory-GreenKingGoblin_99: -1316802982
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
