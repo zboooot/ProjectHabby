@@ -14,8 +14,15 @@ public class EnemySpawner : MonoBehaviour
     private float spawnInterval;
     private float spawnTimer;
     public int pointsforSpawning = 0;
+    public int numberofEnemies;
+    public int NumberofWaves;
+    private bool roundComplete;
 
     public List<GameObject> spawnedEnemies = new List<GameObject>();
+    public List<SpawnedEnemy> separateSpawnedEnemies = new List<SpawnedEnemy>();
+
+    // ...
+
 
     // The minimum and maximum positions where enemies can spawn
     public Vector2 minSpawnPosition;
@@ -24,13 +31,14 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        roundComplete = false;
         GenerateWave();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (spawnTimer <= 0)
+        if (currWave < NumberofWaves && spawnTimer <= 0)
         {
             // Spawn an enemy
             if (enemiesToSpawn.Count > 0)
@@ -39,7 +47,6 @@ public class EnemySpawner : MonoBehaviour
                 Vector2 randomSpawnPosition = new Vector2(
                     Random.Range(minSpawnPosition.x, maxSpawnPosition.x),
                     Random.Range(minSpawnPosition.y, maxSpawnPosition.y)
-                   
                 );
 
                 GameObject enemy = Instantiate(enemiesToSpawn[0], randomSpawnPosition, Quaternion.identity);
@@ -58,7 +65,11 @@ public class EnemySpawner : MonoBehaviour
             waveTimer -= Time.fixedDeltaTime;
         }
 
-        if (waveTimer <= 0 && spawnedEnemies.Count <= 0)
+        // Check for missing enemies and remove them from the spawnedEnemies list
+        spawnedEnemies.RemoveAll(enemy => enemy == null);
+
+        // Check if the wave is complete (all enemies of this wave are destroyed)
+        if (waveTimer <= 0 && spawnedEnemies.Count == 0)
         {
             currWave++;
             GenerateWave();
@@ -67,7 +78,7 @@ public class EnemySpawner : MonoBehaviour
 
     public void GenerateWave()
     {
-        waveValue = currWave * pointsforSpawning;
+        waveValue =  pointsforSpawning;
         GenerateEnemies();
 
         // Calculate spawn interval based on your desired rate
@@ -77,7 +88,8 @@ public class EnemySpawner : MonoBehaviour
 
     public void GenerateEnemies()
     {
-        List<GameObject> generatedEnemies = new List<GameObject>();
+        List<SpawnedEnemy> generatedEnemies = new List<SpawnedEnemy>();
+
         while (waveValue > 0 || generatedEnemies.Count < 50)
         {
             int randEnemyId = Random.Range(0, enemies.Count);
@@ -85,7 +97,32 @@ public class EnemySpawner : MonoBehaviour
 
             if (waveValue - randEnemyCost >= 0)
             {
-                generatedEnemies.Add(enemies[randEnemyId].enemyPrefab);
+                GameObject enemyPrefab = enemies[randEnemyId].enemyPrefab;
+
+                // Check if this enemy type already exists in the list
+                SpawnedEnemy existingEnemy = generatedEnemies.Find(e => e.enemyPrefab == enemyPrefab);
+
+                if (existingEnemy != null)
+                {
+                    // If it exists, increment the count
+                    existingEnemy.count++;
+                }
+                else
+                {
+                    // If it doesn't exist, add it to the list
+                    generatedEnemies.Add(new SpawnedEnemy
+                    {
+                        enemyPrefab = enemyPrefab,
+                        count = 1
+                    });
+
+                    generatedEnemies.Remove(new SpawnedEnemy
+                    {
+                        enemyPrefab = enemyPrefab,
+                        count = -1
+                    });
+                }
+
                 waveValue -= randEnemyCost;
             }
             else if (waveValue <= 0)
@@ -93,14 +130,31 @@ public class EnemySpawner : MonoBehaviour
                 break;
             }
         }
-        enemiesToSpawn.Clear();
-        enemiesToSpawn = generatedEnemies;
-    }
-}
 
-[System.Serializable]
-public class Enemy
-{
-    public GameObject enemyPrefab;
-    public int cost;
+        enemiesToSpawn.Clear();
+
+        // Convert the List of SpawnedEnemy to a List of GameObjects
+        foreach (SpawnedEnemy spawnedEnemy in generatedEnemies)
+        {
+            for (int i = 0; i < spawnedEnemy.count; i++)
+            {
+                enemiesToSpawn.Add(spawnedEnemy.enemyPrefab);
+            }
+        }
+    }
+
+
+    [System.Serializable]
+    public class Enemy
+    {
+        public GameObject enemyPrefab;
+        public int cost;
+    }
+
+    [System.Serializable]
+    public class SpawnedEnemy
+    {
+        public GameObject enemyPrefab;
+        public int count;
+    }
 }
