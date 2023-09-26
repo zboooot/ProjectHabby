@@ -15,14 +15,9 @@ public class PlayerInputHandler : MonoBehaviour
     public LayerMask enemyLayer;
     public Collider2D selectedEnemy;
 
-    private Animator anim;
-
-    public float attackCD;
-
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
         rangeX = playerSO.attackRange;
         rangeY = playerSO.attackRange;
         boxSize = new Vector2(rangeX, rangeY);
@@ -40,7 +35,7 @@ public class PlayerInputHandler : MonoBehaviour
             CheckAttack(true);
         }
 
-        else { selectedEnemy = null; }
+        else { selectedEnemy = null; CheckAttack(false); }
     }
 
     private void FixedUpdate()
@@ -74,11 +69,18 @@ public class PlayerInputHandler : MonoBehaviour
 
         foreach (Collider2D enemy in enemies)
         {
-            float distance = Vector2.Distance(playerPosition, enemy.transform.position);
-            if (distance < nearestDistance)
+            Transform enemyTransform = enemy.transform;
+            Vector3 directionToEnemy = enemyTransform.position - transform.position;
+            float angle = Vector2.Angle(transform.up, directionToEnemy);
+
+            if(angle < 180f)
             {
-                nearestDistance = distance;
-                selectedEnemy = enemy;
+                float distance = Vector2.Distance(playerPosition, enemy.transform.position);
+                if (distance < nearestDistance)
+                {
+                    nearestDistance = distance;
+                    selectedEnemy = enemy;
+                }
             }
         }
 
