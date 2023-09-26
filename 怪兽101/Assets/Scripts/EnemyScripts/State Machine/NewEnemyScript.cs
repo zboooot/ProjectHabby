@@ -20,6 +20,8 @@ public class NewEnemyScript : MonoBehaviour
     float attackCDLeft;
     private Collider2D entityCollider;
 
+    private PlayerScoreScript playerScore;
+
     [SerializeField] private Transform pfBullet;
     private Transform bulletSpawn;
 
@@ -39,21 +41,26 @@ public class NewEnemyScript : MonoBehaviour
         bulletSpawn = GetComponentInChildren<Transform>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         entityCollider = GetComponent<Collider2D>();
-        
+
         //NavMeshAgent
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
         agent.updateUpAxis = false;
         agent.stoppingDistance = enemyData.attackRange;
 
+        playerScore = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScoreScript>();
+
     }
 
     public void TakeDamage(float damage)
     {
         tempHealth -= damage;
-        Debug.Log("Tank health remaining:" + tempHealth);
         if (tempHealth <= 0)
         {
+            if (playerScore != null)
+            {
+                playerScore.EntityDestroyed();
+            }
             currentState = EnemyState.death;
         }
     }
@@ -102,6 +109,7 @@ public class NewEnemyScript : MonoBehaviour
     {
         entityCollider.enabled = false;
         spriteRenderer.sprite = destroyedSprite;
+
         if (!hasSpawned)
         {
             SpawnCoin();

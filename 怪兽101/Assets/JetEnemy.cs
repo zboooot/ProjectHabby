@@ -10,7 +10,7 @@ public class JetEnemy : MonoBehaviour
 
     public Transform cameraTransform;
     private bool isToRightOfCamera = false;
-    public float destroyTime = 5f;
+    public float destroyTime = 10f;
     private float currentTime = 0f;
 
     public GameObject bombPrefab;
@@ -22,6 +22,7 @@ public class JetEnemy : MonoBehaviour
 
     private void Start()
     {
+        cameraTransform = GameObject.Find("Main Camera").GetComponent<Transform>();
         checkPosition();
     }
 
