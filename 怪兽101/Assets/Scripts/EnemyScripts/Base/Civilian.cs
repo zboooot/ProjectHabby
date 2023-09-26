@@ -17,13 +17,15 @@ public class Civilian : MonoBehaviour
     private float lastPosX;
 
     //Wandering Variables
-    public float changeDirectionInterval = 2.0f; // Time interval to change direction
-    public float maxWanderDistance = 5.0f; // Maximum distance to wander from the starting point
+    public float changeDirectionInterval = 1.0f; // Time interval to change direction
+    public float maxWanderDistance = 8.0f; // Maximum distance to wander from the starting point
 
     private Vector2 targetPosition;
     private float timeSinceLastDirectionChange = 0.0f;
 
     private PlayerScoreScript playerScore;
+    private Transform blockingEntity;
+    public bool isBlocked;
 
     private void Awake()
     {
@@ -55,8 +57,15 @@ public class Civilian : MonoBehaviour
             }
             enemyState = EnemyState.death;
         }
+    }
 
-        //Put else if to make humans die upon contact with the other gameobjects
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "BigBuilding")
+        {
+            blockingEntity = collision.gameObject.transform;
+            isBlocked = true;
+        }
     }
 
     void MimicFall()
@@ -73,15 +82,29 @@ public class Civilian : MonoBehaviour
 
     void Run(Vector2 dir)
     {
+        if (isBlocked != true)
+        {
             // Calculate the direction away from the player
             Vector3 runDirection = transform.position - player.position;
-
+            
             // Normalize the direction to get a unit vector
             runDirection.Normalize();
 
             // Move the enemy in the runDirection
             transform.position += runDirection * enemyData.speed * Time.deltaTime;
-  
+        }
+
+        else
+        {
+            Vector3 newRunDirection = transform.position - blockingEntity.transform.position;
+            
+            newRunDirection.Normalize();
+            // Calculate a new target position within the wander range
+            transform.position += newRunDirection * enemyData.speed * Time.deltaTime;
+        }
+        
+        
+
     }
 
     void Walk()
@@ -103,11 +126,25 @@ public class Civilian : MonoBehaviour
             // Check if it's time to change direction
             if (timeSinceLastDirectionChange >= changeDirectionInterval)
             {
-                // Generate a random direction vector
-                Vector2 randomDirection = Random.insideUnitCircle.normalized;
+                if(isBlocked != true) 
+                {
+                    // Generate a random direction vector
+                    Vector2 randomDirection = Random.insideUnitCircle.normalized;
 
-                // Calculate a new target position within the wander range
-                targetPosition = (Vector2)transform.position + randomDirection * Random.Range(0.0f, maxWanderDistance);
+                    // Calculate a new target position within the wander range
+                    targetPosition = (Vector2)transform.position + randomDirection * Random.Range(0.0f, maxWanderDistance);
+                }
+
+                else
+                {
+                    Vector3 newRunDirection = transform.position - blockingEntity.transform.position;
+
+                    newRunDirection.Normalize();
+                    // Calculate a new target position within the wander range
+                    transform.position += newRunDirection * enemyData.speed * Time.deltaTime;
+
+                    isBlocked = false;
+                }
 
                 // Reset the timer
                 timeSinceLastDirectionChange = 0.0f;

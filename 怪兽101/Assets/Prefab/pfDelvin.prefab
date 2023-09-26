@@ -151,6 +151,9 @@ MonoBehaviour:
   detectionDistance: 10
   player: {fileID: 0}
   anim: {fileID: 2411092050883332404}
+  changeDirectionInterval: 2
+  maxWanderDistance: 5
+  isBlocked: 0
 --- !u!50 &-856140941480668332
 Rigidbody2D:
   serializedVersion: 4
