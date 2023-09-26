@@ -18,6 +18,8 @@ public class BigBuildingEnemy : MonoBehaviour
     public int maxEntities = 4; // Maximum number of entities to spawn
     public float spawnRadius = 3.0f; // Maximum distance from the current position
 
+    private PlayerScoreScript playerScore;
+
     float pushForce = 2f;
     float upForce = 5f;
 
@@ -27,6 +29,7 @@ public class BigBuildingEnemy : MonoBehaviour
         tempHealth = SO_enemy.health;
         spriteRenderer = GetComponent<SpriteRenderer>();
         buildingCollider = GetComponent<BoxCollider2D>();
+        playerScore = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScoreScript>(); 
     }
 
     public void TakeDamage(float damage)
@@ -44,6 +47,10 @@ public class BigBuildingEnemy : MonoBehaviour
 
     void Death()
     {
+        if (playerScore != null)
+        {
+            playerScore.EntityDestroyed();
+        }
         buildingCollider.enabled = false;
         spriteRenderer.sprite = destroyedSprite;
     }
@@ -71,13 +78,4 @@ public class BigBuildingEnemy : MonoBehaviour
         
     }
 
-    private void OnDrawGizmosSelected()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
 }

@@ -23,6 +23,7 @@ public class Civilian : MonoBehaviour
     private Vector2 targetPosition;
     private float timeSinceLastDirectionChange = 0.0f;
 
+    private PlayerScoreScript playerScore;
 
     private void Awake()
     {
@@ -31,12 +32,12 @@ public class Civilian : MonoBehaviour
         entityCollider = GetComponent<Collider2D>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        playerScore = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScoreScript>();
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
         lastPosX = transform.position.x;
 
         targetPosition = transform.position;
@@ -48,6 +49,10 @@ public class Civilian : MonoBehaviour
         if (collision.gameObject.tag == "PlayerLeg" || collision.gameObject.tag == "End")
         {
             entityCollider.enabled = false;
+            if (playerScore != null)
+            {
+                playerScore.EntityDestroyed();
+            }
             enemyState = EnemyState.death;
         }
 
