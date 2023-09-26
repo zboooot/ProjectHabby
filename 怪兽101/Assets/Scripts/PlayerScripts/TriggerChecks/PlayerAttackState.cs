@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerAttackState : PlayerIdleState
 {
-
+    int xInput;
     public PlayerAttackState(Player player, PlayerStateMachine stateMachine, PlayerStatScriptableObject playerData, string animBoolName) : base(player, stateMachine, playerData, animBoolName)
     {
     }
@@ -26,6 +26,9 @@ public class PlayerAttackState : PlayerIdleState
 
     public override void LogicUpdate()
     {
+        xInput = (int)input.x;
+        player.CheckFlip(xInput);
+
         base.LogicUpdate();
         if (player.InputHandler.attackNow == false)
         {
