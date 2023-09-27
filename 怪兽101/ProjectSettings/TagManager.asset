@@ -13,6 +13,7 @@ TagManager:
   - PlayerLeg
   - Landmark
   - End
+  - Civilian
   layers:
   - Default
   - TransparentFX
