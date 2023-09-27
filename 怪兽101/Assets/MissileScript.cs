@@ -15,6 +15,7 @@ public class MissileScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        target = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void Update()
@@ -40,16 +41,14 @@ public class MissileScript : MonoBehaviour
         rb.velocity = transform.up * speed;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        // Check if the bomb collided with the player
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerHealthScript>().TakeDamage(enemyData.attackDamage);
-            Destroy(gameObject);    
+            Destroy(gameObject);
         }
     }
-
-
 
 }
