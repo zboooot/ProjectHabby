@@ -36,14 +36,22 @@ public class PlayerIdleState : PlayerState
 
         if(player.InputHandler.playerSO.health > 0)
         {
-            if (input.magnitude != 0 && player.InputHandler.attackNow == false)
+            if(player.InputHandler.ultimating != true)
             {
-                stateMachine.ChangeState(player.MoveState);
+                if (input.magnitude != 0 && player.InputHandler.attackNow == false)
+                {
+                    stateMachine.ChangeState(player.MoveState);
+                }
+
+                else if (player.InputHandler.attackNow == true)
+                {
+                    stateMachine.ChangeState(player.AttackState);
+                }
             }
 
-            else if (player.InputHandler.attackNow == true)
+            else
             {
-                stateMachine.ChangeState(player.AttackState);
+                stateMachine.ChangeState(player.UltimateState);
             }
         }
 

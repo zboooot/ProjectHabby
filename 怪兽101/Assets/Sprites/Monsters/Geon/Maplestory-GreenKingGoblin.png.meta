@@ -129,118 +129,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Maplestory-GreenKingGoblin_0
-      rect:
-        serializedVersion: 2
-        x: 8
-        y: 1755
-        width: 131
-        height: 121
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 18c7ad99007da5c4199a4f93e88ee1a9
-      internalID: 1798254550
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Maplestory-GreenKingGoblin_1
-      rect:
-        serializedVersion: 2
-        x: 147
-        y: 1756
-        width: 131
-        height: 120
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 13708b8af78b224459dd1280ac178e59
-      internalID: 1741385865
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Maplestory-GreenKingGoblin_2
-      rect:
-        serializedVersion: 2
-        x: 291
-        y: 1756
-        width: 132
-        height: 118
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 564c33a56275f1c4bb93355b6f194c1b
-      internalID: -575685226
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Maplestory-GreenKingGoblin_3
-      rect:
-        serializedVersion: 2
-        x: 433
-        y: 1755
-        width: 133
-        height: 118
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0cca8d9a8aa20714982804d60522da91
-      internalID: 681130781
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Maplestory-GreenKingGoblin_4
-      rect:
-        serializedVersion: 2
-        x: 574
-        y: 1756
-        width: 130
-        height: 118
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ce8ce50bc1f0fbf4db3245b187147a06
-      internalID: 490360257
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Maplestory-GreenKingGoblin_5
       rect:
         serializedVersion: 2
-        x: 711
+        x: 7
         y: 1756
-        width: 134
-        height: 120
+        width: 129
+        height: 118
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -258,10 +153,10 @@ TextureImporter:
       name: Maplestory-GreenKingGoblin_6
       rect:
         serializedVersion: 2
-        x: 8
-        y: 1583
-        width: 132
-        height: 119
+        x: 148
+        y: 1756
+        width: 129
+        height: 117
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -279,10 +174,10 @@ TextureImporter:
       name: Maplestory-GreenKingGoblin_7
       rect:
         serializedVersion: 2
-        x: 150
-        y: 1582
-        width: 139
-        height: 123
+        x: 292
+        y: 1756
+        width: 130
+        height: 116
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -300,10 +195,10 @@ TextureImporter:
       name: Maplestory-GreenKingGoblin_8
       rect:
         serializedVersion: 2
-        x: 295
-        y: 1582
-        width: 137
-        height: 122
+        x: 435
+        y: 1756
+        width: 129
+        height: 115
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -321,10 +216,10 @@ TextureImporter:
       name: Maplestory-GreenKingGoblin_9
       rect:
         serializedVersion: 2
-        x: 442
-        y: 1582
-        width: 135
-        height: 120
+        x: 575
+        y: 1756
+        width: 129
+        height: 117
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -342,10 +237,10 @@ TextureImporter:
       name: Maplestory-GreenKingGoblin_10
       rect:
         serializedVersion: 2
-        x: 589
-        y: 1582
-        width: 129
-        height: 123
+        x: 714
+        y: 1756
+        width: 128
+        height: 119
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -360,97 +255,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Maplestory-GreenKingGoblin_11
-      rect:
-        serializedVersion: 2
-        x: 729
-        y: 1582
-        width: 133
-        height: 119
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: fd4cb2f1f3fb3b74abbb5b97eb778fd4
-      internalID: 287145776
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Maplestory-GreenKingGoblin_12
-      rect:
-        serializedVersion: 2
-        x: 11
-        y: 1255
-        width: 129
-        height: 123
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 215715a24b0752041a3008fcb52024ba
-      internalID: -1732352032
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Maplestory-GreenKingGoblin_13
-      rect:
-        serializedVersion: 2
-        x: 150
-        y: 1255
-        width: 163
-        height: 126
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d2d632a0b7a21134581eeca8f22efa32
-      internalID: -1359187732
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Maplestory-GreenKingGoblin_14
-      rect:
-        serializedVersion: 2
-        x: 326
-        y: 1254
-        width: 170
-        height: 128
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0d86b21aba8c9bb489718f0f242e954a
-      internalID: -746372487
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Maplestory-GreenKingGoblin_15
       rect:
         serializedVersion: 2
-        x: 509
-        y: 1255
-        width: 162
-        height: 129
+        x: 10
+        y: 1583
+        width: 129
+        height: 119
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -468,10 +279,10 @@ TextureImporter:
       name: Maplestory-GreenKingGoblin_16
       rect:
         serializedVersion: 2
-        x: 683
-        y: 1252
-        width: 139
-        height: 114
+        x: 157
+        y: 1583
+        width: 129
+        height: 118
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -489,10 +300,10 @@ TextureImporter:
       name: Maplestory-GreenKingGoblin_17
       rect:
         serializedVersion: 2
-        x: 12
-        y: 1417
-        width: 147
-        height: 126
+        x: 299
+        y: 1583
+        width: 132
+        height: 116
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -510,9 +321,9 @@ TextureImporter:
       name: Maplestory-GreenKingGoblin_18
       rect:
         serializedVersion: 2
-        x: 7
-        y: 1125
-        width: 130
+        x: 446
+        y: 1583
+        width: 129
         height: 117
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -531,10 +342,10 @@ TextureImporter:
       name: Maplestory-GreenKingGoblin_19
       rect:
         serializedVersion: 2
-        x: 149
-        y: 1125
-        width: 131
-        height: 115
+        x: 589
+        y: 1583
+        width: 129
+        height: 119
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -552,10 +363,10 @@ TextureImporter:
       name: Maplestory-GreenKingGoblin_20
       rect:
         serializedVersion: 2
-        x: 294
-        y: 1125
-        width: 131
-        height: 116
+        x: 732
+        y: 1583
+        width: 129
+        height: 117
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -570,55 +381,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Maplestory-GreenKingGoblin_21
-      rect:
-        serializedVersion: 2
-        x: 444
-        y: 1129
-        width: 126
-        height: 113
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 387c72837cbd94140a32084118bebe0a
-      internalID: -759365823
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Maplestory-GreenKingGoblin_22
-      rect:
-        serializedVersion: 2
-        x: 3
-        y: 324
-        width: 144
-        height: 133
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 091e6ec37a2e5bf4e9a17367c1bfef03
-      internalID: 909644045
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Maplestory-GreenKingGoblin_23
       rect:
         serializedVersion: 2
-        x: 167
-        y: 323
-        width: 156
-        height: 147
+        x: 14
+        y: 1418
+        width: 140
+        height: 122
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -633,13 +402,13 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Maplestory-GreenKingGoblin_24
+      name: Maplestory-GreenKingGoblin_83
       rect:
         serializedVersion: 2
-        x: 328
-        y: 324
-        width: 174
-        height: 167
+        x: 10
+        y: 1255
+        width: 129
+        height: 118
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -647,20 +416,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7a57171d0d8d5241bf3e7393aa62129
-      internalID: -1127129671
+      spriteID: 658678f2f4f94e948a8d1758f22d7930
+      internalID: 1888925150
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Maplestory-GreenKingGoblin_25
+      name: Maplestory-GreenKingGoblin_84
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 1255
+        width: 159
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17439eb35281f414894b9181062c52e5
+      internalID: 798980672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_85
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 1255
+        width: 167
+        height: 124
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc44689683b21bc4481c5fbcc8625e84
+      internalID: -1214624689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_86
       rect:
         serializedVersion: 2
         x: 509
-        y: 323
-        width: 184
-        height: 169
+        y: 1255
+        width: 161
+        height: 122
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -668,40 +479,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5cf808364f8d1d344a84c624795b1dcc
-      internalID: 1692310214
+      spriteID: 10cdc9571851c214f929efed4cfedc76
+      internalID: -643107997
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Maplestory-GreenKingGoblin_26
+      name: Maplestory-GreenKingGoblin_87
       rect:
         serializedVersion: 2
-        x: 705
-        y: 323
-        width: 197
-        height: 152
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ae6e978455ed08246aeece9f5ff72274
-      internalID: -1422246916
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Maplestory-GreenKingGoblin_27
-      rect:
-        serializedVersion: 2
-        x: 22
-        y: 147
-        width: 131
+        x: 687
+        y: 1252
+        width: 130
         height: 114
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -710,20 +500,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6b8889e999bd7aa478c4e5c6abc634b2
-      internalID: -398269450
+      spriteID: 3963fb200027389478c4d6de7b1523d9
+      internalID: -942417237
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Maplestory-GreenKingGoblin_28
+      name: Maplestory-GreenKingGoblin_88
       rect:
         serializedVersion: 2
-        x: 262
-        y: 146
-        width: 129
-        height: 110
+        x: 7
+        y: 1126
+        width: 130
+        height: 112
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -731,19 +521,61 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f85281815e4405e40840b7e52ef16f86
-      internalID: 902557044
+      spriteID: a668a03b8f689d64595a1dbc4f53261b
+      internalID: -813937425
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Maplestory-GreenKingGoblin_29
+      name: Maplestory-GreenKingGoblin_89
       rect:
         serializedVersion: 2
-        x: 409
-        y: 145
+        x: 149
+        y: 1125
         width: 130
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 968c19e740f76264fbbbd5a50af451d8
+      internalID: 1446100634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_90
+      rect:
+        serializedVersion: 2
+        x: 294
+        y: 1125
+        width: 130
+        height: 111
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8154306ab27bf7d40950726343f8df1a
+      internalID: -939567601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_91
+      rect:
+        serializedVersion: 2
+        x: 444
+        y: 1128
+        width: 126
         height: 109
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -752,19 +584,145 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1fff45fbfdffc849bcf97a94acf66b3
-      internalID: 938422425
+      spriteID: 1337e4f418b878f46af491bab4d3258b
+      internalID: 290029993
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Maplestory-GreenKingGoblin_30
+      name: Maplestory-GreenKingGoblin_92
       rect:
         serializedVersion: 2
-        x: 553
-        y: 145
-        width: 130
+        x: 29
+        y: 1018
+        width: 76
+        height: 87
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 515eb1fd235ae3d448e8d61de51eb186
+      internalID: -879883079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_93
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 1008
+        width: 105
+        height: 104
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7bcfc87e6391fa94292dc1cbc0d896f7
+      internalID: -674608189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_98
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 861
+        width: 132
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24d06ab9edb1bc844993b9e365fd80f1
+      internalID: 606853622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_99
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 860
+        width: 138
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32bcb6565949ee34b9fec6028b0b91c6
+      internalID: 1487504453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_100
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 862
+        width: 127
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1343ea0d34e128f45b14c369e510c7ef
+      internalID: 2114278953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_101
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 862
+        width: 134
+        height: 114
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e34c0bce3aefc90429aac9cb0a271627
+      internalID: 165292951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_102
+      rect:
+        serializedVersion: 2
+        x: 612
+        y: 868
+        width: 133
         height: 108
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -773,20 +731,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 073e6c55a4ce2f946bf73a4b11ec63c9
-      internalID: -493063131
+      spriteID: c28f1436cf28004429a1eac22dddfc32
+      internalID: -2038256136
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Maplestory-GreenKingGoblin_31
+      name: Maplestory-GreenKingGoblin_103
       rect:
         serializedVersion: 2
-        x: 697
-        y: 145
-        width: 131
-        height: 107
+        x: 762
+        y: 832
+        width: 132
+        height: 144
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -794,20 +752,377 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cde3abce26f81ee45b9ed153e4f47a65
-      internalID: 1437652905
+      spriteID: 4d3b452f60e8d6c4b82356681a76e800
+      internalID: -1596990660
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Maplestory-GreenKingGoblin_32
+      name: Maplestory-GreenKingGoblin_104
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 658
+        width: 134
+        height: 148
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5cb2639af4cb404095fd0785ae0ae34
+      internalID: -919463587
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_107
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 653
+        width: 228
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 382adda9d93a47f4891d92d04831e034
+      internalID: -892555674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_111
+      rect:
+        serializedVersion: 2
+        x: 418
+        y: 658
+        width: 230
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b07249e65ac8b74ab6220f25bc12c3a
+      internalID: -1037964247
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_116
+      rect:
+        serializedVersion: 2
+        x: 679
+        y: 657
+        width: 231
+        height: 129
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 346c71dd5939d354c84a990839067a74
+      internalID: -2049802723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_154
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 514
+        width: 234
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95b12dcaa6cf76a4b99d9890efe56463
+      internalID: -840863834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_161
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 515
+        width: 232
+        height: 115
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d13983f5f807a1e49b4abd82df0ab352
+      internalID: 1340572646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_166
+      rect:
+        serializedVersion: 2
+        x: 555
+        y: 515
+        width: 231
+        height: 118
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f011f8db0409a114db3eacbf5b0c604a
+      internalID: 930752487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_191
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 324
+        width: 156
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bdea32bca7bda92408fbc07b7448141a
+      internalID: 1012230122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_192
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 324
+        width: 173
+        height: 165
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37e250c5b223b4c4e801b6449449b53b
+      internalID: 2140467859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_195
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 324
+        width: 140
+        height: 122
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4b930b57e9eea54a920aa6825c176b9
+      internalID: 193179630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_196
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 324
+        width: 184
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16bc76f5af80a724cad279ef8e23ad3c
+      internalID: -883350093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_197
+      rect:
+        serializedVersion: 2
+        x: 705
+        y: 323
+        width: 199
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9d5adf40cda738439fe13eb67d89503
+      internalID: -1307407242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_198
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 147
+        width: 215
+        height: 146
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2331fe5e61073714fa5ede8c312c5f0b
+      internalID: 2134595060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_200
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 146
+        width: 129
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbe539d96ea76034caf7ddfb3f255f43
+      internalID: 1767997829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_201
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 145
+        width: 129
+        height: 109
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73b34f0784aab2541a2c71532450f3e0
+      internalID: -2027187188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_202
+      rect:
+        serializedVersion: 2
+        x: 553
+        y: 145
+        width: 129
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71cc793861d389d46843fc6b6a61d404
+      internalID: 692802357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_203
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 145
+        width: 129
+        height: 108
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 51ee24a9b60a03c44859ac70390d11d2
+      internalID: -1139824851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Maplestory-GreenKingGoblin_204
       rect:
         serializedVersion: 2
         x: 25
         y: 17
         width: 129
-        height: 107
+        height: 108
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -815,20 +1130,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 14ea21097a62a3040b09d984753774dd
-      internalID: -1017006339
+      spriteID: 0a4c9ffbb2dc30947940cd08c390745f
+      internalID: 2055525508
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Maplestory-GreenKingGoblin_33
+      name: Maplestory-GreenKingGoblin_205
       rect:
         serializedVersion: 2
-        x: 166
+        x: 167
         y: 16
-        width: 130
-        height: 107
+        width: 129
+        height: 108
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -836,50 +1151,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9463f786c86332d46a3062ff7dc5a784
-      internalID: 1244568368
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Maplestory-GreenKingGoblin_34
-      rect:
-        serializedVersion: 2
-        x: 127
-        y: 1007
-        width: 108
-        height: 106
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 926563af8618323469962959ebaa531c
-      internalID: 1573851325
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Maplestory-GreenKingGoblin_35
-      rect:
-        serializedVersion: 2
-        x: 28
-        y: 1017
-        width: 78
-        height: 90
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 70d51d17884949a49905a2ffc3ad9748
-      internalID: -744252310
+      spriteID: b3b9bee5a64949a4aa64f0b9a7efb431
+      internalID: -180079355
       vertices: []
       indices: 
       edges: []
@@ -898,17 +1171,123 @@ TextureImporter:
       Maplestory-GreenKingGoblin_0: 1798254550
       Maplestory-GreenKingGoblin_1: 1741385865
       Maplestory-GreenKingGoblin_10: -797177970
+      Maplestory-GreenKingGoblin_100: 2114278953
+      Maplestory-GreenKingGoblin_101: 165292951
+      Maplestory-GreenKingGoblin_102: -2038256136
+      Maplestory-GreenKingGoblin_103: -1596990660
+      Maplestory-GreenKingGoblin_104: -919463587
+      Maplestory-GreenKingGoblin_105: 2038800206
+      Maplestory-GreenKingGoblin_106: -1279448283
+      Maplestory-GreenKingGoblin_107: -892555674
+      Maplestory-GreenKingGoblin_108: 921213541
+      Maplestory-GreenKingGoblin_109: -570050351
       Maplestory-GreenKingGoblin_11: 287145776
+      Maplestory-GreenKingGoblin_110: -1414739198
+      Maplestory-GreenKingGoblin_111: -1037964247
+      Maplestory-GreenKingGoblin_112: 1168202356
+      Maplestory-GreenKingGoblin_113: -1609491709
+      Maplestory-GreenKingGoblin_114: 437941702
+      Maplestory-GreenKingGoblin_115: 1418106472
+      Maplestory-GreenKingGoblin_116: -2049802723
+      Maplestory-GreenKingGoblin_117: -951063576
+      Maplestory-GreenKingGoblin_118: -440456623
+      Maplestory-GreenKingGoblin_119: -1091427828
       Maplestory-GreenKingGoblin_12: -1732352032
+      Maplestory-GreenKingGoblin_120: 2101809118
+      Maplestory-GreenKingGoblin_121: 1395656631
+      Maplestory-GreenKingGoblin_122: 2089285543
+      Maplestory-GreenKingGoblin_123: 681393411
+      Maplestory-GreenKingGoblin_124: -471959289
+      Maplestory-GreenKingGoblin_125: 581652670
+      Maplestory-GreenKingGoblin_126: -783589185
+      Maplestory-GreenKingGoblin_127: 371796345
+      Maplestory-GreenKingGoblin_128: 1722894841
+      Maplestory-GreenKingGoblin_129: -268669571
       Maplestory-GreenKingGoblin_13: -1359187732
+      Maplestory-GreenKingGoblin_130: 1741442684
+      Maplestory-GreenKingGoblin_131: -267917047
+      Maplestory-GreenKingGoblin_132: -1221814802
+      Maplestory-GreenKingGoblin_133: -291406119
+      Maplestory-GreenKingGoblin_134: 456185554
+      Maplestory-GreenKingGoblin_135: 904073917
+      Maplestory-GreenKingGoblin_136: -1585444770
+      Maplestory-GreenKingGoblin_137: 1573831735
+      Maplestory-GreenKingGoblin_138: -120082402
+      Maplestory-GreenKingGoblin_139: -359164509
       Maplestory-GreenKingGoblin_14: -746372487
+      Maplestory-GreenKingGoblin_140: 532727152
+      Maplestory-GreenKingGoblin_141: -237402830
+      Maplestory-GreenKingGoblin_142: 1760950291
+      Maplestory-GreenKingGoblin_143: 865908555
+      Maplestory-GreenKingGoblin_144: 1756082506
+      Maplestory-GreenKingGoblin_145: -708572402
+      Maplestory-GreenKingGoblin_146: -698055342
+      Maplestory-GreenKingGoblin_147: 882993850
+      Maplestory-GreenKingGoblin_148: -1523770863
+      Maplestory-GreenKingGoblin_149: -2098705828
       Maplestory-GreenKingGoblin_15: 1325922128
+      Maplestory-GreenKingGoblin_150: 1196328649
+      Maplestory-GreenKingGoblin_151: 1074935207
+      Maplestory-GreenKingGoblin_152: 552179076
+      Maplestory-GreenKingGoblin_153: -1650204681
+      Maplestory-GreenKingGoblin_154: -840863834
+      Maplestory-GreenKingGoblin_155: -501448167
+      Maplestory-GreenKingGoblin_156: 509082912
+      Maplestory-GreenKingGoblin_157: 1563038258
+      Maplestory-GreenKingGoblin_158: 1526623465
+      Maplestory-GreenKingGoblin_159: -1089908838
       Maplestory-GreenKingGoblin_16: 6318754
+      Maplestory-GreenKingGoblin_160: 674894954
+      Maplestory-GreenKingGoblin_161: 1340572646
+      Maplestory-GreenKingGoblin_162: 964316091
+      Maplestory-GreenKingGoblin_163: 1878682371
+      Maplestory-GreenKingGoblin_164: 1570136449
+      Maplestory-GreenKingGoblin_165: -557787309
+      Maplestory-GreenKingGoblin_166: 930752487
+      Maplestory-GreenKingGoblin_167: 1105736579
+      Maplestory-GreenKingGoblin_168: -1425124070
+      Maplestory-GreenKingGoblin_169: -279570186
       Maplestory-GreenKingGoblin_17: -934148634
+      Maplestory-GreenKingGoblin_170: 1120281881
+      Maplestory-GreenKingGoblin_171: 769768036
+      Maplestory-GreenKingGoblin_172: -561158397
+      Maplestory-GreenKingGoblin_173: 755581481
+      Maplestory-GreenKingGoblin_174: 193471711
+      Maplestory-GreenKingGoblin_175: 1625560076
+      Maplestory-GreenKingGoblin_176: 1744859201
+      Maplestory-GreenKingGoblin_177: 577169853
+      Maplestory-GreenKingGoblin_178: -1886396729
+      Maplestory-GreenKingGoblin_179: -520453285
       Maplestory-GreenKingGoblin_18: -317571055
+      Maplestory-GreenKingGoblin_180: -531354153
+      Maplestory-GreenKingGoblin_181: 1606443252
+      Maplestory-GreenKingGoblin_182: 1442515968
+      Maplestory-GreenKingGoblin_183: -1440698839
+      Maplestory-GreenKingGoblin_184: 850842430
+      Maplestory-GreenKingGoblin_185: -204685424
+      Maplestory-GreenKingGoblin_186: 1990014589
+      Maplestory-GreenKingGoblin_187: -984961638
+      Maplestory-GreenKingGoblin_188: 1680610260
+      Maplestory-GreenKingGoblin_189: 1068185347
       Maplestory-GreenKingGoblin_19: 565826232
+      Maplestory-GreenKingGoblin_190: -122412027
+      Maplestory-GreenKingGoblin_191: 1012230122
+      Maplestory-GreenKingGoblin_192: 2140467859
+      Maplestory-GreenKingGoblin_193: 1077692201
+      Maplestory-GreenKingGoblin_194: 1221323231
+      Maplestory-GreenKingGoblin_195: 193179630
+      Maplestory-GreenKingGoblin_196: -883350093
+      Maplestory-GreenKingGoblin_197: -1307407242
+      Maplestory-GreenKingGoblin_198: 2134595060
+      Maplestory-GreenKingGoblin_199: 1419787501
       Maplestory-GreenKingGoblin_2: -575685226
       Maplestory-GreenKingGoblin_20: -1382288159
+      Maplestory-GreenKingGoblin_200: 1767997829
+      Maplestory-GreenKingGoblin_201: -2027187188
+      Maplestory-GreenKingGoblin_202: 692802357
+      Maplestory-GreenKingGoblin_203: -1139824851
+      Maplestory-GreenKingGoblin_204: 2055525508
+      Maplestory-GreenKingGoblin_205: -180079355
       Maplestory-GreenKingGoblin_21: -759365823
       Maplestory-GreenKingGoblin_22: 909644045
       Maplestory-GreenKingGoblin_23: 355334409
@@ -926,12 +1305,75 @@ TextureImporter:
       Maplestory-GreenKingGoblin_34: 1573851325
       Maplestory-GreenKingGoblin_35: 1084387157
       Maplestory-GreenKingGoblin_36: -744252310
+      Maplestory-GreenKingGoblin_37: -1350537974
+      Maplestory-GreenKingGoblin_38: -498408448
+      Maplestory-GreenKingGoblin_39: 1923111566
       Maplestory-GreenKingGoblin_4: 490360257
+      Maplestory-GreenKingGoblin_40: -1444372439
+      Maplestory-GreenKingGoblin_41: 1887929592
+      Maplestory-GreenKingGoblin_42: 232153426
+      Maplestory-GreenKingGoblin_43: -1015888620
+      Maplestory-GreenKingGoblin_44: -1511269384
+      Maplestory-GreenKingGoblin_45: -1709138617
+      Maplestory-GreenKingGoblin_46: 584719854
+      Maplestory-GreenKingGoblin_47: 1286697255
+      Maplestory-GreenKingGoblin_48: -1824158077
+      Maplestory-GreenKingGoblin_49: 1208675170
       Maplestory-GreenKingGoblin_5: 1119413928
+      Maplestory-GreenKingGoblin_50: -84177999
+      Maplestory-GreenKingGoblin_51: 1269329753
+      Maplestory-GreenKingGoblin_52: 1906131326
+      Maplestory-GreenKingGoblin_53: 1357020214
+      Maplestory-GreenKingGoblin_54: -846664906
+      Maplestory-GreenKingGoblin_55: -86819100
+      Maplestory-GreenKingGoblin_56: -597452477
+      Maplestory-GreenKingGoblin_57: -1898298549
+      Maplestory-GreenKingGoblin_58: -522292067
+      Maplestory-GreenKingGoblin_59: 1398773332
       Maplestory-GreenKingGoblin_6: 673972924
+      Maplestory-GreenKingGoblin_60: -1843850086
+      Maplestory-GreenKingGoblin_61: 1707960418
+      Maplestory-GreenKingGoblin_62: 1461064542
+      Maplestory-GreenKingGoblin_63: 301682135
+      Maplestory-GreenKingGoblin_64: -1691949887
+      Maplestory-GreenKingGoblin_65: -707230254
+      Maplestory-GreenKingGoblin_66: -427143213
+      Maplestory-GreenKingGoblin_67: -1850577744
+      Maplestory-GreenKingGoblin_68: 607782850
+      Maplestory-GreenKingGoblin_69: 1508079545
       Maplestory-GreenKingGoblin_7: -529169050
+      Maplestory-GreenKingGoblin_70: 374740715
+      Maplestory-GreenKingGoblin_71: 1402578136
+      Maplestory-GreenKingGoblin_72: 389102856
+      Maplestory-GreenKingGoblin_73: 2083861914
+      Maplestory-GreenKingGoblin_74: 1142674161
+      Maplestory-GreenKingGoblin_75: 1265495561
+      Maplestory-GreenKingGoblin_76: -228808629
+      Maplestory-GreenKingGoblin_77: 1242698266
+      Maplestory-GreenKingGoblin_78: -273749818
+      Maplestory-GreenKingGoblin_79: -778790016
       Maplestory-GreenKingGoblin_8: -1769715782
+      Maplestory-GreenKingGoblin_80: 479687614
+      Maplestory-GreenKingGoblin_81: 1265113136
+      Maplestory-GreenKingGoblin_82: 1924969370
+      Maplestory-GreenKingGoblin_83: 1888925150
+      Maplestory-GreenKingGoblin_84: 798980672
+      Maplestory-GreenKingGoblin_85: -1214624689
+      Maplestory-GreenKingGoblin_86: -643107997
+      Maplestory-GreenKingGoblin_87: -942417237
+      Maplestory-GreenKingGoblin_88: -813937425
+      Maplestory-GreenKingGoblin_89: 1446100634
       Maplestory-GreenKingGoblin_9: -2077518868
+      Maplestory-GreenKingGoblin_90: -939567601
+      Maplestory-GreenKingGoblin_91: 290029993
+      Maplestory-GreenKingGoblin_92: -879883079
+      Maplestory-GreenKingGoblin_93: -674608189
+      Maplestory-GreenKingGoblin_94: -410942942
+      Maplestory-GreenKingGoblin_95: 576521935
+      Maplestory-GreenKingGoblin_96: 1647859732
+      Maplestory-GreenKingGoblin_97: 1930771907
+      Maplestory-GreenKingGoblin_98: 606853622
+      Maplestory-GreenKingGoblin_99: 1487504453
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

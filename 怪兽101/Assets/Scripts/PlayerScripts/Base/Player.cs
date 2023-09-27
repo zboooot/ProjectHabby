@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
 
     public PlayerDeathState DeathState { get; private set; }
 
+    public PlayerUltimateState UltimateState { get; private set; }
+
     public Animator Anim { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
 
@@ -36,6 +38,7 @@ public class Player : MonoBehaviour
         MoveState = new PlayerMoveState(this, StateMachine, playerData, "move");
         AttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
         DeathState = new PlayerDeathState(this, StateMachine, playerData, "death");
+        UltimateState = new PlayerUltimateState(this, StateMachine, playerData, "ultimate");
     }
 
     private void Start()
