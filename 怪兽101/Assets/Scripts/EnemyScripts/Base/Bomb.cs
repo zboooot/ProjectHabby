@@ -7,8 +7,9 @@ public class Bomb : MonoBehaviour
     public float fallSpeed = 5f;     // Speed at which the bomb falls
     public int damageAmount = 10;    // Amount of damage the bomb does to the player
     public EnemyScriptableObject enemyData;
-    public float destroyTime = 2f; // Set the default destroy time in seconds
+    public float destroyTime; // Set the default destroy time in seconds
     private float currentTime = 0f;
+    public GameObject explosionVFX;
 
     private void Start()
     {
@@ -23,7 +24,7 @@ public class Bomb : MonoBehaviour
         // Check if the current time exceeds the specified destroy time
         if (currentTime >= destroyTime)
         {
-
+            SpawnExplosion();
             Destroy(gameObject); // Destroy the GameObject
         }
     }
@@ -33,6 +34,7 @@ public class Bomb : MonoBehaviour
         // Check if the bomb collided with the player
         if (collision.CompareTag("Player"))
         {
+            SpawnExplosion();
             collision.GetComponent<PlayerHealthScript>().TakeDamage(enemyData.attackDamage);
             Destroy(gameObject);
         }
@@ -40,6 +42,7 @@ public class Bomb : MonoBehaviour
 
     void SpawnExplosion()
     {
+        GameObject bomb = Instantiate(explosionVFX, transform.position, Quaternion.identity);
 
     }
 }

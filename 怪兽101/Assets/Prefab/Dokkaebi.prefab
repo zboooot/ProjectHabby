@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3704898484850799367}
   - component: {fileID: 1684533865489965421}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: RightLeg
-  m_TagString: Untagged
+  m_TagString: PlayerLeg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,9 +68,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6713725411463191368}
   - component: {fileID: 7402396264351654013}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: LeftLeg
-  m_TagString: Untagged
+  m_TagString: PlayerLeg
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 8093915059412899187}
   - component: {fileID: 8093915059412899198}
   - component: {fileID: 8093915059412899199}
+  - component: {fileID: 983902660}
   m_Layer: 6
   m_Name: Dokkaebi
   m_TagString: Player
@@ -195,18 +196,18 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 8
-  m_Sprite: {fileID: 1798254550, guid: 1958e3e222bba7a4abf8d6b41c4d0345, type: 3}
+  m_SortingLayerID: 963744515
+  m_SortingLayer: 1
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 1119413928, guid: 1958e3e222bba7a4abf8d6b41c4d0345, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1.29, y: 1.18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &8093915059412899190
@@ -265,6 +266,7 @@ Animation:
   - {fileID: 7400000, guid: 24962889db8d87442b1bd1539bcdac7f, type: 2}
   - {fileID: 7400000, guid: d52e02fa5e9cf924992e32d338787943, type: 2}
   - {fileID: 7400000, guid: b63c8b15abd05464f88aec1efe08de49, type: 2}
+  - {fileID: 7400000, guid: 7e01ab7cebe32044f8fb49725cd1de0a, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -299,8 +301,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.31, y: 1.21}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 1.29, y: 1.18}
+    newSize: {x: 1.29, y: 1.18}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -323,7 +325,7 @@ MonoBehaviour:
   playerSO: {fileID: 11400000, guid: 59dab0eb911ed154a9696246ede0b205, type: 2}
   attackNow: 0
   ultimating: 0
-  currentUltimateCharge: 0
+  currentUltimateCharge: 100
   boxSize: {x: 4, y: 4}
   enemyLayer:
     serializedVersion: 2
@@ -345,3 +347,21 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   healthFill: {fileID: 0}
   lerpSpeed: 2
+--- !u!114 &983902660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8093915059412899083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56dd5c92c0be08046b43656fdd3296ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  entitiesDestroyedCount: 9
+  numberOfPlanes: 3
+  enemyPlane: {fileID: 4778428930660515346, guid: ca0d55a0c9369df4ebb3c84bb463ba19, type: 3}
+  spawnPoints:
+  - {fileID: 0}
+  - {fileID: 0}
