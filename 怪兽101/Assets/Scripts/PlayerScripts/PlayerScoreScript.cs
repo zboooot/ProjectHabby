@@ -6,9 +6,13 @@ using UnityEngine.UI;
 public class PlayerScoreScript : MonoBehaviour
 {
     public int entitiesDestroyedCount = 0;
+
+    public int numberOfPlanes;
     public GameObject enemyPlane;
+
     public Animator anim;
     public Transform[] spawnPoints;
+
 
     private void Start()
     {
@@ -31,7 +35,7 @@ public class PlayerScoreScript : MonoBehaviour
         if (entitiesDestroyedCount >= 10)
         {
             ActivateSkill();
-            Debug.Log("Player can use ultimate skill!");
+            Debug.Log("incoming skill!");
         }
 
     }
@@ -46,7 +50,6 @@ public class PlayerScoreScript : MonoBehaviour
 
             Invoke("RandomizeAndSpawn", 6f);
 
-            Debug.Log("Ultimate skill activated!");
             entitiesDestroyedCount = 0;
         }
     }
@@ -68,8 +71,22 @@ public class PlayerScoreScript : MonoBehaviour
     public void SpawnObject(Transform spawnPoint)
     {
 
-        GameObject fighterJet = Instantiate(enemyPlane, spawnPoint.position, spawnPoint.rotation);
-        fighterJet.transform.position = new Vector3(fighterJet.transform.position.x, fighterJet.transform.position.y, 0f);
+        // Define the stagger amount and initial offset
+        float staggerAmountX = 2.0f;  // Adjust this based on desired spacing along x-axis
+        float staggerAmountY = 2.0f;  // Adjust this based on desired spacing along y-axis
+        float initialOffsetX = -staggerAmountX * 1.5f;  // Adjust initial offsets based on the formation
+        float initialOffsetY = -staggerAmountY;  // Adjust initial offsets based on the formation
+
+        for (int i = 0; i < numberOfPlanes; i++)
+        {
+            // Calculate the staggered position for each fighter plane
+            float xOffset = initialOffsetX + i * staggerAmountX;
+            float yOffset = initialOffsetY + i * staggerAmountY;
+            Vector3 staggeredPosition = new Vector3(spawnPoint.position.x + xOffset, spawnPoint.position.y + yOffset, 0f);
+
+            // Instantiate the fighter jet at the staggered position
+            GameObject fighterJet = Instantiate(enemyPlane, staggeredPosition, spawnPoint.rotation);
+        }
     }
 
 }

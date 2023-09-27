@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class JetEnemy : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 10f;
     private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
 
     public Transform cameraTransform;
     private bool isToRightOfCamera = false;
@@ -23,6 +24,7 @@ public class JetEnemy : MonoBehaviour
     private void Start()
     {
         cameraTransform = GameObject.Find("Main Camera").GetComponent<Transform>();
+        spriteRenderer = GetComponent<SpriteRenderer>(); 
         checkPosition();
     }
 
@@ -83,12 +85,14 @@ public class JetEnemy : MonoBehaviour
     void MoveLeft()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer.flipX = false;
         rb.velocity = new Vector2(-moveSpeed, 0f);
     }
 
     void MoveRight()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer.flipX = true;
         rb.velocity = new Vector2(moveSpeed, 0f);
     }
 }
