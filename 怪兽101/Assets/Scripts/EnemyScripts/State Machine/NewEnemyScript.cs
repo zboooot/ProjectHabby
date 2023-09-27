@@ -21,6 +21,7 @@ public class NewEnemyScript : MonoBehaviour
     private Collider2D entityCollider;
 
     private PlayerScoreScript playerScore;
+    private PlayerInputHandler inputHandler;
 
     [SerializeField] private Transform pfBullet;
     private Transform bulletSpawn;
@@ -49,6 +50,7 @@ public class NewEnemyScript : MonoBehaviour
         agent.stoppingDistance = enemyData.attackRange;
 
         playerScore = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScoreScript>();
+        inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
 
     }
 
@@ -109,6 +111,7 @@ public class NewEnemyScript : MonoBehaviour
     {
         entityCollider.enabled = false;
         spriteRenderer.sprite = destroyedSprite;
+        inputHandler.ChargeUltimate(5);
 
         if (!hasSpawned)
         {

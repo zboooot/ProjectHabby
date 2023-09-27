@@ -24,6 +24,7 @@ public class Civilian : MonoBehaviour
     private float timeSinceLastDirectionChange = 0.0f;
 
     private PlayerScoreScript playerScore;
+    private PlayerInputHandler inputHandler;
     private Transform blockingEntity;
     public bool isBlocked;
 
@@ -35,6 +36,7 @@ public class Civilian : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerScore = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScoreScript>();
+        inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
     }
 
     // Start is called before the first frame update
@@ -53,6 +55,7 @@ public class Civilian : MonoBehaviour
             entityCollider.enabled = false;
             if (playerScore != null)
             {
+                inputHandler.ChargeUltimate(1);
                 playerScore.EntityDestroyed();
             }
             enemyState = EnemyState.death;

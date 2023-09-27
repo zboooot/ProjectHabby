@@ -9,6 +9,8 @@ public class PlayerInputHandler : MonoBehaviour
     private Rigidbody2D rb;
     public bool attackNow;
     public bool ultimating;
+    float ultimateRadius = 10f;
+    public float currentUltimateCharge;
 
     public Vector2 boxSize; // Adjust the size as needed.
     private float rangeX;
@@ -65,6 +67,7 @@ public class PlayerInputHandler : MonoBehaviour
     public void DeactivateUltimate()
     {
         ultimating = false;
+        currentUltimateCharge = 0;
     }
 
     private Collider2D FindNearestEnemy(Collider2D[] enemies)
@@ -93,6 +96,43 @@ public class PlayerInputHandler : MonoBehaviour
         return selectedEnemy;
     }
 
+    public void UseUltimate()
+    {
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, ultimateRadius);
+        foreach(Collider2D collider in hitColliders)
+        {
+            if (collider.CompareTag("Enemy"))
+            {
+                NewEnemyScript tank = collider.GetComponent<NewEnemyScript>();
+                if(tank != null)
+                {
+                    tank.TakeDamage(playerSO.ultimateDamage);
+                }
+                else { return; }
+            }
+
+            else if (collider.CompareTag("BigBuilding"))
+            {
+                BigBuildingEnemy bigBuilding = collider.GetComponent<BigBuildingEnemy>();
+                if(bigBuilding != null)
+                {
+                    bigBuilding.TakeDamage(playerSO.ultimateDamage);
+                }
+                else { return; }
+            }
+
+            else if (collider.CompareTag("Civilian"))
+            {
+                Civilian civilian = collider.GetComponent<Civilian>();
+                if(civilian != null)
+                {
+                    civilian.enemyState = Civilian.EnemyState.death;
+                }
+                else { return; }
+            }
+        }
+    }
+
     public void Attack()
     {
         if(selectedEnemy != null)
@@ -101,6 +141,19 @@ public class PlayerInputHandler : MonoBehaviour
         }
 
         else { return; }
+    }
+
+    public void ChargeUltimate(int amount)
+    {
+        if(currentUltimateCharge != playerSO.maxUltimateCharge)
+        {
+            currentUltimateCharge += amount;
+        }
+
+        if(currentUltimateCharge >= playerSO.maxUltimateCharge)
+        {
+            currentUltimateCharge = playerSO.maxUltimateCharge;
+        }
     }
 
     void OnAnimationMove()

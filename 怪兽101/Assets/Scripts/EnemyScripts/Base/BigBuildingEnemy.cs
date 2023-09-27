@@ -10,6 +10,7 @@ public class BigBuildingEnemy : MonoBehaviour
     public Sprite destroyedSprite;
     public Targetable buildingType;
     private Collider2D buildingCollider;
+    public PlayerInputHandler inputHandler;
 
     [SerializeField] private GameObject pfCoin;
 
@@ -29,7 +30,8 @@ public class BigBuildingEnemy : MonoBehaviour
         tempHealth = SO_enemy.health;
         spriteRenderer = GetComponent<SpriteRenderer>();
         buildingCollider = GetComponent<BoxCollider2D>();
-        playerScore = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScoreScript>(); 
+        playerScore = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScoreScript>();
+        inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
     }
 
     public void TakeDamage(float damage)
@@ -37,7 +39,7 @@ public class BigBuildingEnemy : MonoBehaviour
         tempHealth -= damage;
         SpawnCivilian();
 
-        if (tempHealth == 0)
+        if (tempHealth <= 0)
         {
             SpawnCoin();
             Death();
@@ -51,6 +53,8 @@ public class BigBuildingEnemy : MonoBehaviour
         {
             playerScore.EntityDestroyed();
         }
+
+        inputHandler.ChargeUltimate(10);
         buildingCollider.enabled = false;
         spriteRenderer.sprite = destroyedSprite;
     }
