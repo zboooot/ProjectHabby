@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class Bomb : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class Bomb : MonoBehaviour
     public float destroyTime; // Set the default destroy time in seconds
     private float currentTime = 0f;
     public GameObject explosionVFX;
+
 
     private void Start()
     {
@@ -36,6 +38,7 @@ public class Bomb : MonoBehaviour
         {
             SpawnExplosion();
             collision.GetComponent<PlayerHealthScript>().TakeDamage(enemyData.attackDamage);
+            
             Destroy(gameObject);
         }
     }
@@ -43,6 +46,5 @@ public class Bomb : MonoBehaviour
     void SpawnExplosion()
     {
         GameObject bomb = Instantiate(explosionVFX, transform.position, Quaternion.identity);
-
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class ShakeScript : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class ShakeScript : MonoBehaviour
     {
         targetTransform = transform;
         originalPosition = targetTransform.localPosition;
+
     }
 
     public void StartShake()
