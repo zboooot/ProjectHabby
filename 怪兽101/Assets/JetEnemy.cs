@@ -10,7 +10,6 @@ public class JetEnemy : MonoBehaviour
     private SpriteRenderer spriteRenderer;
 
     public Transform cameraTransform;
-    private bool isToRightOfCamera = false;
     public float destroyTime = 10f;
     private float currentTime = 0f;
 
@@ -49,15 +48,11 @@ public class JetEnemy : MonoBehaviour
     {
         if (transform.position.x > cameraTransform.position.x)
         {
-            isToRightOfCamera = true;
             MoveLeft();
-            Debug.Log("Object is to the right of the camera.");
         }
         else
         {
-            isToRightOfCamera = false;
-            MoveRight();
-            Debug.Log("Object is not to the right of the camera.");
+            MoveRight();   
         }
     }
 

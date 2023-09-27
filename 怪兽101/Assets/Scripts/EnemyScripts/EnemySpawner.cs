@@ -109,6 +109,7 @@ public class EnemySpawner : MonoBehaviour
                 break;
             case 10:
                 waveValue = 100;
+                roundComplete = true;
                 break;
             default:
                 // Set a default wave value for other waves

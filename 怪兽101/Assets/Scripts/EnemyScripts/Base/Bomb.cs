@@ -23,6 +23,7 @@ public class Bomb : MonoBehaviour
         // Check if the current time exceeds the specified destroy time
         if (currentTime >= destroyTime)
         {
+
             Destroy(gameObject); // Destroy the GameObject
         }
     }
@@ -35,5 +36,10 @@ public class Bomb : MonoBehaviour
             collision.GetComponent<PlayerHealthScript>().TakeDamage(enemyData.attackDamage);
             Destroy(gameObject);
         }
+    }
+
+    void SpawnExplosion()
+    {
+
     }
 }
