@@ -15,6 +15,7 @@ public class MissileScript : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     private void Update()
