@@ -10,9 +10,10 @@ public class PlayerScoreScript : MonoBehaviour
     public int numberOfPlanes;
     public GameObject enemyPlane;
 
-    public Animator anim;
+    private Animator anim;
     public Transform[] spawnPoints;
 
+    bool isActivating;
 
     private void Start()
     {
@@ -34,8 +35,15 @@ public class PlayerScoreScript : MonoBehaviour
 
         if (entitiesDestroyedCount >= 10)
         {
-            ActivateSkill();
-            Debug.Log("incoming skill!");
+            if(isActivating != true)
+            {
+                ActivateSkill();
+                Debug.Log("incoming skill!");
+            }
+            else
+            {
+                entitiesDestroyedCount = 0;
+            }
         }
 
     }
@@ -44,6 +52,8 @@ public class PlayerScoreScript : MonoBehaviour
     {
         if (enemyPlane != null)
         {
+            isActivating = true;
+
             Invoke("DeactiveBanner", 3f);
 
             anim.SetBool("Close", true);
@@ -51,7 +61,16 @@ public class PlayerScoreScript : MonoBehaviour
             Invoke("RandomizeAndSpawn", 6f);
 
             entitiesDestroyedCount = 0;
+
+            Invoke("ResetActivation", 15f);
         }
+        
+    }
+
+    public void ResetActivation()
+    {
+        isActivating = false;
+        entitiesDestroyedCount = 0;
     }
 
     void DeactiveBanner()
