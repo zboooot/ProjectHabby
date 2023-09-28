@@ -73,6 +73,7 @@ public class Artillery : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
             yield return null;
         }
+
     }
 }
 
