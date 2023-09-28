@@ -6,6 +6,7 @@ public class MiniGameLandmark : MonoBehaviour
 {
 
     public EnemyScriptableObject enemyData;
+    ShakeScript shakeLandmark;
     private float health;
 
 
@@ -14,10 +15,16 @@ public class MiniGameLandmark : MonoBehaviour
     public int maxEntities = 4; // Maximum number of entities to spawn
     public float spawnRadius = 3.0f; // Maximum distance from the current position
 
+    private SpriteRenderer spriteRenderer;
+    private float hitDarkeningAmount = 0.2f; // Amount to darken the sprite on each hit
+    private float minDarkness = 0.0f; // Minimum darkness level
+
     // Start is called before the first frame update
     void Start()
     {
         health = enemyData.health;
+        shakeLandmark = GetComponent<ShakeScript>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void SpawnCivilian()
@@ -30,7 +37,6 @@ public class MiniGameLandmark : MonoBehaviour
             GameObject civilian = Instantiate(pfDelvin, spawnPos, Quaternion.identity);
             //Sets the civilian state upon initialization
             civilian.GetComponent<Civilian>().enemyState = Civilian.EnemyState.fall;
-
         }
 
     }
@@ -40,7 +46,9 @@ public class MiniGameLandmark : MonoBehaviour
         if(health >= 0)
         {
             health -= damage;
+            shakeLandmark.StartShake();
             SpawnCivilian();
+            DamageEffect();
         }
 
         else
@@ -53,10 +61,23 @@ public class MiniGameLandmark : MonoBehaviour
     {
         if (gameObject != null)
         {
-            Destroy(gameObject, 1f);
+            Destroy(gameObject);
 
         }
         else return;
+    }
+
+    void DamageEffect()
+    {
+        Color currentColor = spriteRenderer.color;
+
+        // Reduce the brightness of the sprite by the specified amount
+        currentColor.r = Mathf.Max(minDarkness, currentColor.r - hitDarkeningAmount);
+        currentColor.g = Mathf.Max(minDarkness, currentColor.g - hitDarkeningAmount);
+        currentColor.b = Mathf.Max(minDarkness, currentColor.b - hitDarkeningAmount);
+
+        // Apply the new color to the sprite
+        spriteRenderer.color = currentColor;
     }
 
     // Update is called once per frame
