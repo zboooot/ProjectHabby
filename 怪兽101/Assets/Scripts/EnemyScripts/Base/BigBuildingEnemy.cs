@@ -21,6 +21,8 @@ public class BigBuildingEnemy : MonoBehaviour
 
     private float hitDarkeningAmount = 0.6f; // Amount to darken the sprite on each hit
     private float minDarkness = 0.2f; // Minimum darkness level
+    
+    private Color originalColor;
 
     private PlayerScoreScript playerScore;
 
@@ -35,6 +37,8 @@ public class BigBuildingEnemy : MonoBehaviour
         buildingCollider = GetComponent<BoxCollider2D>();
         playerScore = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScoreScript>();
         inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
+
+        originalColor = spriteRenderer.color;
     }
 
     public void TakeDamage(float damage)
@@ -60,6 +64,7 @@ public class BigBuildingEnemy : MonoBehaviour
         inputHandler.ChargeUltimate(10);
         buildingCollider.enabled = false;
         spriteRenderer.sprite = destroyedSprite;
+        spriteRenderer.color = originalColor;
     }
     private void SpawnCoin()
     {

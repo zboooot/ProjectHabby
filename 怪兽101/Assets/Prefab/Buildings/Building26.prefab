@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SO_enemy: {fileID: 11400000, guid: b51200baf09f3cd4cb74f309afc3e9d5, type: 2}
-  destroyedSprite: {fileID: 21300000, guid: 9ca06dc5b8c1ea7419f855cd530015ac, type: 3}
+  destroyedSprite: {fileID: 21300000, guid: 7c47aed88e577504b951ae4c0919f0fa, type: 3}
   buildingType: {fileID: 0}
   inputHandler: {fileID: 0}
   pfCoin: {fileID: 68998136515679623, guid: 97d85bc601e37404c8ddadc334626a85, type: 3}
