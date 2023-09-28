@@ -19,6 +19,9 @@ public class BigBuildingEnemy : MonoBehaviour
     public int maxEntities = 4; // Maximum number of entities to spawn
     public float spawnRadius = 3.0f; // Maximum distance from the current position
 
+    private float hitDarkeningAmount = 0.6f; // Amount to darken the sprite on each hit
+    private float minDarkness = 0.2f; // Minimum darkness level
+
     private PlayerScoreScript playerScore;
 
     float pushForce = 2f;
@@ -38,7 +41,7 @@ public class BigBuildingEnemy : MonoBehaviour
     {
         tempHealth -= damage;
         SpawnCivilian();
-
+        DamageEffect();
         if (tempHealth <= 0)
         {
             SpawnCoin();
@@ -63,6 +66,19 @@ public class BigBuildingEnemy : MonoBehaviour
         //Spawn GNA
         Vector2 randomDirection = Random.insideUnitCircle.normalized;
         GameObject coin = Instantiate(pfCoin, transform.position, Quaternion.identity);
+    }
+
+    void DamageEffect()
+    {
+        Color currentColor = spriteRenderer.color;
+
+        // Reduce the brightness of the sprite by the specified amount
+        currentColor.r = Mathf.Max(minDarkness, currentColor.r - hitDarkeningAmount);
+        currentColor.g = Mathf.Max(minDarkness, currentColor.g - hitDarkeningAmount);
+        currentColor.b = Mathf.Max(minDarkness, currentColor.b - hitDarkeningAmount);
+
+        // Apply the new color to the sprite
+        spriteRenderer.color = currentColor;
     }
 
     private void SpawnCivilian()
