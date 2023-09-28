@@ -68,12 +68,18 @@ public class Artillery : MonoBehaviour
 
     private IEnumerator MoveToPosition(Transform transform, Vector3 targetPosition)
     {
-        while (transform.position != targetPosition)
+        if(gameObject != null)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            while (transform.position != targetPosition)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+                yield return null;
+            }
+        }
+        else
+        {
             yield return null;
         }
-
     }
 }
 

@@ -37,19 +37,19 @@ public class CarAI : MonoBehaviour
 
     void SetRandomDestination()
     {
-        if(isDestroyed != true)
-        {
             randomDestination = Random.insideUnitSphere * roamRadius;
             randomDestination += transform.position;
             NavMeshHit hit;
 
             if (NavMesh.SamplePosition(randomDestination, out hit, roamRadius, NavMesh.AllAreas))
             {
-                agent.SetDestination(randomDestination);
-            }
-        }
+                if(isDestroyed != true)
+                {
+                    agent.SetDestination(randomDestination);
+                }
 
-        else { agent.updatePosition = false; agent.updateRotation = false; }
+                else { agent.updatePosition = false; agent.updateRotation = false; }
+            }
     }
 
     void FlipSprite(Vector2 movDir)
