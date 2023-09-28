@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -17,6 +18,9 @@ public class EnemySpawner : MonoBehaviour
     public int numberofEnemies;
     public int NumberofWaves;
     private bool roundComplete;
+    
+
+    public TMP_Text Waveno;
 
     public List<GameObject> spawnedEnemies = new List<GameObject>();
     public List<SpawnedEnemy> separateSpawnedEnemies = new List<SpawnedEnemy>();
@@ -31,6 +35,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+       
         roundComplete = false;
         GenerateWave();
     }
@@ -74,6 +79,9 @@ public class EnemySpawner : MonoBehaviour
             currWave++;
             GenerateWave();
         }
+
+        Waveno.text = "Wave " + currWave;
+
     }
 
     public void GenerateWave()

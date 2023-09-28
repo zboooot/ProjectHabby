@@ -152,7 +152,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8093915059412899081, guid: 72d89ddeb588d0446ad9f4ee64a43dfa, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -24.7
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8093915059412899081, guid: 72d89ddeb588d0446ad9f4ee64a43dfa, type: 3}
       propertyPath: m_LocalPosition.z
@@ -420,11 +420,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1420802577}
-  numberOfLocations: 10
-  minX: -11
-  maxX: 11
-  minY: -10
-  maxY: 10
+  numberOfLocations: 30
+  minX: -12
+  maxX: 12
+  minY: -2
+  maxY: -1
   artilleryPrefab: {fileID: 1828594697}
   artilleryPos: {fileID: 986626631}
   moveSpeed: 45
@@ -728,7 +728,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1420802575}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -24.7, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1026,7 +1026,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2064218918}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -24.7, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
