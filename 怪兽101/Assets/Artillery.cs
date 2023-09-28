@@ -66,29 +66,6 @@ public class Artillery : MonoBehaviour
     }
 
 
-
-    private Vector3 ClampToCameraView(Vector3 position)
-    {
-        float cameraSize = mainCamera.orthographicSize;
-        float cameraAspect = mainCamera.aspect;
-
-        // Calculate the camera's boundaries
-        float minX = mainCamera.transform.position.x - cameraSize * cameraAspect;
-        float maxX = mainCamera.transform.position.x + cameraSize * cameraAspect;
-        float minY = mainCamera.transform.position.y - cameraSize;
-        float maxY = mainCamera.transform.position.y + cameraSize;
-
-        // Clamp the position within the camera's view space
-        position.x = Mathf.Clamp(position.x, minX, maxX);
-        position.y = Mathf.Clamp(position.y, minY, maxY);
-
-        return position;
-    }
-
-   
-
-   
-
     private IEnumerator MoveToPosition(Transform transform, Vector3 targetPosition)
     {
         while (transform.position != targetPosition)
