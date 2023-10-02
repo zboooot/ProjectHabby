@@ -420,6 +420,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 1420802577}
+  playerPos: {fileID: 381335590}
   numberOfLocations: 5
   minX: -6
   maxX: 6

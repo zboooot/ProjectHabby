@@ -6,6 +6,7 @@ public class Artillery : MonoBehaviour
 {
 
     public Camera mainCamera;
+    public Transform playerPos;
     public int numberOfLocations = 10; // Change the number of locations here
     public float minX = -5f; // Adjust these values based on your camera size and desired range
     public float maxX = 5f;
@@ -22,7 +23,7 @@ public class Artillery : MonoBehaviour
 
     private void Start()
     {
-       // StartCoroutine(SpawnArtilleryWithDelay());
+        //StartCoroutine(SpawnArtilleryWithDelay());
 
         //GenerateRandomLocations(numberOfLocations);
 
@@ -32,15 +33,15 @@ public class Artillery : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            //StartCoroutine(SpawnArtilleryWithDelay());
+            StartCoroutine(SpawnArtilleryWithDelay());
         }
     }
 
     public IEnumerator SpawnArtilleryWithDelay()
     {
         // Calculate local boundaries for random artillery positions
-        Vector3 localMinBoundary = artilleryPos.InverseTransformPoint(mainCamera.transform.position + new Vector3(minX, minY, 0));
-        Vector3 localMaxBoundary = artilleryPos.InverseTransformPoint(mainCamera.transform.position + new Vector3(maxX, maxY, 0));
+        Vector3 localMinBoundary = artilleryPos.InverseTransformPoint(playerPos.transform.position + new Vector3(minX, minY, 0));
+        Vector3 localMaxBoundary = artilleryPos.InverseTransformPoint(playerPos.transform.position + new Vector3(maxX, maxY, 0));
 
         List<Vector3> circleIndicatorPositions = new List<Vector3>();
         List<Vector3> usedPositions = new List<Vector3>(); // Keep track of used positions
