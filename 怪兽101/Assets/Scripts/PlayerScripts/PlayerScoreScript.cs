@@ -16,11 +16,12 @@ public class PlayerScoreScript : MonoBehaviour
     public Artillery ArtilleryScript;
     bool isActivating;
     bool isBombing;
+    bool isBlinking;
 
     public float blinkSpeed = 0.1f; // Speed of the blinking effect
     public float minAlpha = 0.0f;   // Minimum alpha value (fully transparent)
     public float maxAlpha = 1.0f;   // Maximum alpha value (fully opaque)
-    public float lifeDuration = 2.5f; // Time the zone will exist before being destroyed
+    public float lifeDuration = 1.5f; // Time the zone will exist before being destroyed
     private float currentLife;
 
     public GameObject warningZone;
@@ -56,15 +57,27 @@ public class PlayerScoreScript : MonoBehaviour
 
     private void Update()
     {
-        BlinkingEffect();
+        currentLife += Time.deltaTime;
+
+        if (isBombing == true & currentLife <= lifeDuration)
+        {
+            BlinkingEffect();
+        }
+        else // Turn off after the specified duration
+        {
+            warningZone.SetActive(false);
+            currentLife = 0;
+            isBombing = false;
+
+        }
+
+
     }
 
     void BlinkingEffect()
     {
         if (isBombing == true)
         {
-            currentLife += Time.deltaTime;
-
             warningZone.SetActive(true);
             // Update the alpha value to create a blinking effect
             currentAlpha += blinkDirection * blinkSpeed * Time.deltaTime;
@@ -80,15 +93,7 @@ public class PlayerScoreScript : MonoBehaviour
             {
                 blinkDirection *= -1.0f;
             }
-            // Destroy the square after the specified duration
-            if (currentLife == lifeDuration)
-            {
-                warningZone.SetActive(false);
-                {
-                    currentLife = 0;
-                    isBombing = false;
-                }
-            }
+
         }
 
     }
@@ -163,7 +168,6 @@ public class PlayerScoreScript : MonoBehaviour
         isBombing = true;
         warningZone.transform.position = player.transform.position;
         SpawnObject(randomSpawnPoint);
-
 
     }
 

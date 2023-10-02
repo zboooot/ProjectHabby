@@ -26,11 +26,10 @@ public class JetEnemy : MonoBehaviour
         checkPosition();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         // Run the despawn timer
         DespawnTimer();
-
         //Check if can fire
         CheckCanFire();
     }
@@ -41,7 +40,7 @@ public class JetEnemy : MonoBehaviour
         if (isPlayerWithinCollider && Time.time > nextFireTime)
         {
             MissilesAway();
-            nextFireTime = Time.time + 1f / fireRate;
+            nextFireTime = Time.time + 4f / fireRate;
         }
     }
 

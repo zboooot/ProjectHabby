@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlaneMissileScript : MonoBehaviour
 {
     public float missilespeed = 20f;     // Speed at which the missile moves
-    public int damageAmount = 10;    // Amount of damage the bomb does to the player
+    public int damageAmount = 10;    // Amount of damage the missile does to the player
     public EnemyScriptableObject enemyData;
     public float destroyTime; // Set the default destroy time in seconds
     private float currentTime = 0f;
@@ -35,6 +35,7 @@ public class PlaneMissileScript : MonoBehaviour
 
     void CheckAndFire()
     {
+
         if (transform.position.x > jetPos.position.x)
         {
             spriteRenderer.flipX = true;
