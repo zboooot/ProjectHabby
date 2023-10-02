@@ -17,6 +17,7 @@ public class Artillery : MonoBehaviour
     public Transform artilleryPos;
     public float moveSpeed;
     public GameObject CircleIndicatorPrefab;
+    public GameObject explosionVFX;
 
     [SerializeField]
     private List<Vector3> objectPositions = new List<Vector3>();
@@ -106,14 +107,22 @@ public class Artillery : MonoBehaviour
     {
         if (artillery != null)
         {
+           
             while (Vector3.Distance(transform.position, targetPosition) > 0.01f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
                 yield return null;
             }
+            // Destroy the artillery prefab instance
+            Destroy(artillery, 1f);
+            // Create and play the explosion VFX
+            GameObject explosion = Instantiate(explosionVFX, artillery.transform.position, Quaternion.identity);
 
-            // When the object is close enough to the target position, destroy the artillery prefab instance
-            Destroy(artillery);
+            
+            // Wait for the VFX to finish playing
+            yield return new WaitForSeconds(0.1f);
+
+           
         }
         else
         {

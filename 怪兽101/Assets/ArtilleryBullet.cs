@@ -7,6 +7,7 @@ public class ArtilleryBullet : MonoBehaviour
     public EnemyScriptableObject enemyData;
     public float destroyTime = 10f;
     private float currentTime = 0f;
+    public GameObject explosionVFX;
     private void Update()
     {
         currentTime += Time.deltaTime;
@@ -21,7 +22,10 @@ public class ArtilleryBullet : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            GameObject bomb = Instantiate(explosionVFX, collision.transform.position, Quaternion.identity);
             collision.gameObject.GetComponent<PlayerHealthScript>().TakeDamage(enemyData.attackDamage);
+           
+
             Destroy(gameObject);
         }
     }
