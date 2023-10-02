@@ -12,12 +12,13 @@ public class PlayerScoreScript : MonoBehaviour
 
     private Animator anim;
     public Transform[] spawnPoints;
-
+    public Artillery ArtilleryScript;
     bool isActivating;
 
     private void Start()
     {
         anim = GameObject.Find("MilitaryAbilityWarning").GetComponent<Animator>();
+        ArtilleryScript = GameObject.Find("Artyspawner").GetComponent<Artillery>();
 
         // Check if we have at least one spawn point
         if (spawnPoints.Length == 0)
@@ -31,14 +32,24 @@ public class PlayerScoreScript : MonoBehaviour
     public void EntityDestroyed()
     {
         entitiesDestroyedCount++;
-        Debug.Log("Enemies Destroyed: " + entitiesDestroyedCount);
 
-        if (entitiesDestroyedCount >= 10)
+        if (entitiesDestroyedCount >= 2)
         {
             if(isActivating != true)
             {
-                ActivateSkill();
-                Debug.Log("incoming skill!");
+                BombingRun();
+            }
+            else
+            {
+                entitiesDestroyedCount = 0;
+            }
+        }
+
+        if (entitiesDestroyedCount >= 30)
+        {
+            if (isActivating != true)
+            {
+                StartCoroutine(ArtilleryScript.SpawnArtilleryWithDelay());
             }
             else
             {
@@ -48,7 +59,7 @@ public class PlayerScoreScript : MonoBehaviour
 
     }
 
-    public void ActivateSkill()
+    public void BombingRun()
     {
         if (enemyPlane != null)
         {

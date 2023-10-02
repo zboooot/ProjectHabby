@@ -15,66 +15,104 @@ public class Artillery : MonoBehaviour
     public GameObject artilleryPrefab;
     public Transform artilleryPos;
     public float moveSpeed;
+    public GameObject CircleIndicatorPrefab;
 
     [SerializeField]
     private List<Vector3> objectPositions = new List<Vector3>();
 
     private void Start()
     {
-        StartCoroutine(SpawnArtilleryWithDelay());
+       // StartCoroutine(SpawnArtilleryWithDelay());
 
         //GenerateRandomLocations(numberOfLocations);
-       
+
     }
 
-    private IEnumerator SpawnArtilleryWithDelay()
+    private void FixedUpdate()
     {
-        // Calculate the local boundaries of the camera relative to the artillery spawner
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            //StartCoroutine(SpawnArtilleryWithDelay());
+        }
+    }
+
+    public IEnumerator SpawnArtilleryWithDelay()
+    {
+        // Calculate local boundaries for random artillery positions
         Vector3 localMinBoundary = artilleryPos.InverseTransformPoint(mainCamera.transform.position + new Vector3(minX, minY, 0));
         Vector3 localMaxBoundary = artilleryPos.InverseTransformPoint(mainCamera.transform.position + new Vector3(maxX, maxY, 0));
 
+        List<Vector3> circleIndicatorPositions = new List<Vector3>();
+        List<Vector3> usedPositions = new List<Vector3>(); // Keep track of used positions
+
         for (int i = 0; i < numberOfLocations; i++)
         {
-            // Generate random local positions within the boundaries
-            float localX = Random.Range(localMinBoundary.x, localMaxBoundary.x);
-            float localY = Random.Range(localMinBoundary.y, localMaxBoundary.y);
+            Vector3 randomPosition = GetRandomPosition(localMinBoundary, localMaxBoundary, usedPositions);
+            circleIndicatorPositions.Add(randomPosition);
 
-            // Transform local positions to global positions
-            Vector3 randomPosition = artilleryPos.TransformPoint(new Vector3(localX, localY, 0));
+            GameObject circleIndicator = Instantiate(CircleIndicatorPrefab, randomPosition, Quaternion.identity);
+            // Wait for 0.3 seconds before spawning the next circle indicator
+            yield return new WaitForSeconds(0.3f);
+        }
+        // Wait for 3 seconds before spawning the artillery
+        yield return new WaitForSeconds(3f);
 
+        for (int i = 0; i < numberOfLocations; i++)
+        {
+            Vector3 randomPosition = circleIndicatorPositions[i];
             GameObject artillery = Instantiate(artilleryPrefab, artilleryPos.position, Quaternion.identity);
             objectPositions.Add(randomPosition);
 
-            // Calculate the direction from the current position to the target position
             Vector3 moveDirection = (randomPosition - artillery.transform.position).normalized;
-
-            // Calculate the angle in radians
             float angle = Mathf.Atan2(moveDirection.y, moveDirection.x);
-
-            // Calculate the rotation in degrees, making the negative Y-axis face the direction
             float rotationAngle = Mathf.Rad2Deg * angle - 90f;
-
-            // Rotate the artillery prefab
             artillery.transform.rotation = Quaternion.Euler(0f, 0f, rotationAngle);
 
-            // Start moving the artillery and destroy it when it stops moving
-            StartCoroutine(MoveToPosition(artillery.transform, randomPosition));
-
-            // Wait for 0.3 seconds before spawning the next artillery
+            StartCoroutine(MoveToPosition(artillery, artillery.transform, randomPosition));
             yield return new WaitForSeconds(0.3f);
         }
     }
 
-
-    private IEnumerator MoveToPosition(Transform transform, Vector3 targetPosition)
+    private Vector3 GetRandomPosition(Vector3 minBoundary, Vector3 maxBoundary, List<Vector3> usedPositions)
     {
-        if(gameObject != null)
+        Vector3 randomPosition;
+
+        do
         {
-            while (transform.position != targetPosition)
+            float localX = Random.Range(minBoundary.x, maxBoundary.x);
+            float localY = Random.Range(minBoundary.y, maxBoundary.y);
+            randomPosition = artilleryPos.TransformPoint(new Vector3(localX, localY, 0));
+        }
+        while (IsTooClose(randomPosition, usedPositions));
+
+        usedPositions.Add(randomPosition);
+        return randomPosition;
+    }
+
+    private bool IsTooClose(Vector3 position, List<Vector3> positions, float minDistance = 1f)
+    {
+        foreach (Vector3 existingPosition in positions)
+        {
+            if (Vector3.Distance(position, existingPosition) < minDistance)
+            {
+                return true; // Too close to an existing position
+            }
+        }
+        return false; // Not too close to any existing position
+    }
+
+    private IEnumerator MoveToPosition(GameObject artillery, Transform transform, Vector3 targetPosition)
+    {
+        if (artillery != null)
+        {
+            while (Vector3.Distance(transform.position, targetPosition) > 0.01f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
                 yield return null;
             }
+
+            // When the object is close enough to the target position, destroy the artillery prefab instance
+            Destroy(artillery);
         }
         else
         {
@@ -83,4 +121,5 @@ public class Artillery : MonoBehaviour
     }
 }
 
-   
+
+

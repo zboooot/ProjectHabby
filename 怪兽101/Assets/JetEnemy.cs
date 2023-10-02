@@ -5,44 +5,58 @@ using UnityEngine;
 
 public class JetEnemy : MonoBehaviour
 {
-    public float moveSpeed = 10f;
+    public float moveSpeed = 5f;
     private Rigidbody2D rb;
-    private SpriteRenderer spriteRenderer;
 
     public Transform cameraTransform;
-    public float destroyTime = 10f;
-    private float currentTime = 0f;
 
-    public GameObject bombPrefab;
+    public GameObject missilePrefab;
     public Transform firingPoint;
     public float fireRate = 1f;
     private float nextFireTime = 0f;
+
+    public float destroyAfterSeconds = 12f;
+    private float destroyTimer;
+
 
     private bool isPlayerWithinCollider = false; // Flag to check if the player is within the collider
 
     private void Start()
     {
         cameraTransform = GameObject.Find("Main Camera").GetComponent<Transform>();
-        spriteRenderer = GetComponent<SpriteRenderer>(); 
+        destroyTimer = 0;
         checkPosition();
     }
 
     private void Update()
     {
-        currentTime += Time.deltaTime;
+        // Run the despawn timer
+        DespawnTimer();
 
-        if (currentTime >= destroyTime)
-        {
-            Destroy(gameObject);
-        }
+        //Check if can fire
+        CheckCanFire();
+    }
 
-        // Check if the player is within the collider and enough time has passed to drop another bomb
+    void CheckCanFire()
+    {
+
         if (isPlayerWithinCollider && Time.time > nextFireTime)
         {
-            BombsAway();
+            MissilesAway();
             nextFireTime = Time.time + 1f / fireRate;
         }
     }
+
+    void DespawnTimer()
+    {
+        destroyTimer += Time.deltaTime;
+
+        if (destroyTimer >= destroyAfterSeconds) // Check if it's time to destroy the plane
+        {
+            Destroy(gameObject);
+        }
+    }
+
 
     void checkPosition()
     {
@@ -52,7 +66,7 @@ public class JetEnemy : MonoBehaviour
         }
         else
         {
-            MoveRight();   
+            MoveRight();
         }
     }
 
@@ -72,22 +86,32 @@ public class JetEnemy : MonoBehaviour
         }
     }
 
-    void BombsAway()
+    void MissilesAway()
     {
-        GameObject newBomb = Instantiate(bombPrefab, firingPoint.position, firingPoint.rotation);
+        GameObject newMissile = Instantiate(missilePrefab, firingPoint.position, firingPoint.rotation);
     }
 
     void MoveLeft()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer.flipX = false;
+        Vector3 scale = transform.localScale;
+        scale.x *= 1;
+        // Apply the new scale
+        transform.localScale = scale;
+
         rb.velocity = new Vector2(-moveSpeed, 0f);
+
+
     }
 
     void MoveRight()
     {
         rb = GetComponent<Rigidbody2D>();
-        spriteRenderer.flipX = true;
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        // Apply the new scale
+        transform.localScale = scale;
+
         rb.velocity = new Vector2(moveSpeed, 0f);
     }
 }
