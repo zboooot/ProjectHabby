@@ -11,14 +11,29 @@ public class PlayerScoreScript : MonoBehaviour
     public GameObject enemyPlane;
 
     private Animator anim;
+    public Transform player;
     public Transform[] spawnPoints;
     public Artillery ArtilleryScript;
     bool isActivating;
+    bool isBombing;
+
+    public float blinkSpeed = 0.1f; // Speed of the blinking effect
+    public float minAlpha = 0.0f;   // Minimum alpha value (fully transparent)
+    public float maxAlpha = 1.0f;   // Maximum alpha value (fully opaque)
+    public float lifeDuration = 2.5f; // Time the zone will exist before being destroyed
+    private float currentLife;
+
+    public GameObject warningZone;
+    private Color originalColor;
+    private float currentAlpha;
+    private float blinkDirection = 1.0f; // Used to control the blinking direction
+
 
     private void Start()
     {
         anim = GameObject.Find("MilitaryAbilityWarning").GetComponent<Animator>();
         ArtilleryScript = GameObject.Find("Artyspawner").GetComponent<Artillery>();
+        warningZone.SetActive(false);
 
         // Check if we have at least one spawn point
         if (spawnPoints.Length == 0)
@@ -26,8 +41,57 @@ public class PlayerScoreScript : MonoBehaviour
             Debug.LogError("No spawn points assigned!");
             return;
         }
+        
+        if (warningZone == null)
+        {
+            Debug.LogError("SpriteRenderer component not found.");
+            return;
+        }
+
+        originalColor = warningZone.GetComponent<SpriteRenderer>().color;
+        currentAlpha = originalColor.a;
+
+       
     }
 
+    private void Update()
+    {
+        BlinkingEffect();
+    }
+
+    void BlinkingEffect()
+    {
+        if (isBombing == true)
+        {
+            currentLife += Time.deltaTime;
+
+            warningZone.SetActive(true);
+            // Update the alpha value to create a blinking effect
+            currentAlpha += blinkDirection * blinkSpeed * Time.deltaTime;
+            currentAlpha = Mathf.Clamp(currentAlpha, minAlpha, maxAlpha);
+
+            // Apply the new color with the updated alpha value
+            Color newColor = warningZone.GetComponent<SpriteRenderer>().color;
+            newColor.a = currentAlpha;
+            warningZone.GetComponent<SpriteRenderer>().color = newColor;
+
+            // Change blinking direction at the alpha limits
+            if (currentAlpha <= minAlpha || currentAlpha >= maxAlpha)
+            {
+                blinkDirection *= -1.0f;
+            }
+            // Destroy the square after the specified duration
+            if (currentLife == lifeDuration)
+            {
+                warningZone.SetActive(false);
+                {
+                    currentLife = 0;
+                    isBombing = false;
+                }
+            }
+        }
+
+    }
 
     public void EntityDestroyed()
     {
@@ -74,6 +138,7 @@ public class PlayerScoreScript : MonoBehaviour
             entitiesDestroyedCount = 0;
 
             Invoke("ResetActivation", 15f);
+
         }
         
     }
@@ -95,7 +160,11 @@ public class PlayerScoreScript : MonoBehaviour
         Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
 
         // Instantiate the GameObject at the desired position
+        isBombing = true;
+        warningZone.transform.position = player.transform.position;
         SpawnObject(randomSpawnPoint);
+
+
     }
 
     public void SpawnObject(Transform spawnPoint)

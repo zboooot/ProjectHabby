@@ -18,9 +18,7 @@ public class JetEnemy : MonoBehaviour
     public float destroyAfterSeconds = 12f;
     private float destroyTimer;
 
-
     private bool isPlayerWithinCollider = false; // Flag to check if the player is within the collider
-
     private void Start()
     {
         cameraTransform = GameObject.Find("Main Camera").GetComponent<Transform>();
@@ -100,7 +98,6 @@ public class JetEnemy : MonoBehaviour
         transform.localScale = scale;
 
         rb.velocity = new Vector2(-moveSpeed, 0f);
-
 
     }
 
