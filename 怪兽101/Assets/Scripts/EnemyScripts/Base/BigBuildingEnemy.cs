@@ -11,6 +11,7 @@ public class BigBuildingEnemy : MonoBehaviour
     public Targetable buildingType;
     private Collider2D buildingCollider;
     public PlayerInputHandler inputHandler;
+    public LevelManager levelManager;
 
     [SerializeField] private GameObject pfCoin;
 
@@ -38,6 +39,7 @@ public class BigBuildingEnemy : MonoBehaviour
         playerScore = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScoreScript>();
         inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
 
+        levelManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LevelManager>();
         originalColor = spriteRenderer.color;
     }
 
@@ -61,6 +63,7 @@ public class BigBuildingEnemy : MonoBehaviour
             playerScore.EntityDestroyed();
         }
 
+        levelManager.CalculateScore(1);
         inputHandler.ChargeUltimate(10);
         buildingCollider.enabled = false;
         spriteRenderer.sprite = destroyedSprite;

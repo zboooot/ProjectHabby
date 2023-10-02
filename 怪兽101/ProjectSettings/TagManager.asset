@@ -14,6 +14,7 @@ TagManager:
   - Landmark
   - End
   - Civilian
+  - GameManager
   layers:
   - Default
   - TransparentFX
