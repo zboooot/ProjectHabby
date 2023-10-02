@@ -15,6 +15,7 @@ TagManager:
   - End
   - Civilian
   - GameManager
+  - Jet
   layers:
   - Default
   - TransparentFX

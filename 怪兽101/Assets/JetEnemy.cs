@@ -18,7 +18,9 @@ public class JetEnemy : MonoBehaviour
     public float destroyAfterSeconds = 12f;
     private float destroyTimer;
 
+    private bool movingLeft;
     private bool isPlayerWithinCollider = false; // Flag to check if the player is within the collider
+
     private void Start()
     {
         cameraTransform = GameObject.Find("Main Camera").GetComponent<Transform>();
@@ -40,7 +42,7 @@ public class JetEnemy : MonoBehaviour
         if (isPlayerWithinCollider && Time.time > nextFireTime)
         {
             MissilesAway();
-            nextFireTime = Time.time + 4f / fireRate;
+            nextFireTime = Time.time + 1.5f / fireRate;
         }
     }
 
@@ -80,12 +82,22 @@ public class JetEnemy : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             isPlayerWithinCollider = false; // Player has exited the collider
+
         }
     }
 
     void MissilesAway()
     {
         GameObject newMissile = Instantiate(missilePrefab, firingPoint.position, firingPoint.rotation);
+        if (movingLeft == true)
+        {
+            newMissile.GetComponent<PlaneMissileScript>().isLeft = true;
+        }
+        else
+        {
+            newMissile.GetComponent<PlaneMissileScript>().isLeft = false;
+        }
+
     }
 
     void MoveLeft()
@@ -95,6 +107,7 @@ public class JetEnemy : MonoBehaviour
         scale.x *= 1;
         // Apply the new scale
         transform.localScale = scale;
+        movingLeft = true;
 
         rb.velocity = new Vector2(-moveSpeed, 0f);
 
@@ -107,6 +120,7 @@ public class JetEnemy : MonoBehaviour
         scale.x *= -1;
         // Apply the new scale
         transform.localScale = scale;
+        movingLeft = false;
 
         rb.velocity = new Vector2(moveSpeed, 0f);
     }

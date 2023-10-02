@@ -13,6 +13,8 @@ public class PlaneMissileScript : MonoBehaviour
     public Transform jetPos;
     private SpriteRenderer spriteRenderer;
 
+    public bool isLeft;
+
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -36,17 +38,17 @@ public class PlaneMissileScript : MonoBehaviour
     void CheckAndFire()
     {
 
-        if (transform.position.x > jetPos.position.x)
+        if (isLeft == true)
         {
             spriteRenderer.flipX = true;
             GetComponent<Rigidbody2D>().velocity = new Vector2(-missilespeed, 0f);
         }
-        else if(transform.position.x < jetPos.position.x)
+        else
         {
             spriteRenderer.flipX = false;
             GetComponent<Rigidbody2D>().velocity = new Vector2(missilespeed, 0f);
         }
-        else { return; }
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
