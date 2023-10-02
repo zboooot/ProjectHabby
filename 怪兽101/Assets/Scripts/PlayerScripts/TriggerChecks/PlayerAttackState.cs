@@ -26,8 +26,6 @@ public class PlayerAttackState : PlayerIdleState
 
     public override void LogicUpdate()
     {
-        xInput = (int)input.x;
-        player.CheckFlip(xInput);
 
         base.LogicUpdate();
         if (player.InputHandler.attackNow == false)

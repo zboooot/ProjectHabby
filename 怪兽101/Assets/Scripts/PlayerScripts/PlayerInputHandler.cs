@@ -17,6 +17,8 @@ public class PlayerInputHandler : MonoBehaviour
     private float rangeY;
     public LayerMask enemyLayer;
     public Collider2D selectedEnemy;
+    bool facingLeft;
+    public bool isAttacking;
 
     void Start()
     {
@@ -29,16 +31,27 @@ public class PlayerInputHandler : MonoBehaviour
     private void Update()
     {
         ProcessInput();
+        CheckFlip();
         Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, boxSize, 0f, enemyLayer);
 
         if (colliders.Length > 0)
         {
             Collider2D nearestEnemy = FindNearestEnemy(colliders);
             selectedEnemy = nearestEnemy;
-            CheckAttack(true);
+            if(isAttacking == false)
+            {
+                CheckAttack(true);
+                isAttacking = true;
+                Invoke("ResetAttack", playerSO.attackSpeed);
+            }
         }
 
         else { selectedEnemy = null; CheckAttack(false); }
+    }
+
+    void ResetAttack()
+    {
+        isAttacking = false;
     }
 
     private void FixedUpdate()
@@ -154,6 +167,31 @@ public class PlayerInputHandler : MonoBehaviour
         {
             currentUltimateCharge = playerSO.maxUltimateCharge;
         }
+    }
+    public void CheckFlip()
+    {
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            if(facingLeft != true)
+            {
+                transform.Rotate(0.0f, 180.0f, 0.0f);
+                facingLeft = true;
+            }
+
+            else { return; }
+        }
+
+        else if (Input.GetKeyDown(KeyCode.D))
+        {
+            if (facingLeft == true)
+            {
+                transform.Rotate(0.0f, -180.0f, 0.0f);
+                facingLeft = false;
+            }
+
+            else { return; }
+        }
+
     }
 
     void OnAnimationMove()

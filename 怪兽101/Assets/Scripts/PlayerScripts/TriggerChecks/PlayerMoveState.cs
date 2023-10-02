@@ -29,9 +29,6 @@ public class PlayerMoveState : PlayerIdleState
     {
         base.LogicUpdate();
 
-        xInput = (int)input.x;
-        player.CheckFlip(xInput);
-
         if(input.magnitude == 0f)
         {
             stateMachine.ChangeState(player.IdleState);
