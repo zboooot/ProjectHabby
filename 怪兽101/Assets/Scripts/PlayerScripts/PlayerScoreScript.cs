@@ -16,7 +16,6 @@ public class PlayerScoreScript : MonoBehaviour
     public Artillery ArtilleryScript;
     bool isActivating;
     bool isBombing;
-    bool isBlinking;
 
     public float blinkSpeed = 0.1f; // Speed of the blinking effect
     public float minAlpha = 0.0f;   // Minimum alpha value (fully transparent)
@@ -163,10 +162,15 @@ public class PlayerScoreScript : MonoBehaviour
     {
         // Randomly choose a spawn point
         Transform randomSpawnPoint = spawnPoints[Random.Range(0, spawnPoints.Length)];
-
+        
         // Instantiate the GameObject at the desired position
         isBombing = true;
         warningZone.transform.position = player.transform.position;
+
+        // Set spawn points to player y pos
+        spawnPoints[0].position = new Vector3(spawnPoints[0].position.x, player.position.y, spawnPoints[0].position.z);
+        spawnPoints[1].position = new Vector3(spawnPoints[1].position.x, player.position.y, spawnPoints[1].position.z);
+        
         SpawnObject(randomSpawnPoint);
 
     }
