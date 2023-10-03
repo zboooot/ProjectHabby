@@ -10,17 +10,31 @@ public class ShakeScript : MonoBehaviour
 
     private Vector3 originalPosition;
     private Transform targetTransform;
+    private CinemachineVirtualCamera cine;
+    private Transform player;
 
     private void Start()
     {
         targetTransform = transform;
         originalPosition = targetTransform.localPosition;
-
+        cine = GetComponent<CinemachineVirtualCamera>();
+        player = cine.Follow;
     }
 
     public void StartShake()
     {
         StartCoroutine(ShakeCoroutine());
+    }
+
+    public void CineShake()
+    {
+        cine.Follow = null;
+        StartCoroutine(ShakeCoroutine());
+    }
+
+    public void ReAssignCam()
+    {
+        cine.Follow = player;
     }
 
     private IEnumerator ShakeCoroutine()

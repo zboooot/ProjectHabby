@@ -16,6 +16,7 @@ public class GameManagerScript : MonoBehaviour
         deployScreen.SetActive(true);
         player = GameObject.Find("Player");
         player.GetComponent<SpriteRenderer>().enabled = false;
+
     }
 
 
@@ -31,8 +32,7 @@ public class GameManagerScript : MonoBehaviour
     void StartGame()
     {
         Time.timeScale = 1;
-        // Spawn the player
-        player.GetComponent<SpriteRenderer>().enabled = true;
+        
 
         // Optionally, set the player's parent or any other initialization
 
