@@ -18,12 +18,17 @@ public class EnemySpawner : MonoBehaviour
     public int numberofEnemies;
     public int NumberofWaves;
     private bool roundComplete;
-    
+    public float CityDestructionLevel;
+    public LevelManagerScriptableObject levelData;
+
+
 
     public TMP_Text Waveno;
 
     public List<GameObject> spawnedEnemies = new List<GameObject>();
     public List<SpawnedEnemy> separateSpawnedEnemies = new List<SpawnedEnemy>();
+
+    public LevelManager LevelManagerScript;
 
     // ...
 
@@ -35,6 +40,7 @@ public class EnemySpawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        CityDestructionLevel = levelData.destructionLevel;
        
         roundComplete = false;
         GenerateWave();
@@ -43,20 +49,53 @@ public class EnemySpawner : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (currWave < NumberofWaves && spawnTimer <= 0)
+          CityDestructionLevel = levelData.destructionLevel;
+
+        // Check if the CityDestructionLevel and currWave meet the conditions for spawning
+        if (!((CityDestructionLevel == 0 && currWave >= 1 && currWave <= 3) ||
+              (CityDestructionLevel == 1 && currWave >= 4 && currWave <= 6) ||
+              (CityDestructionLevel == 2 && currWave >= 7 && currWave <= 10)))
         {
-            // Spawn an enemy
+            // CityDestructionLevel and currWave conditions are not met, so skip to the lowest wave in the next city destruction level.
+            if (CityDestructionLevel == 0)
+            {
+                currWave = 1;
+            }
+            else if (CityDestructionLevel == 1)
+            {
+                currWave = 4;
+            }
+            else if (CityDestructionLevel == 2)
+            {
+                currWave = 7;
+            }
+
+            GenerateWave(); // Generate the next wave
+            return;
+        }
+
+        if (currWave < NumberofWaves && spawnTimer <= 0 && spawnedEnemies.Count == 0)
+        {
+            // Check if there are enemies to spawn
             if (enemiesToSpawn.Count > 0)
             {
-                // Choose a random spawn position within the specified range
-                Vector2 randomSpawnPosition = new Vector2(
-                    Random.Range(minSpawnPosition.x, maxSpawnPosition.x),
-                    Random.Range(minSpawnPosition.y, maxSpawnPosition.y)
-                );
+                // Loop through the enemies to spawn and spawn them all
+                foreach (GameObject enemyPrefab in enemiesToSpawn)
+                {
+                    // Choose a random spawn position within the specified range
+                    Vector2 randomSpawnPosition = new Vector2(
+                        Random.Range(minSpawnPosition.x, maxSpawnPosition.x),
+                        Random.Range(minSpawnPosition.y, maxSpawnPosition.y)
+                    );
 
-                GameObject enemy = Instantiate(enemiesToSpawn[0], randomSpawnPosition, Quaternion.identity);
-                enemiesToSpawn.RemoveAt(0);
-                spawnedEnemies.Add(enemy);
+                    GameObject enemy = Instantiate(enemyPrefab, randomSpawnPosition, Quaternion.identity);
+                    spawnedEnemies.Add(enemy);
+                }
+
+                // Clear the enemiesToSpawn list
+                enemiesToSpawn.Clear();
+
+                // Reset the spawn timer
                 spawnTimer = spawnInterval;
             }
             else
@@ -81,11 +120,32 @@ public class EnemySpawner : MonoBehaviour
         }
 
         Waveno.text = "Wave " + currWave;
-
     }
 
     public void GenerateWave()
     {
+        // Determine the wave range based on the CityDestructionLevel
+        int minWave = 1;
+        int maxWave = 3; // Default range for CityDestructionLevel 0
+
+        if (levelData.destructionLevel == 1)
+        {
+            minWave = 4;
+            maxWave = 6;
+        }
+
+        if (levelData.destructionLevel == 2)
+        {
+            minWave = 7;
+            maxWave = 10;
+        }
+
+        // Ensure that currWave stays within the specified range
+        if (currWave < minWave || currWave > maxWave)
+        {
+            currWave = minWave;
+        }
+
         switch (currWave)
         {
             case 1:
@@ -107,6 +167,7 @@ public class EnemySpawner : MonoBehaviour
                 waveValue = 60;
                 break;
             case 7:
+
                 waveValue = 70;
                 break;
             case 8:
@@ -129,7 +190,7 @@ public class EnemySpawner : MonoBehaviour
         GenerateEnemies();
 
         // Calculate spawn interval based on your desired rate
-        spawnInterval = 1.0f; // Example: Spawn an enemy every 3 seconds
+        spawnInterval = 1.0f; // Example: Spawn an enemy every  seconds
         waveTimer = waveDuration;
     }
 
