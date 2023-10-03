@@ -26,6 +26,7 @@ public class BigBuildingEnemy : MonoBehaviour
     private Color originalColor;
 
     private PlayerScoreScript playerScore;
+    private ShakeScript shakeScript;
 
     float pushForce = 2f;
     float upForce = 5f;
@@ -38,16 +39,19 @@ public class BigBuildingEnemy : MonoBehaviour
         buildingCollider = GetComponent<BoxCollider2D>();
         playerScore = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScoreScript>();
         inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
-
         levelManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LevelManager>();
+        shakeScript = GetComponent<ShakeScript>();
         originalColor = spriteRenderer.color;
     }
 
     public void TakeDamage(float damage)
     {
         tempHealth -= damage;
+
+        shakeScript.StartShake();
         SpawnCivilian();
         DamageEffect();
+
         if (tempHealth <= 0)
         {
             SpawnCoin();

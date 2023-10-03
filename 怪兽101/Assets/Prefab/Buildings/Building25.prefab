@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -4724668986751725075}
   - component: {fileID: 3340707703585496521}
   - component: {fileID: 1110348362349079715}
+  - component: {fileID: -5650571371076566043}
   m_Layer: 7
   m_Name: Building25
   m_TagString: BigBuilding
@@ -103,6 +104,7 @@ MonoBehaviour:
   destroyedSprite: {fileID: 21300000, guid: 7c47aed88e577504b951ae4c0919f0fa, type: 3}
   buildingType: {fileID: 0}
   inputHandler: {fileID: 0}
+  levelManager: {fileID: 0}
   pfCoin: {fileID: 68998136515679623, guid: 97d85bc601e37404c8ddadc334626a85, type: 3}
   pfDelvin: {fileID: 2411092050883332399, guid: e44870b68705c5a4c8352f73f8249dc1, type: 3}
   minEntities: 1
@@ -148,3 +150,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyType: 2
   player: {fileID: 0}
+--- !u!114 &-5650571371076566043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1710197079424402847}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1d1dee8165ad3646b74c4ac32988a25, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shakeDuration: 0.2
+  shakeStrength: 0.2
