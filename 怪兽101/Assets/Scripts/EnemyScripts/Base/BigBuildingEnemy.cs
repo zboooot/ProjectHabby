@@ -7,6 +7,7 @@ public class BigBuildingEnemy : MonoBehaviour
     public EnemyScriptableObject SO_enemy;
     float tempHealth;
     private SpriteRenderer spriteRenderer;
+    public Sprite damagedSprite;
     public Sprite destroyedSprite;
     public Targetable buildingType;
     private Collider2D buildingCollider;
@@ -47,7 +48,7 @@ public class BigBuildingEnemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         tempHealth -= damage;
-
+        spriteRenderer.sprite = damagedSprite;
         shakeScript.StartShake();
         SpawnCivilian();
         DamageEffect();
@@ -71,6 +72,8 @@ public class BigBuildingEnemy : MonoBehaviour
         inputHandler.ChargeUltimate(10);
         buildingCollider.enabled = false;
         spriteRenderer.sprite = destroyedSprite;
+        spriteRenderer.sortingLayerName = "Default";
+        spriteRenderer.sortingOrder = 2;
         spriteRenderer.color = originalColor;
     }
     private void SpawnCoin()
