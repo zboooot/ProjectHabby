@@ -18,7 +18,15 @@ public class ShakeScript : MonoBehaviour
         targetTransform = transform;
         originalPosition = targetTransform.localPosition;
         cine = GetComponent<CinemachineVirtualCamera>();
-        player = cine.Follow;
+        if(player != null)
+        {
+            player = cine.Follow;
+        }
+        else
+        {
+            return;
+        }
+       
     }
 
     public void StartShake()
