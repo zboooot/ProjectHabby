@@ -48,7 +48,7 @@ public class PlayerInputHandler : MonoBehaviour
                 Vector2 direction = collider.transform.position - transform.position;
                 float angle = Vector2.Angle(direction, transform.right);
 
-                if (angle < 145f / 2f)
+                if (angle < 110f / 2f)
                 {
                     Collider2D nearestEnemy = FindNearestEnemy(colliders);
                     selectedEnemy = nearestEnemy;
