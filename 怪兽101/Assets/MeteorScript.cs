@@ -14,6 +14,9 @@ public class MeteorScript : MonoBehaviour
 
     private ShakeScript shakeScript;
     public GameObject crater;
+
+    public PlayerInputHandler playerData;
+
     public void Start()
     {
         StartMoving();
@@ -27,6 +30,8 @@ public class MeteorScript : MonoBehaviour
 
         Vector2 landingPos = new Vector2(player.transform.position.x, player.transform.position.y + 6f);
         targetPosition = landingPos;
+
+        playerData = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
 
     }
 
@@ -76,8 +81,6 @@ public class MeteorScript : MonoBehaviour
             animator.SetBool("isMoving", false);
             Debug.Log("HitFloor");
             // Spawn the player
-            
-
         }
     }
 
@@ -86,7 +89,10 @@ public class MeteorScript : MonoBehaviour
         Destroy(gameObject);
     }
 
-
+    public void ActivatePlayer()
+    {
+        playerData.startScene = false;
+    }
 
     public void SpawnPlayer()
     {

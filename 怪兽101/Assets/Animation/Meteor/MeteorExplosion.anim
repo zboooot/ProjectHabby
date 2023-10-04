@@ -103,15 +103,22 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.28333333
+  - time: 0.31666666
+    functionName: SpawnPlayer
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.35
     functionName: ReassignFollow
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.31666666
-    functionName: SpawnPlayer
+  - time: 0.48333332
+    functionName: ActivatePlayer
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

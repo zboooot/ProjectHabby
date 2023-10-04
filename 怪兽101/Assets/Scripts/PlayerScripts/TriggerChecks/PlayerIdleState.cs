@@ -32,11 +32,11 @@ public class PlayerIdleState : PlayerState
     {
         base.LogicUpdate();
         //Any future playerstates will have access to the input
-        input = player.InputHandler.MovementInput;
+        input = player.InputHandler.MovementInput; 
 
-        if(player.InputHandler.playerSO.health > 0)
+        if (player.InputHandler.playerSO.health > 0)
         {
-            if(player.InputHandler.ultimating != true)
+            if (player.InputHandler.ultimating != true)
             {
                 if (input.magnitude != 0 && player.InputHandler.attackNow == false)
                 {
@@ -57,7 +57,7 @@ public class PlayerIdleState : PlayerState
 
         else
         {
-            if(alreadyDead == false)
+            if (alreadyDead == false)
             {
                 stateMachine.ChangeState(player.DeathState);
                 alreadyDead = true;

@@ -20,6 +20,8 @@ public class PlayerInputHandler : MonoBehaviour
     bool facingLeft;
     public bool isAttacking;
 
+    public bool startScene = true;
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -70,7 +72,11 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void FixedUpdate()
     {
-        OnAnimationMove();
+        if(startScene != true)
+        {
+            OnAnimationMove();
+        }
+        else { return; }
     }
 
     void ProcessInput()

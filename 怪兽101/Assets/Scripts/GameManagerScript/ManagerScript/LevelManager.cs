@@ -81,14 +81,14 @@ public class LevelManager : MonoBehaviour
         CalculateProgress();
         if(slider.value == slider.maxValue)
         {
-            SceneManager.LoadScene("GameplayScene");
             levelData.cityLevel += 1;
-            if(levelData.cityLevel != 10)
-            {
-                return;
-            }
-            else { levelData.cityLevel = 1; }
+            Invoke("ChangeLevel", 3f);
         }
+    }
+
+    private void ChangeLevel()
+    {
+        SceneManager.LoadScene("LevelSelectScene");
     }
 
     public void CalculateProgress()

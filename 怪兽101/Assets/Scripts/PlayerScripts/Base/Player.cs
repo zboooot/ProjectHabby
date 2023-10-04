@@ -29,7 +29,6 @@ public class Player : MonoBehaviour
 
     private Vector2 workspace;
 
-
     public void Awake()
     {
         StateMachine = new PlayerStateMachine();
