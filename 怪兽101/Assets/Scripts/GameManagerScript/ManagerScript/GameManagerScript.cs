@@ -6,17 +6,19 @@ public class GameManagerScript : MonoBehaviour
 {
     public GameObject player; // Prefab of the player
     public GameObject deployScreen;
-
+    public Animator barAnim;
     private bool gameStarted = false;
-
+    private bool gameRevealed = false;
+    
 
     private void Start()
     {
         Time.timeScale = 0;
         deployScreen.SetActive(true);
         player = GameObject.Find("Player");
+      
         player.GetComponent<SpriteRenderer>().enabled = false;
-
+        barAnim.SetBool("RevealGame", false);
     }
 
 
@@ -28,7 +30,23 @@ public class GameManagerScript : MonoBehaviour
         }
     }
 
+    public void CloseBar()
+    {
 
+            barAnim.SetBool("GameRevealed", true);
+            Debug.Log("ShowGame");
+        
+
+    }
+
+    public void OpenBar()
+    {
+       
+            barAnim.SetBool("RevealGame", true);
+
+            gameRevealed = true;
+        
+    }
     void StartGame()
     {
         Time.timeScale = 1;
@@ -36,11 +54,15 @@ public class GameManagerScript : MonoBehaviour
 
         // Optionally, set the player's parent or any other initialization
 
-        // Set the game as started
-        gameStarted = true;
+       
 
         // Call any other functions or actions to start your game
         deployScreen.SetActive(false);
+
+        // Set the game as started
+        gameStarted = true;
+        OpenBar();
+
 
     }
 }
