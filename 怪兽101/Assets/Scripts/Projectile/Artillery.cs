@@ -112,11 +112,13 @@ public class Artillery : MonoBehaviour
             {
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
                 yield return null;
+
             }
             // Destroy the artillery prefab instance
             Destroy(artillery, 1f);
+            Vector2 spawnPos = new Vector2(artillery.transform.position.x, artillery.transform.position.y + 1.5f);
             // Create and play the explosion VFX
-            GameObject explosion = Instantiate(explosionVFX, artillery.transform.position, Quaternion.identity);
+            GameObject explosion = Instantiate(explosionVFX, spawnPos, Quaternion.identity);
 
             
             // Wait for the VFX to finish playing
