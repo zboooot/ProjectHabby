@@ -81,6 +81,7 @@ public class BigBuildingEnemy : MonoBehaviour
         //Spawn GNA
         Vector2 randomDirection = Random.insideUnitCircle.normalized;
         GameObject coin = Instantiate(pfCoin, transform.position, Quaternion.identity);
+        coin.transform.Rotate(0, 0, 90);
     }
 
     void DamageEffect()
