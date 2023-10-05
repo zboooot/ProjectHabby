@@ -16,7 +16,7 @@ public class MeteorScript : MonoBehaviour
     public GameObject crater;
 
     public PlayerInputHandler playerData;
-
+    public GameObject enemySpawner;
     public void Start()
     {
         StartMoving();
@@ -95,6 +95,8 @@ public class MeteorScript : MonoBehaviour
     public void ActivatePlayer()
     {
         playerData.startScene = false;
+        enemySpawner.SetActive(true);
+
     }
 
     public void SpawnPlayer()

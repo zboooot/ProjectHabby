@@ -9,7 +9,7 @@ public class GameManagerScript : MonoBehaviour
     public Animator barAnim;
     private bool gameStarted = false;
     private bool gameRevealed = false;
-    
+    public GameObject enemySpawner;
 
     private void Start()
     {
@@ -19,6 +19,8 @@ public class GameManagerScript : MonoBehaviour
       
         player.GetComponent<SpriteRenderer>().enabled = false;
         barAnim.SetBool("RevealGame", false);
+
+        enemySpawner.SetActive(false);
     }
 
 
