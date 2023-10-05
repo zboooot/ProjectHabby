@@ -85,7 +85,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!61 &4411149530234238776
@@ -171,8 +171,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roamRadius: 40
   roamInterval: 5
-  upSprite: {fileID: 21300000, guid: 33aa733f67f3f704788b1616fafdd648, type: 3}
-  downSprite: {fileID: 21300000, guid: 73e5aa403afa7c34a8e049f3429f5891, type: 3}
-  leftSprite: {fileID: 21300000, guid: 5eee4b7766903474fbee59a5ffb474af, type: 3}
-  rightSprite: {fileID: 21300000, guid: 0a0ef13ae994a1f48ac6dee85fbca361, type: 3}
+  upSprite: {fileID: 21300000, guid: cf95b9021190dbc40b92ca13f1c052c4, type: 3}
+  downSprite: {fileID: 21300000, guid: b6d95caf78c3ada489393195a517e1ba, type: 3}
+  leftSprite: {fileID: 21300000, guid: 5d43bd111df78684fa382a3ebecb1012, type: 3}
+  rightSprite: {fileID: 21300000, guid: 7bc6b48389bc0ea438936e34f2c7fb65, type: 3}
   destroyedSprite: {fileID: 21300000, guid: 8da3ee36a2faec14b9ff6da8fc1e5001, type: 3}
