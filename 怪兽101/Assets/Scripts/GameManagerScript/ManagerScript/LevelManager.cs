@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
     public LevelManagerScriptableObject levelData;
     private int calculateCityDestruction;
     private int calculation1;
-
+    public GameObject levelCompleteText;
     public Slider slider;
 
     private void Awake()
@@ -18,6 +18,8 @@ public class LevelManager : MonoBehaviour
         levelData.buildingsInScene = buildings.Length;
         CalculateTotalDestruction();
         slider.maxValue = calculation1;
+        levelCompleteText = GameObject.Find("LevelCompleteText");
+        levelCompleteText.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -81,6 +83,7 @@ public class LevelManager : MonoBehaviour
         CalculateProgress();
         if(slider.value == slider.maxValue)
         {
+            levelCompleteText.SetActive(true);
             levelData.cityLevel += 1;
             Invoke("ChangeLevel", 3f);
         }

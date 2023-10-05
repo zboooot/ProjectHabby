@@ -16,6 +16,7 @@ public class MeteorScript : MonoBehaviour
     public GameObject crater;
 
     public PlayerInputHandler playerData;
+    public GameObject objController;
     public GameObject enemySpawner;
     public void Start()
     {
@@ -34,6 +35,8 @@ public class MeteorScript : MonoBehaviour
 
         playerData = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
 
+        objController = GameObject.Find("GameObjective");
+        objController.SetActive(false);    
     }
 
     public void Shake()
@@ -96,11 +99,11 @@ public class MeteorScript : MonoBehaviour
     {
         playerData.startScene = false;
         enemySpawner.SetActive(true);
-
     }
 
     public void SpawnPlayer()
     {
+        objController.SetActive(true);
         Vector2 spawnPos = new Vector2(player.transform.position.x, player.transform.position.y + 1.6f);
         Instantiate(crater, spawnPos, Quaternion.identity);
         player.GetComponent<SpriteRenderer>().enabled = true;
