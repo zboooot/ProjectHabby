@@ -1,0 +1,1687 @@
+fileFormatVersion: 2
+guid: 026c1e98601ece84ebc1cc276443fb3f
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3343.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a81ddf4668e746448a84dbd1bde53c2f
+      internalID: 1152686775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_1
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 3343.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f99a2b9a4019ed846915073cbe7c0443
+      internalID: 1464494578
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_2
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 3343.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6fcd9cca82fa464c9d354e7ad7e7d2a
+      internalID: 651452832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_3
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 3343.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cb5c8298a5193f498d4b25bd64cf0b0
+      internalID: -735340392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_4
+      rect:
+        serializedVersion: 2
+        x: 1992
+        y: 3343.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0ba0a6773149874c88664c11f670775
+      internalID: 1470290291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_5
+      rect:
+        serializedVersion: 2
+        x: 2490
+        y: 3343.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efe320841b6403e45a3493fa3b388e35
+      internalID: 2115089221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_6
+      rect:
+        serializedVersion: 2
+        x: 2988
+        y: 3343.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74ace05248c1c63449b7f05268b5609e
+      internalID: -640228259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2972.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b20add460161a24295e6772d1535ef0
+      internalID: 1914826923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_8
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 2972.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef27f0cd64729074aacc6aa57b079fbd
+      internalID: -201402699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_9
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 2972.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59598e1206e5f46418f0e78465c880dd
+      internalID: 394363354
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_10
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 2972.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77783cf7e322cb94a9a284f249732871
+      internalID: -1964129733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_11
+      rect:
+        serializedVersion: 2
+        x: 1992
+        y: 2972.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3608409300fce24498be2e299e07b77
+      internalID: -1947454323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_12
+      rect:
+        serializedVersion: 2
+        x: 2490
+        y: 2972.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bce3812851551448af648341e099103
+      internalID: 671485801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_13
+      rect:
+        serializedVersion: 2
+        x: 2988
+        y: 2972.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67e5289a6392738429d620c3a14d9f9a
+      internalID: -634759576
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2601.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86db7fe36eaf34948b96a293681e9062
+      internalID: 2065473296
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_15
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 2601.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 760f16011f9c48d4ea2dcb8b22c57fd9
+      internalID: -305279650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_16
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 2601.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ee7bd519f9317f40b4ba2ee264261b8
+      internalID: -2071411075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_17
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 2601.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f99d3cb830747ba40b41f5dc6bc504d8
+      internalID: 1203737302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_18
+      rect:
+        serializedVersion: 2
+        x: 1992
+        y: 2601.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8047b68711c38a3469587c90d4c5c743
+      internalID: -1366891174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_19
+      rect:
+        serializedVersion: 2
+        x: 2490
+        y: 2601.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e31cc13d0b727745822781dd4084898
+      internalID: 585430649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_20
+      rect:
+        serializedVersion: 2
+        x: 2988
+        y: 2601.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ac4625a33a4e544e9c56df59e85d34d
+      internalID: 1842636050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2230.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4cfe2296a4e72934481224324587f3ca
+      internalID: -1488591890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_22
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 2230.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e78fe24bc1c8e44996bd35fa1a4b5ea
+      internalID: 852999305
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_23
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 2230.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69527a7f0fb10c74fbe7652a4e90f018
+      internalID: 872081521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_24
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 2230.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28067c65a04a83546b98c4a82d71af2b
+      internalID: -1640208772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_25
+      rect:
+        serializedVersion: 2
+        x: 1992
+        y: 2230.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cedbf51112b1a48498dfb5f2a2bd70dc
+      internalID: 56233818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_26
+      rect:
+        serializedVersion: 2
+        x: 2490
+        y: 2230.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92cbe880d91b1e347ade9bf5fdf55f4d
+      internalID: -135190564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_27
+      rect:
+        serializedVersion: 2
+        x: 2988
+        y: 2230.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1581a65e85d441a42bcaf86227b229ac
+      internalID: 2134236005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_28
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1859.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82ffd305e4744f147835c59be7e25fa9
+      internalID: -1940988789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_29
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 1859.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d20b2c0c813985f4dba974f11f237969
+      internalID: 1293038289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_30
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 1859.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 565c5f1b1d85cf341aebca193cf861ca
+      internalID: 345269662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_31
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 1859.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46e1df18ed488584e939add4d7374122
+      internalID: -802113199
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_32
+      rect:
+        serializedVersion: 2
+        x: 1992
+        y: 1859.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65cadb5811a99fe429f350149d238602
+      internalID: -389334396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_33
+      rect:
+        serializedVersion: 2
+        x: 2490
+        y: 1859.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 322c9494d4c4ded4cb004d5260143ed6
+      internalID: -1652548064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_34
+      rect:
+        serializedVersion: 2
+        x: 2988
+        y: 1859.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41bdc317f1163014ea1077e314729f49
+      internalID: 178925436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_35
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1488.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90428dbf684ebe64aa375d7a20847612
+      internalID: 1324466267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_36
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 1488.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adf3695147225ab40a7560d440003fff
+      internalID: -682110414
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_37
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 1488.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4eb08329b9e45a044b8b7ad9c50a7ed5
+      internalID: 2024038487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_38
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 1488.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f33cc5cf949efc4b83d68d439ce57d8
+      internalID: -605240137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_39
+      rect:
+        serializedVersion: 2
+        x: 1992
+        y: 1488.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cbca7b98e71ffb44092e1c4abba05aae
+      internalID: -1881981015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_40
+      rect:
+        serializedVersion: 2
+        x: 2490
+        y: 1488.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2bab5662187a3c34aacb02f728f68dcd
+      internalID: 1624440547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_41
+      rect:
+        serializedVersion: 2
+        x: 2988
+        y: 1488.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7d12840f47daf64c97a9f6b08d8f3fe
+      internalID: 133134847
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_42
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1117.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8231de34f0adad540911dec4f3985471
+      internalID: -928315024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_43
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 1117.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e1ce86ed0e7d3ee42950e03ea1c62126
+      internalID: 980484502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_44
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 1117.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79c161e25d9fd3a4380fb286d5e55539
+      internalID: 1397315324
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_45
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 1117.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35192e480897f674e93ff4fe70119b18
+      internalID: 636702038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_46
+      rect:
+        serializedVersion: 2
+        x: 1992
+        y: 1117.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a2a9b6f4f0159f4b89092c144d5686c
+      internalID: -1239788735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_47
+      rect:
+        serializedVersion: 2
+        x: 2490
+        y: 1117.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aad374cff8779e4478230909cac5d5d1
+      internalID: -170701222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_48
+      rect:
+        serializedVersion: 2
+        x: 2988
+        y: 1117.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2eb589222311074ebadb15ec73352ce
+      internalID: 1571666273
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_49
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 746.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78be79c249090434f826ca1e4bcff65a
+      internalID: -1993438040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_50
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 746.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ebafb1685ce9c44c80cac77651929fa
+      internalID: 847346630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_51
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 746.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82df26a831956954a8655e05b7d57196
+      internalID: -1447991894
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_52
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 746.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d558949b2780feb41a732e1421bd83e0
+      internalID: -282182652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_53
+      rect:
+        serializedVersion: 2
+        x: 1992
+        y: 746.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80e8ff3e2b67e8440b5a854a01656be3
+      internalID: -2093358038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_54
+      rect:
+        serializedVersion: 2
+        x: 2490
+        y: 746.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f96c7aa851828134c9b3fa6fb7c6751b
+      internalID: 816481105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_55
+      rect:
+        serializedVersion: 2
+        x: 2988
+        y: 746.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae5464e472b63f047b7c53d24a0df2e2
+      internalID: 1070268698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_56
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 375.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4bae79d4d73c0f43ab23c4e1fe73037
+      internalID: -1238035367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_57
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 375.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6956f06b4362d6047a031996e66ffc7c
+      internalID: 945581999
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_58
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 375.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 417fba81983cee64bbc9672e26033823
+      internalID: -1161657720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_59
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 375.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 493f9684061f0414c80a27d78c87e58a
+      internalID: 1091502064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_60
+      rect:
+        serializedVersion: 2
+        x: 1992
+        y: 375.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b34a0d017090fc54899e0130a0c5e1e6
+      internalID: 1960923018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_61
+      rect:
+        serializedVersion: 2
+        x: 2490
+        y: 375.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f96762acc78965048833d740a148ad47
+      internalID: 1454014389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_62
+      rect:
+        serializedVersion: 2
+        x: 2988
+        y: 375.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc4c44cc90e827c49a09171b98308d05
+      internalID: 8961596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 4.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9823672474ae4c04891baca42e901b7c
+      internalID: -2098474488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_64
+      rect:
+        serializedVersion: 2
+        x: 498
+        y: 4.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41047d7001f729b428d5592147d892cb
+      internalID: -265370438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_65
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 4.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ecd2f82838abd54db4af6e4c8d2e41e
+      internalID: -1010674028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_66
+      rect:
+        serializedVersion: 2
+        x: 1494
+        y: 4.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c2e2dc93b277a44586810d4a1336c8e
+      internalID: -2041111288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_67
+      rect:
+        serializedVersion: 2
+        x: 1992
+        y: 4.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6037b73a269b04243bd8478ceb3b7964
+      internalID: -1957109123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_68
+      rect:
+        serializedVersion: 2
+        x: 2490
+        y: 4.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b1ef10e503e67c44b8f4c313dd8ffee
+      internalID: 1261136407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: dna-spinning-veed-remove-background_69
+      rect:
+        serializedVersion: 2
+        x: 2988
+        y: 4.5
+        width: 498.57144
+        height: 371.5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fbe427ee8cb7ae428388e93de785503
+      internalID: -331049197
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      dna-spinning-veed-remove-background_0: 1152686775
+      dna-spinning-veed-remove-background_1: 1464494578
+      dna-spinning-veed-remove-background_10: -1964129733
+      dna-spinning-veed-remove-background_11: -1947454323
+      dna-spinning-veed-remove-background_12: 671485801
+      dna-spinning-veed-remove-background_13: -634759576
+      dna-spinning-veed-remove-background_14: 2065473296
+      dna-spinning-veed-remove-background_15: -305279650
+      dna-spinning-veed-remove-background_16: -2071411075
+      dna-spinning-veed-remove-background_17: 1203737302
+      dna-spinning-veed-remove-background_18: -1366891174
+      dna-spinning-veed-remove-background_19: 585430649
+      dna-spinning-veed-remove-background_2: 651452832
+      dna-spinning-veed-remove-background_20: 1842636050
+      dna-spinning-veed-remove-background_21: -1488591890
+      dna-spinning-veed-remove-background_22: 852999305
+      dna-spinning-veed-remove-background_23: 872081521
+      dna-spinning-veed-remove-background_24: -1640208772
+      dna-spinning-veed-remove-background_25: 56233818
+      dna-spinning-veed-remove-background_26: -135190564
+      dna-spinning-veed-remove-background_27: 2134236005
+      dna-spinning-veed-remove-background_28: -1940988789
+      dna-spinning-veed-remove-background_29: 1293038289
+      dna-spinning-veed-remove-background_3: -735340392
+      dna-spinning-veed-remove-background_30: 345269662
+      dna-spinning-veed-remove-background_31: -802113199
+      dna-spinning-veed-remove-background_32: -389334396
+      dna-spinning-veed-remove-background_33: -1652548064
+      dna-spinning-veed-remove-background_34: 178925436
+      dna-spinning-veed-remove-background_35: 1324466267
+      dna-spinning-veed-remove-background_36: -682110414
+      dna-spinning-veed-remove-background_37: 2024038487
+      dna-spinning-veed-remove-background_38: -605240137
+      dna-spinning-veed-remove-background_39: -1881981015
+      dna-spinning-veed-remove-background_4: 1470290291
+      dna-spinning-veed-remove-background_40: 1624440547
+      dna-spinning-veed-remove-background_41: 133134847
+      dna-spinning-veed-remove-background_42: -928315024
+      dna-spinning-veed-remove-background_43: 980484502
+      dna-spinning-veed-remove-background_44: 1397315324
+      dna-spinning-veed-remove-background_45: 636702038
+      dna-spinning-veed-remove-background_46: -1239788735
+      dna-spinning-veed-remove-background_47: -170701222
+      dna-spinning-veed-remove-background_48: 1571666273
+      dna-spinning-veed-remove-background_49: -1993438040
+      dna-spinning-veed-remove-background_5: 2115089221
+      dna-spinning-veed-remove-background_50: 847346630
+      dna-spinning-veed-remove-background_51: -1447991894
+      dna-spinning-veed-remove-background_52: -282182652
+      dna-spinning-veed-remove-background_53: -2093358038
+      dna-spinning-veed-remove-background_54: 816481105
+      dna-spinning-veed-remove-background_55: 1070268698
+      dna-spinning-veed-remove-background_56: -1238035367
+      dna-spinning-veed-remove-background_57: 945581999
+      dna-spinning-veed-remove-background_58: -1161657720
+      dna-spinning-veed-remove-background_59: 1091502064
+      dna-spinning-veed-remove-background_6: -640228259
+      dna-spinning-veed-remove-background_60: 1960923018
+      dna-spinning-veed-remove-background_61: 1454014389
+      dna-spinning-veed-remove-background_62: 8961596
+      dna-spinning-veed-remove-background_63: -2098474488
+      dna-spinning-veed-remove-background_64: -265370438
+      dna-spinning-veed-remove-background_65: -1010674028
+      dna-spinning-veed-remove-background_66: -2041111288
+      dna-spinning-veed-remove-background_67: -1957109123
+      dna-spinning-veed-remove-background_68: 1261136407
+      dna-spinning-veed-remove-background_69: -331049197
+      dna-spinning-veed-remove-background_7: 1914826923
+      dna-spinning-veed-remove-background_8: -201402699
+      dna-spinning-veed-remove-background_9: 394363354
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
