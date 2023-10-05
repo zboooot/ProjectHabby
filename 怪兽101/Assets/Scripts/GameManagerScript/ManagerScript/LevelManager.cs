@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     private int calculation1;
     public GameObject levelCompleteText;
     public Slider slider;
+    private GNAManager gnaManager;
 
     private void Awake()
     {

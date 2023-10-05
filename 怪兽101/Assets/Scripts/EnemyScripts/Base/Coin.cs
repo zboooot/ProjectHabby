@@ -14,6 +14,8 @@ public class Coin : MonoBehaviour
     public float speed;
     private Vector3 off;
 
+    public GNAManager gnaManager;
+
     private void Awake()
     {
         //Random value of x
@@ -21,6 +23,8 @@ public class Coin : MonoBehaviour
         
         //Random value of y
         off = new Vector3(off.x, Random.Range(-3, 3), off.z);
+
+        gnaManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GNAManager>();
     }
 
     // Start is called before the first frame update
@@ -44,7 +48,7 @@ public class Coin : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            Debug.Log("GNA gained!");
+            gnaManager.GainGNA(1);
             Destroy(gameObject);
         }
     }

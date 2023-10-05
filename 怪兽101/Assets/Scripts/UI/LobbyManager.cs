@@ -8,6 +8,8 @@ public class LobbyManager : MonoBehaviour
 {
     public LevelManagerScriptableObject levelData;
     public TextMeshProUGUI levelName;
+    public ResourceScriptableObject resourceData;
+    public TextMeshProUGUI gnaText;
 
     // Start is called before the first frame update
     void Start()
@@ -18,16 +20,17 @@ public class LobbyManager : MonoBehaviour
     void UpdateLevelName()
     {
         levelName.text = "Europe: France " + levelData.cityLevel;
+        gnaText.text = "" + resourceData.currentGNA;
     }
 
     public void LoadLevel()
     {
-        if(levelData.cityLevel < 10)
+        if(levelData.cityLevel < 2)
         {
             SceneManager.LoadScene("GameplayScene");
         }
 
-        else if(levelData.cityLevel == 10)
+        else if(levelData.cityLevel == 2)
         {
             SceneManager.LoadScene("LandmarkDesScene");
         }
