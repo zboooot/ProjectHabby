@@ -21,6 +21,7 @@ public class PlayerInputHandler : MonoBehaviour
     public bool isAttacking;
 
     public bool startScene = true;
+    public Transform detectionOrigin;
 
     void Start()
     {
@@ -39,14 +40,14 @@ public class PlayerInputHandler : MonoBehaviour
 
     void AttackNearestEnemy()
     {
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(transform.position, boxSize, 0f, enemyLayer);
+        Collider2D[] colliders = Physics2D.OverlapBoxAll(detectionOrigin.position, boxSize, 0f, enemyLayer);
 
         if (colliders.Length > 0)
         {
             foreach (Collider2D collider in colliders)
             {
-                Vector2 direction = collider.transform.position - transform.position;
-                float angle = Vector2.Angle(direction, transform.right);
+                Vector2 direction = collider.transform.position - detectionOrigin.position;
+                float angle = Vector2.Angle(direction, detectionOrigin.right);
 
                 if (angle < 110f / 2f)
                 {
@@ -107,13 +108,13 @@ public class PlayerInputHandler : MonoBehaviour
     {
         selectedEnemy = null;
         float nearestDistance = float.MaxValue;
-        Vector2 playerPosition = transform.position;
+        Vector2 playerPosition = detectionOrigin.position;
 
         foreach (Collider2D enemy in enemies)
         {
             Transform enemyTransform = enemy.transform;
-            Vector3 directionToEnemy = enemyTransform.position - transform.position;
-            float angle = Vector2.Angle(transform.up, directionToEnemy);
+            Vector3 directionToEnemy = enemyTransform.position - detectionOrigin.position;
+            float angle = Vector2.Angle(detectionOrigin.up, directionToEnemy);
 
             if (angle < 180f)
             {
@@ -131,7 +132,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void UseUltimate()
     {
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, ultimateRadius);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(detectionOrigin.position, ultimateRadius);
         foreach (Collider2D collider in hitColliders)
         {
             if (collider.CompareTag("Enemy"))
