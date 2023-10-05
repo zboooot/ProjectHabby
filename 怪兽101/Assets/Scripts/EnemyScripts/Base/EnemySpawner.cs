@@ -20,6 +20,9 @@ public class EnemySpawner : MonoBehaviour
     private bool roundComplete;
     public float CityDestructionLevel;
     public LevelManagerScriptableObject levelData;
+    
+    public Transform playerTransform;
+    public float playerSpawnRadius = 10f;
 
 
 
@@ -83,11 +86,7 @@ public class EnemySpawner : MonoBehaviour
                 foreach (GameObject enemyPrefab in enemiesToSpawn)
                 {
                     // Choose a random spawn position within the specified range
-                    Vector2 randomSpawnPosition = new Vector2(
-                        Random.Range(minSpawnPosition.x, maxSpawnPosition.x),
-                        Random.Range(minSpawnPosition.y, maxSpawnPosition.y)
-                    );
-
+                    Vector2 randomSpawnPosition = GetRandomSpawnPosition();
                     GameObject enemy = Instantiate(enemyPrefab, randomSpawnPosition, Quaternion.identity);
                     spawnedEnemies.Add(enemy);
                 }
@@ -103,6 +102,7 @@ public class EnemySpawner : MonoBehaviour
                 waveTimer = 0;
             }
         }
+
         else
         {
             spawnTimer -= Time.fixedDeltaTime;
@@ -120,6 +120,21 @@ public class EnemySpawner : MonoBehaviour
         }
 
         Waveno.text = "Wave " + currWave;
+    }
+
+    Vector2 GetRandomSpawnPosition()
+    {
+        Vector2 randomSpawnPosition;
+        do
+        {
+            // Generate a random position within the specified range
+            randomSpawnPosition = new Vector2(
+                Random.Range(minSpawnPosition.x, maxSpawnPosition.x),
+                Random.Range(minSpawnPosition.y, maxSpawnPosition.y)
+            );
+        } while (Vector2.Distance(randomSpawnPosition, playerTransform.position) < playerSpawnRadius);
+
+        return randomSpawnPosition;
     }
 
     public void GenerateWave()
