@@ -22,6 +22,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     public bool startScene = true;
     public Transform detectionOrigin;
+    public PlayerHealthScript healthScript;
 
     void Start()
     {
@@ -29,6 +30,7 @@ public class PlayerInputHandler : MonoBehaviour
         rangeX = playerSO.attackRange;
         rangeY = playerSO.attackRange;
         boxSize = new Vector2(rangeX, rangeY);
+        healthScript = GetComponent<PlayerHealthScript>();
     }
 
     private void Update()
@@ -57,7 +59,11 @@ public class PlayerInputHandler : MonoBehaviour
                     {
                         CheckAttack(true);
                         isAttacking = true;
-                        Invoke("ResetAttack", playerSO.attackSpeed);
+                        if(healthScript.healthState == PlayerHealthScript.HealthState.normal)
+                        {
+                            Invoke("ResetAttack", playerSO.attackSpeed);
+                        }
+                        else { Invoke("ResetAttack", 0.5f); }
                     }
                 }
             }

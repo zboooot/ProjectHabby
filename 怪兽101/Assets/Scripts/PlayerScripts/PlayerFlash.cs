@@ -20,11 +20,10 @@ public class PlayerFlash : MonoBehaviour
     // The SpriteRenderer that should flash.
     private SpriteRenderer spriteRenderer;
 
-    // The material that was in use, when the script started.
-    private Material originalMaterial;
-
     // The currently running coroutine.
     private Coroutine flashRoutine;
+
+    public int flickerAmount;
 
     #endregion
 
@@ -63,16 +62,20 @@ public class PlayerFlash : MonoBehaviour
 
     private IEnumerator FlashRoutine()
     {
-        // Swap to the flashMaterial.
-        spriteRenderer.material = flashMaterial;
+        for(int i = 0; i < flickerAmount; i++)
+        {
 
-        // Pause the execution of this function for "duration" seconds.
-        yield return new WaitForSeconds(duration);
+            spriteRenderer.color = new Color(1f, 1f, 1f, 0.5f);
 
-        // After the pause, swap back to the original material.
-        spriteRenderer.material = originalMaterial;
-        // Set the routine to null, signaling that it's finished.
-        flashRoutine = null;
+            // Pause the execution of this function for "duration" seconds.
+            yield return new WaitForSeconds(duration);
+
+            spriteRenderer.color = Color.white;
+
+            // Set the routine to null, signaling that it's finished.
+            flashRoutine = null;
+            yield return new WaitForSeconds(duration);
+        }
     }
 
     #endregion

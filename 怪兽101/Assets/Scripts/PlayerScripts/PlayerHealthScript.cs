@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealthScript : MonoBehaviour
 {
+    public enum HealthState
+    {
+        normal,
+        berserk,
+    }
+
     public PlayerStatScriptableObject playerSO;
     public Slider healthSlider;
     public Image healthFill;
@@ -13,6 +19,7 @@ public class PlayerHealthScript : MonoBehaviour
 
     private ShakeScript shakeMe;
     private float currentHealth;
+    public HealthState healthState;
 
     //Flash Effect
     private PlayerFlash flashEffect;
@@ -27,6 +34,8 @@ public class PlayerHealthScript : MonoBehaviour
         thresholdHealth = playerSO.health;
         flashEffect = GetComponent<PlayerFlash>();
         UpdateHealthBar();
+
+        healthState = HealthState.normal;
     }
 
     private void Update()
@@ -50,12 +59,37 @@ public class PlayerHealthScript : MonoBehaviour
         }
     }
 
+    void CheckHealthStatus(float playerhealth)
+    {
+        int healthPercentage = (int)(100 - ((100f / playerSO.maxhealth) * currentHealth));
+
+        if (healthPercentage <= 45)
+        {
+            healthState = HealthState.normal;
+        }
+
+        else
+        {
+            healthState = HealthState.berserk;
+        }
+    }
+
     public void TakeDamage(int damage)
     {
         shakeMe.StartShake();
-        playerSO.health -= damage; // Adjust the damage amount as needed
+        CheckHealthStatus(currentHealth);
+        if(healthState == HealthState.normal)
+        {
+            playerSO.health -= damage; // Adjust the damage amount as needed
+        }
+
+        else
+        {
+            playerSO.health -= damage * 2; // Player takes double damage when they are in berserk mode
+        }
+
         int healthDifference = thresholdHealth - playerSO.health;
-        if(healthDifference <= triggerNumber)
+        if(healthDifference >= triggerNumber)
         {
             flashEffect.Flash();
             thresholdHealth = playerSO.health;
