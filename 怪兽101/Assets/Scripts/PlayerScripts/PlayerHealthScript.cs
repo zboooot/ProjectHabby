@@ -17,7 +17,7 @@ public class PlayerHealthScript : MonoBehaviour
     //Flash Effect
     private PlayerFlash flashEffect;
     private int thresholdHealth;
-    private int triggerNumber;
+    public int triggerNumber;
 
     private void Start()
     {
