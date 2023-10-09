@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealthScript : MonoBehaviour
 {
-    public PlayerStatScriptableObject playerSO; 
+    public PlayerStatScriptableObject playerSO;
     public Slider healthSlider;
     public Image healthFill;
     public float lerpSpeed = 2f;
@@ -14,11 +14,18 @@ public class PlayerHealthScript : MonoBehaviour
     private ShakeScript shakeMe;
     private float currentHealth;
 
+    //Flash Effect
+    private PlayerFlash flashEffect;
+    private int thresholdHealth;
+    private int triggerNumber;
+
     private void Start()
     {
         shakeMe = healthSlider.gameObject.GetComponent<ShakeScript>();
         //playerSO.health = 100;
         currentHealth = playerSO.health; // Set initial health to full
+        thresholdHealth = playerSO.health;
+        flashEffect = GetComponent<PlayerFlash>();
         UpdateHealthBar();
     }
 
@@ -47,6 +54,14 @@ public class PlayerHealthScript : MonoBehaviour
     {
         shakeMe.StartShake();
         playerSO.health -= damage; // Adjust the damage amount as needed
+        int healthDifference = thresholdHealth - playerSO.health;
+        if(healthDifference <= triggerNumber)
+        {
+            flashEffect.Flash();
+            thresholdHealth = playerSO.health;
+        }
+
+        else { return; }
     }
 
     private void UpdateHealthBar()
