@@ -15,6 +15,7 @@ public class Civilian : MonoBehaviour
     public Transform player;
     public Animator anim;
     private float lastPosX;
+    private float runSpeed;
 
     //Wandering Variables
     public float changeDirectionInterval = 1.0f; // Time interval to change direction
@@ -45,6 +46,8 @@ public class Civilian : MonoBehaviour
         lastPosX = transform.position.x;
 
         targetPosition = transform.position;
+
+        runSpeed = enemyData.speed * 2;
     }
 
 
@@ -85,29 +88,36 @@ public class Civilian : MonoBehaviour
 
     void Run(Vector2 dir)
     {
-        if (isBlocked != true)
-        {
-            // Calculate the direction away from the player
-            Vector3 runDirection = transform.position - player.position;
-            
-            // Normalize the direction to get a unit vector
-            runDirection.Normalize();
+        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-            // Move the enemy in the runDirection
-            transform.position += runDirection * enemyData.speed * Time.deltaTime;
+        if(distanceToPlayer < detectionDistance)
+        {
+            if (isBlocked != true)
+            {
+                // Calculate the direction away from the player
+                Vector3 runDirection = transform.position - player.position;
+
+                // Normalize the direction to get a unit vector
+                runDirection.Normalize();
+
+                // Move the enemy in the runDirection
+                transform.position += runDirection * runSpeed * Time.deltaTime;
+            }
+
+            else
+            {
+                Vector3 newRunDirection = transform.position - blockingEntity.transform.position;
+
+                newRunDirection.Normalize();
+                // Calculate a new target position within the wander range
+                transform.position += newRunDirection * runSpeed * Time.deltaTime;
+            }
         }
 
         else
         {
-            Vector3 newRunDirection = transform.position - blockingEntity.transform.position;
-            
-            newRunDirection.Normalize();
-            // Calculate a new target position within the wander range
-            transform.position += newRunDirection * enemyData.speed * Time.deltaTime;
+            ChangeWalkState();
         }
-        
-        
-
     }
 
     void Walk()
@@ -158,15 +168,21 @@ public class Civilian : MonoBehaviour
         }
     }
 
-    void ChangeState()
+    void ChangeRunState()
     {
         anim.SetBool("run", true);
         enemyState = EnemyState.run;
     }
 
+    void ChangeWalkState()
+    {
+        anim.SetBool("walk", true);
+        enemyState = EnemyState.walk;
+    }
+
     void FallToRun()
     {
-        Invoke("ChangeState", 1.5f);
+        Invoke("ChangeRunState", 1.5f);
     }
 
     void Death()
