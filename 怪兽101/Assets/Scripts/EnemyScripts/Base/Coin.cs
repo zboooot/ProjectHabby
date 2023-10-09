@@ -14,7 +14,11 @@ public class Coin : MonoBehaviour
     public float speed;
     private Vector3 off;
 
-    public GNAManager gnaManager;
+    private float detectionRadius = 6f;  // Radius to detect the player
+    private float floatSpeed = 7f;  // Speed at which the coin floats towards the player
+
+    private GNAManager gnaManager;
+    private Transform player;
 
     private void Awake()
     {
@@ -25,26 +29,36 @@ public class Coin : MonoBehaviour
         off = new Vector3(off.x, Random.Range(-3, 3), off.z);
 
         gnaManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GNAManager>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()
     {
-       if(when >= delay)
+        if (when >= delay)
         {
             pasttime = Time.deltaTime;
             objTransform.position += off * speed * Time.deltaTime;
             delay += pasttime;
         }
+
+        DetectPlayer();
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void DetectPlayer()
+    {
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius);
+        foreach (Collider2D collider in hitColliders)
+        {
+            if (collider.CompareTag("Player"))
+            {
+                transform.position = Vector3.MoveTowards(transform.position, player.position, floatSpeed * Time.deltaTime);
+            }
+        }
+    }
+
+        private void OnCollisionEnter2D(Collision2D collision)
     {
         if(collision.gameObject.tag == "Player")
         {

@@ -17,7 +17,6 @@ public class EnemySpawner : MonoBehaviour
     public int pointsforSpawning = 0;
     public int numberofEnemies;
     public int NumberofWaves;
-    private bool roundComplete;
     public float CityDestructionLevel;
     public LevelManagerScriptableObject levelData;
     
@@ -44,8 +43,7 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         CityDestructionLevel = levelData.destructionLevel;
-       
-        roundComplete = false;
+      
         GenerateWave();
     }
 
@@ -193,7 +191,6 @@ public class EnemySpawner : MonoBehaviour
                 break;
             case 10:
                 waveValue = 100;
-                roundComplete = true;
                 break;
             default:
                 // Set a default wave value for other waves

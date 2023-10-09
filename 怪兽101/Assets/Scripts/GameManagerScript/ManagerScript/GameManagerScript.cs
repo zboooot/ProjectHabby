@@ -8,7 +8,6 @@ public class GameManagerScript : MonoBehaviour
     public GameObject deployScreen;
     public Animator barAnim;
     private bool gameStarted = false;
-    private bool gameRevealed = false;
     public GameObject enemySpawner;
 
     private void Start()
@@ -34,30 +33,17 @@ public class GameManagerScript : MonoBehaviour
 
     public void CloseBar()
     {
-
-            barAnim.SetBool("GameRevealed", true);
-            Debug.Log("ShowGame");
-        
-
+        barAnim.SetBool("GameRevealed", true);
     }
 
     public void OpenBar()
     {
-       
-            barAnim.SetBool("RevealGame", true);
-
-            gameRevealed = true;
-        
+        barAnim.SetBool("RevealGame", true);
     }
     void StartGame()
     {
         Time.timeScale = 1;
-        
-
-        // Optionally, set the player's parent or any other initialization
-
-       
-
+    
         // Call any other functions or actions to start your game
         deployScreen.SetActive(false);
 

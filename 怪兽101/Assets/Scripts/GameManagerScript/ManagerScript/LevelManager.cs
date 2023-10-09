@@ -74,7 +74,7 @@ public class LevelManager : MonoBehaviour
         }
 
         calculation1 = Mathf.RoundToInt(levelData.buildingsInScene % calculateCityDestruction);
-        Debug.Log(calculation1);
+
     }
 
     public void CalculateScore(int score)

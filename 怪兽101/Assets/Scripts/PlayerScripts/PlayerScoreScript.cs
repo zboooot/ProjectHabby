@@ -32,7 +32,7 @@ public class PlayerScoreScript : MonoBehaviour
     private void Start()
     {
         anim = GameObject.Find("MilitaryAbilityWarning").GetComponent<Animator>();
-        ArtilleryScript = GameObject.Find("Artyspawner").GetComponent<Artillery>();
+        ArtilleryScript = GameObject.Find("ArtySpawner").GetComponent<Artillery>();
         warningZone.SetActive(false);
 
         // Check if we have at least one spawn point

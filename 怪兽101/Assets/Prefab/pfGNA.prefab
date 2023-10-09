@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 68998136515679617}
   - component: {fileID: 68998136515679616}
   - component: {fileID: 2376453556699262848}
-  - component: {fileID: 8685310447474481544}
-  - component: {fileID: 1351140883}
+  - component: {fileID: -5993893908954207158}
   m_Layer: 0
   m_Name: pfGNA
   m_TagString: Untagged
@@ -76,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 963744515
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 1152686775, guid: 026c1e98601ece84ebc1cc276443fb3f, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: 2122b75e8b10f764e899861618bc5a4b, type: 3}
   m_Color: {r: 0, g: 1, b: 0.93622017, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -99,12 +98,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf9a64d4a59328e42b7e2645fc8ff58c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinCollider: {fileID: 8685310447474481544}
+  coinCollider: {fileID: -5993893908954207158}
   objTransform: {fileID: 68998136515679617}
   when: 1
-  speed: 3
---- !u!61 &8685310447474481544
-BoxCollider2D:
+  speed: 2
+--- !u!58 &-5993893908954207158
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -117,35 +116,5 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4.9858117, y: 3.715}
-    newSize: {x: 1, y: 2}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2}
-  m_EdgeRadius: 0
---- !u!95 &1351140883
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 68998136515679623}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fb81ee67b008cda4eb9172e724477a54, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
+  m_Radius: 0.49999997
