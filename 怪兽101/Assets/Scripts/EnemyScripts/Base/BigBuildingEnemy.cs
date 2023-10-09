@@ -12,7 +12,6 @@ public class BigBuildingEnemy : MonoBehaviour
     public Targetable buildingType;
     private Collider2D buildingCollider;
     public PlayerInputHandler inputHandler;
-    public LevelManager levelManager;
 
     [SerializeField] private GameObject pfCoin;
 
@@ -28,6 +27,7 @@ public class BigBuildingEnemy : MonoBehaviour
 
     private PlayerScoreScript playerScore;
     private ShakeScript shakeScript;
+    private OrbManager orbManager;
 
     float pushForce = 2f;
     float upForce = 5f;
@@ -40,8 +40,8 @@ public class BigBuildingEnemy : MonoBehaviour
         buildingCollider = GetComponent<BoxCollider2D>();
         playerScore = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScoreScript>();
         inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
-        levelManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LevelManager>();
         shakeScript = GetComponent<ShakeScript>();
+        orbManager = GetComponent<OrbManager>();
         originalColor = spriteRenderer.color;
     }
 
@@ -68,7 +68,6 @@ public class BigBuildingEnemy : MonoBehaviour
             playerScore.EntityDestroyed();
         }
 
-        levelManager.CalculateScore(1);
         inputHandler.ChargeUltimate(10);
         buildingCollider.enabled = false;
         spriteRenderer.sprite = destroyedSprite;
@@ -82,6 +81,9 @@ public class BigBuildingEnemy : MonoBehaviour
         Vector2 randomDirection = Random.insideUnitCircle.normalized;
         GameObject coin = Instantiate(pfCoin, transform.position, Quaternion.identity);
         coin.transform.Rotate(0, 0, 90);
+
+        //Spawn Orbs
+        orbManager.DropOrbsOnKill();
     }
 
     void DamageEffect()

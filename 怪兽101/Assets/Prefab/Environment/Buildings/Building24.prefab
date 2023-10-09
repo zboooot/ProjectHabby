@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7278426850550710429}
   - component: {fileID: -6559363644436405488}
   - component: {fileID: -8832650995024912417}
+  - component: {fileID: -8994605372727904895}
   m_Layer: 7
   m_Name: Building24
   m_TagString: BigBuilding
@@ -165,3 +166,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shakeDuration: 0.2
   shakeStrength: 0.2
+  player: {fileID: 0}
+--- !u!114 &-8994605372727904895
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3773491799863252778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 448ef6695d07a9848854a60879ca047a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orbPrefab: {fileID: 7909882396035829041, guid: 935c3d6eaa9d6484f81b79283cfd5215, type: 3}
+  orbSpawnPoint: {fileID: 65084354280595120}
+  orbFloatSpeed: 10
