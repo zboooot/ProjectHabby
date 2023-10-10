@@ -71,7 +71,7 @@ public class NewEnemyScript : MonoBehaviour
     {
         if (currentState != EnemyState.death)
         {
-            if (dis <= agent.stoppingDistance)
+            if (dis <= enemyData.attackRange)
             {
                 // Attack the player
                 currentState = EnemyState.attack;
@@ -90,7 +90,7 @@ public class NewEnemyScript : MonoBehaviour
     {
         //Vector3 direction = (player.transform.position - transform.position).normalized;
         //transform.Translate(direction * enemyData.speed * Time.deltaTime);
-        agent.SetDestination(player.position);
+        //agent.SetDestination(player.position);
 
     }
 
