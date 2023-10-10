@@ -113,7 +113,6 @@ public class NewEnemyScript : MonoBehaviour
 
     void Death()
     {
-        Debug.Log("DIEDIEDIE");
         entityCollider.enabled = false;
         spriteRenderer.sprite = destroyedSprite;
         inputHandler.ChargeUltimate(5);
@@ -123,7 +122,6 @@ public class NewEnemyScript : MonoBehaviour
             SpawnCoin();
             hasSpawned = true;
         }
-        Debug.Log("DIEDIEDIE");
         Destroy(gameObject, 3f);
     }
 

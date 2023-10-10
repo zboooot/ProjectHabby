@@ -35,14 +35,13 @@ public class PlayerUltimateButton : MonoBehaviour
         }
         else
         {
-            Debug.Log("Not enough charge");
+            return;
         }
     }
 
     void UpdateFill()
     {
         float simplifiedUltAmount = (inputHandler.currentUltimateCharge / inputHandler.playerSO.maxUltimateCharge) % 100.0f;
-        Debug.Log(simplifiedUltAmount);
         radialFill.fillAmount = simplifiedUltAmount;
     }
 
