@@ -83,11 +83,17 @@ public class CarAI : MonoBehaviour
     {
         if (collision.gameObject.tag == "PlayerLeg")
         {
-            isDestroyed = true;
-            spriteRenderer.sprite = destroyedSprite;
-            entityCollider.enabled = false;
-            Destroy(gameObject, 5f);
+            Death();
         }
+    }
+
+    public void Death()
+    {
+        agent.isStopped = true;
+        isDestroyed = true;
+        spriteRenderer.sprite = destroyedSprite;
+        entityCollider.enabled = false;
+        Destroy(gameObject, 5f);
     }
 
     private void Update()

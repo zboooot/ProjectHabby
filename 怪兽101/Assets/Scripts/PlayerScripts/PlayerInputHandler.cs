@@ -141,7 +141,7 @@ public class PlayerInputHandler : MonoBehaviour
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(detectionOrigin.position, ultimateRadius);
         foreach (Collider2D collider in hitColliders)
         {
-            if (collider.CompareTag("Enemy"))
+            if (collider.CompareTag("Tank"))
             {
                 NewEnemyScript tank = collider.GetComponent<NewEnemyScript>();
                 if (tank != null)
@@ -167,6 +167,27 @@ public class PlayerInputHandler : MonoBehaviour
                 if (civilian != null)
                 {
                     civilian.enemyState = Civilian.EnemyState.death;
+                }
+                else { return; }
+            }
+
+
+            else if (collider.CompareTag("Tree"))
+            {
+                Trees tree = collider.GetComponent<Trees>();
+                if (tree != null)
+                {
+                    tree.Death();
+                }
+                else { return; }
+            }
+
+            else if (collider.CompareTag("Car"))
+            {
+                CarAI car = collider.GetComponent<CarAI>();
+                if (car != null)
+                {
+                    car.Death();
                 }
                 else { return; }
             }

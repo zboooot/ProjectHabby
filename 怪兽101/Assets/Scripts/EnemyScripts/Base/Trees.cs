@@ -22,16 +22,21 @@ public class Trees : MonoBehaviour
         
     }
 
+    public void Death()
+    {
+        if (isShake != true)
+        {
+            shake.StartShake();
+            isShake = true;
+        }
+        spriteRenderer.sprite = destroyedSprite;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("PlayerLeg"))
         {
-            if(isShake != true)
-            {
-                shake.StartShake();
-                isShake = true;
-            }
-            spriteRenderer.sprite = destroyedSprite;
+            Death();
         }
     }
 }

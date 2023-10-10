@@ -18,6 +18,7 @@ TagManager:
   - Jet
   - GNA
   - Car
+  - Tree
   layers:
   - Default
   - TransparentFX
