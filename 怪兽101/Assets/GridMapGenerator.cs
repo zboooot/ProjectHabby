@@ -7,8 +7,8 @@ public class GridMapGenerator : MonoBehaviour
 {
 
     public List<GameObject> Neighbourhood = new List<GameObject>();
-    public int numberOfColumns = 2; // Number of columns in the grid
-    public int numberOfRows = 2;    // Number of rows in the grid
+    public int numberOfColumns ; // Number of columns in the grid
+    public int numberOfRows;    // Number of rows in the grid
 
     public float spacingX = 50.0f;   // Horizontal spacing between prefabs
     public float spacingY = 50.0f;   // Vertical spacing between prefabs
@@ -42,23 +42,17 @@ public class GridMapGenerator : MonoBehaviour
         {
             for (int col = 0; col < numberOfColumns; col++)
             {
-                int indexToInstantiate = row * numberOfColumns + col;
+                // Calculate the index based on the current row and column
+                int indexToInstantiate = Random.Range(0, Neighbourhood.Count);
 
-                if (indexToInstantiate < Neighbourhood.Count)
-                {
-                    GameObject prefabToInstantiate = Neighbourhood[indexToInstantiate];
+                GameObject prefabToInstantiate = Neighbourhood[indexToInstantiate];
 
-                    // Calculate the position based on the row and column
-                    Vector3 spawnPosition = new Vector3(col * spacingX, row * spacingY, 0f);
+                // Calculate the position based on the row and column
+                Vector3 spawnPosition = new Vector3(col * spacingX, row * spacingY, 0f);
 
-                    // Instantiate the prefab as a child of the mapParent
-                    GameObject instantiatedObject = Instantiate(prefabToInstantiate, spawnPosition, Quaternion.identity);
-                    instantiatedObject.transform.parent = mapParent.transform;
-                }
-                else
-                {
-                    Debug.LogWarning("Not enough prefabs in the list to fill the grid.");
-                }
+                // Instantiate the prefab as a child of the mapParent
+                GameObject instantiatedObject = Instantiate(prefabToInstantiate, spawnPosition, Quaternion.identity);
+                instantiatedObject.transform.parent = mapParent.transform;
             }
         }
     }
