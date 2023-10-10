@@ -7,6 +7,7 @@ public class PlayerUltimateButton : MonoBehaviour
 {
 
     public PlayerInputHandler inputHandler;
+    public Image radialFill;
     private Button button;
 
     // Start is called before the first frame update
@@ -38,8 +39,16 @@ public class PlayerUltimateButton : MonoBehaviour
         }
     }
 
+    void UpdateFill()
+    {
+        float simplifiedUltAmount = (inputHandler.currentUltimateCharge / inputHandler.playerSO.maxUltimateCharge) % 100.0f;
+        Debug.Log(simplifiedUltAmount);
+        radialFill.fillAmount = simplifiedUltAmount;
+    }
+
     private void Update()
     {
         CheckInteractivity();
+        UpdateFill();
     }
 }

@@ -26,6 +26,11 @@ public class PlayerHealthScript : MonoBehaviour
     private int thresholdHealth;
     public int triggerNumber;
 
+    //Berserk mode Feedback
+    private CanvasGroup berserkVignette;
+    private bool fadeIn;
+    private bool fadeOut;
+
     private void Start()
     {
         shakeMe = healthSlider.gameObject.GetComponent<ShakeScript>();
@@ -36,6 +41,27 @@ public class PlayerHealthScript : MonoBehaviour
         UpdateHealthBar();
 
         healthState = HealthState.normal;
+
+        berserkVignette = GameObject.Find("Vignette").GetComponent<CanvasGroup>();
+    }
+
+    void TriggerVignette()
+    {
+        if(healthState != HealthState.berserk)
+        {
+            if (berserkVignette.alpha >= 0)
+            {
+                berserkVignette.alpha -= Time.deltaTime;
+            }
+        }
+
+        else
+        {
+            if (berserkVignette.alpha < 1)
+            {
+                berserkVignette.alpha += Time.deltaTime;
+            }
+        }
     }
 
     private void Update()
@@ -47,16 +73,7 @@ public class PlayerHealthScript : MonoBehaviour
             UpdateHealthBar();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            TakeDamage(1);
-        }
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            playerSO.health = 100;
-            SceneManager.LoadScene("Gymbox");
-        }
+        TriggerVignette();
     }
 
     void CheckHealthStatus(float playerhealth)

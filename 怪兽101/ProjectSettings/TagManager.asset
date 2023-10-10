@@ -16,6 +16,8 @@ TagManager:
   - Civilian
   - GameManager
   - Jet
+  - GNA
+  - Car
   layers:
   - Default
   - TransparentFX
@@ -27,7 +29,7 @@ TagManager:
   - Enemy
   - Destructibles
   - Civlians
-  - 
+  - PickUp
   - 
   - 
   - 
