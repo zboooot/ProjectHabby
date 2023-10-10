@@ -6,6 +6,7 @@ public class Bullet : MonoBehaviour
 {
     Vector3 shootDir;
     public EnemyScriptableObject enemyData;
+    public GameObject explosionVFX;
     public void SetUp(Vector3 shootDir)
     {
         this.shootDir = shootDir;
@@ -22,6 +23,7 @@ public class Bullet : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
+            GameObject explosion = Instantiate(explosionVFX, transform.position, Quaternion.identity);
             collision.GetComponent<PlayerHealthScript>().TakeDamage(enemyData.attackDamage);
             Destroy(gameObject);
         }

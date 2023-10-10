@@ -101,30 +101,27 @@ public class PlayerScoreScript : MonoBehaviour
     {
         entitiesDestroyedCount++;
 
-        if (entitiesDestroyedCount >= 2)
-        {
-            if(isActivating != true)
-            {
-                BombingRun();
-            }
-            else
-            {
-                entitiesDestroyedCount = 0;
-            }
-        }
-
-        if (entitiesDestroyedCount >= 30)
+        if (entitiesDestroyedCount >= 10)
         {
             if (isActivating != true)
             {
-                StartCoroutine(ArtilleryScript.SpawnArtilleryWithDelay());
+                // Randomly choose between a bombing run and spawning artillery
+                int randomEvent = Random.Range(0, 2); // 0 for bombing run, 1 for artillery
+                if (randomEvent == 0)
+                {
+                    BombingRun();
+                }
+                else
+                {
+                    StartCoroutine(ArtilleryScript.SpawnArtilleryWithDelay());
+                    Debug.Log("Artillery");
+                }
             }
             else
             {
                 entitiesDestroyedCount = 0;
             }
         }
-
     }
 
     public void BombingRun()

@@ -32,10 +32,7 @@ public class Artillery : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            StartCoroutine(SpawnArtilleryWithDelay());
-        }
+        
     }
 
     public IEnumerator SpawnArtilleryWithDelay()
@@ -115,7 +112,7 @@ public class Artillery : MonoBehaviour
 
             }
             // Destroy the artillery prefab instance
-            Destroy(artillery, 1f);
+            Destroy(artillery);
             Vector2 spawnPos = new Vector2(artillery.transform.position.x, artillery.transform.position.y + 1.5f);
             // Create and play the explosion VFX
             GameObject explosion = Instantiate(explosionVFX, spawnPos, Quaternion.identity);

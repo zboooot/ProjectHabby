@@ -11,6 +11,7 @@ public class MissileScript : MonoBehaviour
     public float destroyTime = 10f;
     private float currentTime = 0f;
     public EnemyScriptableObject enemyData;
+    public GameObject explosionVFX;
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +47,7 @@ public class MissileScript : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            GameObject explosion = Instantiate(explosionVFX, transform.position, Quaternion.identity);
             collision.gameObject.GetComponent<PlayerHealthScript>().TakeDamage(enemyData.attackDamage);
             Destroy(gameObject);
         }
