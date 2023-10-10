@@ -117,7 +117,7 @@ public class EnemySpawner : MonoBehaviour
             GenerateWave();
         }
 
-        Waveno.text = "Wave " + currWave;
+        //Waveno.text = "Wave " + currWave;
     }
 
     Vector2 GetRandomSpawnPosition()

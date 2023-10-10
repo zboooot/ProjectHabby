@@ -103,7 +103,15 @@ public class NewEnemyScript : MonoBehaviour
             attackCDLeft = enemyData.attackSpeed;
             Transform bulletTransform = Instantiate(pfBullet, bulletSpawn.position, Quaternion.identity);
             Vector3 shootDir = (playerLastLoc.position - bulletSpawn.position).normalized;
-            bulletTransform.GetComponent<Bullet>().SetUp(shootDir);
+            if(bulletTransform.GetComponent<Bullet>() != null)
+            {
+                bulletTransform.GetComponent<Bullet>().SetUp(shootDir);
+            }
+
+            else
+            {
+                return;
+            }
         }
     }
 
