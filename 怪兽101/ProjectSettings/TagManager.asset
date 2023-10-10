@@ -16,6 +16,7 @@ TagManager:
   - Civilian
   - GameManager
   - Jet
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -27,8 +28,8 @@ TagManager:
   - Enemy
   - Destructibles
   - Civlians
-  - 
-  - 
+  - Road
+  - RoadLayer
   - 
   - 
   - 

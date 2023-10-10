@@ -41,7 +41,7 @@ public class PlayerFlash : MonoBehaviour
 
         // Get the material that the SpriteRenderer uses, 
         // so we can switch back to it after the flash ended.
-        originalMaterial = spriteRenderer.material;
+       
     }
 
     #endregion

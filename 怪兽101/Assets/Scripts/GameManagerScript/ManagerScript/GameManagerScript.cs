@@ -10,7 +10,7 @@ public class GameManagerScript : MonoBehaviour
     private bool gameStarted = false;
     private bool gameRevealed = false;
     public GameObject enemySpawner;
-
+    public List<GameObject> obstacleList = new List<GameObject>();
     private void Start()
     {
         Time.timeScale = 0;
@@ -19,6 +19,9 @@ public class GameManagerScript : MonoBehaviour
       
         player.GetComponent<SpriteRenderer>().enabled = false;
         barAnim.SetBool("RevealGame", false);
+        AstarPath.active.Scan(); //scan the grid
+        ScanAndInsert();
+        DisableObstacles();
 
         enemySpawner.SetActive(false);
     }
@@ -65,6 +68,25 @@ public class GameManagerScript : MonoBehaviour
         gameStarted = true;
         OpenBar();
 
+
+    }
+
+    void ScanAndInsert()
+    {
+        GameObject[] obstacleCollider = GameObject.FindGameObjectsWithTag("Obstacle");
+
+        foreach (var obs in obstacleCollider)
+        {
+            obstacleList.Add(obs);
+        }
+    }
+
+    void DisableObstacles()
+    {
+        foreach (var obs in obstacleList)
+        {
+            Destroy(obs);
+        }
 
     }
 }
