@@ -115,11 +115,11 @@ public class NewEnemyScript : MonoBehaviour
     {
         entityCollider.enabled = false;
         spriteRenderer.sprite = destroyedSprite;
-        inputHandler.ChargeUltimate(5);
 
         if (!hasSpawned)
         {
             SpawnCoin();
+            inputHandler.ChargeUltimate(5);
             hasSpawned = true;
         }
         Destroy(gameObject, 3f);
