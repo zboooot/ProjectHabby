@@ -1161,7 +1161,7 @@ MonoBehaviour:
   numberOfRows: 2
   spacingX: 33.19
   spacingY: 36.59
-  obstacleCollider: []
+  obstacleList: []
 --- !u!4 &1225584370
 Transform:
   m_ObjectHideFlags: 0
