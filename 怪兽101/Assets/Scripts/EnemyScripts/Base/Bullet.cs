@@ -10,13 +10,19 @@ public class Bullet : MonoBehaviour
     public void SetUp(Vector3 shootDir)
     {
         this.shootDir = shootDir;
-        Destroy(gameObject, 5f);
+        Invoke("SelfDestruct", 3f);
     }
 
     private void Update()
     {
         float moveSpeed = 20f;
         transform.position += shootDir * moveSpeed * Time.deltaTime; 
+    }
+
+    void SelfDestruct()
+    {
+        GameObject explosion = Instantiate(explosionVFX, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
