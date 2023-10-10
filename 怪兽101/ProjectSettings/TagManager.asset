@@ -19,6 +19,7 @@ TagManager:
   - GNA
   - Car
   - Tree
+  - Obstacle
   layers:
   - Default
   - TransparentFX
@@ -31,7 +32,7 @@ TagManager:
   - Destructibles
   - Civlians
   - PickUp
-  - 
+  - RoadObstacle
   - 
   - 
   - 

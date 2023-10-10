@@ -31,7 +31,7 @@ public class NewEnemyScript : MonoBehaviour
     bool hasSpawned;
     
     //NavMeshProperties
-    NavMeshAgent agent;
+    
 
     void Start()
     {
@@ -43,11 +43,7 @@ public class NewEnemyScript : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         entityCollider = GetComponent<Collider2D>();
 
-        //NavMeshAgent
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
-        agent.stoppingDistance = enemyData.attackRange;
+       
 
         playerScore = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScoreScript>();
         inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
@@ -117,6 +113,7 @@ public class NewEnemyScript : MonoBehaviour
 
     void Death()
     {
+        Debug.Log("DIEDIEDIE");
         entityCollider.enabled = false;
         spriteRenderer.sprite = destroyedSprite;
         inputHandler.ChargeUltimate(5);
@@ -126,6 +123,7 @@ public class NewEnemyScript : MonoBehaviour
             SpawnCoin();
             hasSpawned = true;
         }
+        Debug.Log("DIEDIEDIE");
         Destroy(gameObject, 3f);
     }
 
