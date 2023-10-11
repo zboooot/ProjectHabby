@@ -2,10 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Pathfinding;
 
 public class CarAI : MonoBehaviour
 {
-    private NavMeshAgent agent;
+  
     private Vector3 randomDestination;
     public float roamRadius = 20.0f;
     public float roamInterval = 5.0f;
@@ -23,19 +24,20 @@ public class CarAI : MonoBehaviour
     bool isDestroyed;
     Collider2D entityCollider;
 
+    IAstarAI ai;
+
     void Start()
     {
-        agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
-        agent.updateUpAxis = false;
+      
         InvokeRepeating("SetRandomDestination", 0, roamInterval);
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         lastPosition = transform.position;
         entityCollider = GetComponent<Collider2D>();
+        ai = GetComponent<IAstarAI>();
     }
 
-    void SetRandomDestination()
+    /*void SetRandomDestination()
     {
             randomDestination = Random.insideUnitSphere * roamRadius;
             randomDestination += transform.position;
@@ -50,8 +52,16 @@ public class CarAI : MonoBehaviour
 
                 else { agent.updatePosition = false; agent.updateRotation = false; }
             }
-    }
+    }*/
 
+    Vector3 PickRandomPoint()
+    {
+        var point = Random.insideUnitSphere * roamRadius;
+
+
+        point += ai.position;
+        return point;
+    }
     void FlipSprite(Vector2 movDir)
     {
         if (Mathf.Abs(movDir.x) > Mathf.Abs(movDir.y))
@@ -89,7 +99,7 @@ public class CarAI : MonoBehaviour
 
     public void Death()
     {
-        agent.isStopped = true;
+        
         isDestroyed = true;
         spriteRenderer.sprite = destroyedSprite;
         entityCollider.enabled = false;
@@ -104,14 +114,22 @@ public class CarAI : MonoBehaviour
         Vector3 positionChange = currentPosition - lastPosition;
 
         // Calculate the moving direction as a normalized vector.
-        movingDirection = positionChange.normalized;
+       // movingDirection = positionChange.normalized;
 
+ 
+        
         // Update the last position for the next frame.
         lastPosition = currentPosition;
 
         if(isDestroyed != true)
         {
             FlipSprite(movingDirection);
+        }
+
+        if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath))
+        {
+            ai.destination = PickRandomPoint();
+            ai.SearchPath();
         }
     }
 }
