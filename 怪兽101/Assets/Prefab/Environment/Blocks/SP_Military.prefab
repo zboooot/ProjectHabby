@@ -154,7 +154,7 @@ GameObject:
   - component: {fileID: 6631394399162736746}
   - component: {fileID: 6422449158580923426}
   m_Layer: 0
-  m_Name: Block 1-7
+  m_Name: SP_Military
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
