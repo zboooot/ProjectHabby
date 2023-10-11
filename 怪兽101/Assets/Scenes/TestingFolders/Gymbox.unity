@@ -825,81 +825,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1390133131 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4411149530234238777, guid: d09d06b19e8e3bb4abee41705128df1a, type: 3}
-  m_PrefabInstance: {fileID: 1785628158}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1390133140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1390133131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 5
-  radius: 0.5
-  height: 2
-  canMove: 1
-  maxSpeed: 5
-  gravity: {x: NaN, y: NaN, z: NaN}
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  centerOffsetCompatibility: NaN
-  repathRateCompatibility: NaN
-  canSearchCompability: 0
-  orientation: 1
-  enableRotation: 0
-  autoRepath:
-    mode: 2
-    interval: 0.5
-    sensitivity: 10
-    maximumInterval: 2
-    visualizeSensitivity: 0
-  targetCompatibility: {fileID: 0}
-  maxAcceleration: -2.5
-  rotationSpeed: 360
-  slowdownDistance: 0.6
-  pickNextWaypointDist: 2
-  endReachedDistance: 0.2
-  alwaysDrawGizmos: 0
-  slowWhenNotFacingTarget: 1
-  whenCloseToDestination: 0
-  constrainInsideGraph: 0
---- !u!114 &1390133141
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1390133131}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  drawGizmos: 1
-  detailedGizmos: 0
-  startEndModifier:
-    addPoints: 0
-    exactStartPoint: 3
-    exactEndPoint: 3
-    useRaycasting: 0
-    mask:
-      serializedVersion: 2
-      m_Bits: 4294967295
-    useGraphRaycasting: 0
-  traversableTags: -1
-  tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
-  graphMask:
-    value: -1
 --- !u!1 &1629158386
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,7 +935,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   data:
-    dataString: UEsDBBQAAAgIAABAIez4EJYWbQIAACgFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1zokAQ/SvWnDcWkJjI3naJMXtIYsVs5cJlZBqZcpih5iNqUv737RlAiOvF5vXr7tcf8EW4NA0UVuml5uxJMSA/J8Tb5MdkcD7CgW6VXPNP6DnvnNnKk2jgvFLLFeKxDzOqBqt58UtuhSdHCDrJS6XrBdtCpow1CJdUGECXVtZHS4S+JuSAf1epDzmildx56xOtNJqc0CxAWtADdd4z79Jp6n8dvWU7WQhaN8C89CHoOk6msy4u2IEssbWOF0/TGTo8p1BCcNPJI/bYhPYz2hiHzSGBcYrtBk2++wr4trJe+jj4pSwN2G4Wmh7vucaptVnJb9WOsqZm14r8oML5Okl0Mw/a2qxP/xGu4uAutaof+8Jx5IvYihe7V3osqLGjYY/h++/KndxTsaMbAe8VyGe11MpJhk6rnQ91BpL74fHcW1ZBsRvwVuoF6Jph+v3G+s36Hk6h/UMmeL3xrulNC6yFCgMPBwEaN/QHBYdzMV0KRL2Kvwbe6HZ8V53jgWtj0dV1Kb28jXLaU8kizMx342ymtIQAd6IbkFTY4wrT2MsdXvhGZS88D9S/QV3xzte/GBchAR74UXThWqn9eVmmUvsnMNWLs4JLGER7xzPOKVNStic2nkkftna6pMUobOs4+35aZE7ZbZTe0uim2KTJ7O6KJuUcYnYNdJ7QeDYn4fa4xD6pWLVCu/Hg1uSQXOKd9R+WyVLTJpw703S/5J+1Go2cy1KtCw0gX9oMZ+GgsQi+nWzBOA5oDdZyGfZNvnIiVLEDlp8T5aHTxcFqmg9ZctLwD2U9kpMsfEly4uHzLa80fHDY++J9shM5/QNQSwMEFAAACAgAAEAh7JpZUcptAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tJJFYoqZgaVZooFJcpKlkam5bqJRmkWqYYpxaqKFUaKhqYVSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAEAh7PgQlhZtAgAAKAUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAEAh7JpZUcptAAAAeAAAAAkAJAAAAAAAAAAAAAAAugIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAByAwAAAAA=
+    dataString: UEsDBBQAAAgIAABAIexFoZPEbwIAACoFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFlVE1z2kAM/SvMngtjOyHBvbUOIT0kYUI7ufiyeGW8w3rXsx8BkuG/V7u2sUu5IEtP0tOT7C/CpWmgsEqvNGfPigH5PiHeJt8mQ/AJjnSn5IZ/Qo9558xWHkQD5o1artAf+zSjarCaFz/kTnhwhE4neal0vWQ7yJSxBt0lFQYwpJX12RJdXxNyxL9p6lNOaCX33vpEK40mZzQLkBb0AF30yPt0lvpfB2/RThaC1g0wT31IuomT2bzLC3YASxytw8WzdI4BjymUENx09Ig9NWH8jDbG4XAIYJziuIFTNPPtK+C7ynry4/TXsjRgOzU0PT1wjbq1dclP1YpZU7NvaX5Q4XynJLpdBHZt1ef/ANM4hEut6qe+cRz5Jrbixf6Nngpq7Ejusfth4B4HuQ5U7OlWwHsF8kWttHKSYdBq51OdgeRheLzMllVQ7Ad/S/XK6ZpB/35n/W79DOcw/jETvN4GKW9bx0aoIHk4CdC4o19IOByM6Uqg17P4Y+A33Y0vqws8cm0shroppae3VU57KFkGzfw0zmZKSwjujnQDkgp7WmMZe73Dq9io7VXkkfp3qGvexfpX4yoluAd8FF2F1upwWZap1OEZTPXqrOASBtI+8II6ZUrK9sTGmvRpG6dLWozSdo6zf0+LLCi7i9I7Gt0W2zSZ309pUi4gZjdAFwmN5wsSbo9LnJOKdUu0kwe3JofiEu+s/7RMVpo24dyZpocV/6zVSHIuS7UpNIB8bStciIPGJvh+siXjKNAGrOUy7Jt85USoYg8svxTKw6TLo9U0H6rkpOEfynpPTrLwLcmJd19uea3hg8PBN++Lncn5L1BLAwQUAAAICAAAQCHsmllRym0AAAB4AAAACQAkAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAatWKkstKs7Mz1OyUjDRM9IzNNdRUEovSizIKAaKGII4pZkpIHa0kkViipmBpVmigUlykqWRqbluolGaRaphinFqooVRoqGphVIsUH1JZUGqX2JuKkRPQGJJRlpmXkpmXrqee1FmijvIaKXYWgBQSwECLQAUAAAICAAAQCHsRaGTxG8CAAAqBQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAQCHsmllRym0AAAB4AAAACQAkAAAAAAAAAAAAAAC8AgAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAAHQDAAAAAA==
     upgradeData: 
     file_cachedStartup: {fileID: 0}
     data_cachedStartup: 
@@ -1073,22 +998,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4411149530234238776, guid: d09d06b19e8e3bb4abee41705128df1a, type: 3}
-      propertyPath: m_Size.x
-      value: 0.871706
-      objectReference: {fileID: 0}
-    - target: {fileID: 4411149530234238776, guid: d09d06b19e8e3bb4abee41705128df1a, type: 3}
-      propertyPath: m_Size.y
-      value: 0.46401024
-      objectReference: {fileID: 0}
-    - target: {fileID: 4411149530234238776, guid: d09d06b19e8e3bb4abee41705128df1a, type: 3}
-      propertyPath: m_Offset.x
-      value: -0.012829781
-      objectReference: {fileID: 0}
-    - target: {fileID: 4411149530234238776, guid: d09d06b19e8e3bb4abee41705128df1a, type: 3}
-      propertyPath: m_Offset.y
-      value: -0.028510094
-      objectReference: {fileID: 0}
     - target: {fileID: 4411149530234238777, guid: d09d06b19e8e3bb4abee41705128df1a, type: 3}
       propertyPath: m_Name
       value: CarVariant
@@ -1099,11 +1008,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4411149530234238778, guid: d09d06b19e8e3bb4abee41705128df1a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 56.14604
+      value: 5.52
       objectReference: {fileID: 0}
     - target: {fileID: 4411149530234238778, guid: d09d06b19e8e3bb4abee41705128df1a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 55.4
+      value: 0.63
       objectReference: {fileID: 0}
     - target: {fileID: 4411149530234238778, guid: d09d06b19e8e3bb4abee41705128df1a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1137,29 +1046,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5864335005334085720, guid: d09d06b19e8e3bb4abee41705128df1a, type: 3}
-      propertyPath: roamRadius
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 6067283398143030508, guid: d09d06b19e8e3bb4abee41705128df1a, type: 3}
-      propertyPath: radius
-      value: 40
-      objectReference: {fileID: 0}
-    - target: {fileID: 6067283398143030508, guid: d09d06b19e8e3bb4abee41705128df1a, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6067283398143030508, guid: d09d06b19e8e3bb4abee41705128df1a, type: 3}
-      propertyPath: maxRadius
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 6067283398143030508, guid: d09d06b19e8e3bb4abee41705128df1a, type: 3}
-      propertyPath: minRadius
-      value: 50
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4411149530234238757, guid: d09d06b19e8e3bb4abee41705128df1a, type: 3}
-    - {fileID: 6067283398143030508, guid: d09d06b19e8e3bb4abee41705128df1a, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d09d06b19e8e3bb4abee41705128df1a, type: 3}
 --- !u!1001 &8093915057519348150
 PrefabInstance:

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: LevelManager
   m_EditorClassIdentifier: 
   buildingsInScene: 0
-  destructionLevel: 0
+  destructionLevel: 1
   cityLevel: 1
   currentDestruction: 0
