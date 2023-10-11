@@ -14,10 +14,14 @@ public class GridMapGenerator : MonoBehaviour
     public float spacingY = 50.0f;   // Vertical spacing between prefabs
     public List<GameObject> obstacleList = new List<GameObject>();
 
+    public int prefab0Count;
     public int prefab1Count;
     public int prefab2Count;
     public int prefab3Count;
     public int prefab4Count;
+    public int prefab5Count;
+    public int prefab6Count;
+    
     // Start is called before the first frame update
     public void Start()
     {
@@ -51,13 +55,19 @@ public class GridMapGenerator : MonoBehaviour
         {
             int count = 0;
             if (i == 0)
-                count = prefab1Count;
+                count = prefab0Count;
             else if (i == 1)
-                count = prefab2Count;
+                count = prefab1Count;
             else if (i == 2)
-                count = prefab3Count;
+                count = prefab2Count;
             else if (i == 3)
+                count = prefab3Count;
+            else if (i == 4)
                 count = prefab4Count;
+            else if (i == 5)
+                count = prefab5Count;
+            else if (i == 6)
+                count = prefab6Count;
             // Add more conditions for additional prefabs if needed
 
             int maxCount = Mathf.Min(totalTiles, count); // Ensure we don't exceed the totalTiles
@@ -84,13 +94,19 @@ public class GridMapGenerator : MonoBehaviour
                     {
                         int count = 0;
                         if (i == 0)
-                            count = prefab1Count;
+                            count = prefab0Count;
                         else if (i == 1)
-                            count = prefab2Count;
+                            count = prefab1Count;
                         else if (i == 2)
-                            count = prefab3Count;
+                            count = prefab2Count;
                         else if (i == 3)
+                            count = prefab3Count;
+                        else if (i == 4)
                             count = prefab4Count;
+                        else if (i == 5)
+                            count = prefab5Count;
+                        else if (i == 6)
+                            count = prefab6Count;
                         // Add more conditions for additional prefabs if needed
 
                         int maxCount = Mathf.Min(totalTiles, count);

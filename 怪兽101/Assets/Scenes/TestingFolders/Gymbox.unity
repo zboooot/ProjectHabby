@@ -795,16 +795,21 @@ MonoBehaviour:
   - {fileID: 4829518981124354365, guid: 3f2b26913d6ef11408885d245172949a, type: 3}
   - {fileID: 8765843850186578843, guid: fe3cc92a4c77bb941a02711e01df4ff2, type: 3}
   - {fileID: 1596909546565700212, guid: 62bac595180a51d48ab143c493283d92, type: 3}
-  - {fileID: 1596909546565700212, guid: 62bac595180a51d48ab143c493283d92, type: 3}
+  - {fileID: 5701827066488964064, guid: 317ea2cd456e79e4d9311d1a7389b5fd, type: 3}
+  - {fileID: 1310076751194191448, guid: 7a412dd268e68fe49996513d1ce895e4, type: 3}
+  - {fileID: 2269854302233204136, guid: 82fd98c8b0569e84caa8cdd88c62eebc, type: 3}
   numberOfColumns: 8
   numberOfRows: 8
   spacingX: 25.6
   spacingY: 25.6
   obstacleList: []
-  prefab1Count: 9
-  prefab2Count: 8
-  prefab3Count: 15
-  prefab4Count: 1
+  prefab0Count: 11
+  prefab1Count: 10
+  prefab2Count: 12
+  prefab3Count: 5
+  prefab4Count: 12
+  prefab5Count: 11
+  prefab6Count: 3
 --- !u!4 &1225584370
 Transform:
   m_ObjectHideFlags: 0

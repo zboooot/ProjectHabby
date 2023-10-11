@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2616605678701066409}
   - component: {fileID: 3032995500166090306}
   - component: {fileID: 7011580595922322654}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: Solider
   m_TagString: Solider
   m_Icon: {fileID: 0}

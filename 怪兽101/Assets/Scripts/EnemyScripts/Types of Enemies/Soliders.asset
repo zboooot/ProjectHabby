@@ -18,5 +18,5 @@ MonoBehaviour:
   speed: 1.5
   attackDamage: 1
   attackSpeed: 3
-  attackRange: 10
+  attackRange: 5
   isDead: 0
