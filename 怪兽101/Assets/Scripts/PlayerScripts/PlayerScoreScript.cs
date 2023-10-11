@@ -101,12 +101,12 @@ public class PlayerScoreScript : MonoBehaviour
     {
         entitiesDestroyedCount++;
 
-        if (entitiesDestroyedCount >= 10)
+        if (entitiesDestroyedCount >= 15)
         {
             if (isActivating != true)
             {
                 // Randomly choose between a bombing run and spawning artillery
-                int randomEvent = Random.Range(0, 2); // 0 for bombing run, 1 for artillery
+                int randomEvent = Random.Range(0, 1); // 0 for bombing run, 1 for artillery
                 if (randomEvent == 0)
                 {
                     BombingRun();
