@@ -75,6 +75,13 @@ public class BigBuildingEnemy : MonoBehaviour
         spriteRenderer.sortingOrder = 2;
         spriteRenderer.color = originalColor;
     }
+
+    public void IntroDeath()
+    {
+        buildingCollider.enabled = false;
+        spriteRenderer.sprite = destroyedSprite;
+    }
+
     private void SpawnCoin()
     {
         int numberOfEntities = Random.Range(minEntities, maxEntities + 1);

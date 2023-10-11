@@ -101,7 +101,7 @@ public class MeteorScript : MonoBehaviour
                 NewEnemyScript tank = collider.GetComponent<NewEnemyScript>();
                 if (tank != null)
                 {
-                    tank.TakeDamage(playerSO.ultimateDamage);
+                    tank.IntroDeath();
                 }
                 else { return; }
             }
@@ -111,7 +111,7 @@ public class MeteorScript : MonoBehaviour
                 BigBuildingEnemy bigBuilding = collider.GetComponent<BigBuildingEnemy>();
                 if (bigBuilding != null)
                 {
-                    bigBuilding.TakeDamage(playerSO.ultimateDamage);
+                    bigBuilding.IntroDeath();
                 }
                 else { return; }
             }
@@ -153,7 +153,7 @@ public class MeteorScript : MonoBehaviour
                 if (soldier != null)
                 {
                     soldier.isBurnt = true;
-                    soldier.Death();
+                    soldier.IntroDeath();
                 }
                 else { return; }
             }

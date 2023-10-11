@@ -125,6 +125,13 @@ public class NewEnemyScript : MonoBehaviour
         Destroy(gameObject, 3f);
     }
 
+    public void IntroDeath()
+    {
+        entityCollider.enabled = false;
+        spriteRenderer.sprite = destroyedSprite;
+        Destroy(gameObject, 3f);
+    }
+
     private void SpawnCoin()
     {
         //Spawn GNA

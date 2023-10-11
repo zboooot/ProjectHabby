@@ -109,6 +109,20 @@ public class HumanSoldier : MonoBehaviour
         Destroy(gameObject, 2f);
     }
 
+    public void IntroDeath()
+    {
+        if (isBurnt)
+        {
+            anim.SetBool("bDeath", true);
+        }
+        else
+        {
+            anim.SetBool("nDeath", true);
+        }
+
+        Destroy(gameObject, 2f);
+    }
+
     void FlipSprite()
     {
         // Check if the sprite's horizontal position has changed since the last frame
