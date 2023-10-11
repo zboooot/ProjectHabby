@@ -13,6 +13,11 @@ public class GridMapGenerator : MonoBehaviour
     public float spacingX = 50.0f;   // Horizontal spacing between prefabs
     public float spacingY = 50.0f;   // Vertical spacing between prefabs
     public List<GameObject> obstacleList = new List<GameObject>();
+
+    public int prefab1Count;
+    public int prefab2Count;
+    public int prefab3Count;
+    public int prefab4Count;
     // Start is called before the first frame update
     public void Start()
     {
@@ -38,12 +43,72 @@ public class GridMapGenerator : MonoBehaviour
         // Create an empty parent object
         GameObject mapParent = new GameObject("MapParent");
 
+        int totalTiles = numberOfRows * numberOfColumns;
+
+        // Create a list to store all available prefab indices
+        List<int> availableIndices = new List<int>();
+        for (int i = 0; i < Neighbourhood.Count; i++)
+        {
+            int count = 0;
+            if (i == 0)
+                count = prefab1Count;
+            else if (i == 1)
+                count = prefab2Count;
+            else if (i == 2)
+                count = prefab3Count;
+            else if (i == 3)
+                count = prefab4Count;
+            // Add more conditions for additional prefabs if needed
+
+            int maxCount = Mathf.Min(totalTiles, count); // Ensure we don't exceed the totalTiles
+            availableIndices.AddRange(Enumerable.Repeat(i, maxCount));
+        }
+
+        // Shuffle the list to randomize the order
+        for (int i = availableIndices.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            int temp = availableIndices[i];
+            availableIndices[i] = availableIndices[j];
+            availableIndices[j] = temp;
+        }
+
         for (int row = 0; row < numberOfRows; row++)
         {
             for (int col = 0; col < numberOfColumns; col++)
             {
-                // Calculate the index based on the current row and column
-                int indexToInstantiate = Random.Range(0, Neighbourhood.Count);
+                if (availableIndices.Count == 0)
+                {
+                    // If you've run out of available indices, shuffle the list and continue
+                    for (int i = 0; i < Neighbourhood.Count; i++)
+                    {
+                        int count = 0;
+                        if (i == 0)
+                            count = prefab1Count;
+                        else if (i == 1)
+                            count = prefab2Count;
+                        else if (i == 2)
+                            count = prefab3Count;
+                        else if (i == 3)
+                            count = prefab4Count;
+                        // Add more conditions for additional prefabs if needed
+
+                        int maxCount = Mathf.Min(totalTiles, count);
+                        availableIndices.AddRange(Enumerable.Repeat(i, maxCount));
+                    }
+
+                    // Shuffle the list to randomize the order
+                    for (int i = availableIndices.Count - 1; i > 0; i--)
+                    {
+                        int j = Random.Range(0, i + 1);
+                        int temp = availableIndices[i];
+                        availableIndices[i] = availableIndices[j];
+                        availableIndices[j] = temp;
+                    }
+                }
+
+                int indexToInstantiate = availableIndices[0]; // Get the first index from the shuffled list
+                availableIndices.RemoveAt(0); // Remove the used index
 
                 GameObject prefabToInstantiate = Neighbourhood[indexToInstantiate];
 
