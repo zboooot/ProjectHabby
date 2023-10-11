@@ -5,7 +5,7 @@ using UnityEngine;
 public class MissileScript : MonoBehaviour
 {
     public Transform target;
-    public float speed = 5f;
+    public float speed = 10f;
     public float rotateSpeed = 200f;
     private Rigidbody2D rb;
     public float destroyTime = 10f;

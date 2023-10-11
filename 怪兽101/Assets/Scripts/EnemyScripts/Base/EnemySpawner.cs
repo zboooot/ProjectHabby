@@ -127,8 +127,8 @@ public class EnemySpawner : MonoBehaviour
         {
             // Generate a random position within the specified range
             randomSpawnPosition = new Vector2(
-                Random.Range(minSpawnPosition.x, maxSpawnPosition.x),
-                Random.Range(minSpawnPosition.y, maxSpawnPosition.y)
+                transform.position.x + Random.Range(minSpawnPosition.x, maxSpawnPosition.x),
+                transform.position.y + Random.Range(minSpawnPosition.y, maxSpawnPosition.y)
             );
         } while (Vector2.Distance(randomSpawnPosition, playerTransform.position) < playerSpawnRadius);
 
