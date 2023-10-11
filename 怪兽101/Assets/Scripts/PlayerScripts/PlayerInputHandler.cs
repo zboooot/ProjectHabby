@@ -191,6 +191,17 @@ public class PlayerInputHandler : MonoBehaviour
                 }
                 else { return; }
             }
+
+            else if (collider.CompareTag("Solider"))
+            {
+                HumanSoldier soldier = collider.GetComponent<HumanSoldier>();
+                if (soldier != null)
+                {
+                    soldier.isBurnt = true;
+                    soldier.Death();
+                }
+                else { return; }
+            }
         }
     }
 

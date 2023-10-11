@@ -20,6 +20,7 @@ TagManager:
   - Car
   - Tree
   - Obstacle
+  - Solider
   layers:
   - Default
   - TransparentFX
