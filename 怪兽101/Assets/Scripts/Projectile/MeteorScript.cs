@@ -5,6 +5,7 @@ using UnityEngine;
 public class MeteorScript : MonoBehaviour
 {
     public Vector2 targetPosition;
+    public Vector2 direction;
     public float speed = 2.0f; // Speed at which the object moves
 
     public bool isMoving;
@@ -18,6 +19,9 @@ public class MeteorScript : MonoBehaviour
     public PlayerInputHandler playerData;
     public GameObject objController;
     public GameObject enemySpawner;
+    
+    float ultimateRadius = 10f;
+    public PlayerStatScriptableObject playerSO;
     public void Start()
     {
         StartMoving();
@@ -32,6 +36,9 @@ public class MeteorScript : MonoBehaviour
         Vector2 landingPos = new Vector2(player.transform.position.x, player.transform.position.y + 6f);
        
         targetPosition = landingPos;
+
+        // Calculate the direction vector towards the target position
+        direction = (targetPosition - (Vector2)transform.position).normalized;
 
         playerData = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
 
@@ -54,15 +61,9 @@ public class MeteorScript : MonoBehaviour
         
         if (isMoving == true)
         {
-
-            // Calculate the direction vector towards the target position
-            Vector2 direction = (targetPosition - (Vector2)transform.position).normalized;
-
-            // Calculate the new position
-            Vector2 newPosition = (Vector2)transform.position + direction * speed * Time.deltaTime;
-
             // Update the object's position
-            transform.position = newPosition;
+            //transform.position = (Vector2)transform.position + direction * speed * Time.deltaTime;
+            transform.position = Vector2.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
 
             // Calculate the angle in radians
             float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -71,12 +72,11 @@ public class MeteorScript : MonoBehaviour
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
             // Check if the object has reached the target position
-            if (Vector2.Distance(transform.position, targetPosition) <= 0.1f)
+            if (Vector2.Distance(transform.position, targetPosition) <= 0f)
             {
                 // Object has reached the target, you can add further actions here if needed.
                 isMoving = false;
-
-                
+                UseUltimate();
             }
         }
 
@@ -85,8 +85,78 @@ public class MeteorScript : MonoBehaviour
             
             transform.rotation = Quaternion.Euler(Vector3.zero);
             animator.SetBool("isMoving", false);
-            Debug.Log("HitFloor");
             // Spawn the player
+        }
+
+        
+    }
+
+    public void UseUltimate()
+    {
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, ultimateRadius);
+        foreach (Collider2D collider in hitColliders)
+        {
+            if (collider.CompareTag("Tank"))
+            {
+                NewEnemyScript tank = collider.GetComponent<NewEnemyScript>();
+                if (tank != null)
+                {
+                    tank.TakeDamage(playerSO.ultimateDamage);
+                }
+                else { return; }
+            }
+
+            else if (collider.CompareTag("BigBuilding"))
+            {
+                BigBuildingEnemy bigBuilding = collider.GetComponent<BigBuildingEnemy>();
+                if (bigBuilding != null)
+                {
+                    bigBuilding.TakeDamage(playerSO.ultimateDamage);
+                }
+                else { return; }
+            }
+
+            else if (collider.CompareTag("Civilian"))
+            {
+                Civilian civilian = collider.GetComponent<Civilian>();
+                if (civilian != null)
+                {
+                    civilian.enemyState = Civilian.EnemyState.death;
+                }
+                else { return; }
+            }
+
+
+            else if (collider.CompareTag("Tree"))
+            {
+                Trees tree = collider.GetComponent<Trees>();
+                if (tree != null)
+                {
+                    tree.Death();
+                }
+                else { return; }
+            }
+
+            else if (collider.CompareTag("Car"))
+            {
+                CarAI car = collider.GetComponent<CarAI>();
+                if (car != null)
+                {
+                    car.Death();
+                }
+                else { return; }
+            }
+
+            else if (collider.CompareTag("Solider"))
+            {
+                HumanSoldier soldier = collider.GetComponent<HumanSoldier>();
+                if (soldier != null)
+                {
+                    soldier.isBurnt = true;
+                    soldier.Death();
+                }
+                else { return; }
+            }
         }
     }
 
@@ -109,6 +179,8 @@ public class MeteorScript : MonoBehaviour
         player.GetComponent<SpriteRenderer>().enabled = true;
         
     }
+
+
 
     public void StartMoving()
     {

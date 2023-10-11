@@ -229,28 +229,34 @@ public class PlayerInputHandler : MonoBehaviour
     }
     public void CheckFlip()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (startScene)
         {
-            if (facingLeft != true)
+            return;
+        }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.A))
             {
-                transform.Rotate(0.0f, 180.0f, 0.0f);
-                facingLeft = true;
+                if (facingLeft != true)
+                {
+                    transform.Rotate(0.0f, 180.0f, 0.0f);
+                    facingLeft = true;
+                }
+
+                else { return; }
             }
 
-            else { return; }
-        }
-
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            if (facingLeft == true)
+            else if (Input.GetKeyDown(KeyCode.D))
             {
-                transform.Rotate(0.0f, -180.0f, 0.0f);
-                facingLeft = false;
+                if (facingLeft == true)
+                {
+                    transform.Rotate(0.0f, -180.0f, 0.0f);
+                    facingLeft = false;
+                }
+
+                else { return; }
             }
-
-            else { return; }
         }
-
     }
 
     void OnAnimationMove()

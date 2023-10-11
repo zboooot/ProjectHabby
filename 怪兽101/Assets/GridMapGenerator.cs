@@ -21,8 +21,10 @@ public class GridMapGenerator : MonoBehaviour
     public int prefab4Count;
     public int prefab5Count;
     public int prefab6Count;
+    public int prefab7Count;
+    public int prefab8Count;
 
-    public LevelManager levelManager;
+    
 
     // Start is called before the first frame update
     public void Start()
@@ -31,8 +33,7 @@ public class GridMapGenerator : MonoBehaviour
         AstarPath.active.Scan(); //scan the grid
         ScanAndInsert();
         DisableObstacles();
-        //levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
-        //levelManager.CalculateTotalDestruction();
+      
     }
 
     void ScanAndInsert()
@@ -71,6 +72,10 @@ public class GridMapGenerator : MonoBehaviour
                 count = prefab5Count;
             else if (i == 6)
                 count = prefab6Count;
+            else if (i == 7)
+                count = prefab7Count;
+            else if (i == 8)
+                count = prefab8Count;
             // Add more conditions for additional prefabs if needed
 
             int maxCount = Mathf.Min(totalTiles, count); // Ensure we don't exceed the totalTiles
@@ -110,6 +115,10 @@ public class GridMapGenerator : MonoBehaviour
                             count = prefab5Count;
                         else if (i == 6)
                             count = prefab6Count;
+                        else if (i == 7)
+                            count = prefab7Count;
+                        else if (i == 8)
+                            count = prefab8Count;
                         // Add more conditions for additional prefabs if needed
 
                         int maxCount = Mathf.Min(totalTiles, count);

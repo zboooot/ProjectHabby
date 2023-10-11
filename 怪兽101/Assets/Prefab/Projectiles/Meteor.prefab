@@ -52,6 +52,10 @@ MonoBehaviour:
   isMoving: 0
   isActive: 0
   player: {fileID: 0}
+  crater: {fileID: 0}
+  playerData: {fileID: 0}
+  objController: {fileID: 0}
+  enemySpawner: {fileID: 0}
 --- !u!212 &5820943973999638596
 SpriteRenderer:
   m_ObjectHideFlags: 0
