@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 1504648875917354079}
   - component: {fileID: 2066334165967898418}
   m_Layer: 0
-  m_Name: Block 1-4
+  m_Name: SP_Park
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
