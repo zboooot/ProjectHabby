@@ -108,28 +108,28 @@ public class CarAI : MonoBehaviour
 
     private void Update()
     {
-        Vector3 currentPosition = transform.position;
+       // Vector3 currentPosition = transform.position;
 
-        // Calculate the velocity or position change since the last frame.
-        Vector3 positionChange = currentPosition - lastPosition;
+       // // Calculate the velocity or position change since the last frame.
+       // Vector3 positionChange = currentPosition - lastPosition;
 
-        // Calculate the moving direction as a normalized vector.
-       // movingDirection = positionChange.normalized;
+       // // Calculate the moving direction as a normalized vector.
+       //// movingDirection = positionChange.normalized;
 
  
         
-        // Update the last position for the next frame.
-        lastPosition = currentPosition;
+       // // Update the last position for the next frame.
+       // lastPosition = currentPosition;
 
-        if(isDestroyed != true)
-        {
-            FlipSprite(movingDirection);
-        }
+       // if(isDestroyed != true)
+       // {
+       //     FlipSprite(movingDirection);
+       // }
 
-        if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath))
-        {
-            ai.destination = PickRandomPoint();
-            ai.SearchPath();
-        }
+       // if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath))
+       // {
+       //     ai.destination = PickRandomPoint();
+       //     ai.SearchPath();
+       // }
     }
 }

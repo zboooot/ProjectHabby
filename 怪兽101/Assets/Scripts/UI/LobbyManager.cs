@@ -25,12 +25,12 @@ public class LobbyManager : MonoBehaviour
 
     public void LoadLevel()
     {
-        if(levelData.cityLevel < 2)
+        if(levelData.cityLevel < 10)
         {
             SceneManager.LoadScene("GameplayScene");
         }
 
-        else if(levelData.cityLevel == 2)
+        else if(levelData.cityLevel == 10)
         {
             SceneManager.LoadScene("LandmarkDesScene");
         }

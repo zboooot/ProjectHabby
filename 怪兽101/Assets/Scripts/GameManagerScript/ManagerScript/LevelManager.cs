@@ -11,70 +11,66 @@ public class LevelManager : MonoBehaviour
     private int calculation1;
     public GameObject levelCompleteText;
     public Slider slider;
-    private GNAManager gnaManager;
-
-    private void Awake()
-    {
-        GameObject[] buildings = GameObject.FindGameObjectsWithTag("BigBuilding");
-        levelData.buildingsInScene = buildings.Length;
-        CalculateTotalDestruction();
-        slider.maxValue = calculation1;
-        levelCompleteText = GameObject.Find("LevelCompleteText");
-        levelCompleteText.SetActive(false);
-    }
 
     // Start is called before the first frame update
     void Start()
-    {
+    {   
+        levelCompleteText = GameObject.Find("LevelCompleteText");
+        levelCompleteText.SetActive(false);
+        Invoke("CalculateTotalDestruction", 1f);
     }
 
-    void CalculateTotalDestruction()
+    public void CalculateTotalDestruction()
     {
+        GameObject[] buildings = GameObject.FindGameObjectsWithTag("BigBuilding");
+        levelData.buildingsInScene = buildings.Length;
+
         switch (levelData.cityLevel)
         {
-            case 10:
-                calculateCityDestruction = 95;
-                break;
-
-            case 9:
-                calculateCityDestruction = 115;
-                break;
-
-            case 8:
-                calculateCityDestruction = 120;
-                break;
-
-            case 7:
-                calculateCityDestruction = 125;
-                break;
-
-            case 6:
-                calculateCityDestruction = 130;
-                break;
-
-            case 5:
-                calculateCityDestruction = 135;
-                break;
-
-            case 4:
-                calculateCityDestruction = 140;
-                break;
-
-            case 3:
-                calculateCityDestruction = 145;
+            case 1:
+                calculateCityDestruction = 23;
                 break;
 
             case 2:
-                calculateCityDestruction = 150;
+                calculateCityDestruction = 22;
                 break;
 
-            case 1:
-                calculateCityDestruction = 155;
+            case 3:
+                calculateCityDestruction = 21;
+                break;
+
+            case 4:
+                calculateCityDestruction = 20;
+                break;
+
+            case 5:
+                calculateCityDestruction = 19;
+                break;
+
+            case 6:
+                calculateCityDestruction = 18;
+                break;
+
+            case 7:
+                calculateCityDestruction = 17;
+                break;
+
+            case 8:
+                calculateCityDestruction = 16;
+                break;
+
+            case 9:
+                calculateCityDestruction = 15;
+                break;
+
+            case 10:
+                calculateCityDestruction = 14;
                 break;
         }
 
-        calculation1 = Mathf.RoundToInt(levelData.buildingsInScene % calculateCityDestruction);
-
+        calculation1 = Mathf.RoundToInt(levelData.buildingsInScene / calculateCityDestruction);
+        Debug.Log(calculation1);
+        slider.maxValue = calculation1;
     }
 
     public void CalculateScore(int score)

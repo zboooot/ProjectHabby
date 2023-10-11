@@ -13,12 +13,12 @@ public class ShakeScript : MonoBehaviour
     private CinemachineVirtualCamera cine;
     public Transform player;
 
-    private void Start()
+    private void Awake()
     {
         targetTransform = transform;
         originalPosition = targetTransform.localPosition;
         cine = GetComponent<CinemachineVirtualCamera>();
-        if(player != null)
+        if (player != null)
         {
             player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
             player = cine.Follow;
@@ -27,7 +27,6 @@ public class ShakeScript : MonoBehaviour
         {
             return;
         }
-       
     }
 
     public void StartShake()

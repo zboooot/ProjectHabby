@@ -21,7 +21,9 @@ public class GridMapGenerator : MonoBehaviour
     public int prefab4Count;
     public int prefab5Count;
     public int prefab6Count;
-    
+
+    public LevelManager levelManager;
+
     // Start is called before the first frame update
     public void Start()
     {
@@ -29,7 +31,8 @@ public class GridMapGenerator : MonoBehaviour
         AstarPath.active.Scan(); //scan the grid
         ScanAndInsert();
         DisableObstacles();
-        
+        //levelManager = GameObject.FindGameObjectWithTag("LevelManager").GetComponent<LevelManager>();
+        //levelManager.CalculateTotalDestruction();
     }
 
     void ScanAndInsert()

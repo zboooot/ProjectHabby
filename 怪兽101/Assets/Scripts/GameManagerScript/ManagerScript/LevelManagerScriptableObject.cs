@@ -10,7 +10,7 @@ public class LevelManagerScriptableObject : ScriptableObject
 
     private void OnEnable()
     {
-        buildingsInScene = 0;
+        
         currentDestruction = 0;
         destructionLevel = 0;
     }
