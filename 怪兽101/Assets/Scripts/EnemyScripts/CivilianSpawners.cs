@@ -25,6 +25,7 @@ public class CivilianSpawners : MonoBehaviour
 
     void SpawnEnemies()
     {
+        GameObject civilianParent = new GameObject("---Civillian---");
         for (int i = 0; i < numberOfEnemiesToSpawn; i++)
         {
             // Generate a random value between 0 and 1
@@ -50,8 +51,9 @@ public class CivilianSpawners : MonoBehaviour
                 );
 
                 // Spawn the selected enemy prefab at the random position
-                Instantiate(enemyPrefabToSpawn, spawnPosition, Quaternion.identity);
-                //enemyPrefabToSpawn.GetComponent<Civilian>().enemyState = Civilian.EnemyState.walk;
+               GameObject preFabtocreate = Instantiate(enemyPrefabToSpawn, spawnPosition, Quaternion.identity);
+                preFabtocreate.transform.parent = civilianParent.transform;
+     
             }
         }
     }

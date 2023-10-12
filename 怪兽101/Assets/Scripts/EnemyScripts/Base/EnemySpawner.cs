@@ -23,9 +23,13 @@ public class EnemySpawner : MonoBehaviour
     public Transform playerTransform;
     public float playerSpawnRadius = 10f;
 
+    public List<BonusEnemy> bonusenemies = new List<BonusEnemy>();
+ 
 
 
-    public TMP_Text Waveno;
+
+
+    
 
     public List<GameObject> spawnedEnemies = new List<GameObject>();
     public List<SpawnedEnemy> separateSpawnedEnemies = new List<SpawnedEnemy>();
@@ -65,10 +69,14 @@ public class EnemySpawner : MonoBehaviour
             else if (CityDestructionLevel == 1)
             {
                 currWave = 4;
+                spawnBonusWave();
+                Debug.Log("BonusWave1Spawned");
             }
             else if (CityDestructionLevel == 2)
             {
                 currWave = 7;
+                spawnBonusWave();
+                Debug.Log("BonusWave2Spawned");
             }
 
             GenerateWave(); // Generate the next wave
@@ -263,6 +271,23 @@ public class EnemySpawner : MonoBehaviour
         }
     }
 
+    void spawnBonusWave()
+    {
+        foreach (var bonusEnemy in bonusenemies)
+        {
+            for (int i = 0; i < bonusEnemy.Number; i++)
+            {
+                // Adjust spawn positions as needed.
+                Vector2 spawnPosition = new Vector2(
+                       transform.position.x + Random.Range(minSpawnPosition.x, maxSpawnPosition.x),
+                       transform.position.y + Random.Range(minSpawnPosition.y, maxSpawnPosition.y)
+                   );
+
+                // Instantiate the bonus enemy prefab at the chosen position.
+                Instantiate(bonusEnemy.BonusEnemyPrefab, spawnPosition, Quaternion.identity);
+            }
+        }
+    }
 
     [System.Serializable]
     public class Enemy
@@ -276,5 +301,12 @@ public class EnemySpawner : MonoBehaviour
     {
         public GameObject enemyPrefab;
         public int count;
+    }
+
+    [System.Serializable]
+    public class BonusEnemy
+    {
+        public GameObject BonusEnemyPrefab;
+        public int Number;
     }
 }

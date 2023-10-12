@@ -12,6 +12,8 @@ public class BigBuildingEnemy : MonoBehaviour
     public Targetable buildingType;
     private Collider2D buildingCollider;
     public PlayerInputHandler inputHandler;
+    public GameObject civilianParent;
+    
 
     [SerializeField] private GameObject pfCoin;
 
@@ -43,6 +45,8 @@ public class BigBuildingEnemy : MonoBehaviour
         shakeScript = GetComponent<ShakeScript>();
         orbManager = GetComponent<OrbManager>();
         originalColor = spriteRenderer.color;
+        civilianParent = GameObject.Find("---Civillian---");
+       
     }
 
     public void TakeDamage(float damage)
@@ -122,7 +126,8 @@ public class BigBuildingEnemy : MonoBehaviour
             civilian.GetComponent<Rigidbody2D>().AddForce(randomDirection * pushForce, ForceMode2D.Impulse);
             //Sets the civilian state upon initialization
             civilian.GetComponent<Civilian>().enemyState = Civilian.EnemyState.fall;
-
+            civilian.transform.SetParent(civilianParent.transform);
+           
         }
         
     }
