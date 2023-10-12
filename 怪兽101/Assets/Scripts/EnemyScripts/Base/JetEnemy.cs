@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class JetEnemy : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    public float moveSpeed = 10f;
     private Rigidbody2D rb;
 
     public Transform cameraTransform;

@@ -30,6 +30,7 @@ public class PlayerHealthScript : MonoBehaviour
     private CanvasGroup berserkVignette;
     private bool fadeIn;
     private bool fadeOut;
+    public GameObject rageIndicator;
 
     private void Start()
     {
@@ -52,6 +53,7 @@ public class PlayerHealthScript : MonoBehaviour
         {
             if (berserkVignette.alpha >= 0)
             {
+                rageIndicator.SetActive(false);
                 berserkVignette.alpha -= Time.deltaTime;
             }
         }
@@ -60,6 +62,7 @@ public class PlayerHealthScript : MonoBehaviour
         {
             if (berserkVignette.alpha < 1)
             {
+                rageIndicator.SetActive(true);
                 berserkVignette.alpha += Time.deltaTime;
             }
         }
