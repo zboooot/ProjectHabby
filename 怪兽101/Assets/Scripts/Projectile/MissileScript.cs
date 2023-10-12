@@ -25,6 +25,7 @@ public class MissileScript : MonoBehaviour
 
         if (currentTime >= destroyTime)
         {
+            GameObject explosion = Instantiate(explosionVFX, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
     }

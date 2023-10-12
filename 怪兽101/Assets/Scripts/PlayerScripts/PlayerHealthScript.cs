@@ -30,12 +30,14 @@ public class PlayerHealthScript : MonoBehaviour
     private CanvasGroup berserkVignette;
     private bool fadeIn;
     private bool fadeOut;
+    public GameObject rageIndicator;
 
     private void Start()
     {
         shakeMe = healthSlider.gameObject.GetComponent<ShakeScript>();
         //playerSO.health = 100;
         currentHealth = playerSO.health; // Set initial health to full
+        healthSlider.maxValue = currentHealth;
         thresholdHealth = playerSO.health;
         flashEffect = GetComponent<PlayerFlash>();
         UpdateHealthBar();
@@ -51,6 +53,7 @@ public class PlayerHealthScript : MonoBehaviour
         {
             if (berserkVignette.alpha >= 0)
             {
+                rageIndicator.SetActive(false);
                 berserkVignette.alpha -= Time.deltaTime;
             }
         }
@@ -59,6 +62,7 @@ public class PlayerHealthScript : MonoBehaviour
         {
             if (berserkVignette.alpha < 1)
             {
+                rageIndicator.SetActive(true);
                 berserkVignette.alpha += Time.deltaTime;
             }
         }

@@ -106,7 +106,7 @@ public class MeteorScript : MonoBehaviour
                 else { return; }
             }
 
-            else if (collider.CompareTag("BigBuilding"))
+            else if (collider.CompareTag("BigBuilding") && collider.gameObject.name != "Barracks")
             {
                 BigBuildingEnemy bigBuilding = collider.GetComponent<BigBuildingEnemy>();
                 if (bigBuilding != null)
