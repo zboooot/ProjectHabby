@@ -36,6 +36,7 @@ public class PlayerHealthScript : MonoBehaviour
         shakeMe = healthSlider.gameObject.GetComponent<ShakeScript>();
         //playerSO.health = 100;
         currentHealth = playerSO.health; // Set initial health to full
+        healthSlider.maxValue = currentHealth;
         thresholdHealth = playerSO.health;
         flashEffect = GetComponent<PlayerFlash>();
         UpdateHealthBar();
