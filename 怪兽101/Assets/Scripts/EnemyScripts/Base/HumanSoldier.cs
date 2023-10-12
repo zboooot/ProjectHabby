@@ -28,7 +28,7 @@ public class HumanSoldier : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        playerScore = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScoreScript>();
+        playerScore = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PlayerScoreScript>();
         inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
         
         lastPosX = transform.position.x;

@@ -195,7 +195,7 @@ GameObject:
   - component: {fileID: 8093915059412899187}
   - component: {fileID: 8093915059412899198}
   - component: {fileID: 8093915059412899199}
-  - component: {fileID: 983902660}
+  - component: {fileID: 8093915059289638908}
   m_Layer: 6
   m_Name: Dokkaebi
   m_TagString: Player
@@ -390,7 +390,7 @@ MonoBehaviour:
   playerSO: {fileID: 11400000, guid: 59dab0eb911ed154a9696246ede0b205, type: 2}
   attackNow: 0
   ultimating: 0
-  currentUltimateCharge: 100
+  currentUltimateCharge: 0
   boxSize: {x: 4, y: 4}
   enemyLayer:
     serializedVersion: 2
@@ -398,6 +398,8 @@ MonoBehaviour:
   selectedEnemy: {fileID: 0}
   isAttacking: 0
   startScene: 1
+  detectionOrigin: {fileID: 1556379448410176628}
+  healthScript: {fileID: 0}
 --- !u!114 &8093915059412899199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -414,7 +416,9 @@ MonoBehaviour:
   healthSlider: {fileID: 0}
   healthFill: {fileID: 0}
   lerpSpeed: 2
---- !u!114 &983902660
+  healthState: 0
+  triggerNumber: 10
+--- !u!114 &8093915059289638908
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -423,22 +427,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 8093915059412899083}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56dd5c92c0be08046b43656fdd3296ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 81c6b548011815244a9a4e0ec6d17d14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entitiesDestroyedCount: 9
-  numberOfPlanes: 3
-  enemyPlane: {fileID: 4778428930660515346, guid: ca0d55a0c9369df4ebb3c84bb463ba19, type: 3}
-  player: {fileID: 8093915059412899081}
-  spawnPoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  ArtilleryScript: {fileID: 0}
-  blinkSpeed: 4
-  minAlpha: 0
-  maxAlpha: 1
-  lifeDuration: 1.5
-  warningZone: {fileID: 0}
+  flashMaterial: {fileID: 2100000, guid: 48d79c8b817777642aa5ac06954e16ea, type: 2}
+  duration: 0.15
+  flickerAmount: 3
 --- !u!1001 &1090955272
 PrefabInstance:
   m_ObjectHideFlags: 0

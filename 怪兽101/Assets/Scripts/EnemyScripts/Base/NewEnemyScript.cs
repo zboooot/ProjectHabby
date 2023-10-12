@@ -43,9 +43,7 @@ public class NewEnemyScript : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         entityCollider = GetComponent<Collider2D>();
 
-       
-
-        playerScore = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScoreScript>();
+        playerScore = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PlayerScoreScript>();
         inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
 
     }

@@ -40,7 +40,7 @@ public class BigBuildingEnemy : MonoBehaviour
         tempHealth = SO_enemy.health;
         spriteRenderer = GetComponent<SpriteRenderer>();
         buildingCollider = GetComponent<BoxCollider2D>();
-        playerScore = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScoreScript>();
+        playerScore = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PlayerScoreScript>();
         inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
         shakeScript = GetComponent<ShakeScript>();
         orbManager = GetComponent<OrbManager>();

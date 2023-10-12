@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class PlayerScoreScript : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class PlayerScoreScript : MonoBehaviour
     private float currentAlpha;
     private float blinkDirection = 1.0f; // Used to control the blinking direction
 
+    public TextMeshProUGUI bannerText;
 
     private void Start()
     {
@@ -101,20 +103,33 @@ public class PlayerScoreScript : MonoBehaviour
     {
         entitiesDestroyedCount++;
 
-        if (entitiesDestroyedCount >= 15)
+        if (entitiesDestroyedCount >= 1)
         {
             if (isActivating != true)
             {
                 // Randomly choose between a bombing run and spawning artillery
-                int randomEvent = Random.Range(0, 1); // 0 for bombing run, 1 for artillery
+                int randomEvent = Random.Range(0, 3); // 0 for bombing run, 1 for artillery
                 if (randomEvent == 0)
                 {
-                    BombingRun();
+                    AirStrike();
+                    bannerText.text = "Incoming AirStrike!";
                 }
                 else
                 {
+                    isActivating = true;
+                    bannerText.text = "Incoming Barrage!";
+
                     StartCoroutine(ArtilleryScript.SpawnArtilleryWithDelay());
-                    Debug.Log("Artillery");
+
+                    Invoke("DeactiveBanner", 3f);
+
+                    anim.SetBool("Close", true);
+
+                    entitiesDestroyedCount = 0;
+
+                    Invoke("ResetActivation", 15f);
+
+
                 }
             }
             else
@@ -124,7 +139,7 @@ public class PlayerScoreScript : MonoBehaviour
         }
     }
 
-    public void BombingRun()
+    public void AirStrike()
     {
         if (enemyPlane != null)
         {

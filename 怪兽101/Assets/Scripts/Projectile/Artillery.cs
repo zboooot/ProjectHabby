@@ -24,9 +24,6 @@ public class Artillery : MonoBehaviour
 
     private void Start()
     {
-        //StartCoroutine(SpawnArtilleryWithDelay());
-
-        //GenerateRandomLocations(numberOfLocations);
 
     }
 
