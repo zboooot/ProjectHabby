@@ -13,7 +13,8 @@ public class BigBuildingEnemy : MonoBehaviour
     private Collider2D buildingCollider;
     public PlayerInputHandler inputHandler;
     public GameObject civilianParent;
-    
+    public GameObject smokeVFX;
+    private GameObject smokeHandler;
 
     [SerializeField] private GameObject pfCoin;
 
@@ -33,6 +34,8 @@ public class BigBuildingEnemy : MonoBehaviour
 
     float pushForce = 2f;
     float upForce = 5f;
+
+    bool isSmoking;
 
     // Start is called before the first frame update
     void Start()
@@ -57,13 +60,29 @@ public class BigBuildingEnemy : MonoBehaviour
         SpawnCivilian();
         DamageEffect();
 
+        if (isSmoking != true)
+        {
+            SpawnSmoke();
+        }
+
         if (tempHealth <= 0)
         {
+
             SpawnCoin();
             Death();
         }
         else return;
     }
+
+    void SpawnSmoke()
+    {
+        Vector2 spawnLoc = new Vector2(transform.position.x, transform.position.y + 2f);
+        GameObject smokeAnim = Instantiate(smokeVFX, spawnLoc, Quaternion.identity);
+        smokeAnim.GetComponent<Animator>().SetBool("startFire", true);
+        smokeHandler = smokeAnim;
+        isSmoking = true;
+    }
+
 
     void Death()
     {
@@ -72,6 +91,7 @@ public class BigBuildingEnemy : MonoBehaviour
             playerScore.EntityDestroyed();
         }
 
+        Destroy(smokeHandler);
         inputHandler.ChargeUltimate(10);
         buildingCollider.enabled = false;
         spriteRenderer.sprite = destroyedSprite;

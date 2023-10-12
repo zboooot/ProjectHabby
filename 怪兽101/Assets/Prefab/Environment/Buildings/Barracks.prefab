@@ -148,6 +148,8 @@ MonoBehaviour:
   destroyedSprite: {fileID: 21300000, guid: aaebfd8a47850684faffc16836694408, type: 3}
   buildingType: {fileID: 1747484668381174134}
   inputHandler: {fileID: 0}
+  civilianParent: {fileID: 0}
+  smokeVFX: {fileID: 4375055505286881329, guid: 8ea45cebb55b2fd449b27d33bf9b32a8, type: 3}
   pfCoin: {fileID: 68998136515679623, guid: 97d85bc601e37404c8ddadc334626a85, type: 3}
   pfDelvin: {fileID: 2411092050883332399, guid: e44870b68705c5a4c8352f73f8249dc1, type: 3}
   minEntities: 1
