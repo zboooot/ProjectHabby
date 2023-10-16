@@ -25,7 +25,7 @@ public class BigBuildingEnemy : MonoBehaviour
 
     private float hitDarkeningAmount = 0.6f; // Amount to darken the sprite on each hit
     private float minDarkness = 0.2f; // Minimum darkness level
-    
+
     private Color originalColor;
 
     private PlayerScoreScript playerScore;
@@ -49,7 +49,7 @@ public class BigBuildingEnemy : MonoBehaviour
         orbManager = GetComponent<OrbManager>();
         originalColor = spriteRenderer.color;
         civilianParent = GameObject.Find("---Civillian---");
-       
+
     }
 
     public void TakeDamage(float damage)
@@ -86,8 +86,10 @@ public class BigBuildingEnemy : MonoBehaviour
     public void Death()
     {
         Destroy(smokeHandler);
+        buildingCollider.enabled = false;
+        spriteRenderer.enabled = false;
         GameObject rubble = Instantiate(destroyedBuilding, transform.position, Quaternion.identity);
-        Destroy(gameObject);
+        Destroy(gameObject, 1f);
     }
 
     void TriggerLoot()
@@ -110,12 +112,6 @@ public class BigBuildingEnemy : MonoBehaviour
         orbManager.DropOrbsOnKill();
 
         inputHandler.ChargeUltimate(10);
-    }
-
-    public void IntroDeath()
-    {
-        GameObject rubble = Instantiate(destroyedBuilding, transform.position, Quaternion.identity);
-        Destroy(gameObject);
     }
 
     void DamageEffect()
@@ -144,9 +140,9 @@ public class BigBuildingEnemy : MonoBehaviour
             //Sets the civilian state upon initialization
             civilian.GetComponent<Civilian>().enemyState = Civilian.EnemyState.fall;
             civilian.transform.SetParent(civilianParent.transform);
-           
+
         }
-        
+
     }
 
 }

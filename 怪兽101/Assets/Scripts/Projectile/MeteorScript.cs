@@ -99,7 +99,7 @@ public class MeteorScript : MonoBehaviour
             CollateralScript collateralTrigger = collider.GetComponent<CollateralScript>();
             if (collateralTrigger != null)
             {
-                collateralTrigger.CollateralDamage(5f);
+                collateralTrigger.CollateralDamage(100f);
             }
         }
     }
