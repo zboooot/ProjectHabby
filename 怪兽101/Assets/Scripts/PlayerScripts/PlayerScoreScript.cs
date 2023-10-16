@@ -108,7 +108,7 @@ public class PlayerScoreScript : MonoBehaviour
             if (isActivating != true)
             {
                 // Randomly choose between a bombing run and spawning artillery
-                int randomEvent = Random.Range(0, 3); // 0 for bombing run, 1 for artillery
+                int randomEvent = Random.Range(0, 2); // 0 for bombing run, 1 for artillery
                 if (randomEvent == 0)
                 {
                     AirStrike();

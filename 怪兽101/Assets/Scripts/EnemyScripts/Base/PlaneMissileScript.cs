@@ -33,8 +33,6 @@ public class PlaneMissileScript : MonoBehaviour
             SpawnExplosion();
             Destroy(gameObject); // Destroy the GameObject
         }
-
-        BlowUp();
     }
 
     void CheckAndFire()
@@ -62,6 +60,12 @@ public class PlaneMissileScript : MonoBehaviour
             collision.GetComponent<PlayerHealthScript>().TakeDamage(enemyData.attackDamage);
 
             Destroy(gameObject);
+        }
+
+        else if (collision.CompareTag("BigBuilding"))
+        {
+            SpawnExplosion();
+            collision.GetComponent<BigBuildingEnemy>().TakeDamage(enemyData.attackDamage);
         }
     }
 
