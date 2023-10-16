@@ -170,39 +170,39 @@ public class EnemySpawner : MonoBehaviour
         switch (currWave)
         {
             case 1:
-                waveValue = 10;
+                waveValue = 0;
                 break;
             case 2:
-                waveValue = 20;
+                waveValue = 0;
                 break;
             case 3:
-                waveValue = 30;
+                waveValue = 0;
                 break;
             case 4:
-                waveValue = 40;
+                waveValue = 10;
                 break;
             case 5:
-                waveValue = 50;
+                waveValue = 20;
                 break;
             case 6:
-                waveValue = 60;
+                waveValue = 30;
                 break;
             case 7:
 
-                waveValue = 70;
+                waveValue = 40;
                 break;
             case 8:
-                waveValue = 80;
+                waveValue = 45;
                 break;
             case 9:
-                waveValue = 90;
+                waveValue = 59;
                 break;
             case 10:
-                waveValue = 100;
+                waveValue = 500;
                 break;
             default:
                 // Set a default wave value for other waves
-                waveValue = 10; // Change this value as needed
+                waveValue = 0; // Change this value as needed
                 break;
         }
         pointsforSpawning = waveValue;
