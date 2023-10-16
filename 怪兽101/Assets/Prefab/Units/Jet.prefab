@@ -87,7 +87,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &4778428930660515347
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -105,7 +105,6 @@ MonoBehaviour:
   missilePrefab: {fileID: 6361675759393907122, guid: 1cc46c20725cb9e4a8ecb8ba020aad16, type: 3}
   firingPoint: {fileID: 4778428930847901656}
   fireRate: 3
-  canFire: 0
   destroyAfterSeconds: 12
 --- !u!50 &4778428930660515350
 Rigidbody2D:
