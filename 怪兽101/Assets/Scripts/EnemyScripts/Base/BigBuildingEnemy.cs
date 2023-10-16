@@ -5,7 +5,7 @@ using UnityEngine;
 public class BigBuildingEnemy : MonoBehaviour
 {
     public EnemyScriptableObject SO_enemy;
-    float tempHealth;
+    public float tempHealth;
     private SpriteRenderer spriteRenderer;
     public Sprite damagedSprite;
     public Targetable buildingType;

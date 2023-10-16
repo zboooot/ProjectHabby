@@ -19,6 +19,8 @@ public class HumanSoldier : MonoBehaviour
     private PlayerScoreScript playerScore;
     private PlayerInputHandler inputHandler;
 
+    private bool lootDropped;
+
 
     // Start is called before the first frame update
     void Start()
@@ -100,27 +102,18 @@ public class HumanSoldier : MonoBehaviour
             anim.SetBool("nDeath", true);
         }
 
+        Destroy(gameObject, 2f);
+    }
+
+    void TriggerLoot()
+    {
+
         if (playerScore != null)
         {
             inputHandler.ChargeUltimate(1);
             playerScore.EntityDestroyed();
+            lootDropped = true;
         }
-
-        Destroy(gameObject, 2f);
-    }
-
-    public void IntroDeath()
-    {
-        if (isBurnt)
-        {
-            anim.SetBool("bDeath", true);
-        }
-        else
-        {
-            anim.SetBool("nDeath", true);
-        }
-
-        Destroy(gameObject, 2f);
     }
 
     void FlipSprite()
@@ -152,6 +145,10 @@ public class HumanSoldier : MonoBehaviour
         switch (enemyState)
         {
             case EnemyState.death:
+                if (lootDropped != true)
+                {
+                    TriggerLoot();
+                }
                 Death();
                 break;
 

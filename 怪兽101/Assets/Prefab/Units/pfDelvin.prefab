@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 2411092050883332404}
   - component: {fileID: 2411092050883332405}
   - component: {fileID: -856140941480668332}
+  - component: {fileID: -6801499680509232477}
+  - component: {fileID: -1348289159437847636}
   m_Layer: 9
   m_Name: pfDelvin
   m_TagString: Civilian
@@ -175,3 +177,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &-6801499680509232477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2411092050883332399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 878e4f7d41bfa10459c56ee713c48c7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 4
+  player: {fileID: 0}
+--- !u!114 &-1348289159437847636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2411092050883332399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4ced4ffe095fc047acbc0abe4a6ed8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetType: {fileID: 0}

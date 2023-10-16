@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 2616605678701066409}
   - component: {fileID: 3032995500166090306}
   - component: {fileID: 7011580595922322654}
+  - component: {fileID: 8011926331511908678}
+  - component: {fileID: 3635831882946829118}
   m_Layer: 12
   m_Name: Solider
   m_TagString: Solider
@@ -192,3 +194,30 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &8011926331511908678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8159262672524944082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 878e4f7d41bfa10459c56ee713c48c7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 5
+  player: {fileID: 0}
+--- !u!114 &3635831882946829118
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8159262672524944082}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4ced4ffe095fc047acbc0abe4a6ed8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetType: {fileID: 0}

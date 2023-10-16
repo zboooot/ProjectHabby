@@ -48,6 +48,7 @@ GameObject:
   - component: {fileID: 1158042026350008482}
   - component: {fileID: -3853852632281148223}
   - component: {fileID: -5776955064508255607}
+  - component: {fileID: 5467794155571811550}
   m_Layer: 7
   m_Name: MissileTank
   m_TagString: Tank
@@ -155,6 +156,7 @@ MonoBehaviour:
   downSprite: {fileID: 21300000, guid: 58fa94b12ed7d2448a9516388a27f1fa, type: 3}
   leftSprite: {fileID: 21300000, guid: 4192b05a896e5c946bc093ac1286cb6f, type: 3}
   destroyedSprite: {fileID: 21300000, guid: 68294c2d08bc271478d49f1f029b568a, type: 3}
+  tempHealth: 0
   pfBullet: {fileID: 3755558009072592157, guid: 39d86a03e74232c49ac90bc087a303bf, type: 3}
   pfCoin: {fileID: 68998136515679623, guid: 97d85bc601e37404c8ddadc334626a85, type: 3}
 --- !u!61 &3496340173255872738
@@ -288,3 +290,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 0}
+--- !u!114 &5467794155571811550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3496340173255872740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4ced4ffe095fc047acbc0abe4a6ed8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

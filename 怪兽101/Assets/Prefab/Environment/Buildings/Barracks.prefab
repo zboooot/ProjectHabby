@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1747484668381174134}
   - component: {fileID: 1747484668381174135}
   - component: {fileID: 1747484668381174132}
+  - component: {fileID: 2352337853215598487}
   m_Layer: 7
   m_Name: Barracks
   m_TagString: BigBuilding
@@ -144,6 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SO_enemy: {fileID: 11400000, guid: b51200baf09f3cd4cb74f309afc3e9d5, type: 2}
+  tempHealth: 0
   damagedSprite: {fileID: 21300000, guid: 7ed21c5c3660daa49815bdc3d9978389, type: 3}
   buildingType: {fileID: 1747484668381174134}
   inputHandler: {fileID: 0}
@@ -199,6 +201,19 @@ MonoBehaviour:
   shakeDuration: 0.2
   shakeStrength: 0.2
   player: {fileID: 0}
+--- !u!114 &2352337853215598487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1747484668381174156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4ced4ffe095fc047acbc0abe4a6ed8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetType: {fileID: 0}
 --- !u!1 &1747484668628761982
 GameObject:
   m_ObjectHideFlags: 0

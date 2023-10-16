@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Targetable : MonoBehaviour
 {
-    public enum EnemyType {  Building, Tank, BigBuilding, Car }
+    public enum EnemyType {  Building, Tank, BigBuilding, Car, Civilian, Soldier, Tree, }
     public EnemyType enemyType;
 
     private NewEnemyScript tankEnemy;
@@ -47,9 +47,6 @@ public class Targetable : MonoBehaviour
 
             case EnemyType.BigBuilding:
                 bigBEnemy.TakeDamage(player.playerSO.attackDamage);
-                break;
-
-            case EnemyType.Car:
                 break;
         }
     }

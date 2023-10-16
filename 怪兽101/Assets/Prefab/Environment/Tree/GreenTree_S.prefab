@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: -8313913607856433287}
   - component: {fileID: 2237777956886670271}
   - component: {fileID: 8535678630556169163}
+  - component: {fileID: -1676876176822844603}
+  - component: {fileID: -8369781595120921369}
   m_Layer: 0
   m_Name: GreenTree_S
   m_TagString: Tree
@@ -141,3 +143,30 @@ MonoBehaviour:
   shakeDuration: 0.2
   shakeStrength: 0.2
   player: {fileID: 0}
+--- !u!114 &-1676876176822844603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3836474470584657958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 878e4f7d41bfa10459c56ee713c48c7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 6
+  player: {fileID: 0}
+--- !u!114 &-8369781595120921369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3836474470584657958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4ced4ffe095fc047acbc0abe4a6ed8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetType: {fileID: 0}

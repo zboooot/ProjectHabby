@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -2838013517936839745}
   - component: {fileID: -1426857057696685852}
   - component: {fileID: -3681958044449909571}
+  - component: {fileID: 5128277435888226304}
   m_Layer: 7
   m_Name: Building16
   m_TagString: BigBuilding
@@ -102,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SO_enemy: {fileID: 11400000, guid: b51200baf09f3cd4cb74f309afc3e9d5, type: 2}
+  tempHealth: 0
   damagedSprite: {fileID: 21300000, guid: 7ed21c5c3660daa49815bdc3d9978389, type: 3}
   buildingType: {fileID: 0}
   inputHandler: {fileID: 0}
@@ -183,3 +185,16 @@ MonoBehaviour:
   orbPrefab: {fileID: 7909882396035829041, guid: 935c3d6eaa9d6484f81b79283cfd5215, type: 3}
   orbSpawnPoint: {fileID: 8798856610696010093}
   orbFloatSpeed: 10
+--- !u!114 &5128277435888226304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2130643554507901223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4ced4ffe095fc047acbc0abe4a6ed8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetType: {fileID: 0}

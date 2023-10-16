@@ -96,66 +96,10 @@ public class MeteorScript : MonoBehaviour
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, ultimateRadius);
         foreach (Collider2D collider in hitColliders)
         {
-            if (collider.CompareTag("Tank"))
+            CollateralScript collateralTrigger = collider.GetComponent<CollateralScript>();
+            if (collateralTrigger != null)
             {
-                NewEnemyScript tank = collider.GetComponent<NewEnemyScript>();
-                if (tank != null)
-                {
-                    tank.IntroDeath();
-                }
-                else { return; }
-            }
-
-            else if (collider.CompareTag("BigBuilding") && collider.gameObject.name != "Barracks")
-            {
-                BigBuildingEnemy bigBuilding = collider.GetComponent<BigBuildingEnemy>();
-                if (bigBuilding != null)
-                {
-                    bigBuilding.IntroDeath();
-                }
-                else { return; }
-            }
-
-            else if (collider.CompareTag("Civilian"))
-            {
-                Civilian civilian = collider.GetComponent<Civilian>();
-                if (civilian != null)
-                {
-                    civilian.enemyState = Civilian.EnemyState.death;
-                }
-                else { return; }
-            }
-
-
-            else if (collider.CompareTag("Tree"))
-            {
-                Trees tree = collider.GetComponent<Trees>();
-                if (tree != null)
-                {
-                    tree.Death();
-                }
-                else { return; }
-            }
-
-            else if (collider.CompareTag("Car"))
-            {
-                CarAI car = collider.GetComponent<CarAI>();
-                if (car != null)
-                {
-                    car.Death();
-                }
-                else { return; }
-            }
-
-            else if (collider.CompareTag("Solider"))
-            {
-                HumanSoldier soldier = collider.GetComponent<HumanSoldier>();
-                if (soldier != null)
-                {
-                    soldier.isBurnt = true;
-                    soldier.IntroDeath();
-                }
-                else { return; }
+                collateralTrigger.CollateralDamage(5f);
             }
         }
     }

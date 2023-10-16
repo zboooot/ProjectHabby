@@ -16,7 +16,7 @@ public class NewEnemyScript : MonoBehaviour
     public Sprite downSprite;
     public Sprite leftSprite;
     public Sprite destroyedSprite;
-    float tempHealth;
+    public float tempHealth;
     float attackCDLeft;
     private Collider2D entityCollider;
 
@@ -109,7 +109,7 @@ public class NewEnemyScript : MonoBehaviour
         }
     }
 
-    void Death()
+    public void Death()
     {
         entityCollider.enabled = false;
         spriteRenderer.sprite = destroyedSprite;

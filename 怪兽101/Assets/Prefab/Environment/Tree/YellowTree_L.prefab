@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 3230830363624523833}
   - component: {fileID: 385313411315982420}
   - component: {fileID: 3494583982136720136}
+  - component: {fileID: -928132499352556578}
+  - component: {fileID: -3177795547770142199}
   m_Layer: 0
   m_Name: YellowTree_L
   m_TagString: Tree
@@ -141,3 +143,30 @@ MonoBehaviour:
   shakeDuration: 0.2
   shakeStrength: 0.2
   player: {fileID: 0}
+--- !u!114 &-928132499352556578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7119553600120946249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 878e4f7d41bfa10459c56ee713c48c7d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyType: 6
+  player: {fileID: 0}
+--- !u!114 &-3177795547770142199
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7119553600120946249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4ced4ffe095fc047acbc0abe4a6ed8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetType: {fileID: 0}
