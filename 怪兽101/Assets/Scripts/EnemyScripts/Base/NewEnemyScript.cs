@@ -113,14 +113,17 @@ public class NewEnemyScript : MonoBehaviour
     {
         entityCollider.enabled = false;
         spriteRenderer.sprite = destroyedSprite;
+        Destroy(gameObject, 3f);
+    }
 
+    void DropLoot()
+    {
         if (!hasSpawned)
         {
             SpawnCoin();
             inputHandler.ChargeUltimate(5);
             hasSpawned = true;
         }
-        Destroy(gameObject, 3f);
     }
 
     public void IntroDeath()
@@ -180,6 +183,7 @@ public class NewEnemyScript : MonoBehaviour
         switch (currentState)
         {
             case EnemyState.death:
+                DropLoot();
                 Death();
                 break;
 

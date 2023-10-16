@@ -8,13 +8,13 @@ public class BigBuildingEnemy : MonoBehaviour
     float tempHealth;
     private SpriteRenderer spriteRenderer;
     public Sprite damagedSprite;
-    public Sprite destroyedSprite;
     public Targetable buildingType;
     private Collider2D buildingCollider;
     public PlayerInputHandler inputHandler;
     public GameObject civilianParent;
     public GameObject smokeVFX;
     private GameObject smokeHandler;
+    public GameObject destroyedBuilding;
 
     [SerializeField] private GameObject pfCoin;
 
@@ -55,7 +55,7 @@ public class BigBuildingEnemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         tempHealth -= damage;
-        spriteRenderer.sprite = damagedSprite;
+        //spriteRenderer.sprite = damagedSprite;
         shakeScript.StartShake();
         SpawnCivilian();
         DamageEffect();
@@ -67,8 +67,7 @@ public class BigBuildingEnemy : MonoBehaviour
 
         if (tempHealth <= 0)
         {
-
-            SpawnCoin();
+            TriggerLoot();
             Death();
         }
         else return;
@@ -84,30 +83,20 @@ public class BigBuildingEnemy : MonoBehaviour
     }
 
 
-    void Death()
+    public void Death()
+    {
+        Destroy(smokeHandler);
+        GameObject rubble = Instantiate(destroyedBuilding, transform.position, Quaternion.identity);
+        Destroy(gameObject);
+    }
+
+    void TriggerLoot()
     {
         if (playerScore != null)
         {
             playerScore.EntityDestroyed();
         }
 
-        Destroy(smokeHandler);
-        inputHandler.ChargeUltimate(10);
-        buildingCollider.enabled = false;
-        spriteRenderer.sprite = destroyedSprite;
-        spriteRenderer.sortingLayerName = "Default";
-        spriteRenderer.sortingOrder = 2;
-        spriteRenderer.color = originalColor;
-    }
-
-    public void IntroDeath()
-    {
-        buildingCollider.enabled = false;
-        spriteRenderer.sprite = destroyedSprite;
-    }
-
-    private void SpawnCoin()
-    {
         int numberOfEntities = Random.Range(minEntities, maxEntities + 1);
         for (int i = 0; i < numberOfEntities; i++)
         {
@@ -119,6 +108,14 @@ public class BigBuildingEnemy : MonoBehaviour
 
         //Spawn Orbs
         orbManager.DropOrbsOnKill();
+
+        inputHandler.ChargeUltimate(10);
+    }
+
+    public void IntroDeath()
+    {
+        GameObject rubble = Instantiate(destroyedBuilding, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 
     void DamageEffect()
