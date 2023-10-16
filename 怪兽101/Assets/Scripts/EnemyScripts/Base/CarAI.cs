@@ -6,7 +6,7 @@ using Pathfinding;
 
 public class CarAI : MonoBehaviour
 {
-  
+
     private Vector3 randomDestination;
     public float roamRadius = 20.0f;
     public float roamInterval = 5.0f;
@@ -20,6 +20,8 @@ public class CarAI : MonoBehaviour
     public Sprite leftSprite;
     public Sprite rightSprite;
     public Sprite destroyedSprite;
+    private Sprite intitialSprite;
+
 
     bool isDestroyed;
     Collider2D entityCollider;
@@ -28,13 +30,14 @@ public class CarAI : MonoBehaviour
 
     void Start()
     {
-      
+
         InvokeRepeating("SetRandomDestination", 0, roamInterval);
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         lastPosition = transform.position;
         entityCollider = GetComponent<Collider2D>();
         ai = GetComponent<IAstarAI>();
+        intitialSprite = spriteRenderer.sprite;
     }
 
     /*void SetRandomDestination()
@@ -89,6 +92,26 @@ public class CarAI : MonoBehaviour
 
     }
 
+    public void SetSpriteRenderer(SpriteRenderer sr)
+    {
+        spriteRenderer = sr;
+    }
+
+    public void SetSpriteUp()
+    {
+        if (upSprite != null)
+        {
+            spriteRenderer.sprite = upSprite;
+        }
+    }
+    public void SetSpriteDown()
+    {
+        if (downSprite != null)
+        {
+            spriteRenderer.sprite = downSprite;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "PlayerLeg")
@@ -99,6 +122,7 @@ public class CarAI : MonoBehaviour
 
     public void Death()
     {
+
         isDestroyed = true;
         spriteRenderer.sprite = destroyedSprite;
         entityCollider.enabled = false;
@@ -107,28 +131,28 @@ public class CarAI : MonoBehaviour
 
     private void Update()
     {
-       // Vector3 currentPosition = transform.position;
+        // Vector3 currentPosition = transform.position;
 
-       // // Calculate the velocity or position change since the last frame.
-       // Vector3 positionChange = currentPosition - lastPosition;
+        // // Calculate the velocity or position change since the last frame.
+        // Vector3 positionChange = currentPosition - lastPosition;
 
-       // // Calculate the moving direction as a normalized vector.
-       //// movingDirection = positionChange.normalized;
+        // // Calculate the moving direction as a normalized vector.
+        //// movingDirection = positionChange.normalized;
 
- 
-        
-       // // Update the last position for the next frame.
-       // lastPosition = currentPosition;
 
-       // if(isDestroyed != true)
-       // {
-       //     FlipSprite(movingDirection);
-       // }
 
-       // if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath))
-       // {
-       //     ai.destination = PickRandomPoint();
-       //     ai.SearchPath();
-       // }
+        // // Update the last position for the next frame.
+        // lastPosition = currentPosition;
+
+        // if(isDestroyed != true)
+        // {
+        //     FlipSprite(movingDirection);
+        // }
+
+        // if (!ai.pathPending && (ai.reachedEndOfPath || !ai.hasPath))
+        // {
+        //     ai.destination = PickRandomPoint();
+        //     ai.SearchPath();
+        // }
     }
 }
