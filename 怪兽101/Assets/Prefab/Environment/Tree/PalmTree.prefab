@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: -8087793704322149825}
   - component: {fileID: 8662227357149916906}
   - component: {fileID: -8908014954982126586}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PalmTree
   m_TagString: Tree
   m_Icon: {fileID: 0}

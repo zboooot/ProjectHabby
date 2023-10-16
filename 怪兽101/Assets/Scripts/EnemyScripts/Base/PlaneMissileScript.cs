@@ -33,6 +33,8 @@ public class PlaneMissileScript : MonoBehaviour
             SpawnExplosion();
             Destroy(gameObject); // Destroy the GameObject
         }
+
+        BlowUp();
     }
 
     void CheckAndFire()
@@ -61,10 +63,18 @@ public class PlaneMissileScript : MonoBehaviour
 
             Destroy(gameObject);
         }
-        else
+    }
+
+    void BlowUp()
+    {
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, 3f);
+        foreach (Collider2D collider in hitColliders)
         {
-            CollateralScript triggerDmg = collision.gameObject.GetComponent<CollateralScript>();
-            triggerDmg.CollateralDamage(enemyData.attackDamage);
+            CollateralScript collateralTrigger = collider.GetComponent<CollateralScript>();
+            if (collateralTrigger != null)
+            {
+                collateralTrigger.CollateralDamage(100f);
+            }
         }
     }
 

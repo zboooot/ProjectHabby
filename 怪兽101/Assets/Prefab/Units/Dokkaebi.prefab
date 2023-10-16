@@ -108,7 +108,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1893642301}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.204, y: 3.779, z: 0}
+  m_LocalPosition: {x: 3.53, y: 5.48, z: 0}
   m_LocalScale: {x: 0.16666667, y: 0.16666667, z: 0.16666667}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -529,7 +529,7 @@ PrefabInstance:
     - target: {fileID: 5820943973999638597, guid: d13365e410c8ad8419e229873fb1eed4, type: 3}
       propertyPath: crater
       value: 
-      objectReference: {fileID: 5358245250867353744, guid: 48fd28df9f5e6bc499920351c8663d37, type: 3}
+      objectReference: {fileID: 5358245250867353744, guid: 1857e2866141d7f4c910836ab96224e2, type: 3}
     - target: {fileID: 5820943973999638598, guid: d13365e410c8ad8419e229873fb1eed4, type: 3}
       propertyPath: m_RootOrder
       value: 3

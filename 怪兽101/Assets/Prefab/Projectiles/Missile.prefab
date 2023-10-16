@@ -106,6 +106,9 @@ MonoBehaviour:
   destroyTime: 4
   enemyData: {fileID: 11400000, guid: 5297dc130569efa4fa1966661ab634ed, type: 2}
   explosionVFX: {fileID: 7543519273518273561, guid: 1ee9f651f47e661468a6344fc2aadee0, type: 3}
+  collateralMask:
+    serializedVersion: 2
+    m_Bits: 13056
 --- !u!50 &3755558009072592156
 Rigidbody2D:
   serializedVersion: 4

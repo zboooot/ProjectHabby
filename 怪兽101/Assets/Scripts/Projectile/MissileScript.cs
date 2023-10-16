@@ -12,6 +12,8 @@ public class MissileScript : MonoBehaviour
     private float currentTime = 0f;
     public EnemyScriptableObject enemyData;
     public GameObject explosionVFX;
+    public LayerMask collateralMask;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +45,18 @@ public class MissileScript : MonoBehaviour
         rb.velocity = transform.up * speed;
     }
 
+    public void BlowUp()
+    {
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, 3f);
+        foreach (Collider2D collider in hitColliders)
+        {
+            CollateralScript collateralTrigger = collider.GetComponent<CollateralScript>();
+            if (collateralTrigger != null)
+            {
+                collateralTrigger.CollateralDamage(100f);
+            }
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

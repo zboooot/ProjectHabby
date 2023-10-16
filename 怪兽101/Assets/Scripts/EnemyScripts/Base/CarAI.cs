@@ -99,7 +99,6 @@ public class CarAI : MonoBehaviour
 
     public void Death()
     {
-        
         isDestroyed = true;
         spriteRenderer.sprite = destroyedSprite;
         entityCollider.enabled = false;

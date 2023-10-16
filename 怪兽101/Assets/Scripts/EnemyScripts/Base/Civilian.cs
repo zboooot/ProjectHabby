@@ -89,8 +89,9 @@ public class Civilian : MonoBehaviour
     void Run(Vector2 dir)
     {
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        float newDistance = detectionDistance + 5f;
 
-        if(distanceToPlayer < detectionDistance)
+        if (distanceToPlayer < newDistance)
         {
             if (isBlocked != true)
             {
@@ -114,7 +115,7 @@ public class Civilian : MonoBehaviour
             }
         }
 
-        else
+        else if(distanceToPlayer > newDistance)
         {
             ChangeWalkState();
         }

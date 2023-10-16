@@ -100,6 +100,7 @@ public class Artillery : MonoBehaviour
                 yield return null;
 
             }
+            artillery.GetComponent<ArtilleryBullet>().BlowUp();
             // Destroy the artillery prefab instance
             Destroy(artillery);
             Vector2 spawnPos = new Vector2(artillery.transform.position.x, artillery.transform.position.y + 1.5f);
