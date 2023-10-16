@@ -75,8 +75,7 @@ public class BigBuildingEnemy : MonoBehaviour
 
     void SpawnSmoke()
     {
-        Vector2 spawnLoc = new Vector2(transform.position.x, transform.position.y + 1f);
-        GameObject smokeAnim = Instantiate(smokeVFX, spawnLoc, Quaternion.identity);
+        GameObject smokeAnim = Instantiate(smokeVFX, transform.position, Quaternion.identity);
         smokeAnim.GetComponent<Animator>().SetBool("startFire", true);
         smokeHandler = smokeAnim;
         isSmoking = true;
@@ -88,7 +87,8 @@ public class BigBuildingEnemy : MonoBehaviour
         Destroy(smokeHandler);
         buildingCollider.enabled = false;
         spriteRenderer.enabled = false;
-        GameObject rubble = Instantiate(destroyedBuilding, transform.position, Quaternion.identity);
+        Vector2 spawnLoc = new Vector2(transform.position.x, transform.position.y + 1.5f);
+        GameObject rubble = Instantiate(destroyedBuilding, spawnLoc, Quaternion.identity);
         Destroy(gameObject, 5f);
     }
 
