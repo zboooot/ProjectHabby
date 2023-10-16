@@ -20,13 +20,16 @@ public class ArtilleryBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        CollateralScript triggerDmg = collision.gameObject.GetComponent<CollateralScript>();
+
+        triggerDmg.CollateralDamage(enemyData.attackDamage);
+       
         if (collision.gameObject.tag == "Player")
         {
             GameObject bomb = Instantiate(explosionVFX, collision.transform.position, Quaternion.identity);
             collision.gameObject.GetComponent<PlayerHealthScript>().TakeDamage(enemyData.attackDamage);
-           
-
             Destroy(gameObject);
         }
+      
     }
 }

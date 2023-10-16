@@ -61,6 +61,11 @@ public class PlaneMissileScript : MonoBehaviour
 
             Destroy(gameObject);
         }
+        else
+        {
+            CollateralScript triggerDmg = collision.gameObject.GetComponent<CollateralScript>();
+            triggerDmg.CollateralDamage(enemyData.attackDamage);
+        }
     }
 
     void SpawnExplosion()

@@ -89,7 +89,7 @@ public class BigBuildingEnemy : MonoBehaviour
         buildingCollider.enabled = false;
         spriteRenderer.enabled = false;
         GameObject rubble = Instantiate(destroyedBuilding, transform.position, Quaternion.identity);
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, 5f);
     }
 
     void TriggerLoot()

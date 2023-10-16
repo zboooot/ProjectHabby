@@ -18,19 +18,11 @@ public class Artillery : MonoBehaviour
     public float moveSpeed;
     public GameObject CircleIndicatorPrefab;
     public GameObject explosionVFX;
+    public GameObject impactCrater;
 
     [SerializeField]
     private List<Vector3> objectPositions = new List<Vector3>();
 
-    private void Start()
-    {
-
-    }
-
-    private void FixedUpdate()
-    {
-        
-    }
 
     public IEnumerator SpawnArtilleryWithDelay()
     {
@@ -118,7 +110,8 @@ public class Artillery : MonoBehaviour
             // Wait for the VFX to finish playing
             yield return new WaitForSeconds(0.1f);
 
-           
+            GameObject impact = Instantiate(impactCrater, spawnPos, Quaternion.identity);
+
         }
         else
         {

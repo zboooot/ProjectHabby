@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6361675759393907118}
   - component: {fileID: 6361675759393907119}
   - component: {fileID: 6361675759393907116}
-  - component: {fileID: 6361675759393907117}
+  - component: {fileID: 1388482617793917353}
   m_Layer: 0
   m_Name: PlaneMissile
   m_TagString: Untagged
@@ -105,6 +105,7 @@ MonoBehaviour:
   destroyTime: 0.9
   explosionVFX: {fileID: 7543519273518273561, guid: 1ee9f651f47e661468a6344fc2aadee0, type: 3}
   jetPos: {fileID: 4778428930660515349, guid: ca0d55a0c9369df4ebb3c84bb463ba19, type: 3}
+  isLeft: 0
 --- !u!50 &6361675759393907116
 Rigidbody2D:
   serializedVersion: 4
@@ -126,8 +127,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!58 &6361675759393907117
-CircleCollider2D:
+--- !u!61 &1388482617793917353
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -140,5 +141,15 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.94, y: 0.64}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Radius: 0.5
+  m_Size: {x: 3, y: 1.5}
+  m_EdgeRadius: 0
