@@ -94,12 +94,12 @@ public class LevelManager : MonoBehaviour
     public void CalculateProgress()
     {
         float destructionProgress = Mathf.Round((levelData.currentDestruction / calculation1) * 100f);
-        if (destructionProgress >= 0 && destructionProgress <= 44)
+        if (destructionProgress >= 0 && destructionProgress <= 30)
         {
             levelData.destructionLevel = 0;
         }
 
-        else if (destructionProgress >= 45 && destructionProgress <= 74)
+        else if (destructionProgress >= 31 && destructionProgress <= 70)
         {
             levelData.destructionLevel = 1;
         }
