@@ -9,7 +9,6 @@ public class EnemySpawner : MonoBehaviour
     public int currWave;
     private int waveValue;
     public List<GameObject> enemiesToSpawn = new List<GameObject>();
-
     public int waveDuration;
     private float waveTimer;
     private float spawnInterval;
@@ -19,21 +18,11 @@ public class EnemySpawner : MonoBehaviour
     public int NumberofWaves;
     public float CityDestructionLevel;
     public LevelManagerScriptableObject levelData;
-    
     public Transform playerTransform;
     public float playerSpawnRadius = 10f;
-
     public List<BonusEnemy> bonusenemies = new List<BonusEnemy>();
- 
-
-
-
-
-    
-
     public List<GameObject> spawnedEnemies = new List<GameObject>();
     public List<SpawnedEnemy> separateSpawnedEnemies = new List<SpawnedEnemy>();
-
     public LevelManager LevelManagerScript;
 
     // ...
@@ -47,14 +36,14 @@ public class EnemySpawner : MonoBehaviour
     void Start()
     {
         CityDestructionLevel = levelData.destructionLevel;
-      
+
         GenerateWave();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-          CityDestructionLevel = levelData.destructionLevel;
+        CityDestructionLevel = levelData.destructionLevel;
 
         // Check if the CityDestructionLevel and currWave meet the conditions for spawning
         if (!((CityDestructionLevel == 0 && currWave >= 1 && currWave <= 3) ||
@@ -220,7 +209,24 @@ public class EnemySpawner : MonoBehaviour
 
         while (waveValue > 0 || generatedEnemies.Count < 50)
         {
-            int randEnemyId = Random.Range(0, enemies.Count);
+            int randEnemyId;
+
+            if (currWave >= 4 && currWave <= 6)
+            {
+                // If currWave is between 4 and 6, only select enemies of type A
+                randEnemyId = 0; // Assuming type A enemies are in the first half of the list
+            }
+            else if (currWave >= 7 && currWave <= 10)
+            {
+                // If currWave is between 7 and 10, select enemies from both types A and B
+                randEnemyId = Random.Range(0, enemies.Count);
+            }
+            else
+            {
+                // Handle other cases if needed (e.g., currWave < 4)
+                randEnemyId = Random.Range(0, enemies.Count);
+            }
+
             int randEnemyCost = enemies[randEnemyId].cost;
 
             if (waveValue - randEnemyCost >= 0)
