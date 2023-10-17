@@ -19,22 +19,21 @@ public class MeteorScript : MonoBehaviour
     public PlayerInputHandler playerData;
     public GameObject objController;
     public GameObject enemySpawner;
-    
+
     float ultimateRadius = 10f;
     public PlayerStatScriptableObject playerSO;
     public void Start()
     {
-        StartMoving();
         animator = GetComponent<Animator>();
         shakeScript = GameObject.Find("CM vcam1").GetComponent<ShakeScript>();
 
-        isMoving = true;
+
 
         animator.SetBool("isMoving", true);
         player = GameObject.Find("Player");
 
         Vector2 landingPos = new Vector2(player.transform.position.x, player.transform.position.y + 6f);
-       
+
         targetPosition = landingPos;
 
         // Calculate the direction vector towards the target position
@@ -43,7 +42,7 @@ public class MeteorScript : MonoBehaviour
         playerData = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
 
         objController = GameObject.Find("GameObjective");
-        objController.SetActive(false);    
+        objController.SetActive(false);
     }
 
     public void Shake()
@@ -58,7 +57,7 @@ public class MeteorScript : MonoBehaviour
 
     private void Update()
     {
-        
+
         if (isMoving == true)
         {
             // Update the object's position
@@ -75,20 +74,14 @@ public class MeteorScript : MonoBehaviour
             if (Vector2.Distance(transform.position, targetPosition) <= 0f)
             {
                 // Object has reached the target, you can add further actions here if needed.
-                isMoving = false;
+                TransformMeteor();
                 UseUltimate();
             }
         }
 
-        if (isMoving == false)
-        {
-            
-            transform.rotation = Quaternion.Euler(Vector3.zero);
-            animator.SetBool("isMoving", false);
-            // Spawn the player
-        }
 
-        
+
+
     }
 
     public void UseUltimate()
@@ -102,6 +95,12 @@ public class MeteorScript : MonoBehaviour
                 collateralTrigger.CollateralDamage(100f);
             }
         }
+    }
+    public void TransformMeteor()
+    {
+        transform.rotation = Quaternion.Euler(Vector3.zero);
+        animator.SetBool("isMoving", false);
+        // Spawn the player
     }
 
     public void DestroyMeteor()
@@ -121,7 +120,7 @@ public class MeteorScript : MonoBehaviour
         Vector2 spawnPos = new Vector2(player.transform.position.x, player.transform.position.y + 1.6f);
         Instantiate(crater, spawnPos, Quaternion.identity);
         player.GetComponent<SpriteRenderer>().enabled = true;
-        
+
     }
 
 

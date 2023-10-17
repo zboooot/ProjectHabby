@@ -10,17 +10,18 @@ public class GameManagerScript : MonoBehaviour
     private bool gameStarted = false;
     public GameObject enemySpawner;
     public List<GameObject> obstacleList = new List<GameObject>();
+    public MeteorScript meteor;
     private void Start()
     {
         deployScreen.SetActive(true);
         player = GameObject.Find("Player");
-      
+
         player.GetComponent<SpriteRenderer>().enabled = false;
         barAnim.SetBool("RevealGame", false);
         AstarPath.active.Scan(); //scan the grid
         ScanAndInsert();
         DisableObstacles();
-
+        meteor = GameObject.Find("Meteor").GetComponent<MeteorScript>();
         enemySpawner.SetActive(false);
     }
 
@@ -30,6 +31,7 @@ public class GameManagerScript : MonoBehaviour
         if (!gameStarted && Input.anyKeyDown)
         {
             StartGame();
+            meteor.isMoving = true;
         }
     }
 
