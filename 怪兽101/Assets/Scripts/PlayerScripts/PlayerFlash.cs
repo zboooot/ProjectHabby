@@ -8,9 +8,6 @@ public class PlayerFlash : MonoBehaviour
 
     #region Editor Settings
 
-    [Tooltip("Material to switch to during the flash.")]
-    [SerializeField] private Material flashMaterial;
-
     [Tooltip("Duration of the flash.")]
     [SerializeField] private float duration;
 

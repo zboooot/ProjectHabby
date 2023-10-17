@@ -19,7 +19,7 @@ public class PlayerInputHandler : MonoBehaviour
     public Collider2D selectedEnemy;
     bool facingLeft;
     public bool isAttacking;
-    public bool canMove = true;
+    public bool isCollision;
 
     public bool startScene = true;
     public Transform detectionOrigin;
@@ -38,11 +38,8 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if(!startScene || !isAttacking)
         {
-            if (canMove)
-            {
-                CheckFlip();
-                ProcessInput();
-            }
+            CheckFlip();
+            ProcessInput();
         }
         //AttackNearestEnemy();
     }
@@ -97,17 +94,6 @@ public class PlayerInputHandler : MonoBehaviour
     void ResetAttack()
     {
         isAttacking = false;
-    }
-
-    public void LockMovement()
-    {
-        rb.velocity = Vector3.zero;
-        canMove = false;
-    }
-
-    public void UnlockMovement()
-    {
-        canMove = true;
     }
 
     private void FixedUpdate()
@@ -295,5 +281,21 @@ public class PlayerInputHandler : MonoBehaviour
     void OnAnimationMove()
     {
         rb.velocity = new Vector2(MovementInput.x * playerSO.speed, MovementInput.y * playerSO.speed);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("BigBuilding") || collision.gameObject.CompareTag("Tank"))
+        {
+            isCollision = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("BigBuilding") || collision.gameObject.CompareTag("Tank"))
+        {
+            isCollision = false;
+        }
     }
 }

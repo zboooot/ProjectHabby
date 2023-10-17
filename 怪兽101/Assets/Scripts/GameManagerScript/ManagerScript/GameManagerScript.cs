@@ -44,7 +44,7 @@ public class GameManagerScript : MonoBehaviour
     }
     void StartGame()
     {
-    
+
         // Call any other functions or actions to start your game
         deployScreen.SetActive(false);
 

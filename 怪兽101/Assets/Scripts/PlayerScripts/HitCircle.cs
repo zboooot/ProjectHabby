@@ -10,7 +10,7 @@ public class HitCircle : MonoBehaviour
     public Transform player;    // Reference to the player's Transform.
 
     private Vector3 playerLastPosition;
-    private float angle;
+    private float currentAngle;
     private SpriteRenderer spriteRender;
 
     private float targetAngle;
@@ -25,32 +25,36 @@ public class HitCircle : MonoBehaviour
 
     private void Update()
     {
+        //Check if the player is colliding with entities under the enemy layer
         CheckCollision();
-        Vector3 playerMoveDirection = player.position - playerLastPosition;
 
-        if (playerMoveDirection != Vector3.zero)
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+
+        // Calculate the input angle based on player's input.
+        float inputAngle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
+
+        // Calculate the angle between the sprite and the player character.
+        float angleToPlayer = Mathf.Atan2(player.position.y - transform.position.y, player.position.x - transform.position.x) * Mathf.Rad2Deg;
+
+        // Calculate the difference between the input angle and angle to the player.
+        float angleDifference = inputAngle - angleToPlayer;
+
+        // Update the current angle by adding the difference and the orbit speed.
+        currentAngle += (angleDifference + 180f) % 360f + speed * Time.deltaTime;
+
+        if (!inputHandler.isCollision)
         {
-            float playerRotation = Mathf.Atan2(playerMoveDirection.y, playerMoveDirection.x) * Mathf.Rad2Deg;
-            targetAngle = playerRotation;
-            UpdateTargetPosition();
+            // Calculate the new position of the object in orbit around the player character.
+            float x = player.position.x + 3 * Mathf.Cos(currentAngle * Mathf.Deg2Rad);
+            float y = player.position.y + 3 * Mathf.Sin(currentAngle * Mathf.Deg2Rad);
+            transform.position = new Vector3(x, y, transform.position.z);
         }
 
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
-        playerLastPosition = player.position;
-        RotateTowardsPlayer();
-    }
-
-    private void UpdateTargetPosition()
-    {
-        Vector3 offset = new Vector3(Mathf.Cos(Mathf.Deg2Rad * targetAngle) * playerData.attackRange, Mathf.Sin(Mathf.Deg2Rad * targetAngle) * playerData.attackRange, 0);
-        targetPosition = player.position + offset;
-    }
-
-    private void RotateTowardsPlayer()
-    {
+        // Rotate the object to face the player character.
         Vector3 direction = player.position - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, angle);
+        float lookAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0, 0, lookAngle);
     }
 
     private void CheckCollision()
