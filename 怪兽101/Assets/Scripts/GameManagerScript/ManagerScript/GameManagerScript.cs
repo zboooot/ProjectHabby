@@ -12,7 +12,6 @@ public class GameManagerScript : MonoBehaviour
     public List<GameObject> obstacleList = new List<GameObject>();
     private void Start()
     {
-        Time.timeScale = 0;
         deployScreen.SetActive(true);
         player = GameObject.Find("Player");
       
@@ -45,7 +44,6 @@ public class GameManagerScript : MonoBehaviour
     }
     void StartGame()
     {
-        Time.timeScale = 1;
     
         // Call any other functions or actions to start your game
         deployScreen.SetActive(false);

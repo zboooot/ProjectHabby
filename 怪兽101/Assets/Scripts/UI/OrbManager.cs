@@ -13,7 +13,7 @@ public class OrbManager : MonoBehaviour
 
     private void Start()
     {
-        targetUIPosition = GameObject.Find("DestructionMeter").GetComponent<Transform>();
+        targetUIPosition = GameObject.Find("DestructionBar").GetComponent<Transform>();
         levelManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LevelManager>();
     }
     // Call this function when the entity is killed
