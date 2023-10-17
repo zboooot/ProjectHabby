@@ -6,7 +6,7 @@ public class BigBuildingEnemy : MonoBehaviour
 {
     public EnemyScriptableObject SO_enemy;
     public float tempHealth;
-    private SpriteRenderer spriteRenderer;
+    public SpriteRenderer spriteRenderer;
     public Sprite damagedSprite;
     public Targetable buildingType;
     private Collider2D buildingCollider;
@@ -29,7 +29,7 @@ public class BigBuildingEnemy : MonoBehaviour
     private Color originalColor;
 
     private PlayerScoreScript playerScore;
-    private ShakeScript shakeScript;
+    public ShakeScript shakeScript;
     private OrbManager orbManager;
 
     float pushForce = 2f;
@@ -41,11 +41,9 @@ public class BigBuildingEnemy : MonoBehaviour
     void Start()
     {
         tempHealth = SO_enemy.health;
-        spriteRenderer = GetComponent<SpriteRenderer>();
         buildingCollider = GetComponent<BoxCollider2D>();
         playerScore = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PlayerScoreScript>();
         inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
-        shakeScript = GetComponent<ShakeScript>();
         orbManager = GetComponent<OrbManager>();
         originalColor = spriteRenderer.color;
         civilianParent = GameObject.Find("---Civillian---");
