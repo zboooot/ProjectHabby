@@ -22,16 +22,12 @@ public class CarAI : MonoBehaviour
     public Sprite destroyedSprite;
     private Sprite intitialSprite;
 
-
-    bool isDestroyed;
     Collider2D entityCollider;
 
     IAstarAI ai;
 
     void Start()
     {
-
-        InvokeRepeating("SetRandomDestination", 0, roamInterval);
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         lastPosition = transform.position;
@@ -122,8 +118,6 @@ public class CarAI : MonoBehaviour
 
     public void Death()
     {
-
-        isDestroyed = true;
         spriteRenderer.sprite = destroyedSprite;
         entityCollider.enabled = false;
         Destroy(gameObject, 5f);

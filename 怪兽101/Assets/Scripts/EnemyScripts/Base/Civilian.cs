@@ -186,7 +186,7 @@ public class Civilian : MonoBehaviour
         Invoke("ChangeRunState", 1.5f);
     }
 
-    void Death()
+    public void Death()
     {
         entityCollider.enabled = false;
         Destroy(gameObject, 2f);

@@ -5,37 +5,45 @@ using UnityEngine;
 public class HitCircle : MonoBehaviour
 {
     public PlayerStatScriptableObject playerData;
-    public float speed = 2.0f;  // The speed of rotation.
+    public PlayerInputHandler inputHandler;
+    public float speed = 10.0f;  // The speed of rotation.
     public Transform player;    // Reference to the player's Transform.
 
     private Vector3 playerLastPosition;
     private float angle;
     private SpriteRenderer spriteRender;
 
-    bool canAttack;
+    private float targetAngle;
+    private Vector3 targetPosition;
+
 
     private void Start()
     {
-        playerLastPosition = player.position;
         spriteRender = GetComponent<SpriteRenderer>();
+        inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
     }
 
     private void Update()
     {
-        UpdateColor();
+        CheckCollision();
         Vector3 playerMoveDirection = player.position - playerLastPosition;
 
         if (playerMoveDirection != Vector3.zero)
         {
             float playerRotation = Mathf.Atan2(playerMoveDirection.y, playerMoveDirection.x) * Mathf.Rad2Deg;
-            angle = playerRotation;
+            targetAngle = playerRotation;
+            UpdateTargetPosition();
         }
 
-        Vector3 offset = new Vector3(Mathf.Cos(Mathf.Deg2Rad * angle) * playerData.attackRange, Mathf.Sin(Mathf.Deg2Rad * angle) * playerData.attackRange, 0);
-        transform.position = player.position + offset;
+        transform.position = Vector3.MoveTowards(transform.position, targetPosition, Time.deltaTime * speed);
         playerLastPosition = player.position;
-
         RotateTowardsPlayer();
+    }
+
+    private void UpdateTargetPosition()
+    {
+        Vector3 offset = new Vector3(Mathf.Cos(Mathf.Deg2Rad * targetAngle) * playerData.attackRange, Mathf.Sin(Mathf.Deg2Rad * targetAngle) * playerData.attackRange, 0);
+        targetPosition = player.position + offset;
     }
 
     private void RotateTowardsPlayer()
@@ -45,34 +53,22 @@ public class HitCircle : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void CheckCollision()
     {
-        if(collision.gameObject.CompareTag("BigBuilding"))
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, 2f);
+        foreach (Collider2D collider in hitColliders)
         {
-            canAttack = true;
-        }
-    }
+            if(collider.gameObject.layer == 7)
+            {
+                spriteRender.color = Color.red;
+                Debug.Log(collider);
+                inputHandler.TriggerAttack(collider);
+            }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if(collision.gameObject.CompareTag("BigBuilding"))
-        {
-            canAttack = false;
-        }
-    }
-
-    private void UpdateColor()
-    {
-        if (canAttack)
-        {
-            Debug.Log("Can attack");
-            spriteRender.color = Color.red;
-        }
-
-        else
-        {
-            Debug.Log("Can't attack");
-            spriteRender.color = Color.white;
+            else
+            {
+                spriteRender.color = Color.grey;
+            }
         }
     }
 }

@@ -19,6 +19,7 @@ public class PlayerInputHandler : MonoBehaviour
     public Collider2D selectedEnemy;
     bool facingLeft;
     public bool isAttacking;
+    public bool canMove = true;
 
     public bool startScene = true;
     public Transform detectionOrigin;
@@ -35,41 +36,62 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void Update()
     {
-        ProcessInput();
-        CheckFlip();
-        AttackNearestEnemy();
-    }
-
-    void AttackNearestEnemy()
-    {
-        Collider2D[] colliders = Physics2D.OverlapBoxAll(detectionOrigin.position, boxSize, 0f, enemyLayer);
-
-        if (colliders.Length > 0)
+        if(!startScene || !isAttacking)
         {
-            foreach (Collider2D collider in colliders)
+            if (canMove)
             {
-                Vector2 direction = collider.transform.position - detectionOrigin.position;
-                float angle = Vector2.Angle(direction, detectionOrigin.right);
-
-                if (angle < 270f / 2f)
-                {
-                    Collider2D nearestEnemy = FindNearestEnemy(colliders);
-                    selectedEnemy = nearestEnemy;
-                    if (isAttacking == false)
-                    {
-                        CheckAttack(true);
-                        isAttacking = true;
-                        if(healthScript.healthState == PlayerHealthScript.HealthState.normal)
-                        {
-                            Invoke("ResetAttack", playerSO.attackSpeed);
-                        }
-                        else { Invoke("ResetAttack", 0.5f); }
-                    }
-                }
+                CheckFlip();
+                ProcessInput();
             }
         }
+        //AttackNearestEnemy();
+    }
 
-        else { selectedEnemy = null; CheckAttack(false); }
+    //void AttackNearestEnemy()
+    //{
+    //    Collider2D[] colliders = Physics2D.OverlapBoxAll(detectionOrigin.position, boxSize, 0f, enemyLayer);
+
+    //    if (colliders.Length > 0)
+    //    {
+    //        foreach (Collider2D collider in colliders)
+    //        {
+    //            Vector2 direction = collider.transform.position - detectionOrigin.position;
+    //            float angle = Vector2.Angle(direction, detectionOrigin.right);
+
+    //            if (angle < 270f / 2f)
+    //            {
+    //                Collider2D nearestEnemy = FindNearestEnemy(colliders);
+    //                selectedEnemy = nearestEnemy;
+    //                if (isAttacking == false)
+    //                {
+    //                    CheckAttack(true);
+    //                    isAttacking = true;
+    //                    if(healthScript.healthState == PlayerHealthScript.HealthState.normal)
+    //                    {
+    //                        Invoke("ResetAttack", playerSO.attackSpeed);
+    //                    }
+    //                    else { Invoke("ResetAttack", 0.5f); }
+    //                }
+    //            }
+    //        }
+    //    }
+
+    //    else { selectedEnemy = null; CheckAttack(false); }
+    //}
+
+    public void TriggerAttack(Collider2D enemy)
+    {
+        selectedEnemy = enemy;
+        if (isAttacking == false)
+        {
+            CheckAttack(true);
+            isAttacking = true;
+            if (healthScript.healthState == PlayerHealthScript.HealthState.normal)
+            {
+                Invoke("ResetAttack", playerSO.attackSpeed);
+            }
+            else { Invoke("ResetAttack", 0.5f); }
+        }
     }
 
     void ResetAttack()
@@ -77,9 +99,20 @@ public class PlayerInputHandler : MonoBehaviour
         isAttacking = false;
     }
 
+    public void LockMovement()
+    {
+        rb.velocity = Vector3.zero;
+        canMove = false;
+    }
+
+    public void UnlockMovement()
+    {
+        canMove = true;
+    }
+
     private void FixedUpdate()
     {
-        if(startScene != true)
+        if(!startScene)
         {
             OnAnimationMove();
         }
@@ -110,31 +143,31 @@ public class PlayerInputHandler : MonoBehaviour
         currentUltimateCharge = 0;
     }
 
-    private Collider2D FindNearestEnemy(Collider2D[] enemies)
-    {
-        selectedEnemy = null;
-        float nearestDistance = float.MaxValue;
-        Vector2 playerPosition = detectionOrigin.position;
+    //private Collider2D FindNearestEnemy(Collider2D[] enemies)
+    //{
+    //    selectedEnemy = null;
+    //    float nearestDistance = float.MaxValue;
+    //    Vector2 playerPosition = detectionOrigin.position;
 
-        foreach (Collider2D enemy in enemies)
-        {
-            Transform enemyTransform = enemy.transform;
-            Vector3 directionToEnemy = enemyTransform.position - detectionOrigin.position;
-            float angle = Vector2.Angle(detectionOrigin.up, directionToEnemy);
+    //    foreach (Collider2D enemy in enemies)
+    //    {
+    //        Transform enemyTransform = enemy.transform;
+    //        Vector3 directionToEnemy = enemyTransform.position - detectionOrigin.position;
+    //        float angle = Vector2.Angle(detectionOrigin.up, directionToEnemy);
 
-            if (angle < 180f)
-            {
-                float distance = Vector2.Distance(playerPosition, enemy.transform.position);
-                if (distance < nearestDistance)
-                {
-                    nearestDistance = distance;
-                    selectedEnemy = enemy;
-                }
-            }
-        }
+    //        if (angle < 180f)
+    //        {
+    //            float distance = Vector2.Distance(playerPosition, enemy.transform.position);
+    //            if (distance < nearestDistance)
+    //            {
+    //                nearestDistance = distance;
+    //                selectedEnemy = enemy;
+    //            }
+    //        }
+    //    }
 
-        return selectedEnemy;
-    }
+    //    return selectedEnemy;
+    //}
 
     public void UseUltimate()
     {
