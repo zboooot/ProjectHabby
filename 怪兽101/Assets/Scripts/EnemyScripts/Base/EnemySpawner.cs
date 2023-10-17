@@ -195,10 +195,10 @@ public class EnemySpawner : MonoBehaviour
                 waveValue = 45;
                 break;
             case 9:
-                waveValue = 59;
+                waveValue = 60;
                 break;
             case 10:
-                waveValue = 500;
+                waveValue = 70;
                 break;
             default:
                 // Set a default wave value for other waves
