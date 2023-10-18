@@ -11,6 +11,8 @@ public class LevelManager : MonoBehaviour
     private int calculation1;
     public GameObject levelCompleteText;
     public Slider slider;
+    public List<Image> skullList = new List<Image>();
+    public Sprite skull;
 
     // Start is called before the first frame update
     void Start()
@@ -97,6 +99,7 @@ public class LevelManager : MonoBehaviour
         if (destructionProgress >= 0 && destructionProgress <= 30)
         {
             levelData.destructionLevel = 0;
+          
         }
 
         else if (destructionProgress >= 31 && destructionProgress <= 70)
@@ -105,5 +108,21 @@ public class LevelManager : MonoBehaviour
         }
 
         else { levelData.destructionLevel = 2; }
+    }
+
+    private void Update()
+    {
+        switch (levelData.destructionLevel)
+        {
+            case 0:
+                skullList[0].GetComponent<Image>().sprite = skull;
+                break;
+            case 1:
+                skullList[1].GetComponent<Image>().sprite = skull;
+                break;
+            case 2:
+                skullList[2].GetComponent<Image>().sprite = skull;
+                break;
+        }
     }
 }

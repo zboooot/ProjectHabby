@@ -16,6 +16,11 @@ public class OrbManager : MonoBehaviour
         targetUIPosition = GameObject.Find("DestructionBar").GetComponent<Transform>();
         levelManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LevelManager>();
     }
+
+    private void Update()
+    {
+        
+    }
     // Call this function when the entity is killed
     public void DropOrbsOnKill()
     {
