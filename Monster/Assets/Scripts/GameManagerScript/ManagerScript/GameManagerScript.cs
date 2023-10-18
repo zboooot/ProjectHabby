@@ -11,7 +11,6 @@ public class GameManagerScript : MonoBehaviour
     public GameObject enemySpawner;
     public List<GameObject> obstacleList = new List<GameObject>();
     public MeteorScript meteor;
-    public GameObject hitcircle;
     private void Start()
     {
         deployScreen.SetActive(true);
@@ -24,8 +23,6 @@ public class GameManagerScript : MonoBehaviour
         DisableObstacles();
         meteor = GameObject.Find("Meteor").GetComponent<MeteorScript>();
         enemySpawner.SetActive(false);
-        hitcircle = GameObject.Find("HitCircle");
-        hitcircle.SetActive(false);
     }
 
 

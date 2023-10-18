@@ -27,24 +27,20 @@ public class MeteorScript : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         shakeScript = GameObject.Find("CM vcam1").GetComponent<ShakeScript>();
+        playerData = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
         hitcircle = GameObject.Find("HitCircle");
-
-
-
-        animator.SetBool("isMoving", true);
         player = GameObject.Find("Player");
+        objController = GameObject.Find("GameObjective");
+        animator.SetBool("isMoving", true);
 
         Vector2 landingPos = new Vector2(player.transform.position.x, player.transform.position.y + 6f);
-
         targetPosition = landingPos;
 
         // Calculate the direction vector towards the target position
         direction = (targetPosition - (Vector2)transform.position).normalized;
 
-        playerData = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
-
-        objController = GameObject.Find("GameObjective");
         objController.SetActive(false);
+        hitcircle.SetActive(false);
     }
 
     public void Shake()

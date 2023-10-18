@@ -12,7 +12,8 @@ public class LevelManager : MonoBehaviour
     public GameObject levelCompleteText;
     public Slider slider;
     public List<Image> skullList = new List<Image>();
-    public Sprite skull;
+    public Sprite filledSkull;
+    public Sprite ogSkull;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,10 @@ public class LevelManager : MonoBehaviour
         levelCompleteText = GameObject.Find("LevelCompleteText");
         levelCompleteText.SetActive(false);
         Invoke("CalculateTotalDestruction", 1f);
+        foreach(Image skull in skullList)
+        {
+           skull.sprite = ogSkull;
+        }
     }
 
     public void CalculateTotalDestruction()
@@ -84,6 +89,7 @@ public class LevelManager : MonoBehaviour
         {
             levelCompleteText.SetActive(true);
             levelData.cityLevel += 1;
+            levelData.destructionLevel = 0;
             Invoke("ChangeLevel", 3f);
         }
     }
@@ -115,13 +121,13 @@ public class LevelManager : MonoBehaviour
         switch (levelData.destructionLevel)
         {
             case 0:
-                skullList[0].GetComponent<Image>().sprite = skull;
+                skullList[0].GetComponent<Image>().sprite = filledSkull;
                 break;
             case 1:
-                skullList[1].GetComponent<Image>().sprite = skull;
+                skullList[1].GetComponent<Image>().sprite = filledSkull;
                 break;
             case 2:
-                skullList[2].GetComponent<Image>().sprite = skull;
+                skullList[2].GetComponent<Image>().sprite = filledSkull;
                 break;
         }
     }

@@ -10,7 +10,6 @@ public class LevelManagerScriptableObject : ScriptableObject
 
     private void OnEnable()
     {
-        
         currentDestruction = 0;
         destructionLevel = 0;
     }

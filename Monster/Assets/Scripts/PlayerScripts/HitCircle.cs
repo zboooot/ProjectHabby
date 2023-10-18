@@ -75,7 +75,7 @@ public class HitCircle : MonoBehaviour
 
             else
             {
-                spriteRender.color = Color.grey;
+                spriteRender.color = Color.white;
             }
         }
     }
