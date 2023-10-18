@@ -28,33 +28,36 @@ public class HitCircle : MonoBehaviour
         //Check if the player is colliding with entities under the enemy layer
         CheckCollision();
 
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-
-        // Calculate the input angle based on player's input.
-        float inputAngle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
-
-        // Calculate the angle between the sprite and the player character.
-        float angleToPlayer = Mathf.Atan2(player.position.y - transform.position.y, player.position.x - transform.position.x) * Mathf.Rad2Deg;
-
-        // Calculate the difference between the input angle and angle to the player.
-        float angleDifference = inputAngle - angleToPlayer;
-
-        // Update the current angle by adding the difference and the orbit speed.
-        currentAngle += (angleDifference + 180f) % 360f + speed * Time.deltaTime;
-
-        if (!inputHandler.isCollision)
+        if (Input.anyKey)
         {
-            // Calculate the new position of the object in orbit around the player character.
-            float x = player.position.x + 3 * Mathf.Cos(currentAngle * Mathf.Deg2Rad);
-            float y = player.position.y + 3 * Mathf.Sin(currentAngle * Mathf.Deg2Rad);
-            transform.position = new Vector3(x, y, transform.position.z);
-        }
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
 
-        // Rotate the object to face the player character.
-        Vector3 direction = player.position - transform.position;
-        float lookAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0, 0, lookAngle);
+            // Calculate the input angle based on player's input.
+            float inputAngle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
+
+            // Calculate the angle between the sprite and the player character.
+            float angleToPlayer = Mathf.Atan2(player.position.y - transform.position.y, player.position.x - transform.position.x) * Mathf.Rad2Deg;
+
+            // Calculate the difference between the input angle and angle to the player.
+            float angleDifference = inputAngle - angleToPlayer;
+
+            // Update the current angle by adding the difference and the orbit speed.
+            currentAngle += (angleDifference + 180f) % 360f + speed * Time.deltaTime;
+
+            if (!inputHandler.isCollision)
+            {
+                // Calculate the new position of the object in orbit around the player character.
+                float x = player.position.x + 3 * Mathf.Cos(currentAngle * Mathf.Deg2Rad);
+                float y = player.position.y + 3 * Mathf.Sin(currentAngle * Mathf.Deg2Rad);
+                transform.position = new Vector3(x, y, transform.position.z);
+            }
+
+            // Rotate the object to face the player character.
+            Vector3 direction = player.position - transform.position;
+            float lookAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, lookAngle);
+        }
     }
 
     private void CheckCollision()
