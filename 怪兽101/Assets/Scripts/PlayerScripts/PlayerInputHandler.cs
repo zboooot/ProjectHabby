@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerInputHandler : MonoBehaviour
 {
     public Vector2 MovementInput { get; private set; }
+    public Joystick joystick;
+
     public PlayerStatScriptableObject playerSO;
     private Rigidbody2D rb;
     public bool attackNow;
@@ -107,8 +109,8 @@ public class PlayerInputHandler : MonoBehaviour
 
     void ProcessInput()
     {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
+        float moveX = joystick.Horizontal;
+        float moveY = joystick.Vertical;
 
         MovementInput = new Vector2(moveX, moveY).normalized;
     }
@@ -254,7 +256,7 @@ public class PlayerInputHandler : MonoBehaviour
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.A))
+            if (joystick.Horizontal < 0 )
             {
                 if (facingLeft != true)
                 {
@@ -265,7 +267,7 @@ public class PlayerInputHandler : MonoBehaviour
                 else { return; }
             }
 
-            else if (Input.GetKeyDown(KeyCode.D))
+            else if (joystick.Horizontal > 0)
             {
                 if (facingLeft == true)
                 {

@@ -8,6 +8,7 @@ public class HitCircle : MonoBehaviour
     public PlayerInputHandler inputHandler;
     public float speed = 10.0f;  // The speed of rotation.
     public Transform player;    // Reference to the player's Transform.
+    public Joystick joystick;
 
     private Vector3 playerLastPosition;
     private float currentAngle;
@@ -30,8 +31,8 @@ public class HitCircle : MonoBehaviour
 
         if (Input.anyKey)
         {
-            float horizontalInput = Input.GetAxis("Horizontal");
-            float verticalInput = Input.GetAxis("Vertical");
+            float horizontalInput = joystick.Horizontal;
+            float verticalInput = joystick.Vertical;
 
             // Calculate the input angle based on player's input.
             float inputAngle = Mathf.Atan2(verticalInput, horizontalInput) * Mathf.Rad2Deg;
@@ -62,7 +63,7 @@ public class HitCircle : MonoBehaviour
 
     private void CheckCollision()
     {
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, 2f);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, 1f);
         foreach (Collider2D collider in hitColliders)
         {
             if(collider.gameObject.layer == 7)
