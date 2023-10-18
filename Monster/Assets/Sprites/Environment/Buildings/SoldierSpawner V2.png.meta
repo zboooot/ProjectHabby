@@ -1,0 +1,711 @@
+fileFormatVersion: 2
+guid: 2c1a4e5ce6b0a9c46a36b6e1f7ccda73
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: 4
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SoldierSpawner V2_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 733
+        width: 440
+        height: 436
+      alignment: 9
+      pivot: {x: 0.49110076, y: 0.05769166}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b2e62561535fd1408d1bc37cc56ac11
+      internalID: 701913240
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoldierSpawner V2_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 944
+        width: 20
+        height: 226
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5cce890ee2122b49a68632071192e2f
+      internalID: 1250899987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoldierSpawner V2_3
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 1008
+        width: 97
+        height: 126
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2a29d8014e091d46b73eafe7f1cb6b9
+      internalID: -456167189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoldierSpawner V2_6
+      rect:
+        serializedVersion: 2
+        x: 740
+        y: 1010
+        width: 192
+        height: 125
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 815e7cb24fdde504994aa171291fa047
+      internalID: -679799533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoldierSpawner V2_36
+      rect:
+        serializedVersion: 2
+        x: 588
+        y: 1007
+        width: 96
+        height: 110
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ffc4fab1b8657a4e99b20a08e3a7400
+      internalID: 912863418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoldierSpawner V2_38
+      rect:
+        serializedVersion: 2
+        x: 981
+        y: 726
+        width: 446
+        height: 352
+      alignment: 9
+      pivot: {x: 0.5021948, y: 0.09119138}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55ab7f8564726d64193bd310e1f325e6
+      internalID: 1059431532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoldierSpawner V2_43
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 677
+        width: 449
+        height: 286
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e95b88094d584d46b1c5e09d322131c
+      internalID: 2060416962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoldierSpawner V2_45
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 523
+        width: 233
+        height: 143
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f08fbfd952fafab49808ea9f7d2b9d69
+      internalID: -766756308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoldierSpawner V2_47
+      rect:
+        serializedVersion: 2
+        x: 318
+        y: 502
+        width: 224
+        height: 160
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a10509f65611aa945b6bbbf933e8328b
+      internalID: -1370637355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoldierSpawner V2_48
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 526
+        width: 163
+        height: 142
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c5ff022429487c40ad459de582be0d3
+      internalID: 611217141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoldierSpawner V2_49
+      rect:
+        serializedVersion: 2
+        x: 1047
+        y: 526
+        width: 232
+        height: 150
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e02aee18782357842943a742b2b25a6f
+      internalID: 309352200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoldierSpawner V2_53
+      rect:
+        serializedVersion: 2
+        x: 574
+        y: 519
+        width: 223
+        height: 141
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c793feeb0fcd3246b70724f7f894dfd
+      internalID: -1442293422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoldierSpawner V2_58
+      rect:
+        serializedVersion: 2
+        x: 76
+        y: 73
+        width: 153
+        height: 416
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f52b6f08b6c39a45a3755067b321f42
+      internalID: -1473623330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoldierSpawner V2_59
+      rect:
+        serializedVersion: 2
+        x: 975
+        y: 192
+        width: 416
+        height: 288
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e455d4d2855d6cb42b19bbada08fd1ba
+      internalID: -1142023394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoldierSpawner V2_62
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 242
+        width: 154
+        height: 188
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d40c2efa59e95d84c84e466414f8b195
+      internalID: -813770495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoldierSpawner V2_64
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 224
+        width: 366
+        height: 225
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7fae3bb0e8815ac4ba7cb76e4a9820df
+      internalID: -440989882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoldierSpawner V2_70
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 92
+        width: 313
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a4ee04fdc6f1dc3439ac520be404e146
+      internalID: -897583793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoldierSpawner V2_71
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 68
+        width: 57
+        height: 138
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b71ce46131d4e3b4a80a027a32896168
+      internalID: -2056604771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoldierSpawner V2_72
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 177
+        width: 31
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e7168fc33044dc4baa3631374daaf94
+      internalID: -469873599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoldierSpawner V2_74
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 111
+        width: 30
+        height: 30
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a31fc65fa4aed04dbf199b4e445f074
+      internalID: 122570994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoldierSpawner V2_78
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 100
+        width: 33
+        height: 62
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41d7ce8172fbd9a4dbc61feb85a9298c
+      internalID: 323061482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoldierSpawner V2_80
+      rect:
+        serializedVersion: 2
+        x: 1460
+        y: 0
+        width: 14
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e1e0e6848bbb364ab04f804288ef705
+      internalID: 891912353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SoldierSpawner V2_2
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 92
+        width: 153
+        height: 89
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 502f5edbc16f7674eb74ed90d87fb0da
+      internalID: 1010622294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      SoldierSpawner V2_0: 701913240
+      SoldierSpawner V2_1: 1250899987
+      SoldierSpawner V2_10: -572942340
+      SoldierSpawner V2_11: -875158069
+      SoldierSpawner V2_12: -1484014922
+      SoldierSpawner V2_13: -1673009599
+      SoldierSpawner V2_14: 1564099079
+      SoldierSpawner V2_15: -2100680944
+      SoldierSpawner V2_16: 1057905815
+      SoldierSpawner V2_17: 720706991
+      SoldierSpawner V2_18: 1540901267
+      SoldierSpawner V2_19: -113519058
+      SoldierSpawner V2_2: 1010622294
+      SoldierSpawner V2_20: 682741229
+      SoldierSpawner V2_21: 423053030
+      SoldierSpawner V2_22: -1067312634
+      SoldierSpawner V2_23: 421863940
+      SoldierSpawner V2_24: -287193220
+      SoldierSpawner V2_25: -1128968540
+      SoldierSpawner V2_26: 1034782337
+      SoldierSpawner V2_27: 1776014854
+      SoldierSpawner V2_28: 1938930772
+      SoldierSpawner V2_29: -13213948
+      SoldierSpawner V2_3: -456167189
+      SoldierSpawner V2_30: -1558182491
+      SoldierSpawner V2_31: 225292271
+      SoldierSpawner V2_32: 592644332
+      SoldierSpawner V2_33: 1336554092
+      SoldierSpawner V2_34: 894612708
+      SoldierSpawner V2_35: -926891846
+      SoldierSpawner V2_36: 912863418
+      SoldierSpawner V2_37: -45382953
+      SoldierSpawner V2_38: 1059431532
+      SoldierSpawner V2_39: -1766711820
+      SoldierSpawner V2_4: -1465282777
+      SoldierSpawner V2_40: -402593974
+      SoldierSpawner V2_41: 693009252
+      SoldierSpawner V2_42: -976532183
+      SoldierSpawner V2_43: 2060416962
+      SoldierSpawner V2_44: -512996727
+      SoldierSpawner V2_45: -766756308
+      SoldierSpawner V2_46: 1469641099
+      SoldierSpawner V2_47: -1370637355
+      SoldierSpawner V2_48: 611217141
+      SoldierSpawner V2_49: 309352200
+      SoldierSpawner V2_5: 727200849
+      SoldierSpawner V2_50: 1846262137
+      SoldierSpawner V2_51: -2005633080
+      SoldierSpawner V2_52: -480176989
+      SoldierSpawner V2_53: -1442293422
+      SoldierSpawner V2_54: -313113648
+      SoldierSpawner V2_55: -661848377
+      SoldierSpawner V2_56: -992728866
+      SoldierSpawner V2_57: -844603057
+      SoldierSpawner V2_58: -1473623330
+      SoldierSpawner V2_59: -1142023394
+      SoldierSpawner V2_6: -679799533
+      SoldierSpawner V2_60: -1641633330
+      SoldierSpawner V2_61: 286962433
+      SoldierSpawner V2_62: -813770495
+      SoldierSpawner V2_63: 1253175427
+      SoldierSpawner V2_64: -440989882
+      SoldierSpawner V2_65: -787029095
+      SoldierSpawner V2_66: -812265968
+      SoldierSpawner V2_67: -1525987468
+      SoldierSpawner V2_68: 7864131
+      SoldierSpawner V2_69: 2128028941
+      SoldierSpawner V2_7: -1209248816
+      SoldierSpawner V2_70: -897583793
+      SoldierSpawner V2_71: -2056604771
+      SoldierSpawner V2_72: -469873599
+      SoldierSpawner V2_73: 1305994605
+      SoldierSpawner V2_74: 122570994
+      SoldierSpawner V2_75: -108058463
+      SoldierSpawner V2_76: 890751427
+      SoldierSpawner V2_77: -1191824029
+      SoldierSpawner V2_78: 323061482
+      SoldierSpawner V2_79: 72528322
+      SoldierSpawner V2_8: -1333582342
+      SoldierSpawner V2_80: 891912353
+      SoldierSpawner V2_9: 922257989
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
