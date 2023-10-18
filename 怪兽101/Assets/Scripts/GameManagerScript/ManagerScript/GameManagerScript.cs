@@ -7,10 +7,11 @@ public class GameManagerScript : MonoBehaviour
     public GameObject player; // Prefab of the player
     public GameObject deployScreen;
     public Animator barAnim;
-    private bool gameStarted = false;
+    public bool gameStarted = false;
     public GameObject enemySpawner;
     public List<GameObject> obstacleList = new List<GameObject>();
     public MeteorScript meteor;
+    public GameObject hitcircle;
     private void Start()
     {
         deployScreen.SetActive(true);
@@ -23,6 +24,8 @@ public class GameManagerScript : MonoBehaviour
         DisableObstacles();
         meteor = GameObject.Find("Meteor").GetComponent<MeteorScript>();
         enemySpawner.SetActive(false);
+        hitcircle = GameObject.Find("HitCircle");
+        hitcircle.SetActive(false);
     }
 
 
@@ -32,6 +35,7 @@ public class GameManagerScript : MonoBehaviour
         {
             StartGame();
             meteor.isMoving = true;
+
         }
     }
 

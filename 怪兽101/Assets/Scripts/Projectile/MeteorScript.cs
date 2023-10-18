@@ -22,10 +22,12 @@ public class MeteorScript : MonoBehaviour
 
     float ultimateRadius = 10f;
     public PlayerStatScriptableObject playerSO;
+    public GameObject hitcircle;
     public void Start()
     {
         animator = GetComponent<Animator>();
         shakeScript = GameObject.Find("CM vcam1").GetComponent<ShakeScript>();
+        hitcircle = GameObject.Find("HitCircle");
 
 
 
@@ -120,6 +122,7 @@ public class MeteorScript : MonoBehaviour
         Vector2 spawnPos = new Vector2(player.transform.position.x, player.transform.position.y + 1.6f);
         Instantiate(crater, spawnPos, Quaternion.identity);
         player.GetComponent<SpriteRenderer>().enabled = true;
+        hitcircle.SetActive(true);
 
     }
 
