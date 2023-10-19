@@ -105,7 +105,7 @@ MonoBehaviour:
   rotateSpeed: 200
   destroyTime: 4
   enemyData: {fileID: 11400000, guid: 5297dc130569efa4fa1966661ab634ed, type: 2}
-  explosionVFX: {fileID: 7543519273518273561, guid: 1ee9f651f47e661468a6344fc2aadee0, type: 3}
+  explosionVFX: {fileID: 725748389856807714, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
   collateralMask:
     serializedVersion: 2
     m_Bits: 13056

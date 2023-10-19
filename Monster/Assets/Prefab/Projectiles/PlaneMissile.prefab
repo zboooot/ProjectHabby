@@ -103,7 +103,7 @@ MonoBehaviour:
   damageAmount: 10
   enemyData: {fileID: 11400000, guid: 5297dc130569efa4fa1966661ab634ed, type: 2}
   destroyTime: 0.9
-  explosionVFX: {fileID: 7543519273518273561, guid: 1ee9f651f47e661468a6344fc2aadee0, type: 3}
+  explosionVFX: {fileID: 8194992990867289339, guid: 99bc28c0d45f51c4fbac01080b73edc7, type: 3}
   jetPos: {fileID: 4778428930660515349, guid: ca0d55a0c9369df4ebb3c84bb463ba19, type: 3}
   isLeft: 0
 --- !u!50 &6361675759393907116
