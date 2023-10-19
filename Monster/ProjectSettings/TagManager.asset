@@ -22,6 +22,7 @@ TagManager:
   - Obstacle
   - Solider
   - FxTemporaire
+  - PostProcess
   layers:
   - Default
   - TransparentFX

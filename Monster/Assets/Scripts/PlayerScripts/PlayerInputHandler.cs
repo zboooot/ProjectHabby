@@ -11,7 +11,7 @@ public class PlayerInputHandler : MonoBehaviour
     private Rigidbody2D rb;
     public bool attackNow;
     public bool ultimating;
-    public float ultimateRadius = 10f;
+    public float ultimateRadius = 20f;
     public float currentUltimateCharge;
 
     public Vector2 boxSize; // Adjust the size as needed.
@@ -34,6 +34,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     public float move;
 
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -42,7 +43,6 @@ public class PlayerInputHandler : MonoBehaviour
         boxSize = new Vector2(rangeX, rangeY);
         healthScript = GetComponent<PlayerHealthScript>();
         move = playerSO.speed;
-        ultimateRadius = playerSO.attackRange;
     }
 
     private void Update()

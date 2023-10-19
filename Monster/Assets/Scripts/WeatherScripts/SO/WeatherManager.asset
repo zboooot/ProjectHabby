@@ -16,4 +16,5 @@ MonoBehaviour:
   list:
   - {fileID: 11400000, guid: cbae6681aa906254eaf450df3de22313, type: 2}
   - {fileID: 11400000, guid: 16650439fde40324aab13a130c8d6ce7, type: 2}
-  upcomingWeather: {fileID: 0}
+  upcomingWeather: {fileID: 11400000, guid: dc24e953dcb6c9346b862aea83ccc021, type: 2}
+  isSpecialWeather: 0

@@ -38,4 +38,9 @@ public class MenuController : MonoBehaviour
 	{
 		SceneManager.LoadScene("GameplayScene");
 	}
+
+	public void LeaveGame()
+    {
+		SceneManager.LoadScene("LevelSelectScene");
+    }
 }

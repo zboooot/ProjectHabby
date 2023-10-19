@@ -14,9 +14,6 @@ public class HitCircle : MonoBehaviour
     private float currentAngle;
     private SpriteRenderer spriteRender;
 
-    private float targetAngle;
-    private Vector3 targetPosition;
-
 
     private void Start()
     {
