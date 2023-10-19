@@ -21,6 +21,7 @@ TagManager:
   - Tree
   - Obstacle
   - Solider
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -36,7 +37,7 @@ TagManager:
   - RoadObstacle
   - Soldiers
   - Cars
-  - 
+  - PostProcessing
   - 
   - 
   - 
