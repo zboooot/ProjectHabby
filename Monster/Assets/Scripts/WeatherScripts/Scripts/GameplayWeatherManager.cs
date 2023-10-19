@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameplayWeatherManager : MonoBehaviour
 {
-    WeatherManagerScriptableObject weatherManagerData;
+    public WeatherManagerScriptableObject weatherManagerData;
     public List<Weather> list = new List<Weather>();
 
     // Start is called before the first frame update

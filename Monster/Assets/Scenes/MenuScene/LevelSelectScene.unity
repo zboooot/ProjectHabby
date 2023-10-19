@@ -286,7 +286,7 @@ RectTransform:
   m_GameObject: {fileID: 82695798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1.7866}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1937672132}
@@ -295,8 +295,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 4}
-  m_SizeDelta: {x: 160, y: 30}
+  m_AnchoredPosition: {x: 0, y: -14.7}
+  m_SizeDelta: {x: 250, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &82695800
 MonoBehaviour:
@@ -2678,7 +2678,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Country: France'
+  m_text: Weather goes here
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 25735d00cf3b73141a432fb24a931c90, type: 2}
   m_sharedMaterial: {fileID: -3203508407227384393, guid: 25735d00cf3b73141a432fb24a931c90, type: 2}
