@@ -74,7 +74,6 @@ public class BigBuildingEnemy : MonoBehaviour
     void SpawnSmoke()
     {
         GameObject smokeAnim = Instantiate(smokeVFX, transform.position, Quaternion.identity);
-        smokeAnim.GetComponent<Animator>().SetBool("startFire", true);
         smokeHandler = smokeAnim;
         isSmoking = true;
     }

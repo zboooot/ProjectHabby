@@ -28,6 +28,11 @@ public class PlayerInputHandler : MonoBehaviour
     public Transform detectionOrigin;
     public PlayerHealthScript healthScript;
 
+    public GameObject player;
+    public GameObject hitVFX;
+    public Transform hitPos;
+    public GameObject ultimateVFX;
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -162,6 +167,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void UseUltimate()
     {
+        GameObject ultiVFX = Instantiate(ultimateVFX, player.transform.position, Quaternion.identity);
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(detectionOrigin.position, ultimateRadius);
         foreach (Collider2D collider in hitColliders)
         {
@@ -233,6 +239,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (selectedEnemy != null)
         {
+            GameObject hitEffect = Instantiate(hitVFX, hitPos.transform.position, Quaternion.identity);
             selectedEnemy.GetComponent<Targetable>().TakeDamage();
         }
 
