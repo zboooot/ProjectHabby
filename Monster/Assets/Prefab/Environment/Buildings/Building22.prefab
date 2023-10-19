@@ -57,7 +57,7 @@ MonoBehaviour:
   buildingType: {fileID: 0}
   inputHandler: {fileID: 0}
   civilianParent: {fileID: 0}
-  smokeVFX: {fileID: 4375055505286881329, guid: 8ea45cebb55b2fd449b27d33bf9b32a8, type: 3}
+  smokeVFX: {fileID: 8764043878647920493, guid: c4ed38c72957f2241ad144a1614956d9, type: 3}
   destroyedBuilding: {fileID: 3192773887878231005, guid: 85cb19c3d9722f44e9f655922af3824e, type: 3}
   pfCoin: {fileID: 68998136515679623, guid: 97d85bc601e37404c8ddadc334626a85, type: 3}
   pfDelvin: {fileID: 2411092050883332399, guid: e44870b68705c5a4c8352f73f8249dc1, type: 3}
