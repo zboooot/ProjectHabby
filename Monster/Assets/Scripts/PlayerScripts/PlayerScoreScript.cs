@@ -103,7 +103,7 @@ public class PlayerScoreScript : MonoBehaviour
     {
         entitiesDestroyedCount++;
 
-        if (entitiesDestroyedCount >= 10)
+        if (entitiesDestroyedCount >= 25)
         {
             if (isActivating != true)
             {

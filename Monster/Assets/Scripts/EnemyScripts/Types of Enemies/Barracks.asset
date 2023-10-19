@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Barracks
   m_EditorClassIdentifier: 
   spawnedEntity: {fileID: 8159262672524944082, guid: b05051aed1df61445b56c9c5f8612966, type: 3}
-  spawnRate: 5
+  spawnRate: 7
   spawnLoc: {fileID: 0}

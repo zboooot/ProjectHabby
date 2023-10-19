@@ -35,7 +35,7 @@ public class LevelManager : MonoBehaviour
         switch (levelData.cityLevel)
         {
             case 1:
-                calculateCityDestruction = 23;
+                calculateCityDestruction = 7;
                 break;
 
             case 2:
