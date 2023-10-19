@@ -6,12 +6,13 @@ public class PlayerInputHandler : MonoBehaviour
 {
     public Vector2 MovementInput { get; private set; }
     public Joystick joystick;
+    public float movementSpeed;
 
     public PlayerStatScriptableObject playerSO;
     private Rigidbody2D rb;
     public bool attackNow;
     public bool ultimating;
-    float ultimateRadius = 10f;
+    public float ultimateRadius = 10f;
     public float currentUltimateCharge;
 
     public Vector2 boxSize; // Adjust the size as needed.
@@ -34,6 +35,8 @@ public class PlayerInputHandler : MonoBehaviour
         rangeY = playerSO.attackRange;
         boxSize = new Vector2(rangeX, rangeY);
         healthScript = GetComponent<PlayerHealthScript>();
+        movementSpeed = playerSO.speed;
+        ultimateRadius = playerSO.attackRange;
     }
 
     private void Update()
@@ -282,7 +285,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     void OnAnimationMove()
     {
-        rb.velocity = new Vector2(MovementInput.x * playerSO.speed, MovementInput.y * playerSO.speed);
+        rb.velocity = new Vector2(MovementInput.x * movementSpeed, MovementInput.y * movementSpeed);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
