@@ -5,14 +5,18 @@ using UnityEngine;
 public class RainWeather : Weather
 {
     public WeatherScriptableObject weatherData;
+    private PlayerInputHandler inputHandler;
     public bool isLeft;
-    Rigidbody2D rb;
+    private Rigidbody2D rb;
 
+    public float ogSpeed;
     // Start is called before the first frame update
     void Start()
     {
         weatherData.target = GameObject.FindGameObjectWithTag("Player");
-        Rigidbody2D rb = weatherData.target.GetComponent<Rigidbody2D>();
+        rb = weatherData.target.GetComponent<Rigidbody2D>();
+        inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
+        ogSpeed = inputHandler.playerSO.speed;
         RandomizeRainDirection();
     }
 
@@ -36,7 +40,11 @@ public class RainWeather : Weather
         {
             if (rb.velocity.x < 0)
             {
-                weatherData.target.GetComponent<PlayerInputHandler>().movementSpeed /= 2;
+                inputHandler.move = 1f;
+            }
+            else
+            {
+                inputHandler.move = ogSpeed;
             }
         }
 
@@ -44,7 +52,11 @@ public class RainWeather : Weather
         {
             if (rb.velocity.x > 0)
             {
-                weatherData.target.GetComponent<PlayerInputHandler>().movementSpeed /= 2;
+                inputHandler.move = 1f;
+            }
+            else
+            {
+                inputHandler.move = ogSpeed;
             }
         }
     }

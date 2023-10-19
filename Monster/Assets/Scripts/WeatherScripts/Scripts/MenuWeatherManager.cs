@@ -26,11 +26,11 @@ public class MenuWeatherManager : MonoBehaviour
     void RandomizeWeather()
     {
         int firstCheck = Random.Range(0, 2);
-        if(firstCheck == 0)
+        if (firstCheck == 0)
         {
             weatherManagerData.upcomingWeather = weatherManagerData.defaultWeather;
             weatherManagerData.isSpecialWeather = false;
-            weatherText.text = weatherManagerData.upcomingWeather.WeatherName;
+            weatherText.text = "Today's weather is" + " " + weatherManagerData.upcomingWeather.WeatherName;
         }
 
         else
@@ -38,7 +38,7 @@ public class MenuWeatherManager : MonoBehaviour
             int randomNum = Random.Range(0, weatherManagerData.list.Count);
             weatherManagerData.upcomingWeather = weatherManagerData.list[randomNum];
             weatherManagerData.isSpecialWeather = true;
-            weatherText.text = weatherManagerData.upcomingWeather.WeatherName;
+            weatherText.text = "Today's weather is" + " " + weatherManagerData.upcomingWeather.WeatherName;
         }
     }
 }
