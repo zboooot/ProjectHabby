@@ -12,6 +12,7 @@ public class MeteorScript : MonoBehaviour
     private Animator animator;
     public bool isActive;
     public GameObject player;
+    public GameObject secondaryExplosion;
 
     private ShakeScript shakeScript;
     public GameObject crater;
@@ -23,6 +24,8 @@ public class MeteorScript : MonoBehaviour
     float ultimateRadius = 10f;
     public PlayerStatScriptableObject playerSO;
     public GameObject hitcircle;
+
+
     public void Start()
     {
         animator = GetComponent<Animator>();
@@ -77,9 +80,12 @@ public class MeteorScript : MonoBehaviour
             }
         }
 
+    }
 
-
-
+    public void SecondaryExplosion()
+    {
+        Vector2 spawnPos = new Vector2(player.transform.position.x, player.transform.position.y -0.5f);
+        Instantiate(secondaryExplosion, spawnPos, Quaternion.identity);
     }
 
     public void UseUltimate()
