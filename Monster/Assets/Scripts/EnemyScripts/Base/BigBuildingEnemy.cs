@@ -30,7 +30,7 @@ public class BigBuildingEnemy : MonoBehaviour
 
     private PlayerScoreScript playerScore;
     public ShakeScript shakeScript;
-    private OrbManager orbManager;
+    //private OrbManager orbManager;
 
     float pushForce = 2f;
     float upForce = 5f;
@@ -44,7 +44,7 @@ public class BigBuildingEnemy : MonoBehaviour
         buildingCollider = GetComponent<BoxCollider2D>();
         playerScore = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PlayerScoreScript>();
         inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
-        orbManager = GetComponent<OrbManager>();
+        //orbManager = GetComponent<OrbManager>();
         originalColor = spriteRenderer.color;
         civilianParent = GameObject.Find("---Civillian---");
 
@@ -106,7 +106,7 @@ public class BigBuildingEnemy : MonoBehaviour
         }
 
         //Spawn Orbs
-        orbManager.DropOrbsOnKill();
+        //orbManager.DropOrbsOnKill();
 
         inputHandler.ChargeUltimate(10);
     }

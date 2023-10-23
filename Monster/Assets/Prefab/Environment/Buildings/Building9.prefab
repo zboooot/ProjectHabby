@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 8480247549664613319}
   - component: {fileID: 10730175602145429}
   - component: {fileID: -650982316651190667}
-  - component: {fileID: 1565014637960609558}
   - component: {fileID: -9022858575558896576}
   m_Layer: 7
   m_Name: Building9
@@ -120,21 +119,6 @@ MonoBehaviour:
   shakeDuration: 0.2
   shakeStrength: 0.2
   player: {fileID: 0}
---- !u!114 &1565014637960609558
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7074844525022745713}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 448ef6695d07a9848854a60879ca047a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orbPrefab: {fileID: 7909882396035829041, guid: 935c3d6eaa9d6484f81b79283cfd5215, type: 3}
-  orbSpawnPoint: {fileID: 1122777636888833586}
-  orbFloatSpeed: 10
 --- !u!114 &-9022858575558896576
 MonoBehaviour:
   m_ObjectHideFlags: 0
