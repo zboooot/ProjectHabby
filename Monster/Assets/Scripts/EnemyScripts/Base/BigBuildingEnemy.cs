@@ -15,6 +15,7 @@ public class BigBuildingEnemy : MonoBehaviour
     public GameObject smokeVFX;
     private GameObject smokeHandler;
     public GameObject destroyedBuilding;
+    private LevelManager levelManager;
 
     [SerializeField] private GameObject pfCoin;
 
@@ -47,7 +48,7 @@ public class BigBuildingEnemy : MonoBehaviour
         //orbManager = GetComponent<OrbManager>();
         originalColor = spriteRenderer.color;
         civilianParent = GameObject.Find("---Civillian---");
-
+        levelManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LevelManager>();
     }
 
     public void TakeDamage(float damage)
@@ -108,6 +109,8 @@ public class BigBuildingEnemy : MonoBehaviour
         //Spawn Orbs
         //orbManager.DropOrbsOnKill();
 
+        //Add points
+        levelManager.CalculateScore(1);
         inputHandler.ChargeUltimate(10);
     }
 
