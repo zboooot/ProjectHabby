@@ -49,6 +49,7 @@ public class BigBuildingEnemy : MonoBehaviour
         originalColor = spriteRenderer.color;
         civilianParent = GameObject.Find("---Civillian---");
         levelManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LevelManager>();
+
     }
 
     public void TakeDamage(float damage)
