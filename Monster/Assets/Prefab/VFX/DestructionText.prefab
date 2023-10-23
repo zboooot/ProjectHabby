@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 5844284595174084933}
   - component: {fileID: 530581334155431970}
   - component: {fileID: 276405463101042123}
+  - component: {fileID: -1877636851622137658}
+  - component: {fileID: -6357414262660334298}
   m_Layer: 5
   m_Name: DestructionText
   m_TagString: Untagged
@@ -156,3 +158,31 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &-1877636851622137658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8822552445279643175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e9be017bc956224b8a18ce41679fe5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!111 &-6357414262660334298
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8822552445279643175}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 5e6dce11d127d59488f607325256ea14, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 5e6dce11d127d59488f607325256ea14, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

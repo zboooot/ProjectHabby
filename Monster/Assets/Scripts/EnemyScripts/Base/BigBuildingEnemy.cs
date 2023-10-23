@@ -15,6 +15,7 @@ public class BigBuildingEnemy : MonoBehaviour
     public GameObject smokeVFX;
     private GameObject smokeHandler;
     public GameObject destroyedBuilding;
+    public GameObject pointIndicatorVFX;
     private LevelManager levelManager;
 
     [SerializeField] private GameObject pfCoin;
@@ -113,6 +114,7 @@ public class BigBuildingEnemy : MonoBehaviour
         //Add points
         levelManager.CalculateScore(1);
         inputHandler.ChargeUltimate(10);
+        GameObject pointVFX = Instantiate(pointIndicatorVFX, transform.position, Quaternion.Euler(0f,0f,0f));
     }
 
     void DamageEffect()

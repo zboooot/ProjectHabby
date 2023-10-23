@@ -9,6 +9,7 @@ public class PlayerUltimateButton : MonoBehaviour
     public PlayerInputHandler inputHandler;
     public Image radialFill;
     private Button button;
+    public UltimateButtonScript ultButton;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,7 @@ public class PlayerUltimateButton : MonoBehaviour
         if(inputHandler.currentUltimateCharge == inputHandler.playerSO.maxUltimateCharge)
         {
             inputHandler.ultimating = true;
+            ultButton.DeactivateSlowMo();
         }
         else
         {
@@ -39,15 +41,15 @@ public class PlayerUltimateButton : MonoBehaviour
         }
     }
 
-    void UpdateFill()
-    {
-        float simplifiedUltAmount = (inputHandler.currentUltimateCharge / inputHandler.playerSO.maxUltimateCharge) % 100.0f;
-        radialFill.fillAmount = simplifiedUltAmount;
-    }
+    //void UpdateFill()
+    //{
+    //    float simplifiedUltAmount = (inputHandler.currentUltimateCharge / inputHandler.playerSO.maxUltimateCharge) % 100.0f;
+    //    radialFill.fillAmount = simplifiedUltAmount;
+    //}
 
     private void Update()
     {
         CheckInteractivity();
-        UpdateFill();
+        //UpdateFill();
     }
 }
