@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c562ade01cca79143abad0a4545dbc9b, type: 3}
   m_Name: LevelManager
   m_EditorClassIdentifier: 
-  buildingsInScene: 461
+  buildingsInScene: 293
   destructionLevel: 0
   cityLevel: 1
-  currentDestruction: 1
+  currentDestruction: 0
+  cutscenePlayed: 1

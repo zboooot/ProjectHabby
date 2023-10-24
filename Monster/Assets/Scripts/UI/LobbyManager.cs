@@ -25,17 +25,28 @@ public class LobbyManager : MonoBehaviour
 
     public void LoadLevel()
     {
-        if(levelData.cityLevel < 10)
+        if(levelData.cutscenePlayed)
         {
-            SceneManager.LoadScene("GameplayScene");
-        }
+            if (levelData.cityLevel < 10)
+            {
+                SceneManager.LoadScene("GameplayScene");
+            }
 
-        else if(levelData.cityLevel == 10)
+            else if (levelData.cityLevel == 10)
+            {
+                SceneManager.LoadScene("LandmarkDesScene");
+            }
+
+            else { return; }
+        }
+        
+        else
         {
-            SceneManager.LoadScene("LandmarkDesScene");
+            SceneManager.LoadScene("ComicScene");
+            levelData.cutscenePlayed = true;
+           
         }
-
-        else { return; }
+       
     }
 
     // Update is called once per frame

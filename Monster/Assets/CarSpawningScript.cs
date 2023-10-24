@@ -8,11 +8,13 @@ public class CarSpawningScript : MonoBehaviour
     [SerializeField] private int minNumberOfObjectsToSpawn;
     [SerializeField] private int maxNumberOfObjectsToSpawn; //don't put it over 3. Idk why
     [SerializeField] private float minDistanceBetweenCars; // Minimum distance between spawned cars
+    public GameObject carparent;
 
     private List<Vector2> spawnedPositions = new List<Vector2>();
 
     private void Start()
     {
+        carparent = GameObject.Find("---CARS---");
         BoxCollider2D[] colliders = GetComponents<BoxCollider2D>();
 
         foreach (BoxCollider2D boxCollider in colliders)
@@ -54,6 +56,7 @@ public class CarSpawningScript : MonoBehaviour
                         carAI.SetSpriteUp();
                     }
                 }
+                spawnedCar.transform.parent = carparent.transform;
             }
         }
     }

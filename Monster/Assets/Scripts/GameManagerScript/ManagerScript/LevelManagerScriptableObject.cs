@@ -7,7 +7,7 @@ public class LevelManagerScriptableObject : ScriptableObject
     public float destructionLevel;
     public int cityLevel;
     public float currentDestruction;
-
+    public bool cutscenePlayed;
     private void OnEnable()
     {
         currentDestruction = 0;
