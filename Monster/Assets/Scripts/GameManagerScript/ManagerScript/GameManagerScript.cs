@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -11,6 +13,15 @@ public class GameManagerScript : MonoBehaviour
     public GameObject enemySpawner;
     public List<GameObject> obstacleList = new List<GameObject>();
     public MeteorScript meteor;
+
+    private GNAManager GNAManager;
+    private LevelManager levelManger;
+    public GameObject endScreen;
+    public GameObject winScreen;
+    public GameObject loseScreen;
+    public TextMeshProUGUI levelText;
+    public TextMeshProUGUI GNAText;
+    private PlayerInputHandler inputHandler;
     private void Start()
     {
         deployScreen.SetActive(true);
@@ -23,6 +34,12 @@ public class GameManagerScript : MonoBehaviour
         DisableObstacles();
         meteor = GameObject.Find("Meteor").GetComponent<MeteorScript>();
         enemySpawner.SetActive(false);
+
+
+        endScreen.SetActive(false);
+        levelManger = GetComponent<LevelManager>();
+        GNAManager = GetComponent<GNAManager>();
+        inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
     }
 
 
@@ -32,8 +49,29 @@ public class GameManagerScript : MonoBehaviour
         {
             StartGame();
             meteor.isMoving = true;
-
         }
+    }
+
+    public void TriggerEndScreen(bool dead)
+    {
+        inputHandler.canMove = false;
+        levelText.text = "" + levelManger.levelData.cityLevel;
+        GNAText.text = "" + GNAManager.gnaData.inGameGNA;
+        endScreen.SetActive(true);
+        if (dead)
+        {
+            winScreen.SetActive(false);
+        }
+
+        else
+        {
+            loseScreen.SetActive(false);
+        }
+    }
+
+    public void LoadNextScene()
+    {
+        SceneManager.LoadScene("LevelSelectScene");
     }
 
     public void CloseBar()
@@ -76,4 +114,7 @@ public class GameManagerScript : MonoBehaviour
         }
 
     }
+
+
+    //Trigger all the end game stuff
 }

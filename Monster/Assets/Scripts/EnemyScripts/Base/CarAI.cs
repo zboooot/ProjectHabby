@@ -108,6 +108,7 @@ public class CarAI : MonoBehaviour
         GameObject smokePuff = Instantiate(smokeVFX, transform.position, Quaternion.identity);
         GameObject sparkPuff = Instantiate(sparkVFX, transform.position, Quaternion.identity);
         spriteRenderer.sprite = destroyedSprite;
+        spriteRenderer.sortingOrder = 1;
         entityCollider.enabled = false;
         objectFader.StartFading();
     }

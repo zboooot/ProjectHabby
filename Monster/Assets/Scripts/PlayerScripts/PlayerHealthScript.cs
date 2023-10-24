@@ -21,6 +21,9 @@ public class PlayerHealthScript : MonoBehaviour
     private float currentHealth;
     public HealthState healthState;
 
+    private GameManagerScript gameManager;
+    private PlayerInputHandler inputHandler;
+
     //Flash Effect
     private PlayerFlash flashEffect;
     private int thresholdHealth;
@@ -31,7 +34,7 @@ public class PlayerHealthScript : MonoBehaviour
     private bool fadeIn;
     private bool fadeOut;
     public GameObject rageIndicator;
-
+    
     private void Start()
     {
         shakeMe = healthSlider.gameObject.GetComponent<ShakeScript>();
@@ -45,6 +48,8 @@ public class PlayerHealthScript : MonoBehaviour
         healthState = HealthState.normal;
 
         berserkVignette = GameObject.Find("Vignette").GetComponent<CanvasGroup>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>();
+        inputHandler = GetComponent<PlayerInputHandler>();
     }
 
     void TriggerVignette()
@@ -99,24 +104,31 @@ public class PlayerHealthScript : MonoBehaviour
     {
         shakeMe.StartShake();
         CheckHealthStatus(currentHealth);
-        if(healthState == HealthState.normal)
+        if(playerSO.health > 0)
         {
-            playerSO.health -= damage; // Adjust the damage amount as needed
+            if (healthState == HealthState.normal)
+            {
+                playerSO.health -= damage; // Adjust the damage amount as needed
+            }
+
+            else
+            {
+                playerSO.health -= damage * 2; // Player takes double damage when they are in berserk mode
+            }
+
+            int healthDifference = thresholdHealth - playerSO.health;
+            if (healthDifference >= triggerNumber)
+            {
+                flashEffect.Flash();
+                thresholdHealth = playerSO.health;
+            }
         }
 
         else
         {
-            playerSO.health -= damage * 2; // Player takes double damage when they are in berserk mode
+            inputHandler.isDead = true;
+            gameManager.TriggerEndScreen(true);
         }
-
-        int healthDifference = thresholdHealth - playerSO.health;
-        if(healthDifference >= triggerNumber)
-        {
-            flashEffect.Flash();
-            thresholdHealth = playerSO.health;
-        }
-
-        else { return; }
     }
 
     private void UpdateHealthBar()

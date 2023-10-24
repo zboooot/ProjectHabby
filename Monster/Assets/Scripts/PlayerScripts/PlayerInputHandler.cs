@@ -23,7 +23,7 @@ public class PlayerInputHandler : MonoBehaviour
     public bool isAttacking;
     public bool isCollision;
 
-    public bool startScene = true;
+    //public bool startScene = true;
     public Transform detectionOrigin;
     public PlayerHealthScript healthScript;
 
@@ -31,7 +31,9 @@ public class PlayerInputHandler : MonoBehaviour
     public GameObject hitVFX;
     public Transform hitPos;
     public GameObject ultimateVFX;
+    public bool isDead;
 
+    public bool canMove;
     public float move;
 
 
@@ -47,11 +49,12 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void Update()
     {
-        if(!startScene || !isAttacking)
+        if(canMove)
         {
             CheckFlip();
             ProcessInput();
         }
+        else { return; }
         //AttackNearestEnemy();
     }
 
@@ -109,7 +112,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(!startScene)
+        if(canMove)
         {
             OnAnimationMove();
         }
@@ -261,7 +264,7 @@ public class PlayerInputHandler : MonoBehaviour
     }
     public void CheckFlip()
     {
-        if (startScene)
+        if (!canMove)
         {
             return;
         }

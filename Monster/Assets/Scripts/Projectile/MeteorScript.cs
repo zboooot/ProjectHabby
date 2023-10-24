@@ -114,7 +114,7 @@ public class MeteorScript : MonoBehaviour
 
     public void ActivatePlayer()
     {
-        playerData.startScene = false;
+        playerData.canMove = true;
         enemySpawner.SetActive(true);
     }
 
