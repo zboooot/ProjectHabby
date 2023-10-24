@@ -72,7 +72,10 @@ public class PlayerScoreScript : MonoBehaviour
 
         }
 
-
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            StartCoroutine(ArtilleryScript.SpawnArtilleryWithDelay());
+        }
     }
 
     void BlinkingEffect()
