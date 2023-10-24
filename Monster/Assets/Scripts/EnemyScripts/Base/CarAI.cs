@@ -22,6 +22,7 @@ public class CarAI : MonoBehaviour
     public Sprite rightSprite;
     public Sprite destroyedSprite;
     public GameObject smokeVFX;
+    public GameObject sparkVFX;
     private Sprite intitialSprite;
 
     Collider2D entityCollider;
@@ -104,7 +105,8 @@ public class CarAI : MonoBehaviour
 
     public void Death()
     {
-        GameObject explosion = Instantiate(smokeVFX, transform.position, Quaternion.identity);
+        GameObject smokePuff = Instantiate(smokeVFX, transform.position, Quaternion.identity);
+        GameObject sparkPuff = Instantiate(sparkVFX, transform.position, Quaternion.identity);
         spriteRenderer.sprite = destroyedSprite;
         entityCollider.enabled = false;
         objectFader.StartFading();
