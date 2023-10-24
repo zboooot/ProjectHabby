@@ -5,19 +5,38 @@ using UnityEngine;
 public class ArtilleryBullet : MonoBehaviour
 {
     public EnemyScriptableObject enemyData;
-    public float destroyTime = 10f;
-    private float currentTime = 0f;
     public GameObject explosionVFX;
+
+    private CircularIndicator storedData;
+    private Collider2D entityCollider;
+
+    private void Start()
+    {
+        entityCollider = GetComponent<Collider2D>();
+    }
+
     private void Update()
     {
-        currentTime += Time.deltaTime;
+        CheckTrigger();
 
-        if (currentTime >= destroyTime)
+    }
+
+    void CheckTrigger()
+    {
+        if (storedData.isInRange)
         {
-            Destroy(gameObject);
+            entityCollider.enabled = true;
         }
 
-        //BlowUp();
+        else
+        {
+            entityCollider.enabled = false;
+        }
+    }
+
+    public void GetData(GameObject data)
+    {
+        storedData = data.GetComponent<CircularIndicator>();
     }
 
     public void BlowUp()
@@ -40,6 +59,7 @@ public class ArtilleryBullet : MonoBehaviour
             GameObject bomb = Instantiate(explosionVFX, collision.transform.position, Quaternion.identity);
             collision.gameObject.GetComponent<PlayerHealthScript>().TakeDamage(enemyData.attackDamage);
             Destroy(gameObject);
+            Destroy(storedData.gameObject);
         }
     }
 }

@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3753247667334782983}
   - component: {fileID: 397613105954740475}
+  - component: {fileID: 7448138261474493964}
   m_Layer: 0
   m_Name: Crater
   m_TagString: Untagged
@@ -84,3 +85,16 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &7448138261474493964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5358245250867353744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 665ff988097abfe4a8612c6f12b47d40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 8
