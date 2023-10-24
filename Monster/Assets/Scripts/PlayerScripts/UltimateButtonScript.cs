@@ -39,6 +39,7 @@ public class UltimateButtonScript : MonoBehaviour
     {
         Time.timeScale = Mathf.Lerp(0.4f, 1, 5);
         ultimateMenu.SetActive(false);
+        isSlowed = false;
     }
 
     void CheckForActivation()
