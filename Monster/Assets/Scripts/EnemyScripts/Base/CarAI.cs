@@ -15,11 +15,13 @@ public class CarAI : MonoBehaviour
     private Vector2 movingDirection;
 
     private SpriteRenderer spriteRenderer;
+    private ObjectFadeEffect objectFader;
     public Sprite upSprite;
     public Sprite downSprite;
     public Sprite leftSprite;
     public Sprite rightSprite;
     public Sprite destroyedSprite;
+    public GameObject smokeVFX;
     private Sprite intitialSprite;
 
     Collider2D entityCollider;
@@ -32,61 +34,45 @@ public class CarAI : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         lastPosition = transform.position;
         entityCollider = GetComponent<Collider2D>();
-        ai = GetComponent<IAstarAI>();
+        objectFader = GetComponent<ObjectFadeEffect>();
+        //ai = GetComponent<IAstarAI>();
         intitialSprite = spriteRenderer.sprite;
     }
 
-    /*void SetRandomDestination()
-    {
-            randomDestination = Random.insideUnitSphere * roamRadius;
-            randomDestination += transform.position;
-            NavMeshHit hit;
-
-            if (NavMesh.SamplePosition(randomDestination, out hit, roamRadius, NavMesh.AllAreas))
-            {
-                if(isDestroyed != true)
-                {
-                    agent.SetDestination(randomDestination);
-                }
-
-                else { agent.updatePosition = false; agent.updateRotation = false; }
-            }
-    }*/
-
-    Vector3 PickRandomPoint()
-    {
-        var point = Random.insideUnitSphere * roamRadius;
+    //Vector3 PickRandomPoint()
+    //{
+    //    var point = Random.insideUnitSphere * roamRadius;
 
 
-        point += ai.position;
-        return point;
-    }
-    void FlipSprite(Vector2 movDir)
-    {
-        if (Mathf.Abs(movDir.x) > Mathf.Abs(movDir.y))
-        {
-            if (movDir.x > 0)
-            {
-                spriteRenderer.sprite = rightSprite;
-            }
-            else
-            {
-                spriteRenderer.sprite = leftSprite;
-            }
-        }
-        else
-        {
-            if (movDir.y > 0)
-            {
-                spriteRenderer.sprite = upSprite;
-            }
-            else
-            {
-                spriteRenderer.sprite = downSprite;
-            }
-        }
+    //    point += ai.position;
+    //    return point;
+    //}
+    //void FlipSprite(Vector2 movDir)
+    //{
+    //    if (Mathf.Abs(movDir.x) > Mathf.Abs(movDir.y))
+    //    {
+    //        if (movDir.x > 0)
+    //        {
+    //            spriteRenderer.sprite = rightSprite;
+    //        }
+    //        else
+    //        {
+    //            spriteRenderer.sprite = leftSprite;
+    //        }
+    //    }
+    //    else
+    //    {
+    //        if (movDir.y > 0)
+    //        {
+    //            spriteRenderer.sprite = upSprite;
+    //        }
+    //        else
+    //        {
+    //            spriteRenderer.sprite = downSprite;
+    //        }
+    //    }
 
-    }
+    //}
 
     public void SetSpriteRenderer(SpriteRenderer sr)
     {
@@ -118,9 +104,10 @@ public class CarAI : MonoBehaviour
 
     public void Death()
     {
+        GameObject explosion = Instantiate(smokeVFX, transform.position, Quaternion.identity);
         spriteRenderer.sprite = destroyedSprite;
         entityCollider.enabled = false;
-        Destroy(gameObject, 5f);
+        objectFader.StartFading();
     }
 
     private void Update()

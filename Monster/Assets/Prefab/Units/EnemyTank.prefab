@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 1586103017}
   - component: {fileID: 1586103018}
   - component: {fileID: 8205243681109786706}
+  - component: {fileID: -1572172540415112108}
   m_Layer: 7
   m_Name: EnemyTank
   m_TagString: Tank
@@ -183,6 +184,7 @@ MonoBehaviour:
   downSprite: {fileID: 21300000, guid: bf456de29c6266f4c8889563a3f8880e, type: 3}
   leftSprite: {fileID: 21300000, guid: 29444e9e45ab651409527c6ca1b3307d, type: 3}
   destroyedSprite: {fileID: 21300000, guid: 84095b0014f69404b8e413702d203eb7, type: 3}
+  deathVFX: {fileID: 1134129239631916, guid: 7e48ba6b1b968764490bbc70b66e3fe1, type: 3}
   tempHealth: 0
   pfBullet: {fileID: 3543856863892098849, guid: 9ce6aac8bbba0db448ec53c1e1c782ef, type: 3}
   pfCoin: {fileID: 68998136515679623, guid: 97d85bc601e37404c8ddadc334626a85, type: 3}
@@ -318,3 +320,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetType: {fileID: 0}
+--- !u!114 &-1572172540415112108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6186560169419938710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 665ff988097abfe4a8612c6f12b47d40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 4
+  delayFadeDuration: 5

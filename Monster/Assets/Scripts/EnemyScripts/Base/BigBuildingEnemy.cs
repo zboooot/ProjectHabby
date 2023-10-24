@@ -13,6 +13,8 @@ public class BigBuildingEnemy : MonoBehaviour
     public PlayerInputHandler inputHandler;
     public GameObject civilianParent;
     public GameObject smokeVFX;
+    public GameObject deathVFX;
+    public GameObject damageVFX;
     private GameObject smokeHandler;
     public GameObject destroyedBuilding;
     public GameObject pointIndicatorVFX;
@@ -85,9 +87,11 @@ public class BigBuildingEnemy : MonoBehaviour
     public void Death()
     {
         Destroy(smokeHandler);
+        
         buildingCollider.enabled = false;
         spriteRenderer.enabled = false;
         Vector2 spawnLoc = new Vector2(transform.position.x, transform.position.y + 1.5f);
+        GameObject explosion = Instantiate(deathVFX, spawnLoc, Quaternion.identity);
         GameObject rubble = Instantiate(destroyedBuilding, spawnLoc, Quaternion.identity);
         Destroy(gameObject, 10f);
     }
@@ -119,15 +123,18 @@ public class BigBuildingEnemy : MonoBehaviour
 
     void DamageEffect()
     {
-        Color currentColor = spriteRenderer.color;
+        GameObject hit = Instantiate(damageVFX, transform.position, Quaternion.identity);
+        Destroy(hit, 1f);
 
-        // Reduce the brightness of the sprite by the specified amount
-        currentColor.r = Mathf.Max(minDarkness, currentColor.r - hitDarkeningAmount);
-        currentColor.g = Mathf.Max(minDarkness, currentColor.g - hitDarkeningAmount);
-        currentColor.b = Mathf.Max(minDarkness, currentColor.b - hitDarkeningAmount);
+        //Color currentColor = spriteRenderer.color;
 
-        // Apply the new color to the sprite
-        spriteRenderer.color = currentColor;
+        //// Reduce the brightness of the sprite by the specified amount
+        //currentColor.r = Mathf.Max(minDarkness, currentColor.r - hitDarkeningAmount);
+        //currentColor.g = Mathf.Max(minDarkness, currentColor.g - hitDarkeningAmount);
+        //currentColor.b = Mathf.Max(minDarkness, currentColor.b - hitDarkeningAmount);
+
+        //// Apply the new color to the sprite
+        //spriteRenderer.color = currentColor;
     }
 
     private void SpawnCivilian()

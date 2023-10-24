@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjectFadeEffect : MonoBehaviour
 {
     public float fadeDuration = 2.0f; // Time it takes to fade in/out
+    public float delayFadeDuration = 5f;
     private Renderer objectRenderer;
     private Color targetColor;
     private Color initialColor;
@@ -14,14 +15,16 @@ public class ObjectFadeEffect : MonoBehaviour
         objectRenderer = GetComponent<Renderer>();
         initialColor = objectRenderer.material.color;
         targetColor = new Color(initialColor.r, initialColor.g, initialColor.b, 0);
-        StartFading();
     }
 
     public void StartFading()
     {
-        Debug.Log("fadeing");
+        Invoke("DelayedFade", delayFadeDuration);
+    }
+
+    void DelayedFade()
+    {
         StartCoroutine(FadeObject());
-        
     }
 
     private IEnumerator FadeObject()

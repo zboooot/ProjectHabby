@@ -16,4 +16,4 @@ MonoBehaviour:
   destructionLevel: 0
   cityLevel: 1
   currentDestruction: 0
-  cutscenePlayed: 1
+  cutscenePlayed: 0

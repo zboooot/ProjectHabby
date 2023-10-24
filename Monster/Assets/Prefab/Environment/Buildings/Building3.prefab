@@ -157,6 +157,8 @@ MonoBehaviour:
   inputHandler: {fileID: 0}
   civilianParent: {fileID: 0}
   smokeVFX: {fileID: 8764043878647920493, guid: c4ed38c72957f2241ad144a1614956d9, type: 3}
+  deathVFX: {fileID: 1134129239631916, guid: 7e48ba6b1b968764490bbc70b66e3fe1, type: 3}
+  damageVFX: {fileID: 1040608886635896, guid: a97415c6b57076f41a6621a7b51d63a3, type: 3}
   destroyedBuilding: {fileID: 3192773887878231005, guid: 85cb19c3d9722f44e9f655922af3824e, type: 3}
   pointIndicatorVFX: {fileID: 1044996948412729999, guid: 5a0f46f8826e32c4b9ce89bc06589d53, type: 3}
   pfCoin: {fileID: 68998136515679623, guid: 97d85bc601e37404c8ddadc334626a85, type: 3}

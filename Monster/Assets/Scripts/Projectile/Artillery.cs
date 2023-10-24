@@ -124,7 +124,6 @@ public class Artillery : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
 
             GameObject impact = Instantiate(impactCrater, spawnPos, Quaternion.identity);
-
         }
         else
         {
