@@ -11,6 +11,7 @@ public class LevelManager : MonoBehaviour
     private int calculation1;
     public Slider slider;
     private GameManagerScript gameManager;
+    public Animator victoryAnim;
 
     // Start is called before the first frame update
     void Start()
@@ -81,7 +82,7 @@ public class LevelManager : MonoBehaviour
         {
             levelData.cityLevel += 1;
             levelData.destructionLevel = 0;
-            gameManager.TriggerEndScreen(false);
+            victoryAnim.SetBool("isTriggered", true);
         }
     }
 

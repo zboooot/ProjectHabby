@@ -295,7 +295,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8093915059412899083}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.1717604, y: 1.7559032, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -464,10 +464,10 @@ MonoBehaviour:
   player: {fileID: 0}
   hitVFX: {fileID: 0}
   hitPos: {fileID: 0}
-  ultimateVFX: {fileID: 0}
   isDead: 0
   canMove: 0
   move: 0
+  utlimates: []
 --- !u!114 &8093915059412899199
 MonoBehaviour:
   m_ObjectHideFlags: 0

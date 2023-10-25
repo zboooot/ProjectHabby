@@ -71,11 +71,6 @@ public class PlayerScoreScript : MonoBehaviour
             isBombing = false;
 
         }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine(ArtilleryScript.SpawnArtilleryWithDelay());
-        }
     }
 
     void BlinkingEffect()

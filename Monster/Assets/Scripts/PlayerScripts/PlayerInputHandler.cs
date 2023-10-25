@@ -49,7 +49,8 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void Update()
     {
-        if(canMove)
+        Cheats();
+        if (canMove)
         {
             CheckFlip();
             ProcessInput();
@@ -168,7 +169,27 @@ public class PlayerInputHandler : MonoBehaviour
 
     //    return selectedEnemy;
     //}
+    private void Cheats()
+    {
+        if (Input.GetKeyUp(KeyCode.V))
+        {
+            TriggerVictory gameManager = GameObject.FindGameObjectWithTag("VictoryScreen").GetComponent<TriggerVictory>();
+            gameManager.anim.SetBool("isTriggered", true);
+        }
 
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            GameManagerScript gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>();
+            gameManager.TriggerEndScreen(true);
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            Artillery artillery = GameObject.FindGameObjectWithTag("Artillery").GetComponent<Artillery>();
+            artillery.SpawnArtilleryWithDelay();
+        }
+
+    }
     public void UseUltimate1()
     {
         utlimates[0].UseDamageUltimate(ultimateRadius, playerSO.ultimateDamage);
