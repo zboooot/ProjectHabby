@@ -9,15 +9,12 @@ public class LevelManager : MonoBehaviour
     public LevelManagerScriptableObject levelData;
     private int calculateCityDestruction;
     private int calculation1;
-    public GameObject levelCompleteText;
     public Slider slider;
     private GameManagerScript gameManager;
 
     // Start is called before the first frame update
     void Start()
     {   
-        levelCompleteText = GameObject.Find("LevelCompleteText");
-        levelCompleteText.SetActive(false);
         Invoke("CalculateTotalDestruction", 1f);
         gameManager = GetComponent<GameManagerScript>();
     }
@@ -82,7 +79,6 @@ public class LevelManager : MonoBehaviour
         CalculateProgress();
         if(slider.value == slider.maxValue)
         {
-            levelCompleteText.SetActive(true);
             levelData.cityLevel += 1;
             levelData.destructionLevel = 0;
             gameManager.TriggerEndScreen(false);

@@ -18,7 +18,6 @@ public class MeteorScript : MonoBehaviour
     public GameObject crater;
 
     public PlayerInputHandler playerData;
-    public GameObject objController;
     public GameObject enemySpawner;
 
     float ultimateRadius = 10f;
@@ -32,7 +31,6 @@ public class MeteorScript : MonoBehaviour
         playerData = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
         hitcircle = GameObject.Find("HitCircle");
         player = GameObject.Find("Player");
-        objController = GameObject.Find("GameObjective");
         animator.SetBool("isMoving", true);
 
         Vector2 landingPos = new Vector2(player.transform.position.x, player.transform.position.y + 6f);
@@ -40,8 +38,6 @@ public class MeteorScript : MonoBehaviour
 
         // Calculate the direction vector towards the target position
         direction = (targetPosition - (Vector2)transform.position).normalized;
-
-        objController.SetActive(false);
         hitcircle.SetActive(false);
     }
 
@@ -119,7 +115,6 @@ public class MeteorScript : MonoBehaviour
 
     public void SpawnPlayer()
     {
-        objController.SetActive(true);
         Vector2 spawnPos = new Vector2(player.transform.position.x, player.transform.position.y + 1.6f);
         Instantiate(crater, spawnPos, Quaternion.identity);
        
