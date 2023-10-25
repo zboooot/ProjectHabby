@@ -30,12 +30,12 @@ public class PlayerInputHandler : MonoBehaviour
     public GameObject player;
     public GameObject hitVFX;
     public Transform hitPos;
-    public GameObject ultimateVFX;
     public bool isDead;
 
     public bool canMove;
     public float move;
 
+    public List<UltimateBase> utlimates = new List<UltimateBase>();
 
     void Start()
     {
@@ -169,74 +169,14 @@ public class PlayerInputHandler : MonoBehaviour
     //    return selectedEnemy;
     //}
 
-    public void UseUltimate()
+    public void UseUltimate1()
     {
-        GameObject ultiVFX = Instantiate(ultimateVFX, player.transform.position, Quaternion.identity);
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(detectionOrigin.position, ultimateRadius);
-        foreach (Collider2D collider in hitColliders)
-        {
-            if (collider.CompareTag("Tank"))
-            {
-                NewEnemyScript tank = collider.GetComponent<NewEnemyScript>();
-                if (tank != null)
-                {
-                    tank.TakeDamage(playerSO.ultimateDamage);
-                }
-                else { return; }
-            }
+        utlimates[0].UseDamageUltimate(ultimateRadius, playerSO.ultimateDamage);
+    }
 
-            else if (collider.CompareTag("BigBuilding"))
-            {
-                BigBuildingEnemy bigBuilding = collider.GetComponent<BigBuildingEnemy>();
-                if (bigBuilding != null)
-                {
-                    bigBuilding.TakeDamage(playerSO.ultimateDamage);
-                }
-                else { return; }
-            }
-
-            else if (collider.CompareTag("Civilian"))
-            {
-                Civilian civilian = collider.GetComponent<Civilian>();
-                if (civilian != null)
-                {
-                    civilian.enemyState = Civilian.EnemyState.death;
-                }
-                else { return; }
-            }
-
-
-            else if (collider.CompareTag("Tree"))
-            {
-                Trees tree = collider.GetComponent<Trees>();
-                if (tree != null)
-                {
-                    tree.Death();
-                }
-                else { return; }
-            }
-
-            else if (collider.CompareTag("Car"))
-            {
-                CarAI car = collider.GetComponent<CarAI>();
-                if (car != null)
-                {
-                    car.Death();
-                }
-                else { return; }
-            }
-
-            else if (collider.CompareTag("Solider"))
-            {
-                HumanSoldier soldier = collider.GetComponent<HumanSoldier>();
-                if (soldier != null)
-                {
-                    soldier.isBurnt = true;
-                    soldier.Death();
-                }
-                else { return; }
-            }
-        }
+    public void UseUltimate2()
+    {
+        utlimates[1].UseUtilityUltimate();
     }
 
     public void Attack()
