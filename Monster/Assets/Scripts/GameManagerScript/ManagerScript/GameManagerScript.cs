@@ -24,6 +24,7 @@ public class GameManagerScript : MonoBehaviour
     private PlayerInputHandler inputHandler;
     private void Start()
     {
+        Time.timeScale = 1f;
         deployScreen.SetActive(true);
         player = GameObject.Find("Player");
 
