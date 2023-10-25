@@ -4926,8 +4926,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.3412678, g: 1, b: 0.32549024, a: 1}
-  m_Intensity: 1.9660802
-  m_Range: 6.62144
+  m_Intensity: 0
+  m_Range: 4
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
@@ -5053,9 +5053,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 963744515
+  m_SortingLayer: 1
+  m_SortingOrder: 4
   m_RenderMode: 4
   m_MeshDistribution: 0
   m_SortMode: 0

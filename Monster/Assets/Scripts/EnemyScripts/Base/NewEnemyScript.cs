@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Pathfinding;
 
 public class NewEnemyScript : MonoBehaviour
 {
@@ -35,6 +36,7 @@ public class NewEnemyScript : MonoBehaviour
     bool hasSpawned;
     private bool isExploding = false;
 
+    private AIBase aStar;
     //NavMeshProperties
 
 
@@ -51,6 +53,7 @@ public class NewEnemyScript : MonoBehaviour
 
         playerScore = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PlayerScoreScript>();
         inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
+        aStar = GetComponent<AIBase>();
 
     }
 
@@ -117,6 +120,7 @@ public class NewEnemyScript : MonoBehaviour
 
     public void Death()
     {
+        aStar.canMove = false;
         entityCollider.enabled = false;
         spriteRenderer.sprite = destroyedSprite;
         if (isExploding != true)

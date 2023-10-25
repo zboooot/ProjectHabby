@@ -276,10 +276,10 @@ GameObject:
   - component: {fileID: 8093915059412899189}
   - component: {fileID: 8093915059412899186}
   - component: {fileID: 8093915059412899185}
-  - component: {fileID: 8093915059412899187}
   - component: {fileID: 8093915059412899198}
   - component: {fileID: 8093915059412899199}
   - component: {fileID: 8093915059289638908}
+  - component: {fileID: 10694047885859605}
   m_Layer: 6
   m_Name: Dokkaebi
   m_TagString: Player
@@ -434,32 +434,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentVelocity: {x: 0, y: 0}
---- !u!61 &8093915059412899187
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8093915059412899083}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.12320298, y: 0.1270277}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.50360847, y: 0.1410212}
-    oldSize: {x: 1.29, y: 1.18}
-    newSize: {x: 1.29, y: 1.18}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.8364544, y: 0.2540554}
-  m_EdgeRadius: 0
 --- !u!114 &8093915059412899198
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -527,6 +501,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   duration: 0.15
   flickerAmount: 3
+--- !u!70 &10694047885859605
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8093915059412899083}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.08, y: 0.423595}
+  m_Size: {x: 0.75, y: 1}
+  m_Direction: 0
 --- !u!1001 &1090955272
 PrefabInstance:
   m_ObjectHideFlags: 0

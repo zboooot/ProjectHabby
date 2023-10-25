@@ -55,6 +55,7 @@ public class GameManagerScript : MonoBehaviour
     public void TriggerEndScreen(bool dead)
     {
         inputHandler.canMove = false;
+        Time.timeScale = 0f;
         levelText.text = "" + levelManger.levelData.cityLevel;
         GNAText.text = "" + GNAManager.gnaData.inGameGNA;
         endScreen.SetActive(true);
