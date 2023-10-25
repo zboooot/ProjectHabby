@@ -11,6 +11,7 @@ public class UltimateButtonScript : MonoBehaviour
     public PlayerStatScriptableObject playerData;
     public TextMeshProUGUI text;
     public GameObject ultimateMenu;
+    public bool ultimateReady;
 
     bool isSlowed;
     private Button button;
@@ -48,12 +49,14 @@ public class UltimateButtonScript : MonoBehaviour
     {
         if(inputHandler.currentUltimateCharge == playerData.maxUltimateCharge)
         {
+            ultimateReady = true;
             button.interactable = true;
             text.gameObject.SetActive(true);
         }
 
         else
         {
+            ultimateReady = false;
             button.interactable = false;
             text.gameObject.SetActive(false);
         }
