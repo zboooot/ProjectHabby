@@ -25,7 +25,6 @@ public class MeteorScript : MonoBehaviour
     public PlayerStatScriptableObject playerSO;
     public GameObject hitcircle;
 
-
     public void Start()
     {
         animator = GetComponent<Animator>();
@@ -123,6 +122,7 @@ public class MeteorScript : MonoBehaviour
         objController.SetActive(true);
         Vector2 spawnPos = new Vector2(player.transform.position.x, player.transform.position.y + 1.6f);
         Instantiate(crater, spawnPos, Quaternion.identity);
+       
         player.GetComponent<SpriteRenderer>().enabled = true;
         hitcircle.SetActive(true);
 
