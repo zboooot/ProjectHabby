@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ComicCutscenesScript : MonoBehaviour
 {
@@ -9,36 +10,59 @@ public class ComicCutscenesScript : MonoBehaviour
     public Sprite[] ComicPages; //An Array
     public int currentPage;
 
+    public Sprite Pg2;
+    public Sprite Pg3;
+    public Sprite Pg4;
+    public Sprite Pg4Transition;
+
+    public int PgCount;
+
+
     void Start()
     {
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+        //spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        if(Input.touchCount > 0)
+        if (PgCount == 4)
         {
-            Touch touch = Input.GetTouch(0);
-            if(touch.phase == TouchPhase.Ended)
-            {
-                ChangeSprite();
-                if (currentPage == 0)
-                {
-                    if (Input.touchCount > 0)
-                        GoToGame();
-                }
-            }
-
+            GoToGame();
         }
         
     }
-    void ChangeSprite()
+    /*void ChangeSprite()
     {
         spriteRenderer.sprite = ComicPages[currentPage];
         currentPage++;
         if (currentPage >= ComicPages.Length)
         {
             currentPage = 0;
+        }
+    }*/
+
+    public void TurnPage()
+    {
+        switch(PgCount)
+        {
+            case 0:
+                GetComponent<Image>().sprite = Pg2;
+                PgCount++;
+                break;
+            case 1:
+                GetComponent<Image>().sprite = Pg3;
+                PgCount++;
+                break;
+            case 2:
+                GetComponent<Image>().sprite = Pg4;
+                PgCount++;
+                break;
+            case 3:
+                GetComponent<Image>().sprite = Pg4Transition;
+                PgCount++;
+                break;
+            default:
+                break;
         }
     }
 
