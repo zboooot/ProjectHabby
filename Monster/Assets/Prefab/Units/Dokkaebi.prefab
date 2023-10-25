@@ -280,6 +280,8 @@ GameObject:
   - component: {fileID: 8093915059412899199}
   - component: {fileID: 8093915059289638908}
   - component: {fileID: 10694047885859605}
+  - component: {fileID: 8093915059289638916}
+  - component: {fileID: 8093915059289638917}
   m_Layer: 6
   m_Name: Dokkaebi
   m_TagString: Player
@@ -328,7 +330,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 9f929fb74de96f94b8af512c64b3ba01, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -451,7 +453,7 @@ MonoBehaviour:
   attackNow: 0
   ultimating: 0
   ultimateRadius: 20
-  currentUltimateCharge: 0
+  currentUltimateCharge: 100
   boxSize: {x: 4, y: 4}
   enemyLayer:
     serializedVersion: 2
@@ -461,13 +463,15 @@ MonoBehaviour:
   isCollision: 0
   detectionOrigin: {fileID: 1556379448410176628}
   healthScript: {fileID: 0}
-  player: {fileID: 0}
-  hitVFX: {fileID: 0}
+  player: {fileID: 8093915059412899083}
+  hitVFX: {fileID: 1429954232896169633, guid: 83036083a4ebcd34f98131bd3cf6f4d2, type: 3}
   hitPos: {fileID: 0}
   isDead: 0
   canMove: 0
   move: 0
-  utlimates: []
+  utlimates:
+  - {fileID: 8093915059289638916}
+  - {fileID: 8093915059289638917}
 --- !u!114 &8093915059412899199
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -517,6 +521,32 @@ CapsuleCollider2D:
   m_Offset: {x: 0.08, y: 0.423595}
   m_Size: {x: 0.75, y: 1}
   m_Direction: 0
+--- !u!114 &8093915059289638916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8093915059412899083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53f5925024850b14fb1255a8c5b4e263, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ultimateVFX: {fileID: 2708598583397607911, guid: 6398d43fe79ea0140913dc5530c646af, type: 3}
+  detectionOrigin: {fileID: 1556379448410176628}
+--- !u!114 &8093915059289638917
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8093915059412899083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e00ad9ec2652669468e5ee7c224ced1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1090955272
 PrefabInstance:
   m_ObjectHideFlags: 0
