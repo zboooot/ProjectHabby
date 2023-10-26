@@ -47,7 +47,12 @@ public class Civilian : MonoBehaviour
 
         targetPosition = transform.position;
 
-        runSpeed = enemyData.speed * 2;
+        RandomizeSpeed(enemyData.speed);
+    }
+
+    private void RandomizeSpeed(float speed)
+    {
+        runSpeed = Random.Range(enemyData.speed, enemyData.speed + 2f) * 2;
     }
 
 
