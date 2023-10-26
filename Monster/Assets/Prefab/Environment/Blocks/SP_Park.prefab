@@ -424,6 +424,8 @@ MonoBehaviour:
   - {fileID: 4411149530234238777, guid: 0f414223be9181b4d93465102b42f2a7, type: 3}
   - {fileID: 4411149530234238777, guid: 72047a181f0068e4a94e3a9cd53eb29a, type: 3}
   - {fileID: 4411149530234238777, guid: 6f9a069a258ecae4797c6fa7ddcc33eb, type: 3}
+  - {fileID: 4411149530234238777, guid: 8c130942bdaeab649a04196f5b1e5e4e, type: 3}
+  - {fileID: 4411149530234238777, guid: e3e8623e4de173b4a9da82a6495df300, type: 3}
   minNumberOfObjectsToSpawn: 1
   maxNumberOfObjectsToSpawn: 3
   minDistanceBetweenCars: 2
