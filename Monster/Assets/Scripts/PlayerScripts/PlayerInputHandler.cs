@@ -204,9 +204,8 @@ public class PlayerInputHandler : MonoBehaviour, ISoundable
         if (Input.GetKeyUp(KeyCode.Space))
         {
             Artillery artillery = GameObject.FindGameObjectWithTag("Artillery").GetComponent<Artillery>();
-            artillery.SpawnArtilleryWithDelay();
+            StartCoroutine(artillery.SpawnArtilleryWithDelay());
         }
-
     }
     public void UseUltimate1()
     {

@@ -33,12 +33,12 @@ public class CutSceneManager : MonoBehaviour
 
     public void CallEndScreen()
     {
-        inputHandler.canMove = false;
         gameManager.TriggerEndScreen();
     }
 
     public void TriggerEnd()
     {
+        inputHandler.canMove = false;
         TriggerDialogue();
         anim.SetBool("isTriggered", true);
     }
