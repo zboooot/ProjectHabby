@@ -176,7 +176,7 @@ public class PlayerInputHandler : MonoBehaviour
             CutSceneManager csManager = GameObject.FindGameObjectWithTag("VictoryScreen").GetComponent<CutSceneManager>();
             GameManagerScript gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>();
             gameManager.isVictory = true;
-            csManager.TriggerDialogue();
+            csManager.TriggerEnd();
 
         }
 
@@ -185,7 +185,7 @@ public class PlayerInputHandler : MonoBehaviour
             CutSceneManager csManager = GameObject.FindGameObjectWithTag("VictoryScreen").GetComponent<CutSceneManager>();
             GameManagerScript gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>();
             gameManager.isVictory = false;
-            csManager.TriggerDialogue();
+            csManager.TriggerEnd();
         }
 
         if (Input.GetKeyUp(KeyCode.Space))

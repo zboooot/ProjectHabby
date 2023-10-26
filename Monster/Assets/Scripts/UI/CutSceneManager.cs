@@ -37,6 +37,12 @@ public class CutSceneManager : MonoBehaviour
         gameManager.TriggerEndScreen();
     }
 
+    public void TriggerEnd()
+    {
+        TriggerDialogue();
+        anim.SetBool("isTriggered", true);
+    }
+
     public void ResetTrigger()
     {
         anim.SetBool("isTriggered", false);

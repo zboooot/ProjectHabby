@@ -34,6 +34,7 @@ public class PlayerHealthScript : MonoBehaviour
     private bool fadeIn;
     private bool fadeOut;
     public GameObject rageIndicator;
+    public CutSceneManager cutsceneManager;
     
     private void Start()
     {
@@ -50,6 +51,8 @@ public class PlayerHealthScript : MonoBehaviour
         berserkVignette = GameObject.Find("Vignette").GetComponent<CanvasGroup>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>();
         inputHandler = GetComponent<PlayerInputHandler>();
+
+        cutsceneManager = GameObject.FindGameObjectWithTag("VictoryScreen").GetComponent<CutSceneManager>();
     }
 
     void TriggerVignette()
@@ -128,7 +131,8 @@ public class PlayerHealthScript : MonoBehaviour
         {
             inputHandler.isDead = true;
             gameManager.isVictory = false;
-            gameManager.TriggerEndScreen();
+            cutsceneManager.TriggerEnd();
+
         }
     }
 

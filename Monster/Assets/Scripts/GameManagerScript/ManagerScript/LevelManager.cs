@@ -11,13 +11,14 @@ public class LevelManager : MonoBehaviour
     private int calculation1;
     public Slider slider;
     private GameManagerScript gameManager;
-    public Animator victoryAnim;
+    public CutSceneManager cutsceneManager;
 
     // Start is called before the first frame update
     void Start()
     {   
         Invoke("CalculateTotalDestruction", 1f);
         gameManager = GetComponent<GameManagerScript>();
+        cutsceneManager = GameObject.FindGameObjectWithTag("VictoryScreen").GetComponent<CutSceneManager>();
     }
 
     public void CalculateTotalDestruction()
@@ -83,7 +84,7 @@ public class LevelManager : MonoBehaviour
             levelData.cityLevel += 1;
             levelData.destructionLevel = 0;
             gameManager.isVictory = true;
-            victoryAnim.SetBool("isTriggered", true);
+            cutsceneManager.TriggerEnd();
         }
     }
 
