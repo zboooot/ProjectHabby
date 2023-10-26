@@ -145,6 +145,15 @@ public class PlayerInputHandler : MonoBehaviour, ISoundable
     {
         ultimating = false;
         currentUltimateCharge = 0;
+    }
+
+    public void DeactivateMove()
+    {
+        canMove = false;
+    }
+
+    public void ActivateMove()
+    {
         canMove = true;
     }
 
@@ -201,13 +210,11 @@ public class PlayerInputHandler : MonoBehaviour, ISoundable
     }
     public void UseUltimate1()
     {
-        canMove = false;
         utlimates[0].UseDamageUltimate(ultimateRadius, playerSO.ultimateDamage);
     }
 
     public void UseUltimate2()
     {
-        canMove = false;
         utlimates[1].UseUtilityUltimate();
     }
 

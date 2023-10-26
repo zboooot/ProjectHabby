@@ -131,7 +131,7 @@ public class PlayerHealthScript : MonoBehaviour
         {
             inputHandler.isDead = true;
             gameManager.isVictory = false;
-            cutsceneManager.TriggerEnd();
+            cutsceneManager.CallEndScreen();
 
         }
     }
