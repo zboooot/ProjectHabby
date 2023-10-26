@@ -52,7 +52,7 @@ public class Civilian : MonoBehaviour
 
     private void RandomizeSpeed(float speed)
     {
-        runSpeed = Random.Range(enemyData.speed, enemyData.speed + 2f) * 2;
+        runSpeed = Random.Range(enemyData.speed, enemyData.speed + 2f);
     }
 
 
