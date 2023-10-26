@@ -82,6 +82,7 @@ public class LevelManager : MonoBehaviour
         {
             levelData.cityLevel += 1;
             levelData.destructionLevel = 0;
+            gameManager.isVictory = true;
             victoryAnim.SetBool("isTriggered", true);
         }
     }

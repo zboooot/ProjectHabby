@@ -173,14 +173,19 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (Input.GetKeyUp(KeyCode.V))
         {
-            TriggerVictory gameManager = GameObject.FindGameObjectWithTag("VictoryScreen").GetComponent<TriggerVictory>();
-            gameManager.anim.SetBool("isTriggered", true);
+            CutSceneManager csManager = GameObject.FindGameObjectWithTag("VictoryScreen").GetComponent<CutSceneManager>();
+            GameManagerScript gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>();
+            gameManager.isVictory = true;
+            csManager.TriggerDialogue();
+
         }
 
         if (Input.GetKeyUp(KeyCode.D))
         {
+            CutSceneManager csManager = GameObject.FindGameObjectWithTag("VictoryScreen").GetComponent<CutSceneManager>();
             GameManagerScript gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>();
-            gameManager.TriggerEndScreen(true);
+            gameManager.isVictory = false;
+            csManager.TriggerDialogue();
         }
 
         if (Input.GetKeyUp(KeyCode.Space))

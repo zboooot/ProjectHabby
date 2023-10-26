@@ -127,7 +127,8 @@ public class PlayerHealthScript : MonoBehaviour
         else
         {
             inputHandler.isDead = true;
-            gameManager.TriggerEndScreen(true);
+            gameManager.isVictory = false;
+            gameManager.TriggerEndScreen();
         }
     }
 

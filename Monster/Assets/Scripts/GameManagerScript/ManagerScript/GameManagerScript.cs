@@ -22,6 +22,8 @@ public class GameManagerScript : MonoBehaviour
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI GNAText;
     private PlayerInputHandler inputHandler;
+    public bool isVictory;
+
     private void Start()
     {
         Time.timeScale = 1f;
@@ -53,14 +55,14 @@ public class GameManagerScript : MonoBehaviour
         }
     }
 
-    public void TriggerEndScreen(bool dead)
+    public void TriggerEndScreen()
     {
         inputHandler.canMove = false;
         Time.timeScale = 0f;
         levelText.text = "" + levelManger.levelData.cityLevel;
         GNAText.text = "" + GNAManager.gnaData.inGameGNA;
         endScreen.SetActive(true);
-        if (dead)
+        if (isVictory == false)
         {
             winScreen.SetActive(false);
         }
