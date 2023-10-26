@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInputHandler : MonoBehaviour
+public class PlayerInputHandler : MonoBehaviour, ISoundable
 {
     public Vector2 MovementInput { get; private set; }
     public Joystick joystick;
@@ -36,6 +36,8 @@ public class PlayerInputHandler : MonoBehaviour
     public float move;
 
     public List<UltimateBase> utlimates = new List<UltimateBase>();
+    public List<AudioClip> listofSFX = new List<AudioClip>();
+    private AudioSource source;
 
     void Start()
     {
@@ -45,6 +47,7 @@ public class PlayerInputHandler : MonoBehaviour
         boxSize = new Vector2(rangeX, rangeY);
         healthScript = GetComponent<PlayerHealthScript>();
         move = playerSO.speed;
+        source = GetComponent<AudioSource>();
     }
 
     private void Update()
@@ -263,6 +266,13 @@ public class PlayerInputHandler : MonoBehaviour
     void OnAnimationMove()
     {
         rb.velocity = new Vector2(MovementInput.x * move, MovementInput.y * move);
+    }
+
+    public void PlaySFX()
+    {
+        int index = Random.Range(0,2);
+        source.clip = listofSFX[index];
+        source.Play();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
