@@ -11,6 +11,7 @@ public class UltimateButtonScript : MonoBehaviour
     public PlayerStatScriptableObject playerData;
     public TextMeshProUGUI text;
     public GameObject ultimateMenu;
+    public GameObject ultiRdyVFX;
     public bool ultimateReady;
 
     bool isSlowed;
@@ -52,6 +53,7 @@ public class UltimateButtonScript : MonoBehaviour
             ultimateReady = true;
             button.interactable = true;
             text.gameObject.SetActive(true);
+            ultiRdyVFX.SetActive(true);
         }
 
         else
@@ -59,8 +61,10 @@ public class UltimateButtonScript : MonoBehaviour
             ultimateReady = false;
             button.interactable = false;
             text.gameObject.SetActive(false);
+            ultiRdyVFX.SetActive(false);
         }
     }
+
 
     // Update is called once per frame
     void Update()
