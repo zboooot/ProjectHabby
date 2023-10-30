@@ -23,8 +23,11 @@ public class GridMapGenerator : MonoBehaviour
     public int prefab6Count;
     public int prefab7Count;
     public int prefab8Count;
-
-    
+    public int prefab9Count;
+    public int prefab10Count;
+    public int prefab11Count;
+    public int prefab12Count;
+    public int prefab13Count;
 
     // Start is called before the first frame update
     public void Start()
@@ -76,6 +79,17 @@ public class GridMapGenerator : MonoBehaviour
                 count = prefab7Count;
             else if (i == 8)
                 count = prefab8Count;
+            else if (i == 9)
+                count = prefab9Count;
+            else if (i == 10)
+                count = prefab10Count;
+            else if (i == 11)
+                count = prefab11Count;
+            else if (i == 12)
+                count = prefab12Count;
+            else if (i == 13)
+                count = prefab13Count;
+
             // Add more conditions for additional prefabs if needed
 
             int maxCount = Mathf.Min(totalTiles, count); // Ensure we don't exceed the totalTiles
@@ -119,6 +133,16 @@ public class GridMapGenerator : MonoBehaviour
                             count = prefab7Count;
                         else if (i == 8)
                             count = prefab8Count;
+                        else if (i == 9)
+                            count = prefab9Count;
+                        else if (i == 10)
+                            count = prefab10Count;
+                        else if (i == 11)
+                            count = prefab11Count;
+                        else if (i == 12)
+                            count = prefab12Count;
+                        else if (i == 13)
+                            count = prefab13Count;
                         // Add more conditions for additional prefabs if needed
 
                         int maxCount = Mathf.Min(totalTiles, count);

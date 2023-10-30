@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MeteorScript : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class MeteorScript : MonoBehaviour
     public bool isActive;
     public GameObject player;
     public GameObject secondaryExplosion;
+    public GameObject playerStatusBars;
 
     private ShakeScript shakeScript;
     public GameObject crater;
@@ -39,6 +41,7 @@ public class MeteorScript : MonoBehaviour
         // Calculate the direction vector towards the target position
         direction = (targetPosition - (Vector2)transform.position).normalized;
         //hitcircle.SetActive(false);
+        playerStatusBars.SetActive(false);
     }
 
     public void Shake()
@@ -119,6 +122,7 @@ public class MeteorScript : MonoBehaviour
         Instantiate(crater, spawnPos, Quaternion.identity);
        
         player.GetComponent<SpriteRenderer>().enabled = true;
+        playerStatusBars.SetActive(true);
         //hitcircle.SetActive(true);
     }
 

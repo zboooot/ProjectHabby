@@ -14,7 +14,9 @@ public class PlayerHealthScript : MonoBehaviour
 
     public PlayerStatScriptableObject playerSO;
     public Slider healthSlider;
+    public Slider abilitySlider;
     public Image healthFill;
+    public Image abilityFill;
     public float lerpSpeed = 2f;
 
     private ShakeScript shakeMe;
@@ -86,6 +88,7 @@ public class PlayerHealthScript : MonoBehaviour
         }
 
         TriggerVignette();
+        UpdateAbilityBar();
     }
 
     void CheckHealthStatus(float playerhealth)
@@ -134,6 +137,12 @@ public class PlayerHealthScript : MonoBehaviour
             cutsceneManager.TriggerEnd();
 
         }
+    }
+
+    private void UpdateAbilityBar()
+    {
+        abilitySlider.value = inputHandler.currentUltimateCharge; // Update the slider's value
+        abilityFill.fillAmount = inputHandler.currentUltimateCharge; // Update the fill amount of the health bar
     }
 
     private void UpdateHealthBar()
