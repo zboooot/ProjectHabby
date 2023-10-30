@@ -53,7 +53,8 @@ public class Coin : MonoBehaviour
         {
             if (collider.CompareTag("Player"))
             {
-                transform.position = Vector3.MoveTowards(transform.position, player.position, floatSpeed * Time.deltaTime);
+                Vector2 collectPos = new Vector2(player.transform.position.x, player.transform.position.y + 1.5f);
+                transform.position = Vector3.MoveTowards(transform.position, collectPos, floatSpeed * Time.deltaTime);
             }
         }
     }

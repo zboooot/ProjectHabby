@@ -95,9 +95,9 @@ public class BigBuildingEnemy : MonoBehaviour
         TriggerLoot();
         buildingCollider.enabled = false;
         spriteRenderer.enabled = false;
-        Vector2 spawnLoc = new Vector2(transform.position.x, transform.position.y + 1.5f);
-        GameObject explosion = Instantiate(deathVFX, spawnLoc, Quaternion.identity);
-        GameObject rubble = Instantiate(destroyedBuilding, spawnLoc, Quaternion.identity);
+        Vector2 explosionLoc = new Vector2(transform.position.x, transform.position.y + 1.5f);
+        GameObject explosion = Instantiate(deathVFX, explosionLoc, Quaternion.identity);
+        GameObject rubble = Instantiate(destroyedBuilding, transform.position, Quaternion.identity);
         Destroy(gameObject, 10f);
     }
 

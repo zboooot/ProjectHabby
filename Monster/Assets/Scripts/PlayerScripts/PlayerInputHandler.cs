@@ -9,30 +9,32 @@ public class PlayerInputHandler : MonoBehaviour, ISoundable
 
     public PlayerStatScriptableObject playerSO;
     private Rigidbody2D rb;
-    public bool attackNow;
-    public bool ultimating;
+    public Transform hitPos;
+    public Collider2D selectedEnemy;
+    public Transform detectionOrigin;
+    public PlayerHealthScript healthScript;
+    public UltimateButtonScript ultimateButtonScript;
+    public GameObject player;
+    public GameObject skillRdyText;
+
     public float ultimateRadius = 20f;
     public float currentUltimateCharge;
 
     public Vector2 boxSize; // Adjust the size as needed.
+    public LayerMask enemyLayer;
     private float rangeX;
     private float rangeY;
-    public LayerMask enemyLayer;
-    public Collider2D selectedEnemy;
+
     bool facingLeft;
+    public bool attackNow;
+    public bool ultimating;
+
     public bool isAttacking;
     public bool isCollision;
-
-    //public bool startScene = true;
-    public Transform detectionOrigin;
-    public PlayerHealthScript healthScript;
-
-    public GameObject player;
-    public Transform hitPos;
     public bool isDead;
-
     public bool canMove;
     public float move;
+    private bool hasSpawned = false;
 
     public List<UltimateBase> utlimates = new List<UltimateBase>();
     public List<AudioClip> listofSFX = new List<AudioClip>();
@@ -45,12 +47,15 @@ public class PlayerInputHandler : MonoBehaviour, ISoundable
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        healthScript = GetComponent<PlayerHealthScript>();
+        ultimateButtonScript = GameObject.Find("UltimateButton").GetComponent<UltimateButtonScript>();
+        source = GetComponent<AudioSource>();
+
+        boxSize = new Vector2(rangeX, rangeY);
         rangeX = playerSO.attackRange;
         rangeY = playerSO.attackRange;
-        boxSize = new Vector2(rangeX, rangeY);
-        healthScript = GetComponent<PlayerHealthScript>();
         move = playerSO.speed;
-        source = GetComponent<AudioSource>();
+
     }
 
     private void Update()
@@ -58,7 +63,7 @@ public class PlayerInputHandler : MonoBehaviour, ISoundable
         Cheats();
         HightlightRange();
         TriggerAttack();
-
+        CheckUltiRdy();
         if (canMove)
         {
             CheckFlip();
@@ -146,6 +151,25 @@ public class PlayerInputHandler : MonoBehaviour, ISoundable
         attackNow = canAttack;
     }
 
+    public void CheckUltiRdy()
+    {
+        if (!hasSpawned)
+        {
+            if (ultimateButtonScript.ultimateReady == true)
+            {
+                Vector2 textPos = new Vector2(transform.position.x, transform.position.y + 7f);
+                GameObject ultimateRdy = Instantiate(skillRdyText, textPos, Quaternion.Euler(0f, 0f, 0f));
+                hasSpawned = true;
+            }
+        }
+
+        if(currentUltimateCharge == 0)
+        {
+            hasSpawned = false;
+        }
+
+    }
+
     void HightlightRange()
     {
         RaycastHit2D hit = Physics2D.Raycast(detectionOrigin.position, lastKnownVector, playerSO.attackRange * 2, enemyLayer);
@@ -214,31 +238,7 @@ public class PlayerInputHandler : MonoBehaviour, ISoundable
 
     //    return selectedEnemy;
     //}
-    private void Cheats()
-    {
-        if (Input.GetKeyUp(KeyCode.V))
-        {
-            CutSceneManager csManager = GameObject.FindGameObjectWithTag("VictoryScreen").GetComponent<CutSceneManager>();
-            GameManagerScript gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>();
-            gameManager.isVictory = true;
-            csManager.TriggerEnd();
-
-        }
-
-        if (Input.GetKeyUp(KeyCode.D))
-        {
-            CutSceneManager csManager = GameObject.FindGameObjectWithTag("VictoryScreen").GetComponent<CutSceneManager>();
-            GameManagerScript gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>();
-            gameManager.isVictory = false;
-            csManager.TriggerEnd();
-        }
-
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            Artillery artillery = GameObject.FindGameObjectWithTag("Artillery").GetComponent<Artillery>();
-            StartCoroutine(artillery.SpawnArtilleryWithDelay());
-        }
-    }
+    
     public void UseUltimate1()
     {
         utlimates[0].UseDamageUltimate(ultimateRadius, playerSO.ultimateDamage);
@@ -328,6 +328,32 @@ public class PlayerInputHandler : MonoBehaviour, ISoundable
         if (collision.gameObject.CompareTag("BigBuilding") || collision.gameObject.CompareTag("Tank"))
         {
             isCollision = false;
+        }
+    }
+
+    private void Cheats()
+    {
+        if (Input.GetKeyUp(KeyCode.V))
+        {
+            CutSceneManager csManager = GameObject.FindGameObjectWithTag("VictoryScreen").GetComponent<CutSceneManager>();
+            GameManagerScript gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>();
+            gameManager.isVictory = true;
+            csManager.TriggerEnd();
+
+        }
+
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            CutSceneManager csManager = GameObject.FindGameObjectWithTag("VictoryScreen").GetComponent<CutSceneManager>();
+            GameManagerScript gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>();
+            gameManager.isVictory = false;
+            csManager.TriggerEnd();
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            Artillery artillery = GameObject.FindGameObjectWithTag("Artillery").GetComponent<Artillery>();
+            StartCoroutine(artillery.SpawnArtilleryWithDelay());
         }
     }
 }
