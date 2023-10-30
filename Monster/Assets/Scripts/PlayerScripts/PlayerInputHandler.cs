@@ -28,7 +28,6 @@ public class PlayerInputHandler : MonoBehaviour, ISoundable
     public PlayerHealthScript healthScript;
 
     public GameObject player;
-    public GameObject hitVFX;
     public Transform hitPos;
     public bool isDead;
 
@@ -38,6 +37,10 @@ public class PlayerInputHandler : MonoBehaviour, ISoundable
     public List<UltimateBase> utlimates = new List<UltimateBase>();
     public List<AudioClip> listofSFX = new List<AudioClip>();
     private AudioSource source;
+
+    //New hit detection
+    public float raycastDistance = 5f; // Maximum distance for the raycast
+    public Vector3 lastKnownVector;
 
     void Start()
     {
@@ -53,6 +56,9 @@ public class PlayerInputHandler : MonoBehaviour, ISoundable
     private void Update()
     {
         Cheats();
+        HightlightRange();
+        TriggerAttack();
+
         if (canMove)
         {
             CheckFlip();
@@ -129,11 +135,37 @@ public class PlayerInputHandler : MonoBehaviour, ISoundable
         float moveY = joystick.Vertical;
 
         MovementInput = new Vector2(moveX, moveY).normalized;
+        if(MovementInput.x != 0 && MovementInput.y != 0)
+        {
+            lastKnownVector = MovementInput;
+        }
     }
 
     public void CheckAttack(bool canAttack)
     {
         attackNow = canAttack;
+    }
+
+    void HightlightRange()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(detectionOrigin.position, lastKnownVector, playerSO.attackRange * 2, enemyLayer);
+
+        // Check if the raycast hits an object
+        if (hit.collider != null)
+        {
+            Debug.Log("Hit object: " + hit.collider.gameObject.name);
+        }
+    }
+
+    void TriggerAttack()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(detectionOrigin.position, lastKnownVector, playerSO.attackRange, enemyLayer);
+
+        // Check if the raycast hits an object
+        if (hit.collider != null)
+        {
+            TriggerAttack(hit.collider);
+        }
     }
 
     public void StopAttackAnimation()
@@ -221,7 +253,6 @@ public class PlayerInputHandler : MonoBehaviour, ISoundable
     {
         if (selectedEnemy != null)
         {
-            GameObject hitEffect = Instantiate(hitVFX, hitPos.transform.position, Quaternion.identity);
             selectedEnemy.GetComponent<Targetable>().TakeDamage();
         }
 

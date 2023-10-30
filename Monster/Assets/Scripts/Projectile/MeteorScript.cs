@@ -38,7 +38,7 @@ public class MeteorScript : MonoBehaviour
 
         // Calculate the direction vector towards the target position
         direction = (targetPosition - (Vector2)transform.position).normalized;
-        hitcircle.SetActive(false);
+        //hitcircle.SetActive(false);
     }
 
     public void Shake()
@@ -119,8 +119,7 @@ public class MeteorScript : MonoBehaviour
         Instantiate(crater, spawnPos, Quaternion.identity);
        
         player.GetComponent<SpriteRenderer>().enabled = true;
-        hitcircle.SetActive(true);
-
+        //hitcircle.SetActive(true);
     }
 
 

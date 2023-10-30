@@ -31,7 +31,7 @@ public class UltimateButtonScript : MonoBehaviour
     {
         if (!isSlowed)
         {
-            Time.timeScale = Mathf.Lerp(1, 0.4f, 5);
+            Time.timeScale = Mathf.Lerp(1, 0, 5);
             inputHandler.canMove = false;
             ultimateMenu.SetActive(true);
             isSlowed = true;
@@ -40,7 +40,7 @@ public class UltimateButtonScript : MonoBehaviour
 
     public void DeactivateSlowMo()
     {
-        Time.timeScale = Mathf.Lerp(0.4f, 1, 5);
+        Time.timeScale = Mathf.Lerp(0, 1, 5);
         inputHandler.canMove = true;
         ultimateMenu.SetActive(false);
         isSlowed = false;

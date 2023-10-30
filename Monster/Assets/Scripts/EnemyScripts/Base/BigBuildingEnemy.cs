@@ -12,10 +12,14 @@ public class BigBuildingEnemy : MonoBehaviour
     private Collider2D buildingCollider;
     public PlayerInputHandler inputHandler;
     public GameObject civilianParent;
+
+    //VFX
     public GameObject smokeVFX;
     public GameObject deathVFX;
     public GameObject damageVFX;
+    public GameObject hitVFX;
     private GameObject smokeHandler;
+
     public GameObject destroyedBuilding;
     public GameObject pointIndicatorVFX;
     private LevelManager levelManager;
@@ -70,7 +74,7 @@ public class BigBuildingEnemy : MonoBehaviour
 
         if (tempHealth <= 0)
         {
-            TriggerLoot();
+            inputHandler.ChargeUltimate(10);
             Death();
         }
         else return;
@@ -87,7 +91,8 @@ public class BigBuildingEnemy : MonoBehaviour
     public void Death()
     {
         Destroy(smokeHandler);
-        
+
+        TriggerLoot();
         buildingCollider.enabled = false;
         spriteRenderer.enabled = false;
         Vector2 spawnLoc = new Vector2(transform.position.x, transform.position.y + 1.5f);
@@ -117,13 +122,13 @@ public class BigBuildingEnemy : MonoBehaviour
 
         //Add points
         levelManager.CalculateScore(1);
-        inputHandler.ChargeUltimate(10);
         GameObject pointVFX = Instantiate(pointIndicatorVFX, transform.position, Quaternion.Euler(0f,0f,0f));
     }
 
     void DamageEffect()
     {
         GameObject hit = Instantiate(damageVFX, transform.position, Quaternion.identity);
+        GameObject hitEffect = Instantiate(hitVFX, transform.position, Quaternion.identity);
         Destroy(hit, 1f);
 
         //Color currentColor = spriteRenderer.color;
