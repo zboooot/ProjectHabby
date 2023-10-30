@@ -14,15 +14,17 @@ public class BigBuildingEnemy : MonoBehaviour
     public GameObject civilianParent;
 
     //VFX
-    public GameObject smokeVFX;
+    public GameObject fireVFX;
     public GameObject deathVFX;
     public GameObject damageVFX;
+    public GameObject smokeVFX;
     public GameObject hitVFX;
-    private GameObject smokeHandler;
+    public GameObject pointIndicatorVFX;
+    private GameObject fireHandler;
 
     public GameObject destroyedBuilding;
-    public GameObject pointIndicatorVFX;
     private LevelManager levelManager;
+    private Vector3 targetScale = new Vector3(2f, 0, 0);
 
     [SerializeField] private GameObject pfCoin;
 
@@ -43,7 +45,7 @@ public class BigBuildingEnemy : MonoBehaviour
     float pushForce = 2f;
     float upForce = 5f;
 
-    bool isSmoking;
+    bool isOnFire;
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +58,7 @@ public class BigBuildingEnemy : MonoBehaviour
         originalColor = spriteRenderer.color;
         civilianParent = GameObject.Find("---Civillian---");
         levelManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LevelManager>();
-
+        
     }
 
     public void TakeDamage(float damage)
@@ -67,9 +69,9 @@ public class BigBuildingEnemy : MonoBehaviour
         SpawnCivilian();
         DamageEffect();
 
-        if (isSmoking != true)
+        if (isOnFire != true)
         {
-            SpawnSmoke();
+            SpawnFire();
         }
 
         if (tempHealth <= 0)
@@ -80,26 +82,28 @@ public class BigBuildingEnemy : MonoBehaviour
         else return;
     }
 
-    void SpawnSmoke()
+    void SpawnFire()
     {
-        GameObject smokeAnim = Instantiate(smokeVFX, transform.position, Quaternion.identity);
-        smokeHandler = smokeAnim;
-        isSmoking = true;
+        GameObject fireAnim = Instantiate(fireVFX, transform.position, Quaternion.identity);
+        fireHandler = fireAnim;
+        isOnFire = true;
     }
 
 
     public void Death()
     {
-        Destroy(smokeHandler);
-
+        Destroy(fireHandler);
         TriggerLoot();
         buildingCollider.enabled = false;
         spriteRenderer.enabled = false;
         Vector2 explosionLoc = new Vector2(transform.position.x, transform.position.y + 1.5f);
         GameObject explosion = Instantiate(deathVFX, explosionLoc, Quaternion.identity);
+        GameObject smoke = Instantiate(smokeVFX, transform.position, Quaternion.identity);
         GameObject rubble = Instantiate(destroyedBuilding, transform.position, Quaternion.identity);
+        Destroy(smoke, 1.5f);
         Destroy(gameObject, 10f);
     }
+
 
     void TriggerLoot()
     {
