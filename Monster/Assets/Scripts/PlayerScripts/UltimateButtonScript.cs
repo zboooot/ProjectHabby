@@ -10,12 +10,16 @@ public class UltimateButtonScript : MonoBehaviour
     public PlayerInputHandler inputHandler;
     public PlayerStatScriptableObject playerData;
     public TextMeshProUGUI text;
-    public GameObject ultimateMenu;
     public GameObject ultiRdyVFX;
     public bool ultimateReady;
 
     bool isSlowed;
     private Button button;
+
+    //Double Tap
+    [SerializeField] private float doubleTapThreshold;
+    private float lastTapTime;
+    private bool tapOccured;
 
     // Start is called before the first frame update
     void Start()
@@ -24,27 +28,8 @@ public class UltimateButtonScript : MonoBehaviour
         inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
         
         button = GetComponent<Button>();
-        ultimateMenu.SetActive(false);
     }
 
-    public void ActivateTime()
-    {
-        if (!isSlowed)
-        {
-            Time.timeScale = Mathf.Lerp(1, 0, 5);
-            inputHandler.canMove = false;
-            ultimateMenu.SetActive(true);
-            isSlowed = true;
-        }
-    }
-
-    public void DeactivateSlowMo()
-    {
-        Time.timeScale = Mathf.Lerp(0, 1, 5);
-        inputHandler.canMove = true;
-        ultimateMenu.SetActive(false);
-        isSlowed = false;
-    }
 
     void CheckForActivation()
     {
@@ -65,19 +50,47 @@ public class UltimateButtonScript : MonoBehaviour
         }
     }
 
+    public void ActivateUltimate()
+    {
+        inputHandler.canMove = false;
+        if (inputHandler.currentUltimateCharge == inputHandler.playerSO.maxUltimateCharge)
+        {
+            inputHandler.ultimating = true;
+        }
+    }
+
+    public void TriggerDoubleTap()
+    {
+        if (tapOccured && (Time.time - lastTapTime) < doubleTapThreshold)
+        {
+            ActivateUltimate();
+            tapOccured = false;
+        }
+        else
+        {
+            tapOccured = true;
+            lastTapTime = Time.time;
+            Invoke(nameof(ResetTap), doubleTapThreshold);
+        }
+    }
+
+    private void ResetTap()
+    {
+        tapOccured = false;
+    }
 
     // Update is called once per frame
     void Update()
     {
         if (player != null)
         {
+            CheckForActivation();
+
             // Get the player's position in world space and convert it to screen space
             Vector3 playerPositionScreenSpace = Camera.main.WorldToScreenPoint(player.position);
 
             // Set the button's position to match the player's screen position
             transform.position = playerPositionScreenSpace;
         }
-
-        CheckForActivation();
     }
 }

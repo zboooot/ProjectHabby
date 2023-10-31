@@ -13,78 +13,81 @@ public class LevelManager : MonoBehaviour
     private GameManagerScript gameManager;
     public CutSceneManager cutsceneManager;
 
+    [SerializeField] private bool isTriggered;
+
     // Start is called before the first frame update
     void Start()
     {   
         Invoke("CalculateTotalDestruction", 1f);
         gameManager = GetComponent<GameManagerScript>();
         cutsceneManager = GameObject.FindGameObjectWithTag("VictoryScreen").GetComponent<CutSceneManager>();
+        isTriggered = false;
     }
 
     public void CalculateTotalDestruction()
     {
-        GameObject[] buildings = GameObject.FindGameObjectsWithTag("BigBuilding");
-        levelData.buildingsInScene = buildings.Length;
-
         switch (levelData.cityLevel)
         {
             case 1:
-                calculateCityDestruction = 7;
+                calculateCityDestruction = 1;
                 break;
 
             case 2:
-                calculateCityDestruction = 22;
+                calculateCityDestruction = 2;
                 break;
 
             case 3:
-                calculateCityDestruction = 21;
+                calculateCityDestruction = 2;
                 break;
 
             case 4:
-                calculateCityDestruction = 20;
+                calculateCityDestruction = 3;
                 break;
 
             case 5:
-                calculateCityDestruction = 19;
+                calculateCityDestruction = 3;
                 break;
 
             case 6:
-                calculateCityDestruction = 18;
+                calculateCityDestruction = 3;
                 break;
 
             case 7:
-                calculateCityDestruction = 17;
+                calculateCityDestruction = 4;
                 break;
 
             case 8:
-                calculateCityDestruction = 16;
+                calculateCityDestruction = 4;
                 break;
 
             case 9:
-                calculateCityDestruction = 15;
+                calculateCityDestruction = 5;
                 break;
 
             case 10:
-                calculateCityDestruction = 14;
+                calculateCityDestruction = 5;
                 break;
         }
 
-        calculation1 = Mathf.RoundToInt(levelData.buildingsInScene / calculateCityDestruction);
-        Debug.Log(calculation1);
+        calculation1 = levelData.baseScore * calculateCityDestruction;
         slider.maxValue = calculation1;
     }
 
-    public void CalculateScore(int score)
+    public void CalculateScore(float score)
     {
         slider.value += score;
         levelData.currentDestruction = slider.value;
         CalculateProgress();
         if(slider.value == slider.maxValue)
         {
-            levelData.cityLevel += 1;
-            levelData.destructionLevel = 0;
-            gameManager.isVictory = true;
-            cutsceneManager.TriggerEnd();
+            if (!isTriggered)
+            {
+                levelData.cityLevel += 1;
+                levelData.destructionLevel = 0;
+                gameManager.isVictory = true;
+                cutsceneManager.TriggerEnd();
+                isTriggered = true;
+            }
         }
     }
 

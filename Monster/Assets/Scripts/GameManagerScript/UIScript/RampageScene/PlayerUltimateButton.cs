@@ -33,7 +33,6 @@ public class PlayerUltimateButton : MonoBehaviour
         if(inputHandler.currentUltimateCharge == inputHandler.playerSO.maxUltimateCharge)
         {
             inputHandler.ultimating = true;
-            ultButton.DeactivateSlowMo();
         }
         else
         {
@@ -50,6 +49,5 @@ public class PlayerUltimateButton : MonoBehaviour
     private void Update()
     {
         CheckInteractivity();
-        //UpdateFill();
     }
 }

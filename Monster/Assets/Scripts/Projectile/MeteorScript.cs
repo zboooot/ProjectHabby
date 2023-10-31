@@ -25,6 +25,7 @@ public class MeteorScript : MonoBehaviour
     float ultimateRadius = 10f;
     public PlayerStatScriptableObject playerSO;
     public GameObject hitcircle;
+    public ClockSystem clock;
 
     public void Start()
     {
@@ -114,6 +115,7 @@ public class MeteorScript : MonoBehaviour
     {
         playerData.canMove = true;
         enemySpawner.SetActive(true);
+        clock.startTime = true;
     }
 
     public void SpawnPlayer()
@@ -123,7 +125,6 @@ public class MeteorScript : MonoBehaviour
        
         player.GetComponent<SpriteRenderer>().enabled = true;
         playerStatusBars.SetActive(true);
-        //hitcircle.SetActive(true);
     }
 
 

@@ -128,7 +128,7 @@ public class BigBuildingEnemy : MonoBehaviour
         //orbManager.DropOrbsOnKill();
 
         //Add points
-        levelManager.CalculateScore(1);
+        levelManager.CalculateScore(5);
         GameObject pointVFX = Instantiate(pointIndicatorVFX, transform.position, Quaternion.Euler(0f,0f,0f));
     }
 

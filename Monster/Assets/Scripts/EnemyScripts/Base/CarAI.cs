@@ -6,6 +6,8 @@ using Pathfinding;
 
 public class CarAI : MonoBehaviour
 {
+    [SerializeField] private LevelManager levelManager;
+    bool hasTriggered;
 
     private Vector3 randomDestination;
     public float roamRadius = 20.0f;
@@ -38,6 +40,8 @@ public class CarAI : MonoBehaviour
         objectFader = GetComponent<ObjectFadeEffect>();
         //ai = GetComponent<IAstarAI>();
         intitialSprite = spriteRenderer.sprite;
+
+        levelManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LevelManager>();
     }
 
     //Vector3 PickRandomPoint()
@@ -105,6 +109,11 @@ public class CarAI : MonoBehaviour
 
     public void Death()
     {
+        if (!hasTriggered)
+        {
+            levelManager.CalculateScore(3);
+            hasTriggered = true;
+        }
         GameObject smokePuff = Instantiate(smokeVFX, transform.position, Quaternion.identity);
         GameObject sparkPuff = Instantiate(sparkVFX, transform.position, Quaternion.identity);
         spriteRenderer.sprite = destroyedSprite;

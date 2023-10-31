@@ -17,6 +17,9 @@ public class Civilian : MonoBehaviour
     private float lastPosX;
     private float runSpeed;
 
+    [SerializeField] private LevelManager levelManager;
+    bool isTriggered;
+
     //Wandering Variables
     public float changeDirectionInterval = 1.0f; // Time interval to change direction
     public float maxWanderDistance = 8.0f; // Maximum distance to wander from the starting point
@@ -39,6 +42,9 @@ public class Civilian : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerScore = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScoreScript>();
         inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
+
+        //Game Manager
+        levelManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LevelManager>();
     }
 
 
@@ -191,6 +197,11 @@ public class Civilian : MonoBehaviour
 
     public void Death()
     {
+        if (!isTriggered)
+        {
+            levelManager.CalculateScore(0.1f);
+            isTriggered = true;
+        }
         entityCollider.enabled = false;
         Destroy(transform.parent.gameObject, 2f);
     }
