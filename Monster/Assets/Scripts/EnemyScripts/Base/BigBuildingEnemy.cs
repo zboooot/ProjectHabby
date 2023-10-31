@@ -47,6 +47,9 @@ public class BigBuildingEnemy : MonoBehaviour
 
     bool isOnFire;
 
+    public Vector2 groundDispenseVelocity;
+    public Vector2 verticalDispenseVelocity;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -154,10 +157,11 @@ public class BigBuildingEnemy : MonoBehaviour
             Vector3 randomDirection = Random.insideUnitCircle.normalized;
             Vector3 spawnPos = transform.position + randomDirection * Random.Range(0.0f, spawnRadius);
             GameObject civilian = Instantiate(pfDelvin, spawnPos, Quaternion.identity);
-            civilian.GetComponent<Rigidbody2D>().AddForce(Vector2.up * upForce, ForceMode2D.Impulse);
-            civilian.GetComponent<Rigidbody2D>().AddForce(randomDirection * pushForce, ForceMode2D.Impulse);
+            civilian.GetComponent<FakeHeightScript>().Initialize(Random.insideUnitCircle * Random.Range(groundDispenseVelocity.x, groundDispenseVelocity.y), Random.Range(verticalDispenseVelocity.x, verticalDispenseVelocity.y));
+            //civilian.GetComponent<Rigidbody2D>().AddForce(Vector2.up * upForce, ForceMode2D.Impulse);
+            // civilian.GetComponent<Rigidbody2D>().AddForce(randomDirection * pushForce, ForceMode2D.Impulse);
             //Sets the civilian state upon initialization
-            civilian.GetComponent<Civilian>().enemyState = Civilian.EnemyState.fall;
+            civilian.GetComponentInChildren<Civilian>().enemyState = Civilian.EnemyState.fall;
             civilian.transform.SetParent(civilianParent.transform);
 
         }

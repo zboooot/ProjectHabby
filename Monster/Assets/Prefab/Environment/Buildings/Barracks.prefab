@@ -111,6 +111,8 @@ MonoBehaviour:
   maxEntities: 4
   spawnRadius: 3
   shakeScript: {fileID: 8863370269845361440}
+  groundDispenseVelocity: {x: 12, y: 12}
+  verticalDispenseVelocity: {x: 15, y: 15}
 --- !u!114 &1747484668381174134
 MonoBehaviour:
   m_ObjectHideFlags: 0

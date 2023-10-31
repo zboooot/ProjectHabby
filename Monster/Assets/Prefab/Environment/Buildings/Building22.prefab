@@ -69,6 +69,8 @@ MonoBehaviour:
   maxEntities: 4
   spawnRadius: 3
   shakeScript: {fileID: 2498186886167711695}
+  groundDispenseVelocity: {x: 12, y: 12}
+  verticalDispenseVelocity: {x: 15, y: 15}
 --- !u!61 &-4071201830835900191
 BoxCollider2D:
   m_ObjectHideFlags: 0

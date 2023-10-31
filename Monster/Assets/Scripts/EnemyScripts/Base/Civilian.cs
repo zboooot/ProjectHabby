@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Civilian : MonoBehaviour
 {
-    public enum EnemyState { fall, run, death, walk,}
+    public enum EnemyState { fall, run, death, walk, }
 
     public EnemyState enemyState;
     SpriteRenderer spriteRenderer;
@@ -28,6 +28,7 @@ public class Civilian : MonoBehaviour
     private PlayerInputHandler inputHandler;
     private Transform blockingEntity;
     public bool isBlocked;
+    public FakeHeightScript fakeheight;
 
     private void Awake()
     {
@@ -39,6 +40,7 @@ public class Civilian : MonoBehaviour
         playerScore = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScoreScript>();
         inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
     }
+
 
     // Start is called before the first frame update
     void Start()
@@ -67,6 +69,7 @@ public class Civilian : MonoBehaviour
                 playerScore.EntityDestroyed();
             }
             enemyState = EnemyState.death;
+
         }
     }
 
@@ -79,17 +82,6 @@ public class Civilian : MonoBehaviour
         }
     }
 
-    void MimicFall()
-    {
-        if(enemyState == EnemyState.fall)
-        {
-            rb.AddForce(Vector3.down * Time.deltaTime * 120);
-        }
-        else
-        {
-            rb.velocity = Vector3.zero;
-        }
-    }
 
     void Run(Vector2 dir)
     {
@@ -120,7 +112,7 @@ public class Civilian : MonoBehaviour
             }
         }
 
-        else if(distanceToPlayer > newDistance)
+        else if (distanceToPlayer > newDistance)
         {
             ChangeWalkState();
         }
@@ -145,7 +137,7 @@ public class Civilian : MonoBehaviour
             // Check if it's time to change direction
             if (timeSinceLastDirectionChange >= changeDirectionInterval)
             {
-                if(isBlocked != true) 
+                if (isBlocked != true)
                 {
                     // Generate a random direction vector
                     Vector2 randomDirection = Random.insideUnitCircle.normalized;
@@ -178,6 +170,7 @@ public class Civilian : MonoBehaviour
     {
         anim.SetBool("run", true);
         enemyState = EnemyState.run;
+        fakeheight.isGrounded = true;
     }
 
     void ChangeWalkState()
@@ -188,13 +181,18 @@ public class Civilian : MonoBehaviour
 
     void FallToRun()
     {
-        Invoke("ChangeRunState", 1.5f);
+        if(fakeheight.isGrounded == true)
+        {
+            Debug.Log("Grounded");
+            ChangeRunState();
+        }
+        
     }
 
     public void Death()
     {
         entityCollider.enabled = false;
-        Destroy(gameObject, 2f);
+        Destroy(transform.parent.gameObject, 2f);
     }
 
     void FlipSprite()
@@ -220,7 +218,6 @@ public class Civilian : MonoBehaviour
     void Update()
     {
         FlipSprite();
-        MimicFall();
 
         switch (enemyState)
         {
@@ -231,6 +228,7 @@ public class Civilian : MonoBehaviour
 
             case EnemyState.fall:
                 anim.SetBool("fall", true);
+                //fakeheight.isGrounded = false;
                 FallToRun();
                 break;
 
