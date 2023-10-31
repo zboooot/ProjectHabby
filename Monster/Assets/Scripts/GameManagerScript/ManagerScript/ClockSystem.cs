@@ -7,6 +7,7 @@ public class ClockSystem : MonoBehaviour
 {
     public LevelManagerScriptableObject levelData;
     public TextMeshProUGUI timerText;
+    private GameManagerScript gameManager;
 
     private float timerValue;
     private float addOnTime;
@@ -19,6 +20,8 @@ public class ClockSystem : MonoBehaviour
         timerText = GetComponent<TextMeshProUGUI>();
         DisplayTime(timerValue);
         startTime = false;
+
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>();
     }
 
     // Update is called once per frame
@@ -33,6 +36,8 @@ public class ClockSystem : MonoBehaviour
             else
             {
                 timerValue = 0;
+                gameManager.isVictory = false;
+                gameManager.TriggerEndScreen();
             }
 
             DisplayTime(timerValue);
