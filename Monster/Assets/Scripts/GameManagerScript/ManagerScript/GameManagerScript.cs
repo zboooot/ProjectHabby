@@ -10,7 +10,6 @@ public class GameManagerScript : MonoBehaviour
     public GameObject deployScreen;
     public Animator barAnim;
     public bool gameStarted = false;
-    public GameObject enemySpawner;
     public List<GameObject> obstacleList = new List<GameObject>();
     public MeteorScript meteor;
 
@@ -36,7 +35,6 @@ public class GameManagerScript : MonoBehaviour
         ScanAndInsert();
         DisableObstacles();
         meteor = GameObject.Find("Meteor").GetComponent<MeteorScript>();
-        enemySpawner.SetActive(false);
 
 
         endScreen.SetActive(false);

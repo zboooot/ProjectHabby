@@ -20,7 +20,6 @@ public class MeteorScript : MonoBehaviour
     public GameObject crater;
 
     public PlayerInputHandler playerData;
-    public GameObject enemySpawner;
 
     float ultimateRadius = 10f;
     public PlayerStatScriptableObject playerSO;
@@ -114,7 +113,6 @@ public class MeteorScript : MonoBehaviour
     public void ActivatePlayer()
     {
         playerData.canMove = true;
-        enemySpawner.SetActive(true);
         clock.startTime = true;
     }
 

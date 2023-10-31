@@ -132,12 +132,14 @@ public class Civilian : MonoBehaviour
         if (distanceToPlayer < detectionDistance)
         {
             anim.SetBool("run", true);
+            anim.SetBool("walk", false);
             enemyState = EnemyState.run;
         }
 
         else
         {
             anim.SetBool("walk", true);
+            anim.SetBool("run", false);
             timeSinceLastDirectionChange += Time.deltaTime;
 
             // Check if it's time to change direction
@@ -175,6 +177,7 @@ public class Civilian : MonoBehaviour
     void ChangeRunState()
     {
         anim.SetBool("run", true);
+        anim.SetBool("walk", false);
         enemyState = EnemyState.run;
         fakeheight.isGrounded = true;
     }
@@ -182,6 +185,7 @@ public class Civilian : MonoBehaviour
     void ChangeWalkState()
     {
         anim.SetBool("walk", true);
+        anim.SetBool("run", false);
         enemyState = EnemyState.walk;
     }
 
