@@ -410,17 +410,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &461789796 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8170153791668043265, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
-  m_PrefabInstance: {fileID: 1172305512}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a47f546fc70ec8428172694e78e4288, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &461789799 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8170153791668043268, guid: 0d230cc8be529a542a08cb878ab14b18, type: 3}
@@ -533,9 +522,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2002666854}
   - component: {fileID: 2002666862}
-  - component: {fileID: 2002666860}
-  - component: {fileID: 2002666859}
-  - component: {fileID: 2002666863}
   - component: {fileID: 2002666858}
   - component: {fileID: 2002666857}
   - component: {fileID: 2002666861}
@@ -643,40 +629,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2002666859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2002666852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 81fb8904ba82e9d4b9123e5fcb1fbf58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerData: {fileID: 11400000, guid: 59dab0eb911ed154a9696246ede0b205, type: 2}
-  stateHandler: {fileID: 2002666860}
-  joystick: {fileID: 461789796}
-  rb: {fileID: 2002666862}
-  moveDir: 0
-  moveDirToPass: 0
---- !u!114 &2002666860
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2002666852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3943fdb58fbdd154fa97a92ce80681be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  state: 0
-  facingLeft: 0
-  currentSpeed: 0
-  animHandler: {fileID: 2002666863}
 --- !u!33 &2002666861
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -706,30 +658,3 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &2002666863
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2002666852}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d1225d599a1a244d894d707b00dff5a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skeletonAnimation: {fileID: 2002666857}
-  inputHandler: {fileID: 2002666859}
-  attack1: {fileID: 11400000, guid: 3f2b4d27d8c29874fa8e32242d4789b6, type: 2}
-  attack2: {fileID: 11400000, guid: ef1535e39a56f2642a2e70c1cf2b70ba, type: 2}
-  attack3: {fileID: 11400000, guid: 4077fb0e96c02e94399015d5bb4ada56, type: 2}
-  death: {fileID: 11400000, guid: fe97f3313c725ec46adeadebd95ce3fa, type: 2}
-  idle1: {fileID: 11400000, guid: 668cc9c2d1d381f44ab4d31d51efbdf3, type: 2}
-  idle2: {fileID: 11400000, guid: 3fb6e64a1b6459f488cb0ec1bf5d933e, type: 2}
-  rage: {fileID: 11400000, guid: b93052831bf0763418375dc915c73297, type: 2}
-  smash: {fileID: 11400000, guid: e78db72f773de364a813113bc81b2621, type: 2}
-  victory: {fileID: 11400000, guid: d456cb7e6ae645e4fb5fb58b1c53a356, type: 2}
-  walkDown: {fileID: 11400000, guid: 5d63257c609bcbc48b846484faaec902, type: 2}
-  walkLeft: {fileID: 11400000, guid: ba201e006cbff4a449c79334eeef3115, type: 2}
-  walkRight: {fileID: 11400000, guid: 649e9044d13227c4c801a519a6ba1846, type: 2}
-  walkUp: {fileID: 11400000, guid: 68dbcd17a520869468ee9bb13a9d0758, type: 2}
