@@ -95,7 +95,6 @@ public class GameManagerScript : MonoBehaviour
         gameStarted = true;
         OpenBar();
 
-
     }
 
     void ScanAndInsert()

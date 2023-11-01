@@ -14,6 +14,8 @@ public class PlayerInputHandler : MonoBehaviour, ISoundable
     public Transform detectionOrigin;
     public PlayerHealthScript healthScript;
     public UltimateButtonScript ultimateButtonScript;
+    private PlayerVFXManager playerVFXManager;
+    public GameObject[] feet; // Assign the feet GameObjects in the Inspector.
     public GameObject player;
     public GameObject skillRdyText;
 
@@ -50,7 +52,8 @@ public class PlayerInputHandler : MonoBehaviour, ISoundable
         healthScript = GetComponent<PlayerHealthScript>();
         ultimateButtonScript = GameObject.Find("UltimateButton").GetComponent<UltimateButtonScript>();
         source = GetComponent<AudioSource>();
-
+       
+   
         boxSize = new Vector2(rangeX, rangeY);
         rangeX = playerSO.attackRange;
         rangeY = playerSO.attackRange;
@@ -104,7 +107,10 @@ public class PlayerInputHandler : MonoBehaviour, ISoundable
 
     //    else { selectedEnemy = null; CheckAttack(false); }
     //}
-
+    public void TriggerImpactVFX(int footIndex)
+    {
+        playerVFXManager.SpawnImpactAtFoot(footIndex);
+    }
     public void TriggerAttack(Collider2D enemy)
     {
         selectedEnemy = enemy;
@@ -145,6 +151,8 @@ public class PlayerInputHandler : MonoBehaviour, ISoundable
             lastKnownVector = MovementInput;
         }
     }
+
+    
 
     public void CheckAttack(bool canAttack)
     {
@@ -314,6 +322,8 @@ public class PlayerInputHandler : MonoBehaviour, ISoundable
         source.clip = listofSFX[index];
         source.Play();
     }
+
+    
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
