@@ -2223,7 +2223,7 @@ MonoBehaviour:
   enemySpawnInfoList:
   - enemyPrefab: {fileID: 2411092050883332399, guid: e44870b68705c5a4c8352f73f8249dc1, type: 3}
     spawnProbability: 0.52
-  numberOfEnemiesToSpawn: 300
+  numberOfEnemiesToSpawn: 100
   minSpawnPosition: {x: -50, y: -50}
   maxSpawnPosition: {x: 50, y: 50}
 --- !u!1 &534324557
