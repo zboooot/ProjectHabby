@@ -9,6 +9,7 @@ public class ObjectFadeEffect : MonoBehaviour
     private Renderer objectRenderer;
     private Color targetColor;
     private Color initialColor;
+ 
 
     private void Start()
     {
