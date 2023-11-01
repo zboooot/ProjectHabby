@@ -12,11 +12,11 @@ public class Targetable : MonoBehaviour
     private BigBuildingEnemy bigBEnemy;
 
 
-    public PlayerInputHandler player;
+    public PlayerHandler player;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHandler>();
         CallScript(enemyType);
     }
 
@@ -42,11 +42,11 @@ public class Targetable : MonoBehaviour
                 break;
 
             case EnemyType.Tank:
-                tankEnemy.TakeDamage(player.playerSO.attackDamage);
+                tankEnemy.TakeDamage(player.playerData.attackDamage);
                 break;
 
             case EnemyType.BigBuilding:
-                bigBEnemy.TakeDamage(player.playerSO.attackDamage);
+                bigBEnemy.TakeDamage(player.playerData.attackDamage);
                 break;
         }
     }

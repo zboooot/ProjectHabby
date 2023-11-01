@@ -7,7 +7,7 @@ using TMPro;
 public class UltimateButtonScript : MonoBehaviour
 {
     public Transform player;
-    public PlayerInputHandler inputHandler;
+    public PlayerHandler playerHandler;
     public PlayerStatScriptableObject playerData;
     public TextMeshProUGUI text;
     public GameObject ultiRdyVFX;
@@ -25,7 +25,7 @@ public class UltimateButtonScript : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
+        playerHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHandler>();
         
         button = GetComponent<Button>();
     }
@@ -33,7 +33,7 @@ public class UltimateButtonScript : MonoBehaviour
 
     void CheckForActivation()
     {
-        if(inputHandler.currentUltimateCharge == playerData.maxUltimateCharge)
+        if(playerHandler.currentUltimateCharge == playerData.maxUltimateCharge)
         {
             ultimateReady = true;
             button.interactable = true;
@@ -52,10 +52,10 @@ public class UltimateButtonScript : MonoBehaviour
 
     public void ActivateUltimate()
     {
-        inputHandler.canMove = false;
-        if (inputHandler.currentUltimateCharge == inputHandler.playerSO.maxUltimateCharge)
+        playerHandler.canMove = false;
+        if (playerHandler.currentUltimateCharge == playerHandler.playerData.maxUltimateCharge)
         {
-            inputHandler.ultimating = true;
+            playerHandler.DisableMovement(0);
         }
     }
 

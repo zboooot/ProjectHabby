@@ -12,6 +12,7 @@ public class LevelManager : MonoBehaviour
     public Slider slider;
     private GameManagerScript gameManager;
     public CutSceneManager cutsceneManager;
+    public PlayerHandler playerHandler;
 
     [SerializeField] private bool isTriggered;
 
@@ -21,6 +22,7 @@ public class LevelManager : MonoBehaviour
         Invoke("CalculateTotalDestruction", 1f);
         gameManager = GetComponent<GameManagerScript>();
         cutsceneManager = GameObject.FindGameObjectWithTag("VictoryScreen").GetComponent<CutSceneManager>();
+        playerHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHandler>();
         isTriggered = false;
     }
 
@@ -82,6 +84,7 @@ public class LevelManager : MonoBehaviour
         {
             if (!isTriggered)
             {
+                playerHandler.DisableMovement(2);
                 levelData.cityLevel += 1;
                 levelData.destructionLevel = 0;
                 gameManager.isVictory = true;

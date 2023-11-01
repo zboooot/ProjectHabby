@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildingsInScene: 192
   baseScore: 100
-  destructionLevel: 0
+  destructionLevel: 2
   cityLevel: 1
-  currentDestruction: 0
+  currentDestruction: 100
   cutscenePlayed: 1
   baseTime: 100

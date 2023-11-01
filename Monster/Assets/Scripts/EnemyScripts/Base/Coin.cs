@@ -18,7 +18,7 @@ public class Coin : MonoBehaviour
     private float floatSpeed = 7f;  // Speed at which the coin floats towards the player
 
     private GNAManager gnaManager;
-    private Transform player;
+    public Transform collector;
 
     private void Awake()
     {
@@ -29,7 +29,7 @@ public class Coin : MonoBehaviour
         off = new Vector3(off.x, Random.Range(-3, 3), off.z);
 
         gnaManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GNAManager>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
+        collector = GameObject.Find("Collector").GetComponent<Transform>();
     }
 
 
@@ -51,20 +51,22 @@ public class Coin : MonoBehaviour
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, detectionRadius);
         foreach (Collider2D collider in hitColliders)
         {
-            if (collider.CompareTag("Player"))
+            if (collider.name.Equals("Collector"))
             {
-                Vector2 collectPos = new Vector2(player.transform.position.x, player.transform.position.y + 1.5f);
+                Vector2 collectPos = new Vector2(collector.transform.position.x, collector.transform.position.y);
                 transform.position = Vector3.MoveTowards(transform.position, collectPos, floatSpeed * Time.deltaTime);
             }
         }
     }
 
-        private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if (collision.name.Equals("Collector"))
         {
             gnaManager.GainGNA(1);
             Destroy(gameObject);
         }
+
     }
+    
 }

@@ -24,7 +24,7 @@ public class PlayerHealthScript : MonoBehaviour
     public HealthState healthState;
 
     private GameManagerScript gameManager;
-    private PlayerInputHandler inputHandler;
+    private PlayerHandler playerHandler;
 
     //Flash Effect
     private PlayerFlash flashEffect;
@@ -33,10 +33,9 @@ public class PlayerHealthScript : MonoBehaviour
 
     //Berserk mode Feedback
     private CanvasGroup berserkVignette;
-    private bool fadeIn;
-    private bool fadeOut;
-    public GameObject rageIndicator;
     public CutSceneManager cutsceneManager;
+
+    [SerializeField] private bool isTriggered;
     
     private void Start()
     {
@@ -52,7 +51,7 @@ public class PlayerHealthScript : MonoBehaviour
 
         berserkVignette = GameObject.Find("Vignette").GetComponent<CanvasGroup>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>();
-        inputHandler = GetComponent<PlayerInputHandler>();
+        playerHandler = GetComponent<PlayerHandler>();
 
         cutsceneManager = GameObject.FindGameObjectWithTag("VictoryScreen").GetComponent<CutSceneManager>();
     }
@@ -63,16 +62,21 @@ public class PlayerHealthScript : MonoBehaviour
         {
             if (berserkVignette.alpha >= 0)
             {
-                rageIndicator.SetActive(false);
+                
                 berserkVignette.alpha -= Time.deltaTime;
             }
         }
 
         else
         {
+            if (!isTriggered)
+            {
+                playerHandler.DisableMovement(1);
+                isTriggered = true;
+            }
+
             if (berserkVignette.alpha < 1)
             {
-                rageIndicator.SetActive(true);
                 berserkVignette.alpha += Time.deltaTime;
             }
         }
@@ -132,7 +136,7 @@ public class PlayerHealthScript : MonoBehaviour
 
         else
         {
-            inputHandler.isDead = true;
+            playerHandler.DisableMovement(3);
             gameManager.isVictory = false;
             cutsceneManager.TriggerEnd();
 
@@ -141,8 +145,8 @@ public class PlayerHealthScript : MonoBehaviour
 
     private void UpdateAbilityBar()
     {
-        abilitySlider.value = inputHandler.currentUltimateCharge; // Update the slider's value
-        abilityFill.fillAmount = inputHandler.currentUltimateCharge; // Update the fill amount of the health bar
+        abilitySlider.value = playerHandler.currentUltimateCharge; // Update the slider's value
+        abilityFill.fillAmount = playerHandler.currentUltimateCharge; // Update the fill amount of the health bar
     }
 
     private void UpdateHealthBar()

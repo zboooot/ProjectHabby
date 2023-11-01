@@ -10,7 +10,7 @@ public class BigBuildingEnemy : MonoBehaviour
     public Sprite damagedSprite;
     public Targetable buildingType;
     private Collider2D buildingCollider;
-    public PlayerInputHandler inputHandler;
+    public PlayerHandler inputHandler;
     public GameObject civilianParent;
 
     //VFX
@@ -33,17 +33,8 @@ public class BigBuildingEnemy : MonoBehaviour
     public int maxEntities = 4; // Maximum number of entities to spawn
     public float spawnRadius = 3.0f; // Maximum distance from the current position
 
-    private float hitDarkeningAmount = 0.6f; // Amount to darken the sprite on each hit
-    private float minDarkness = 0.2f; // Minimum darkness level
-
-    private Color originalColor;
-
     private PlayerScoreScript playerScore;
     public ShakeScript shakeScript;
-    //private OrbManager orbManager;
-
-    float pushForce = 2f;
-    float upForce = 5f;
 
     bool isOnFire;
 
@@ -56,9 +47,7 @@ public class BigBuildingEnemy : MonoBehaviour
         tempHealth = SO_enemy.health;
         buildingCollider = GetComponent<BoxCollider2D>();
         playerScore = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PlayerScoreScript>();
-        inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
-        //orbManager = GetComponent<OrbManager>();
-        originalColor = spriteRenderer.color;
+        inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHandler>();
         civilianParent = GameObject.Find("---Civillian---");
         levelManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LevelManager>();
         
@@ -67,7 +56,6 @@ public class BigBuildingEnemy : MonoBehaviour
     public void TakeDamage(float damage)
     {
         tempHealth -= damage;
-        //spriteRenderer.sprite = damagedSprite;
         shakeScript.StartShake();
         SpawnCivilian();
         DamageEffect();
@@ -92,7 +80,6 @@ public class BigBuildingEnemy : MonoBehaviour
         isOnFire = true;
     }
 
-
     public void Death()
     {
         Destroy(fireHandler);
@@ -106,7 +93,6 @@ public class BigBuildingEnemy : MonoBehaviour
         Destroy(smoke, 1.5f);
         Destroy(gameObject, 10f);
     }
-
 
     void TriggerLoot()
     {
@@ -123,10 +109,6 @@ public class BigBuildingEnemy : MonoBehaviour
             GameObject coin = Instantiate(pfCoin, transform.position, Quaternion.identity);
             coin.transform.Rotate(0, 0, 90);
         }
-
-        //Spawn Orbs
-        //orbManager.DropOrbsOnKill();
-
         //Add points
         levelManager.CalculateScore(5);
         GameObject pointVFX = Instantiate(pointIndicatorVFX, transform.position, Quaternion.Euler(0f,0f,0f));
@@ -137,16 +119,6 @@ public class BigBuildingEnemy : MonoBehaviour
         GameObject hit = Instantiate(damageVFX, transform.position, Quaternion.identity);
         GameObject hitEffect = Instantiate(hitVFX, transform.position, Quaternion.identity);
         Destroy(hit, 1f);
-
-        //Color currentColor = spriteRenderer.color;
-
-        //// Reduce the brightness of the sprite by the specified amount
-        //currentColor.r = Mathf.Max(minDarkness, currentColor.r - hitDarkeningAmount);
-        //currentColor.g = Mathf.Max(minDarkness, currentColor.g - hitDarkeningAmount);
-        //currentColor.b = Mathf.Max(minDarkness, currentColor.b - hitDarkeningAmount);
-
-        //// Apply the new color to the sprite
-        //spriteRenderer.color = currentColor;
     }
 
     private void SpawnCivilian()
@@ -158,8 +130,7 @@ public class BigBuildingEnemy : MonoBehaviour
             Vector3 spawnPos = transform.position + randomDirection * Random.Range(0.0f, spawnRadius);
             GameObject civilian = Instantiate(pfDelvin, spawnPos, Quaternion.identity);
             civilian.GetComponent<FakeHeightScript>().Initialize(Random.insideUnitCircle * Random.Range(groundDispenseVelocity.x, groundDispenseVelocity.y), Random.Range(verticalDispenseVelocity.x, verticalDispenseVelocity.y));
-            //civilian.GetComponent<Rigidbody2D>().AddForce(Vector2.up * upForce, ForceMode2D.Impulse);
-            // civilian.GetComponent<Rigidbody2D>().AddForce(randomDirection * pushForce, ForceMode2D.Impulse);
+  
             //Sets the civilian state upon initialization
             civilian.GetComponentInChildren<Civilian>().enemyState = Civilian.EnemyState.fall;
             civilian.transform.SetParent(civilianParent.transform);

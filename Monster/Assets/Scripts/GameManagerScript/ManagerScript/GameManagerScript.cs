@@ -20,16 +20,15 @@ public class GameManagerScript : MonoBehaviour
     public GameObject loseScreen;
     public TextMeshProUGUI levelText;
     public TextMeshProUGUI GNAText;
-    private PlayerInputHandler inputHandler;
+    private PlayerHandler inputHandler;
     public bool isVictory;
 
     private void Start()
     {
         Time.timeScale = 1f;
         deployScreen.SetActive(true);
-        player = GameObject.Find("Player");
 
-        player.GetComponent<SpriteRenderer>().enabled = false;
+        player.GetComponent<MeshRenderer>().enabled = false;
         barAnim.SetBool("RevealGame", false);
         AstarPath.active.Scan(); //scan the grid
         ScanAndInsert();
@@ -40,7 +39,7 @@ public class GameManagerScript : MonoBehaviour
         endScreen.SetActive(false);
         levelManger = GetComponent<LevelManager>();
         GNAManager = GetComponent<GNAManager>();
-        inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
+        inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHandler>();
     }
 
 

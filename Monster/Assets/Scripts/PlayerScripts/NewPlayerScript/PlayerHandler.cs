@@ -31,7 +31,15 @@ public class PlayerHandler : MonoBehaviour
     private Vector2 lastKnownVector;
     public LayerMask enemyLayer;
     [SerializeField] private Collider2D selectedEnemy;
-    [SerializeField] private bool canMove;
+    public bool canMove;
+    [SerializeField] private bool isAttacking;
+
+
+    public List<UltimateBase> utlimates = new List<UltimateBase>();
+    public float currentUltimateCharge;
+    public float ultimateRadius = 20f;
+    [SerializeField] private bool isUltimate;
+    [SerializeField] private bool isRaging;
 
     // Start is called before the first frame update
     void Start()
@@ -97,7 +105,11 @@ public class PlayerHandler : MonoBehaviour
                 prevState = currentState;
             }
             SetCharacterState(PlayerStates.attack);
-            //Invoke("TriggerDamage", 2f);
+            if (!isAttacking)
+            {
+                Invoke("TriggerDamage", 1f);
+                isAttacking = true;
+            }
         }
     }
 
@@ -111,15 +123,28 @@ public class PlayerHandler : MonoBehaviour
 
         else { return; }
     }
-
-    public void SpeedUp()
+    public void ChargeUltimate(int amount)
     {
-        //Increase animation speed for dramatic effect
+        if (currentUltimateCharge != playerData.maxUltimateCharge)
+        {
+            currentUltimateCharge += amount;
+        }
+
+        if (currentUltimateCharge >= playerData.maxUltimateCharge)
+        {
+            currentUltimateCharge = playerData.maxUltimateCharge;
+        }
+    }
+
+    public void UseUltimate1()
+    {
+        utlimates[0].UseDamageUltimate(ultimateRadius, playerData.ultimateDamage);
     }
 
     //Trigger ultimate, rage, victory and defeat state here
     public void DisableMovement(int state)
     {
+        canMove = false;
         switch (state)
         {
             case 0:
@@ -129,7 +154,12 @@ public class PlayerHandler : MonoBehaviour
                 {
                     prevState = currentState;
                 }
-                Invoke("EnableMovment", 3.2f);
+                SetCharacterState(PlayerStates.ultimate);
+                if (!isUltimate)
+                {
+                    Invoke("UseUltimate1", 2.4f);
+                    isUltimate = true;
+                }
                 break;
             case 1:
                 SetCharacterState(PlayerStates.rage);
@@ -137,7 +167,11 @@ public class PlayerHandler : MonoBehaviour
                 {
                     prevState = currentState;
                 }
-                Invoke("EnableMovment", 2.4f);
+                SetCharacterState(PlayerStates.rage);
+                if (!isRaging)
+                {
+                    isRaging = true;
+                }
                 break;
             case 2:
                 SetCharacterState(PlayerStates.victory);
@@ -146,7 +180,6 @@ public class PlayerHandler : MonoBehaviour
                 SetCharacterState(PlayerStates.defeat);
                 break;
         }
-        canMove = false;
     }
 
     public void EnableMovement()
@@ -169,6 +202,25 @@ public class PlayerHandler : MonoBehaviour
     //Triggers after the animation has played
     private void AnimationEntry_Complete(Spine.TrackEntry trackEntry)
     {
+        if (isAttacking || isUltimate || isRaging)
+        {
+            isAttacking = false;
+            isUltimate = false;
+            isRaging = false;
+
+            if (!canMove)
+            {
+                canMove = true;
+            }
+
+            else { return;  }
+        }
+
+        else
+        {
+            return;
+        }
+
         SetCharacterState(prevState);
     }
 
@@ -199,22 +251,22 @@ public class PlayerHandler : MonoBehaviour
 
         if (state.Equals(PlayerStates.ultimate))
         {
-            SetAnimation(0, ultimating, true, 1f);
+            SetAnimation(0, ultimating, false, 1f);
         }
 
         if (state.Equals(PlayerStates.victory))
         {
-            SetAnimation(0, victorying, true, 1f);
+            SetAnimation(0, victorying, false, 1f);
         }
 
         if (state.Equals(PlayerStates.defeat))
         {
-            SetAnimation(0, defeating, true, 1f);
+            SetAnimation(0, defeating, false, 1f);
         }
 
         if (state.Equals(PlayerStates.rage))
         {
-            SetAnimation(0, raging, true, 1f);
+            SetAnimation(0, raging, false, 1f);
         }
 
         currentState = state;

@@ -7,14 +7,14 @@ public class CutSceneManager : MonoBehaviour
 {
     public GameManagerScript gameManager;
     public Animator anim;
-    private PlayerInputHandler inputHandler;
+    private PlayerHandler inputHandler;
     public Image commanderImage;
     public List<Sprite> commanderDialogues = new List<Sprite>();
 
     private void Start()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>();
-        inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
+        inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHandler>();
         anim = GetComponent<Animator>();
     }
 
