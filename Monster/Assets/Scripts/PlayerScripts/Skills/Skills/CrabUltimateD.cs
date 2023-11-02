@@ -14,8 +14,6 @@ public class CrabUltimateD : UltimateBase
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-
-
     public override void UseDamageUltimate(float ultimateRadius, float ultimateDamage)
     {
         base.UseDamageUltimate(ultimateRadius, ultimateDamage);

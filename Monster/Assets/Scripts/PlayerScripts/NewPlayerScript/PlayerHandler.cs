@@ -36,11 +36,14 @@ public class PlayerHandler : MonoBehaviour
     [SerializeField] private bool isAttacking;
 
     public GameObject[] legLocations;
+    public GameObject Groundcrack;
+    public GameObject skillRdyText;
     public List<UltimateBase> utlimates = new List<UltimateBase>();
     public float currentUltimateCharge;
     public float ultimateRadius = 20f;
     [SerializeField] private bool isUltimate;
     [SerializeField] private bool isRaging;
+    [SerializeField] private bool hasSpawned;
     public bool isEnd;
 
     public float impactTimer;
@@ -60,6 +63,7 @@ public class PlayerHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        CheckUltiRdy();
         if (canMove)
         {
             if (!isEnd)
@@ -124,7 +128,24 @@ public class PlayerHandler : MonoBehaviour
 
         }
     }
+    public void CheckUltiRdy()
+    {
+        if (!hasSpawned)
+        {
+            if (currentUltimateCharge == playerData.maxUltimateCharge)
+            {
+                Vector2 textPos = new Vector2(transform.position.x, transform.position.y + 7f);
+                GameObject ultimateRdy = Instantiate(skillRdyText, textPos, Quaternion.Euler(0f, 0f, 0f));
+                hasSpawned = true;
+            }
+        }
 
+        if (currentUltimateCharge == 0)
+        {
+            hasSpawned = false;
+        }
+
+    }
     private void PlayerAttack()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, lastKnownVector, playerData.attackRange, enemyLayer);
@@ -204,6 +225,8 @@ public class PlayerHandler : MonoBehaviour
     public void UseUltimate1()
     {
         utlimates[0].UseDamageUltimate(ultimateRadius, playerData.ultimateDamage);
+        Vector2 crackPos = new Vector2(transform.position.x, transform.position.y - 1f);
+        Instantiate(Groundcrack, transform.position, Quaternion.identity);
     }
 
     //Trigger ultimate, rage, victory and defeat state here

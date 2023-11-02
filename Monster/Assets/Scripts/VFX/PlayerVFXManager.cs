@@ -5,9 +5,8 @@ using UnityEngine;
 public class PlayerVFXManager : MonoBehaviour
 {
     public PlayerHandler inputHandler; 
-    public GameObject impactSprite; 
+    public GameObject impactSprite;
     public GameObject smokeVFX;
-
     public void SpawnImpactAtFoot(int footIndex)
     {
         if (footIndex >= 0 && footIndex < inputHandler.legLocations.Length)

@@ -9,7 +9,6 @@ public class UltimateButtonScript : MonoBehaviour
     public Transform player;
     public PlayerHandler playerHandler;
     public PlayerStatScriptableObject playerData;
-    public TextMeshProUGUI text;
     public GameObject ultiRdyVFX;
     public bool ultimateReady;
 
@@ -26,7 +25,6 @@ public class UltimateButtonScript : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         playerHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHandler>();
-        
         button = GetComponent<Button>();
     }
 
@@ -37,7 +35,6 @@ public class UltimateButtonScript : MonoBehaviour
         {
             ultimateReady = true;
             button.interactable = true;
-            text.gameObject.SetActive(true);
             ultiRdyVFX.SetActive(true);
         }
 
@@ -45,7 +42,6 @@ public class UltimateButtonScript : MonoBehaviour
         {
             ultimateReady = false;
             button.interactable = false;
-            text.gameObject.SetActive(false);
             ultiRdyVFX.SetActive(false);
         }
     }
