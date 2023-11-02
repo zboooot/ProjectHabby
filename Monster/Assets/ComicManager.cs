@@ -8,6 +8,7 @@ public class ComicManager : MonoBehaviour
     public GameObject[] ComicPanels;
     public GameObject cover;
     public Animator coveranim;
+    public LevelManagerScriptableObject levelData;
 
     private int currentIndex = 0;
     void Start()
@@ -102,6 +103,13 @@ public class ComicManager : MonoBehaviour
 
     void GoToGame()
     {
-        SceneManager.LoadScene("GameplayScene");
+        if (levelData.cityLevel < 10)
+        {
+            SceneManager.LoadScene("GameplayScene");
+        }
+        else if(levelData.cityLevel == 10)
+        {
+            SceneManager.LoadScene("LandmarkDesScene");
+        }
     }
 }
