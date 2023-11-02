@@ -58,6 +58,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.7421951, y: 1.2817307}
   m_EdgeRadius: 0
+--- !u!1 &863734637
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 863734638}
+  m_Layer: 6
+  m_Name: HitOrigin
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &863734638
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863734637}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.81, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6516790000295486552}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1361178655
 GameObject:
   m_ObjectHideFlags: 0
@@ -82,7 +113,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1361178655}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.97, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -164,8 +195,8 @@ GameObject:
   - component: {fileID: 6516790000295486547}
   - component: {fileID: 6516790000295486542}
   - component: {fileID: 61134897}
-  - component: {fileID: 61134902}
   - component: {fileID: 61134910}
+  - component: {fileID: 8948020723646364850}
   m_Layer: 6
   m_Name: CrabPlayer
   m_TagString: Player
@@ -191,6 +222,7 @@ Transform:
   - {fileID: 1361178656}
   - {fileID: 4464496277361138}
   - {fileID: 800590475}
+  - {fileID: 863734638}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -254,12 +286,16 @@ MonoBehaviour:
   legLocations:
   - {fileID: 5442216774189711269}
   - {fileID: 8584766228217194350}
+  HitDetection: {fileID: 863734637}
+  Groundcrack: {fileID: 1204656243811750240, guid: 389bf6f1b37889c47b16c80ef1d92716, type: 3}
+  skillRdyText: {fileID: 936639525998262924, guid: 27ca38522d4b3954cbe9ba46e6b27887, type: 3}
   utlimates:
   - {fileID: 61134897}
-  currentUltimateCharge: 100
+  currentUltimateCharge: 0
   ultimateRadius: 20
   isUltimate: 0
   isRaging: 0
+  hasSpawned: 0
   isEnd: 0
   impactTimer: 0.4
   currentImpactTimer: 0
@@ -406,32 +442,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ultimateVFX: {fileID: 4593184484909914552, guid: 2e1e9506f5904a64b81744324fb7cd50, type: 3}
   detectionOrigin: {fileID: 6516790000295486552}
---- !u!61 &61134902
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6516790000295486554}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.031007767, y: 2.8806648}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 5.898899, y: 3.9889069}
-  m_EdgeRadius: 0
 --- !u!114 &61134910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -447,6 +457,25 @@ MonoBehaviour:
   inputHandler: {fileID: 6516790000295486545}
   impactSprite: {fileID: 5358245250867353744, guid: 49a3f085897e49a4dbaac7adfef30f43, type: 3}
   smokeVFX: {fileID: 141433446842962269, guid: 9fe8f8b3288e45a44af36ff8aa04486e, type: 3}
+  deathVFX: {fileID: 1141330259687333427, guid: 6718dc24203da53468af9ada8fef7d6d, type: 3}
+  deathVFXRadius: 2
+  numberOfVFX: 3
+--- !u!70 &8948020723646364850
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6516790000295486554}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.32, y: 0.84}
+  m_Size: {x: 6.29, y: 2.67}
+  m_Direction: 1
 --- !u!1 &8584766228217194350
 GameObject:
   m_ObjectHideFlags: 0

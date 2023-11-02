@@ -36,6 +36,7 @@ public class PlayerHandler : MonoBehaviour
     [SerializeField] private bool isAttacking;
 
     public GameObject[] legLocations;
+    public GameObject HitDetection;
     public GameObject Groundcrack;
     public GameObject skillRdyText;
     public List<UltimateBase> utlimates = new List<UltimateBase>();
@@ -43,7 +44,6 @@ public class PlayerHandler : MonoBehaviour
     public float ultimateRadius = 20f;
     [SerializeField] private bool isUltimate;
     [SerializeField] private bool isRaging;
-    [SerializeField] private bool hasSpawned;
     public bool isEnd;
 
     public float impactTimer;
@@ -77,6 +77,11 @@ public class PlayerHandler : MonoBehaviour
                 rb.velocity = Vector2.zero;
                 return;
             }
+        }
+
+        if(playerData.health == 0)
+        {
+            vfxManager.SpawnDeathVFX();
         }
     }
 
@@ -130,25 +135,21 @@ public class PlayerHandler : MonoBehaviour
     }
     public void CheckUltiRdy()
     {
-        if (!hasSpawned)
+
+        if (currentUltimateCharge == playerData.maxUltimateCharge)
         {
-            if (currentUltimateCharge == playerData.maxUltimateCharge)
-            {
-                Vector2 textPos = new Vector2(transform.position.x, transform.position.y + 7f);
-                GameObject ultimateRdy = Instantiate(skillRdyText, textPos, Quaternion.Euler(0f, 0f, 0f));
-                hasSpawned = true;
-            }
+            skillRdyText.SetActive(true);
         }
 
         if (currentUltimateCharge == 0)
         {
-            hasSpawned = false;
+            skillRdyText.SetActive(false);
         }
 
     }
     private void PlayerAttack()
     {
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, lastKnownVector, playerData.attackRange, enemyLayer);
+        RaycastHit2D hit = Physics2D.Raycast(HitDetection.transform.position, lastKnownVector, playerData.attackRange, enemyLayer);
         // Check if the raycast hits an object
         if (hit.collider != null)
         {
@@ -266,6 +267,7 @@ public class PlayerHandler : MonoBehaviour
                 break;
             case 3:
                 SetCharacterState(PlayerStates.defeat);
+                vfxManager.SpawnDeathVFX();
                 break;
         }
     }

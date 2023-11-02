@@ -25,7 +25,6 @@ public class PlayerHealthScript : MonoBehaviour
 
     private GameManagerScript gameManager;
     private PlayerHandler playerHandler;
-    private PlayerVFXManager vfxManager;
 
     //Flash Effect
     private PlayerFlash flashEffect;
@@ -53,7 +52,6 @@ public class PlayerHealthScript : MonoBehaviour
         berserkVignette = GameObject.Find("Vignette").GetComponent<CanvasGroup>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>();
         playerHandler = GetComponent<PlayerHandler>();
-        vfxManager = GetComponent<PlayerVFXManager>();
 
         cutsceneManager = GameObject.FindGameObjectWithTag("VictoryScreen").GetComponent<CutSceneManager>();
     }
@@ -140,7 +138,6 @@ public class PlayerHealthScript : MonoBehaviour
         {
             playerHandler.isEnd = true;
             playerHandler.DisableMovement(3);
-            vfxManager.SpawnDeathVFX();
             gameManager.isVictory = false;
             cutsceneManager.TriggerEnd();
 

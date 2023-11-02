@@ -11,6 +11,7 @@ public class PlayerVFXManager : MonoBehaviour
     public GameObject deathVFX; // The VFX prefab you want to spawn
     public float deathVFXRadius; // The radius in which VFX will be spawned
     public int numberOfVFX = 3; // Number of VFX to spawn
+
     public void SpawnImpactAtFoot(int footIndex)
     {
         if (footIndex >= 0 && footIndex < inputHandler.legLocations.Length)
