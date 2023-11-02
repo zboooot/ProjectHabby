@@ -18,7 +18,7 @@ public class PlayerHandler : MonoBehaviour
 
     //Variable for State
     public SkeletonAnimation skeletonAnim;
-    public AnimationReferenceAsset idling, moving, moving2, attacking, ultimating, victorying, defeating, raging;
+    public AnimationReferenceAsset idling, moving, moving2, attacking, attacking2, attacking3, ultimating, victorying, defeating, raging;
     [SerializeField] private PlayerStates currentState;
     [SerializeField] private PlayerStates prevState;
     public string currentAnimation;
@@ -122,11 +122,34 @@ public class PlayerHandler : MonoBehaviour
         }
         else
         {
+            selectedEnemy = null;
             if (isAttacking)
             {
                 SetCharacterState(prevState);
                 isAttacking = false;
             }
+        }
+    }
+
+    void TriggerAttackDirAnimation()
+    {
+        float playerX = this.transform.position.x;
+        float objectX = selectedEnemy.gameObject.transform.position.x;
+
+        if (objectX > playerX)
+        {
+            SetAnimation(0, attacking, true, 1f);
+            // You can perform actions specific to the object being on the left
+        }
+        else if (objectX < playerX)
+        {
+            SetAnimation(0, attacking2, true, 1f);
+            // You can perform actions specific to the object being on the right
+        }
+        else
+        {
+            SetAnimation(0, attacking3, true, 1f);
+            // You can handle the scenario when the object and player are at the same position
         }
     }
 
@@ -174,7 +197,7 @@ public class PlayerHandler : MonoBehaviour
                 SetCharacterState(PlayerStates.ultimate);
                 if (!isUltimate)
                 {
-                    Invoke("UseUltimate1", 2.4f);
+                    Invoke("UseUltimate1", 1f);
                     isUltimate = true;
                 }
                 break;
@@ -263,7 +286,7 @@ public class PlayerHandler : MonoBehaviour
 
         if (state.Equals(PlayerStates.attack))
         {
-            SetAnimation(0, attacking, true, 1f);
+            TriggerAttackDirAnimation();
         }
 
         if (state.Equals(PlayerStates.ultimate))
