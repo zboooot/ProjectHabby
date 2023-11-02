@@ -18,9 +18,9 @@ public class MeteorScript : MonoBehaviour
     private ShakeScript shakeScript;
     public GameObject crater;
 
-    public PlayerHandler playerData;
+    public PlayerHandler playerHandler;
 
-    float ultimateRadius = 10f;
+    float meteorRadius = 5f;
     public PlayerStatScriptableObject playerSO;
     public ClockSystem clock;
 
@@ -28,7 +28,8 @@ public class MeteorScript : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         shakeScript = GameObject.Find("CM vcam1").GetComponent<ShakeScript>();
-        playerData = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHandler>();
+        playerHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHandler>();
+        playerHandler.canMove = false;
         animator.SetBool("isMoving", true);
 
         Vector2 landingPos = new Vector2(player.transform.position.x + 0.9f, player.transform.position.y + 4f);
@@ -87,7 +88,7 @@ public class MeteorScript : MonoBehaviour
 
     public void UseUltimate()
     {
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, ultimateRadius);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, meteorRadius);
         foreach (Collider2D collider in hitColliders)
         {
             CollateralScript collateralTrigger = collider.GetComponent<CollateralScript>();
@@ -109,7 +110,7 @@ public class MeteorScript : MonoBehaviour
 
     public void ActivatePlayer()
     {
-        playerData.canMove = true;
+        playerHandler.canMove = true;
         clock.startTime = true;
     }
 

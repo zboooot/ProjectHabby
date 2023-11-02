@@ -384,6 +384,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1356264708}
     - target: {fileID: 61134902, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: m_Size.x
+      value: 4.918152
+      objectReference: {fileID: 0}
+    - target: {fileID: 61134902, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: m_Size.y
+      value: 1.7649689
+      objectReference: {fileID: 0}
+    - target: {fileID: 61134902, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.20367432
+      objectReference: {fileID: 0}
+    - target: {fileID: 61134902, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: m_Offset.y
+      value: 2.086399
+      objectReference: {fileID: 0}
+    - target: {fileID: 61134902, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
@@ -394,7 +410,11 @@ PrefabInstance:
     - target: {fileID: 61134910, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: deathVFX
       value: 
-      objectReference: {fileID: 1628744458893394, guid: e243632bb3aff9549abdcfcc2ef0c4f0, type: 3}
+      objectReference: {fileID: 1141330259687333427, guid: 6718dc24203da53468af9ada8fef7d6d, type: 3}
+    - target: {fileID: 61134910, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: deathVFXRadius
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4808522481813150659, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: clock
       value: 
@@ -4554,7 +4574,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseMenu: {fileID: 1320678912}
   PauseButton: {fileID: 486892283}
-  levelData: {fileID: 0}
 --- !u!114 &1320678914
 MonoBehaviour:
   m_ObjectHideFlags: 0

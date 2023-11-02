@@ -9,7 +9,7 @@ public class PlayerVFXManager : MonoBehaviour
     public GameObject smokeVFX;
 
     public GameObject deathVFX; // The VFX prefab you want to spawn
-    public float deathVFXRadius = 3.0f; // The radius in which VFX will be spawned
+    public float deathVFXRadius; // The radius in which VFX will be spawned
     public int numberOfVFX = 3; // Number of VFX to spawn
     public void SpawnImpactAtFoot(int footIndex)
     {

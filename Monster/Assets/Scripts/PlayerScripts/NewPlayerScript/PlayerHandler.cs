@@ -57,7 +57,6 @@ public class PlayerHandler : MonoBehaviour
 
         vfxManager = GetComponent<PlayerVFXManager>();
         rb = GetComponent<Rigidbody2D>();
-        canMove = true;
     }
 
     // Update is called once per frame
@@ -387,10 +386,10 @@ public class PlayerHandler : MonoBehaviour
             StartCoroutine(artillery.SpawnArtilleryWithDelay());
         }
 
-        //if (Input.GetKeyUp(KeyCode.K))
-        //{
-        //    PlayerHealthScript playerhealth = GetComponent<PlayerHealthScript>();
-        //    playerhealth.TakeDamage(300);
-        //}
+        if (Input.GetKeyUp(KeyCode.K))
+        {
+           PlayerHealthScript playerhealth = GetComponent<PlayerHealthScript>();
+           playerhealth.TakeDamage(300);
+        }
     }
 }
