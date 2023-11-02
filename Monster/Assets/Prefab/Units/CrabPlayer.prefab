@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 800590474}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.08, y: 2.22, z: 0}
+  m_LocalPosition: {x: 0.08, y: 1.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -134,7 +134,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.73114586}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -145,7 +145,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 2.4622917}
   m_EdgeRadius: 0
 --- !u!1 &6516790000295486554
 GameObject:
@@ -164,6 +164,8 @@ GameObject:
   - component: {fileID: 6516790000295486547}
   - component: {fileID: 6516790000295486542}
   - component: {fileID: 61134897}
+  - component: {fileID: 61134902}
+  - component: {fileID: 61134910}
   m_Layer: 6
   m_Name: CrabPlayer
   m_TagString: Player
@@ -206,7 +208,7 @@ Rigidbody2D:
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0
-  m_AngularDrag: 0
+  m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
@@ -242,12 +244,16 @@ MonoBehaviour:
   playerData: {fileID: 11400000, guid: 59dab0eb911ed154a9696246ede0b205, type: 2}
   joystick: {fileID: 0}
   rb: {fileID: 0}
+  vfxManager: {fileID: 0}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
   selectedEnemy: {fileID: 0}
   canMove: 0
   isAttacking: 0
+  legLocations:
+  - {fileID: 5442216774189711269}
+  - {fileID: 8584766228217194350}
   utlimates:
   - {fileID: 61134897}
   currentUltimateCharge: 100
@@ -255,6 +261,8 @@ MonoBehaviour:
   isUltimate: 0
   isRaging: 0
   isEnd: 0
+  impactTimer: 0.4
+  currentImpactTimer: 0
 --- !u!114 &61134896
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,8 +404,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53f5925024850b14fb1255a8c5b4e263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ultimateVFX: {fileID: 2708598583397607911, guid: 6398d43fe79ea0140913dc5530c646af, type: 3}
+  ultimateVFX: {fileID: 4593184484909914552, guid: 2e1e9506f5904a64b81744324fb7cd50, type: 3}
   detectionOrigin: {fileID: 6516790000295486552}
+--- !u!61 &61134902
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6516790000295486554}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.031007767, y: 2.8806648}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.898899, y: 3.9889069}
+  m_EdgeRadius: 0
+--- !u!114 &61134910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6516790000295486554}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 481dc2fc4c5d6c843a1b272132d6dd5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputHandler: {fileID: 6516790000295486545}
+  impactSprite: {fileID: 5358245250867353744, guid: 49a3f085897e49a4dbaac7adfef30f43, type: 3}
+  smokeVFX: {fileID: 141433446842962269, guid: 9fe8f8b3288e45a44af36ff8aa04486e, type: 3}
 --- !u!1 &8584766228217194350
 GameObject:
   m_ObjectHideFlags: 0
@@ -443,7 +492,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.9427929}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -454,7 +503,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 1, y: 2.8855858}
   m_EdgeRadius: 0
 --- !u!1001 &1736624882
 PrefabInstance:
@@ -555,11 +604,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5820943973999638598, guid: d13365e410c8ad8419e229873fb1eed4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 14.44
+      value: 18.5
       objectReference: {fileID: 0}
     - target: {fileID: 5820943973999638598, guid: d13365e410c8ad8419e229873fb1eed4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 20.81
+      value: 27.7
       objectReference: {fileID: 0}
     - target: {fileID: 5820943973999638598, guid: d13365e410c8ad8419e229873fb1eed4, type: 3}
       propertyPath: m_LocalPosition.z
