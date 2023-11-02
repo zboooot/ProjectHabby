@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MiniGameLandmark : MonoBehaviour
 {
@@ -36,7 +37,6 @@ public class MiniGameLandmark : MonoBehaviour
             Vector3 spawnPos = transform.position + randomDirection * Random.Range(0.0f, spawnRadius);
             GameObject civilian = Instantiate(pfDelvin, spawnPos, Quaternion.identity);
             //Sets the civilian state upon initialization
-            civilian.GetComponent<Civilian>().enemyState = Civilian.EnemyState.fall;
         }
 
     }
@@ -62,7 +62,8 @@ public class MiniGameLandmark : MonoBehaviour
         if (gameObject != null)
         {
             Destroy(gameObject);
-
+            // Send back to the level select
+            SceneManager.LoadScene("LevelSelectScene");
         }
         else return;
     }

@@ -2,29 +2,40 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Spine.Unity;
 
 public class PlayerMiniGameController : MonoBehaviour
 {
+    public enum PlayerState
+    {
+        idle,
+        attack,
+    }
+
+    [SerializeField] private PlayerState currentState;
+    [SerializeField] private PlayerState prevState;
     public PlayerStatScriptableObject playerData;
     public MiniGameLandmark landmark;
-    private float currentCooldown = 0.0f;
-    public bool canAttack = true;
+    public bool isAttacking;
+    public string currentAnimation;
 
-    public TextMeshProUGUI text;
-
-    Animator anim;
+    public SkeletonAnimation skeletonAnimation;
+    public AnimationReferenceAsset idle, attack;
 
     private void Start()
     {
         landmark = GameObject.FindGameObjectWithTag("Landmark").GetComponent<MiniGameLandmark>();
-        anim = GetComponent<Animator>();
-        anim.SetBool("idle", true);
+        currentState = PlayerState.idle;
     }
 
     public void TriggerAttack()
     {
-        anim.SetBool("idle", false);
-        anim.SetBool("attack", true);
+        if (!currentState.Equals(PlayerState.attack))
+        {
+            prevState = currentState;
+        }
+        isAttacking = true;
+        Invoke("Attack", 1f);
     }
 
     public void Attack()
@@ -32,38 +43,72 @@ public class PlayerMiniGameController : MonoBehaviour
         if(landmark != null)
         {
             landmark.TakeDamage(playerData.attackDamage);
+            isAttacking = false;
         }
         else { return; }
     }
 
-    public void StopAttackAnimation()
+    public void SetCharacterState(PlayerState states)
     {
-        anim.SetBool("attack", false);
-        anim.SetBool("idle", true);
+        if (states.Equals(PlayerState.idle))
+        {
+            SetAnimation(0, idle, true, 1f);
+        }
+
+        if (states.Equals(PlayerState.attack))
+        {
+            SetAnimation(0, attack, true, 1f);
+        }
     }
 
-    private void Update()
+    public void SetAnimation(int track, AnimationReferenceAsset animation, bool loop, float timeScale)
     {
-        if (canAttack)
+        if (animation.name.Equals(currentAnimation))
         {
-            if (Input.GetKeyDown(KeyCode.Mouse0))
-            {
-                TriggerAttack();
-                currentCooldown = playerData.attackSpeed;
-                canAttack = false;
-            }
+            return;
+        }
+        Spine.TrackEntry animationEntry = skeletonAnimation.state.SetAnimation(track, animation, loop);
+        animationEntry.TimeScale = timeScale;
+        animationEntry.Complete += AnimationEntry_Complete;
+        currentAnimation = animation.name;
+    }
+
+    //Triggers after the animation has played
+    private void AnimationEntry_Complete(Spine.TrackEntry trackEntry)
+    {
+        if (isAttacking )
+        {
+            isAttacking = false;
         }
 
         else
         {
-            text.faceColor = new Color32(255, 128, 0, 120);
-            currentCooldown -= Time.deltaTime;
+            return;
+        }
 
-            if(currentCooldown <= 0.0f)
+        SetCharacterState(prevState);
+    }
+
+    private void Update()
+    {
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began)
             {
-                text.faceColor = new Color32(255, 128, 0, 255);
-                canAttack = true;
+                // A touch has just begun
+                TriggerAttack();
             }
+        }
+
+        if (!isAttacking)
+        {
+            SetCharacterState(PlayerState.idle);
+        }
+        else
+        {
+            SetCharacterState(PlayerState.attack);
         }
     }
 }
