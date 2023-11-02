@@ -7,7 +7,6 @@ public class MenuController : MonoBehaviour
 {
 	public GameObject PauseMenu;
 	public GameObject PauseButton;
-	public LevelManagerScriptableObject levelData;
 
 	public void EnterGame()
 	{
@@ -37,14 +36,7 @@ public class MenuController : MonoBehaviour
 
 	public void LoadGame()
 	{
-		if(levelData.cityLevel <= 0 && levelData.cityLevel > 10)
-        {
-			SceneManager.LoadScene("GameplayScene");
-		}
-        else
-		{
-			SceneManager.LoadScene("LandmarkDesScene");
-		}
+		SceneManager.LoadScene("ComicScene");
 	}
 
 	public void LeaveGame()

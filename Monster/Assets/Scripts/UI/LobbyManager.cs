@@ -44,7 +44,6 @@ public class LobbyManager : MonoBehaviour
         {
             SceneManager.LoadScene("ComicScene");
             levelData.cutscenePlayed = true;
-           
         }
        
     }

@@ -1539,6 +1539,7 @@ MonoBehaviour:
   - {fileID: 1389316042}
   cover: {fileID: 2004511265}
   coveranim: {fileID: 2004511268}
+  levelData: {fileID: 11400000, guid: b2a1f5841014e914caacedec67cfc4ad, type: 2}
 --- !u!4 &1604300557
 Transform:
   m_ObjectHideFlags: 0
