@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CrabUltimateD : UltimateBase
 {
-
     public GameObject ultimateVFX;
     private GameObject player;
     public Transform detectionOrigin;
@@ -15,16 +14,13 @@ public class CrabUltimateD : UltimateBase
         player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
 
     public override void UseDamageUltimate(float ultimateRadius, float ultimateDamage)
     {
         base.UseDamageUltimate(ultimateRadius, ultimateDamage);
-        GameObject ultiVFX = Instantiate(ultimateVFX, player.transform.position, Quaternion.identity);
+        Vector2 ultiPos = new Vector2(player.transform.position.x, player.transform.position.y - 0.8f);
+        GameObject ultiVFX = Instantiate(ultimateVFX, ultiPos, Quaternion.identity);
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(detectionOrigin.position, ultimateRadius);
         foreach (Collider2D collider in hitColliders)
         {

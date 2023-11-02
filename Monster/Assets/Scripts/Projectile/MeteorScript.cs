@@ -76,11 +76,6 @@ public class MeteorScript : MonoBehaviour
 
     }
 
-    public void SecondaryExplosion()
-    {
-        Vector2 spawnPos = new Vector2(player.transform.position.x, player.transform.position.y);
-    }
-
     public void UseUltimate()
     {
         Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, ultimateRadius);
@@ -113,7 +108,7 @@ public class MeteorScript : MonoBehaviour
 
     public void SpawnPlayer()
     {
-        Vector2 spawnPos = new Vector2(player.transform.position.x, player.transform.position.y + 1.4f);
+        Vector2 spawnPos = new Vector2(player.transform.position.x, player.transform.position.y + 4f);
         Instantiate(crater, spawnPos, Quaternion.identity);
        
         player.GetComponent<MeshRenderer>().enabled = true;
