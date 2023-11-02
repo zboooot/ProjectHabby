@@ -31,7 +31,7 @@ public class MeteorScript : MonoBehaviour
         playerData = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHandler>();
         animator.SetBool("isMoving", true);
 
-        Vector2 landingPos = new Vector2(player.transform.position.x, player.transform.position.y);
+        Vector2 landingPos = new Vector2(player.transform.position.x + 0.9f, player.transform.position.y + 4f);
         targetPosition = landingPos;
 
         // Calculate the direction vector towards the target position
@@ -65,11 +65,20 @@ public class MeteorScript : MonoBehaviour
             // Rotate the object to face the movement direction
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
+
+
+
+
             // Check if the object has reached the target position
             if (Vector2.Distance(transform.position, targetPosition) <= 0f)
             {
+                isMoving = false;
+                transform.rotation = Quaternion.Euler(Vector3.zero);
+
                 // Object has reached the target, you can add further actions here if needed.
-                TransformMeteor();
+                PlayExplosion();
+                Vector2 explosionPos = new Vector2(transform.position.x, transform.position.y + 3f);
+                transform.position = explosionPos;
                 UseUltimate();
             }
         }
@@ -88,11 +97,9 @@ public class MeteorScript : MonoBehaviour
             }
         }
     }
-    public void TransformMeteor()
+    public void PlayExplosion()
     {
-        transform.rotation = Quaternion.Euler(Vector3.zero);
         animator.SetBool("isMoving", false);
-        // Spawn the player
     }
 
     public void DestroyMeteor()
@@ -108,9 +115,9 @@ public class MeteorScript : MonoBehaviour
 
     public void SpawnPlayer()
     {
-        Vector2 spawnPos = new Vector2(player.transform.position.x, player.transform.position.y + 4f);
+        Vector2 spawnPos = new Vector2(player.transform.position.x, player.transform.position.y + 3f);
         Instantiate(crater, spawnPos, Quaternion.identity);
-       
+
         player.GetComponent<MeshRenderer>().enabled = true;
         playerStatusBars.SetActive(true);
     }

@@ -11,9 +11,13 @@ public class Civilian : MonoBehaviour
     public EnemyScriptableObject enemyData;
     Rigidbody2D rb;
     public float detectionDistance = 4f;
+
     private Collider2D entityCollider;
+
     public Transform player;
     public Animator anim;
+    public GameObject deathVFX;
+
     private float lastPosX;
     private float runSpeed;
 
@@ -26,11 +30,12 @@ public class Civilian : MonoBehaviour
 
     private Vector2 targetPosition;
     private float timeSinceLastDirectionChange = 0.0f;
-
     private PlayerScoreScript playerScore;
     private PlayerInputHandler inputHandler;
     private Transform blockingEntity;
+
     public bool isBlocked;
+    private bool hasSpawned;
     public FakeHeightScript fakeheight;
 
     private void Awake()
@@ -207,7 +212,14 @@ public class Civilian : MonoBehaviour
             isTriggered = true;
         }
         entityCollider.enabled = false;
-        Destroy(transform.parent.gameObject, 2f);
+
+        if (!hasSpawned)
+        {
+            Instantiate(deathVFX, transform.position, Quaternion.identity);
+            hasSpawned = true;
+        }
+
+        Destroy(transform.parent.gameObject, 0.5f);
     }
 
     void FlipSprite()

@@ -27,6 +27,7 @@ public class PlayerHandler : MonoBehaviour
     public PlayerStatScriptableObject playerData;
     public Joystick joystick;
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private PlayerVFXManager vfxManager;
     private Vector2 movementInput;
     private Vector2 lastKnownVector;
     public LayerMask enemyLayer;
@@ -34,7 +35,7 @@ public class PlayerHandler : MonoBehaviour
     public bool canMove;
     [SerializeField] private bool isAttacking;
 
-
+    public GameObject[] legLocations;
     public List<UltimateBase> utlimates = new List<UltimateBase>();
     public float currentUltimateCharge;
     public float ultimateRadius = 20f;
@@ -42,12 +43,16 @@ public class PlayerHandler : MonoBehaviour
     [SerializeField] private bool isRaging;
     public bool isEnd;
 
+    public float impactTimer;
+    public float currentImpactTimer;
+
     // Start is called before the first frame update
     void Start()
     {
         currentState = PlayerStates.idle;
         SetCharacterState(currentState);
 
+        vfxManager = GetComponent<PlayerVFXManager>();
         rb = GetComponent<Rigidbody2D>();
         canMove = true;
     }
@@ -61,6 +66,7 @@ public class PlayerHandler : MonoBehaviour
             {
                 PlayerMove();
                 PlayerAttack();
+
             }
             else
             {
@@ -79,6 +85,7 @@ public class PlayerHandler : MonoBehaviour
         rb.velocity = new Vector2(movementInput.x * playerData.speed, movementInput.y * playerData.speed);
         if (movementInput != Vector2.zero)
         {
+            SpawnFootprint();
             if (!currentState.Equals(PlayerStates.attack))
             {
                 SetCharacterState(PlayerStates.move);
@@ -97,6 +104,24 @@ public class PlayerHandler : MonoBehaviour
                 rb.velocity = Vector2.zero;
                 SetCharacterState(PlayerStates.idle);
             }
+        }
+    }
+
+
+    public void SpawnFootprint()
+    {
+        if(currentImpactTimer < impactTimer)
+        {
+            currentImpactTimer += Time.deltaTime;
+        }
+
+
+        else if (currentImpactTimer >= impactTimer)
+        {
+            currentImpactTimer = 0f;
+            vfxManager.SpawnImpactAtFoot(0);
+            vfxManager.SpawnImpactAtFoot(1);
+
         }
     }
 
