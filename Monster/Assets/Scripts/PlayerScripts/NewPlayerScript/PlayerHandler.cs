@@ -40,6 +40,7 @@ public class PlayerHandler : MonoBehaviour
     public float ultimateRadius = 20f;
     [SerializeField] private bool isUltimate;
     [SerializeField] private bool isRaging;
+    public bool isEnd;
 
     // Start is called before the first frame update
     void Start()
@@ -56,8 +57,16 @@ public class PlayerHandler : MonoBehaviour
     {
         if (canMove)
         {
-            PlayerMove();
-            PlayerAttack();
+            if (!isEnd)
+            {
+                PlayerMove();
+                PlayerAttack();
+            }
+            else
+            {
+                rb.velocity = Vector2.zero;
+                return;
+            }
         }
     }
 
@@ -109,6 +118,14 @@ public class PlayerHandler : MonoBehaviour
             {
                 Invoke("TriggerDamage", 1f);
                 isAttacking = true;
+            }
+        }
+        else
+        {
+            if (isAttacking)
+            {
+                SetCharacterState(prevState);
+                isAttacking = false;
             }
         }
     }

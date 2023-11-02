@@ -84,6 +84,7 @@ public class LevelManager : MonoBehaviour
         {
             if (!isTriggered)
             {
+                playerHandler.isEnd = true;
                 playerHandler.DisableMovement(2);
                 levelData.cityLevel += 1;
                 levelData.destructionLevel = 0;

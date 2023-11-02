@@ -136,6 +136,7 @@ public class PlayerHealthScript : MonoBehaviour
 
         else
         {
+            playerHandler.isEnd = true;
             playerHandler.DisableMovement(3);
             gameManager.isVictory = false;
             cutsceneManager.TriggerEnd();

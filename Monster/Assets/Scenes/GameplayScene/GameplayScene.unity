@@ -395,6 +395,10 @@ PrefabInstance:
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1429078429}
+    - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: currentUltimateCharge
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6516790000295486547, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: m_Mesh
       value: 
@@ -1165,7 +1169,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: TAP TO BEGIN RAMPAGE!
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 25735d00cf3b73141a432fb24a931c90, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8b49e92eb47584046bb890d4670ce6e2, type: 2}
   m_sharedMaterial: {fileID: -3203508407227384393, guid: 25735d00cf3b73141a432fb24a931c90, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1229,7 +1233,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &309971671
@@ -3912,8 +3916,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Current Level
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 42a0faac817e76b40938dc07f6fdff79, type: 2}
-  m_sharedMaterial: {fileID: 3534325986282231224, guid: 42a0faac817e76b40938dc07f6fdff79, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8b49e92eb47584046bb890d4670ce6e2, type: 2}
+  m_sharedMaterial: {fileID: 4179727291911172761, guid: 8b49e92eb47584046bb890d4670ce6e2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3937,7 +3941,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 37.95
+  m_fontSize: 57.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -6844,8 +6848,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Level GNA
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 42a0faac817e76b40938dc07f6fdff79, type: 2}
-  m_sharedMaterial: {fileID: 3534325986282231224, guid: 42a0faac817e76b40938dc07f6fdff79, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8b49e92eb47584046bb890d4670ce6e2, type: 2}
+  m_sharedMaterial: {fileID: 4179727291911172761, guid: 8b49e92eb47584046bb890d4670ce6e2, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -6869,7 +6873,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 52.85
+  m_fontSize: 57.8
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
