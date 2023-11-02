@@ -64,6 +64,7 @@ public class PlayerHandler : MonoBehaviour
     void Update()
     {
         CheckUltiRdy();
+        Cheats();
         if (canMove)
         {
             if (!isEnd)
@@ -358,5 +359,38 @@ public class PlayerHandler : MonoBehaviour
         }
 
         currentState = state;
+    }
+
+
+    private void Cheats()
+    {
+        if (Input.GetKeyUp(KeyCode.V))
+        {
+            CutSceneManager csManager = GameObject.FindGameObjectWithTag("VictoryScreen").GetComponent<CutSceneManager>();
+            GameManagerScript gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>();
+            gameManager.isVictory = true;
+            csManager.TriggerEnd();
+
+        }
+
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            CutSceneManager csManager = GameObject.FindGameObjectWithTag("VictoryScreen").GetComponent<CutSceneManager>();
+            GameManagerScript gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>();
+            gameManager.isVictory = false;
+            csManager.TriggerEnd();
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            Artillery artillery = GameObject.FindGameObjectWithTag("Artillery").GetComponent<Artillery>();
+            StartCoroutine(artillery.SpawnArtilleryWithDelay());
+        }
+
+        //if (Input.GetKeyUp(KeyCode.K))
+        //{
+        //    PlayerHealthScript playerhealth = GetComponent<PlayerHealthScript>();
+        //    playerhealth.TakeDamage(300);
+        //}
     }
 }

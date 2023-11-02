@@ -387,6 +387,14 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 61134910, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 61134889}
+    - target: {fileID: 61134910, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: deathVFX
+      value: 
+      objectReference: {fileID: 1628744458893394, guid: e243632bb3aff9549abdcfcc2ef0c4f0, type: 3}
     - target: {fileID: 4808522481813150659, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: clock
       value: 
@@ -4546,6 +4554,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PauseMenu: {fileID: 1320678912}
   PauseButton: {fileID: 486892283}
+  levelData: {fileID: 0}
 --- !u!114 &1320678914
 MonoBehaviour:
   m_ObjectHideFlags: 0
