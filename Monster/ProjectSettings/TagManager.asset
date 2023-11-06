@@ -24,6 +24,7 @@ TagManager:
   - FxTemporaire
   - Artillery
   - VictoryScreen
+  - ArtiCollider
   layers:
   - Default
   - TransparentFX

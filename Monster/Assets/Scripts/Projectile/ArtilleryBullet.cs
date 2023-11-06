@@ -13,6 +13,7 @@ public class ArtilleryBullet : MonoBehaviour
     private void Start()
     {
         entityCollider = GetComponent<Collider2D>();
+
     }
 
     private void Update()
@@ -23,8 +24,9 @@ public class ArtilleryBullet : MonoBehaviour
 
     void CheckTrigger()
     {
-        if (storedData.isInRange)
+        if (storedData.isInRange == true)
         {
+            Debug.Log("CheckTrigger");
             entityCollider.enabled = true;
         }
 
@@ -36,7 +38,15 @@ public class ArtilleryBullet : MonoBehaviour
 
     public void GetData(GameObject data)
     {
-        storedData = data.GetComponent<CircularIndicator>();
+        if (data)
+        {
+            storedData = data.GetComponent<CircularIndicator>();
+        }
+
+        else
+        {
+
+        }
     }
 
     public void BlowUp()
@@ -54,12 +64,23 @@ public class ArtilleryBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject != null && collision.gameObject.CompareTag("Player"))
         {
-            GameObject bomb = Instantiate(explosionVFX, collision.transform.position, Quaternion.identity);
-            collision.gameObject.GetComponent<PlayerHealthScript>().TakeDamage(enemyData.attackDamage);
-            Destroy(gameObject);
-            Destroy(storedData.gameObject);
+            if (gameObject != null)
+            {
+                Debug.Log("Strike");
+                GameObject bomb = Instantiate(explosionVFX, collision.transform.position, Quaternion.identity);
+
+                PlayerHealthScript playerHealth = collision.gameObject.GetComponent<PlayerHealthScript>();
+                if (playerHealth != null)
+                {
+                    playerHealth.TakeDamage(enemyData.attackDamage);
+                    Debug.Log("DamagePlayer");
+                    Destroy(gameObject);
+                }
+
+                
+            }
         }
     }
 }

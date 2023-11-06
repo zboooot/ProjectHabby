@@ -102,31 +102,38 @@ public class Artillery : MonoBehaviour
 
     private IEnumerator MoveToPosition(GameObject artilleryBullet, Transform transform, Vector3 targetPosition)
     {
-        if (artilleryBullet != null)
+        if (artilleryBullet != null && transform != null)
         {
-
             while (Vector3.Distance(transform.position, targetPosition) > 0.01f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
                 yield return null;
-
             }
-            artilleryBullet.GetComponent<ArtilleryBullet>().BlowUp();
 
-            // Destroy the artillery prefab instance
-            Destroy(artilleryBullet);
-            Vector2 spawnPos = new Vector2(artilleryBullet.transform.position.x, artilleryBullet.transform.position.y + 1.5f);
+            if (artilleryBullet != null)
+            {
+                ArtilleryBullet artilleryBulletComponent = artilleryBullet.GetComponent<ArtilleryBullet>();
+                if (artilleryBulletComponent != null)
+                {
+                    artilleryBulletComponent.BlowUp();
+                }
 
-            // Create and play the explosion VFX
-            GameObject explosion = Instantiate(explosionVFX, spawnPos, Quaternion.identity);
+                // Destroy the artillery prefab instance
+                Destroy(artilleryBullet);
+                Vector2 spawnPos = new Vector2(targetPosition.x, targetPosition.y + 1.5f);
 
-            // Wait for the VFX to finish playing
-            yield return new WaitForSeconds(0.1f);
+                // Create and play the explosion VFX
+                GameObject explosion = Instantiate(explosionVFX, spawnPos, Quaternion.identity);
 
-            GameObject impact = Instantiate(impactCrater, spawnPos, Quaternion.identity);
+                // Wait for the VFX to finish playing
+                yield return new WaitForSeconds(0.1f);
+
+                GameObject impact = Instantiate(impactCrater, spawnPos, Quaternion.identity);
+            }
         }
         else
         {
+            Debug.LogWarning("ArtilleryBullet or Transform is null in MoveToPosition");
             yield return null;
         }
     }

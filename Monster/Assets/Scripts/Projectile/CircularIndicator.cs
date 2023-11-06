@@ -16,7 +16,7 @@ public class CircularIndicator : MonoBehaviour
     private void Start()
     {
         StartCoroutine(FlashScale());
-        StartCoroutine(DestroyAfterDelay(5.0f)); // Destroy the object after 5 seconds
+        StartCoroutine(DestroyAfterDelay(10f)); // Destroy the object after 5 seconds
     }
 
     private IEnumerator FlashScale()
@@ -54,7 +54,7 @@ public class CircularIndicator : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         gameObject.GetComponent<SpriteRenderer>().enabled = false;
-        Destroy(gameObject,2f);
+        Destroy(gameObject,10f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -62,6 +62,7 @@ public class CircularIndicator : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isInRange = true;
+            Debug.Log("HitPlayer");
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -69,6 +70,7 @@ public class CircularIndicator : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isInRange = false;
+            Debug.Log("ExitPlayer");
         }
     }
 }

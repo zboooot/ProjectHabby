@@ -384,6 +384,14 @@ PrefabInstance:
       propertyPath: abilitySlider
       value: 
       objectReference: {fileID: 1356264708}
+    - target: {fileID: 1361178656, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1361178656, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 22.7
+      objectReference: {fileID: 0}
     - target: {fileID: 4808522481813150659, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: clock
       value: 
