@@ -62,7 +62,6 @@ public class CircularIndicator : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isInRange = true;
-            Debug.Log("HitPlayer");
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -70,7 +69,6 @@ public class CircularIndicator : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             isInRange = false;
-            Debug.Log("ExitPlayer");
         }
     }
 }

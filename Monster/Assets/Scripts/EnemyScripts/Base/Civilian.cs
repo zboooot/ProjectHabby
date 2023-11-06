@@ -17,6 +17,7 @@ public class Civilian : MonoBehaviour
     public Transform player;
     public Animator anim;
     public GameObject deathVFX;
+    public ObjectFadeEffect fadeEffect;
 
     private float lastPosX;
     private float runSpeed;
@@ -38,6 +39,7 @@ public class Civilian : MonoBehaviour
     private bool hasSpawned;
     public FakeHeightScript fakeheight;
 
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -50,6 +52,7 @@ public class Civilian : MonoBehaviour
 
         //Game Manager
         levelManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LevelManager>();
+        fadeEffect = GetComponent<ObjectFadeEffect>();
     }
 
 
@@ -198,7 +201,6 @@ public class Civilian : MonoBehaviour
     {
         if(fakeheight.isGrounded == true)
         {
-            Debug.Log("Grounded");
             ChangeRunState();
         }
         
@@ -219,7 +221,7 @@ public class Civilian : MonoBehaviour
             hasSpawned = true;
         }
 
-        Destroy(transform.parent.gameObject, 0.5f);
+        fadeEffect.StartFading();
     }
 
     void FlipSprite()
@@ -255,7 +257,6 @@ public class Civilian : MonoBehaviour
 
             case EnemyState.fall:
                 anim.SetBool("fall", true);
-                //fakeheight.isGrounded = false;
                 FallToRun();
                 break;
 

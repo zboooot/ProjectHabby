@@ -45,6 +45,7 @@ public class PlayerHandler : MonoBehaviour
 
     [SerializeField] private bool isUltimate;
     [SerializeField] private bool isRaging;
+    [SerializeField] private bool extendedIdle;
     public bool isEnd;
 
     public float impactTimer;
@@ -70,6 +71,7 @@ public class PlayerHandler : MonoBehaviour
         {
             if (!isEnd)
             {
+                PlayerIdle();
                 PlayerMove();
                 PlayerAttack();
             }
@@ -112,6 +114,23 @@ public class PlayerHandler : MonoBehaviour
             if (!currentState.Equals(PlayerStates.attack))
             {
                 rb.velocity = Vector2.zero;
+                SetCharacterState(PlayerStates.idle);
+            }
+        }
+    }
+
+    public void PlayerIdle()
+    {
+        if(currentState == PlayerStates.idle)
+        {
+            if(idleTimer < 4f)
+            {
+                idleTimer += Time.deltaTime;
+            }
+
+            if(idleTimer >= 4f)
+            {
+                extendedIdle = true;
                 SetCharacterState(PlayerStates.idle);
             }
         }
@@ -324,6 +343,12 @@ public class PlayerHandler : MonoBehaviour
             else { return;  }
         }
 
+        if (extendedIdle)
+        {
+            extendedIdle = false;
+            idleTimer = 0f;
+        }
+
         else
         {
             return;
@@ -336,7 +361,14 @@ public class PlayerHandler : MonoBehaviour
     {
         if (state.Equals(PlayerStates.idle))
         {
-            SetAnimation(0, idling, true, 1f);
+            if (!extendedIdle)
+            {
+                SetAnimation(0, idling, true, 1f);
+            }
+            else
+            {
+                SetAnimation(0, idling2, true, 1f);
+            }
         }
 
         if (state.Equals(PlayerStates.move))

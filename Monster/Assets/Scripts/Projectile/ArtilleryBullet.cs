@@ -26,7 +26,6 @@ public class ArtilleryBullet : MonoBehaviour
     {
         if (storedData.isInRange == true)
         {
-            Debug.Log("CheckTrigger");
             entityCollider.enabled = true;
         }
 
@@ -68,14 +67,12 @@ public class ArtilleryBullet : MonoBehaviour
         {
             if (gameObject != null)
             {
-                Debug.Log("Strike");
                 GameObject bomb = Instantiate(explosionVFX, collision.transform.position, Quaternion.identity);
 
                 PlayerHealthScript playerHealth = collision.gameObject.GetComponent<PlayerHealthScript>();
                 if (playerHealth != null)
                 {
                     playerHealth.TakeDamage(enemyData.attackDamage);
-                    Debug.Log("DamagePlayer");
                     Destroy(gameObject);
                 }
 
