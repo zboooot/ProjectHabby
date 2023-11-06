@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Spine.Unity;
 
-public class PlayerHandler : MonoBehaviour
+public class PlayerHandler : MonoBehaviour, ISoundable
 {
     public enum PlayerStates
     {
@@ -52,6 +52,13 @@ public class PlayerHandler : MonoBehaviour
     public float currentImpactTimer;
     public float idleTimer;
 
+    //FootSteps
+    public float footStepRate;
+    AudioSource playerAudioSource;
+    public AudioClip[] foosteps;
+    public float timer;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -60,6 +67,7 @@ public class PlayerHandler : MonoBehaviour
 
         vfxManager = GetComponent<PlayerVFXManager>();
         rb = GetComponent<Rigidbody2D>();
+        playerAudioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -98,6 +106,12 @@ public class PlayerHandler : MonoBehaviour
         if (movementInput != Vector2.zero)
         {
             SpawnFootprint();
+           
+            if(Time.time > timer)
+            {
+                timer = Time.time + 1 / footStepRate;
+                PlaySFX();
+            }
             if (!currentState.Equals(PlayerStates.attack))
             {
                 SetCharacterState(PlayerStates.move);
@@ -444,4 +458,11 @@ public class PlayerHandler : MonoBehaviour
            playerhealth.TakeDamage(300);
         }
     }
+
+    public void PlaySFX()
+    {
+        AudioClip SoundToPlay = foosteps[Random.Range(0, foosteps.Length)];
+        playerAudioSource.PlayOneShot(SoundToPlay);
+    }
 }
+
