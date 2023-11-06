@@ -393,9 +393,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 17487342}
     - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: idling2
+      value: 
+      objectReference: {fileID: 11400000, guid: 3fb6e64a1b6459f488cb0ec1bf5d933e, type: 2}
+    - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: joystick
       value: 
       objectReference: {fileID: 1429078429}
+    - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: attacking
+      value: 
+      objectReference: {fileID: 11400000, guid: 3f2b4d27d8c29874fa8e32242d4789b6, type: 2}
+    - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: attacking2
+      value: 
+      objectReference: {fileID: 11400000, guid: ef1535e39a56f2642a2e70c1cf2b70ba, type: 2}
+    - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: attacking3
+      value: 
+      objectReference: {fileID: 11400000, guid: 4077fb0e96c02e94399015d5bb4ada56, type: 2}
+    - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: attacking4
+      value: 
+      objectReference: {fileID: 11400000, guid: bdecd87abb5dc0841a79359b3007d7fd, type: 2}
+    - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: attacking5
+      value: 
+      objectReference: {fileID: 11400000, guid: 61b614b853d00c14887fec9eaa06a418, type: 2}
+    - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: attacking6
+      value: 
+      objectReference: {fileID: 11400000, guid: ad430665e68b4544680f5e8f8c0e9d56, type: 2}
     - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: skillRdyText
       value: 
@@ -451,6 +479,22 @@ PrefabInstance:
     - target: {fileID: 6516790000295486554, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: m_Name
       value: CrabPlayer
+      objectReference: {fileID: 0}
+    - target: {fileID: 8948020723646364850, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: m_Size.x
+      value: 6.290004
+      objectReference: {fileID: 0}
+    - target: {fileID: 8948020723646364850, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: m_Size.y
+      value: 5.001038
+      objectReference: {fileID: 0}
+    - target: {fileID: 8948020723646364850, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.32000023
+      objectReference: {fileID: 0}
+    - target: {fileID: 8948020723646364850, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: m_Offset.y
+      value: 2.2201722
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
@@ -2735,7 +2779,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &635596424
 Transform:
   m_ObjectHideFlags: 0
@@ -2759,16 +2803,19 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 635596423}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7681a8d1041b00f4ea829a6731c21c42, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 59dab0eb911ed154a9696246ede0b205, type: 2}
-  inputHandler: {fileID: 0}
   speed: 20
-  player: {fileID: 0}
+  player: {fileID: 1006525446}
   joystick: {fileID: 1429078429}
+  playerRb: {fileID: 0}
+  prevInput: 0
+  currentAngle: 0
+  angleDifference: 0
 --- !u!212 &635596426
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2810,9 +2857,9 @@ SpriteRenderer:
   m_SortingLayerID: 963744515
   m_SortingLayer: 1
   m_SortingOrder: 4
-  m_Sprite: {fileID: 21300000, guid: 68ac0443749fdf24bbb1f272a2784b17, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8ca82eba25093864a8d7646b9b9b3ccf, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -3888,6 +3935,11 @@ Transform:
   m_Father: {fileID: 90670301}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1006525446 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 863734638, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+  m_PrefabInstance: {fileID: 61134887}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1063633784
 GameObject:
   m_ObjectHideFlags: 0

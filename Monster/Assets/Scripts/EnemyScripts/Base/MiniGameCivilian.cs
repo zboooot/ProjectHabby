@@ -13,10 +13,4 @@ public class MiniGameCivilian : MonoBehaviour
         anim.SetBool("fall", true);
         Destroy(gameObject, 4f);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

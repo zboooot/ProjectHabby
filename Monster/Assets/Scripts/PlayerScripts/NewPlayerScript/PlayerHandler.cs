@@ -18,7 +18,7 @@ public class PlayerHandler : MonoBehaviour
 
     //Variable for State
     public SkeletonAnimation skeletonAnim;
-    public AnimationReferenceAsset idling, moving, moving2, attacking, attacking2, attacking3, ultimating, victorying, defeating, raging;
+    public AnimationReferenceAsset idling, idling2, moving, moving2, attacking, attacking2, attacking3, attacking4, attacking5, attacking6, ultimating, victorying, defeating, raging;
     [SerializeField] private PlayerStates currentState;
     [SerializeField] private PlayerStates prevState;
     public string currentAnimation;
@@ -42,12 +42,14 @@ public class PlayerHandler : MonoBehaviour
     public List<UltimateBase> utlimates = new List<UltimateBase>();
     public float currentUltimateCharge;
     public float ultimateRadius = 20f;
+
     [SerializeField] private bool isUltimate;
     [SerializeField] private bool isRaging;
     public bool isEnd;
 
     public float impactTimer;
     public float currentImpactTimer;
+    public float idleTimer;
 
     // Start is called before the first frame update
     void Start()
@@ -70,7 +72,6 @@ public class PlayerHandler : MonoBehaviour
             {
                 PlayerMove();
                 PlayerAttack();
-
             }
             else
             {
@@ -116,7 +117,6 @@ public class PlayerHandler : MonoBehaviour
         }
     }
 
-
     public void SpawnFootprint()
     {
         if(currentImpactTimer < impactTimer)
@@ -133,6 +133,7 @@ public class PlayerHandler : MonoBehaviour
 
         }
     }
+
     public void CheckUltiRdy()
     {
 
@@ -182,21 +183,38 @@ public class PlayerHandler : MonoBehaviour
     {
         float playerX = this.transform.position.x;
         float objectX = selectedEnemy.gameObject.transform.position.x;
+        Vector3 dir =  selectedEnemy.transform.position - HitDetection.transform.position;
+        float angle = Vector3.Angle(dir, Vector3.down);
 
         if (objectX > playerX)
         {
-            SetAnimation(0, attacking, true, 1f);
-            // You can perform actions specific to the object being on the left
+            if(angle >= 135f)
+            {
+                SetAnimation(0, attacking3, true, 1f);
+            }
+            if(angle >= 45f && angle < 135f)
+            {
+                SetAnimation(0, attacking2, true, 1f);
+            }
+            if(angle >= 0f && angle < 45f)
+            {
+                SetAnimation(0, attacking, true, 1f);
+            }
         }
         else if (objectX < playerX)
         {
-            SetAnimation(0, attacking2, true, 1f);
-            // You can perform actions specific to the object being on the right
-        }
-        else
-        {
-            SetAnimation(0, attacking3, true, 1f);
-            // You can handle the scenario when the object and player are at the same position
+            if (angle >= 135f)
+            {
+                SetAnimation(0, attacking6, true, 1f);
+            }
+            if (angle >= 45f && angle < 135f)
+            {
+                SetAnimation(0, attacking5, true, 1f);
+            }
+            if (angle >= 0f && angle < 45f)
+            {
+                SetAnimation(0, attacking4, true, 1f);
+            }
         }
     }
 
