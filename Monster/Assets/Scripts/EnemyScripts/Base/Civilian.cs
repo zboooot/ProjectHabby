@@ -221,7 +221,7 @@ public class Civilian : MonoBehaviour
             hasSpawned = true;
         }
 
-        fadeEffect.StartFading();
+        Destroy(transform.parent.gameObject, 5f);
     }
 
     void FlipSprite()
