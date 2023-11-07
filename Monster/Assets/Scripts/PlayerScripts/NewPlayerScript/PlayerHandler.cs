@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Spine.Unity;
+using Spine;
 
 public class PlayerHandler : MonoBehaviour, ISoundable
 {
@@ -64,6 +65,8 @@ public class PlayerHandler : MonoBehaviour, ISoundable
     {
         currentState = PlayerStates.idle;
         SetCharacterState(currentState);
+        skeletonAnim = GetComponent<SkeletonAnimation>();
+        skeletonAnim.AnimationState.Event += OnSpineEvent;
 
         vfxManager = GetComponent<PlayerVFXManager>();
         rb = GetComponent<Rigidbody2D>();
@@ -167,6 +170,20 @@ public class PlayerHandler : MonoBehaviour, ISoundable
         }
     }
 
+    //Function to trigger any spine events
+    void OnSpineEvent(TrackEntry trackEntry, Spine.Event e)
+    {
+        string eventName = e.Data.Name;
+
+        //Function triggers when the claw lands 
+        // eventName == "Name of animation function in timeline
+        if (eventName == "damage")
+        {
+            //Call the function that you want here
+            TriggerDamage();
+        }
+    }
+
     public void CheckUltiRdy()
     {
 
@@ -197,7 +214,6 @@ public class PlayerHandler : MonoBehaviour, ISoundable
             SetCharacterState(PlayerStates.attack);
             if (!isAttacking)
             {
-                Invoke("TriggerDamage", 1f);
                 isAttacking = true;
             }
         }
