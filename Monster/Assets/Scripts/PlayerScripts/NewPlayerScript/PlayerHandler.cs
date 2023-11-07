@@ -47,6 +47,8 @@ public class PlayerHandler : MonoBehaviour, ISoundable
     [SerializeField] private bool isUltimate;
     [SerializeField] private bool isRaging;
     [SerializeField] private bool extendedIdle;
+    [SerializeField] private bool isMoving;
+    [SerializeField] private bool isIdle;
     public bool isEnd;
 
     public float impactTimer;
@@ -54,10 +56,13 @@ public class PlayerHandler : MonoBehaviour, ISoundable
     public float idleTimer;
 
     //FootSteps
-    public float footStepRate;
-    AudioSource playerAudioSource;
-    public AudioClip[] foosteps;
-    public float timer;
+    public AudioSource footstepAudioSource;
+    public AudioSource attackAudioSource;
+    public AudioSource jumpAudioSource;
+    public AudioClip[] foostepsSFX;
+    public AudioClip[] attackSFX;
+
+
 
 
     // Start is called before the first frame update
@@ -70,7 +75,10 @@ public class PlayerHandler : MonoBehaviour, ISoundable
 
         vfxManager = GetComponent<PlayerVFXManager>();
         rb = GetComponent<Rigidbody2D>();
-        playerAudioSource = GetComponent<AudioSource>();
+        footstepAudioSource = GetComponent<AudioSource>();
+       
+        
+
     }
 
     // Update is called once per frame
@@ -108,13 +116,13 @@ public class PlayerHandler : MonoBehaviour, ISoundable
         rb.velocity = new Vector2(movementInput.x * playerData.speed, movementInput.y * playerData.speed);
         if (movementInput != Vector2.zero)
         {
-            SpawnFootprint();
-           
-            if(Time.time > timer)
+            isMoving = true;
+           // SpawnFootprint();
+            /*if(Time.time > timer)
             {
                 timer = Time.time + 1 / footStepRate;
                 PlaySFX();
-            }
+            }*/
             if (!currentState.Equals(PlayerStates.attack))
             {
                 SetCharacterState(PlayerStates.move);
@@ -128,6 +136,7 @@ public class PlayerHandler : MonoBehaviour, ISoundable
 
         else
         {
+            isMoving = false;
             if (!currentState.Equals(PlayerStates.attack))
             {
                 rb.velocity = Vector2.zero;
@@ -140,6 +149,8 @@ public class PlayerHandler : MonoBehaviour, ISoundable
     {
         if(currentState == PlayerStates.idle)
         {
+            isIdle = true;
+            
             if(idleTimer < 4f)
             {
                 idleTimer += Time.deltaTime;
@@ -151,23 +162,18 @@ public class PlayerHandler : MonoBehaviour, ISoundable
                 SetCharacterState(PlayerStates.idle);
             }
         }
+
+        else
+        {
+            isIdle = false;
+            
+        }
     }
 
     public void SpawnFootprint()
     {
-        if(currentImpactTimer < impactTimer)
-        {
-            currentImpactTimer += Time.deltaTime;
-        }
-
-
-        else if (currentImpactTimer >= impactTimer)
-        {
-            currentImpactTimer = 0f;
-            vfxManager.SpawnImpactAtFoot(0);
-            vfxManager.SpawnImpactAtFoot(1);
-
-        }
+        vfxManager.SpawnImpactAtFoot(0);
+        vfxManager.SpawnImpactAtFoot(1);
     }
 
     //Function to trigger any spine events
@@ -181,6 +187,23 @@ public class PlayerHandler : MonoBehaviour, ISoundable
         {
             //Call the function that you want here
             TriggerDamage();
+            PlaySFX();
+        }
+
+        if(eventName == "foot")
+        {
+            SpawnFootprint();
+            PlaySFX();
+        }
+
+        if(eventName == "jump")
+        {
+            JumpSFX();
+        }
+
+        if(eventName == "land")
+        {
+            PlaySFX();
         }
     }
 
@@ -477,8 +500,31 @@ public class PlayerHandler : MonoBehaviour, ISoundable
 
     public void PlaySFX()
     {
-        AudioClip SoundToPlay = foosteps[Random.Range(0, foosteps.Length)];
-        playerAudioSource.PlayOneShot(SoundToPlay);
+        AudioClip SoundToPlay = foostepsSFX[Random.Range(0, foostepsSFX.Length)];
+        AudioClip AttackToPlay = attackSFX[Random.Range(0, 1)];
+        if (isMoving == true)
+        {
+            
+            footstepAudioSource.PlayOneShot(SoundToPlay);
+        }
+
+        if (isAttacking == true)
+        {
+            
+            attackAudioSource.pitch = UnityEngine.Random.Range(1f, 1.5f);
+            attackAudioSource.PlayOneShot(AttackToPlay);
+        }
+       if(isUltimate == true)
+        {
+            AudioClip UltimateAttackToPlay = attackSFX[2];
+            attackAudioSource.PlayOneShot(UltimateAttackToPlay);
+        }
+     
+    }
+
+    public void JumpSFX()
+    {
+        jumpAudioSource.PlayOneShot(jumpAudioSource.clip);
     }
 }
 
