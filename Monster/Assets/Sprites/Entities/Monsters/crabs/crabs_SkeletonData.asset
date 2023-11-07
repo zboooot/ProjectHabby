@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: crabs_SkeletonData
   m_EditorClassIdentifier: 
   atlasAssets:
-  - {fileID: 11400000, guid: 9cd716430a65120478b0b084d1a8f138, type: 2}
+  - {fileID: 11400000, guid: fb81b9cdd7a56cb41b8359f151912ad5, type: 2}
   scale: 0.01
-  skeletonJSON: {fileID: 4900000, guid: 724633d1297975844ace84c943c1741e, type: 3}
+  skeletonJSON: {fileID: 4900000, guid: 1a1d033637c159f4b987f79335914c2e, type: 3}
   isUpgradingBlendModeMaterials: 0
   blendModeMaterials:
     requiresBlendModeMaterials: 0

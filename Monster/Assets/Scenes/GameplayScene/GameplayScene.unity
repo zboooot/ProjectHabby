@@ -403,23 +403,23 @@ PrefabInstance:
     - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: idling
       value: 
-      objectReference: {fileID: 11400000, guid: d78927e3392a3b8458e783666120af9a, type: 2}
+      objectReference: {fileID: 11400000, guid: 91e806866a904b94bb5483412e4f8c1a, type: 2}
     - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: moving
       value: 
-      objectReference: {fileID: 11400000, guid: 742c4a22d67c82b4790d95e54d8c9ca7, type: 2}
+      objectReference: {fileID: 11400000, guid: c0b49d4b71e10cd499f081455e8fa975, type: 2}
     - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: raging
       value: 
-      objectReference: {fileID: 11400000, guid: bd751b55f7bde564c8d2355030adeac0, type: 2}
+      objectReference: {fileID: 11400000, guid: 53e71ec0f3a9fde4b8a7171a24d0072d, type: 2}
     - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: idling2
       value: 
-      objectReference: {fileID: 11400000, guid: 62c281b25d2fad2499dd1d7c29c8345f, type: 2}
+      objectReference: {fileID: 11400000, guid: a0b2e31d8e537a24896d5c8718a47ec9, type: 2}
     - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: moving2
       value: 
-      objectReference: {fileID: 11400000, guid: 51d381b6cd96f1b4b86c1be1f2743d16, type: 2}
+      objectReference: {fileID: 11400000, guid: e46718769248a564ca1ec204a492c4fa, type: 2}
     - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: joystick
       value: 
@@ -427,39 +427,39 @@ PrefabInstance:
     - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: attacking
       value: 
-      objectReference: {fileID: 11400000, guid: 9e2753b7bad8b7f4a990917fd7a0fd36, type: 2}
+      objectReference: {fileID: 11400000, guid: 41f25dc2da7fd2f45a67032c1aae97b0, type: 2}
     - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: defeating
       value: 
-      objectReference: {fileID: 11400000, guid: 8d72a82a1560cdf4c89a8a9009d9cdbe, type: 2}
+      objectReference: {fileID: 11400000, guid: 1ba4c23a51bf8b546a69852cd0963cb9, type: 2}
     - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: attacking2
       value: 
-      objectReference: {fileID: 11400000, guid: a4e4d77d10a3f9b42925e3b5c63f8c76, type: 2}
+      objectReference: {fileID: 11400000, guid: bcda2d3ad07463e4bbd81e4122375c88, type: 2}
     - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: attacking3
       value: 
-      objectReference: {fileID: 11400000, guid: c46bbf5a212d4564f9c51b92aae7c00e, type: 2}
+      objectReference: {fileID: 11400000, guid: f4967185d67370c47965feb6c05f63e3, type: 2}
     - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: attacking4
       value: 
-      objectReference: {fileID: 11400000, guid: c26267e3c99f678459ab5200860bd846, type: 2}
+      objectReference: {fileID: 11400000, guid: 30e41ce0d8e251940b1bda8c32fe0379, type: 2}
     - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: attacking5
       value: 
-      objectReference: {fileID: 11400000, guid: 7fe5483db403c73489cee34fc515bd4f, type: 2}
+      objectReference: {fileID: 11400000, guid: 7a4b0deb7850b77418dad47da8c4e583, type: 2}
     - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: attacking6
       value: 
-      objectReference: {fileID: 11400000, guid: e02c553d708a0754ba77b44d8f39f7b8, type: 2}
+      objectReference: {fileID: 11400000, guid: b1b2a6ab43a382943a8e5d0146624556, type: 2}
     - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: ultimating
       value: 
-      objectReference: {fileID: 11400000, guid: 27080834519465442ab5358be5537107, type: 2}
+      objectReference: {fileID: 11400000, guid: 9aded212738e22640b01e94c146325a3, type: 2}
     - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: victorying
       value: 
-      objectReference: {fileID: 11400000, guid: 52a043518796afc4883d3cdf3dc08853, type: 2}
+      objectReference: {fileID: 11400000, guid: 8fbbc6ad3d2650c46b258fbdb22c899d, type: 2}
     - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: footStepRate
       value: 2
@@ -495,11 +495,11 @@ PrefabInstance:
     - target: {fileID: 6516790000295486548, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: c718da0b22a30144f9dc88dc2300ed48, type: 2}
+      objectReference: {fileID: 2100000, guid: faff18a5b68c8514da848fa291215c40, type: 2}
     - target: {fileID: 6516790000295486551, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: skeletonDataAsset
       value: 
-      objectReference: {fileID: 11400000, guid: d17fb6d1c0b67764e85ddc0d37c71c39, type: 2}
+      objectReference: {fileID: 11400000, guid: 28884e974c458844db14211bc789b9d1, type: 2}
     - target: {fileID: 6516790000295486552, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: m_RootOrder
       value: 2
