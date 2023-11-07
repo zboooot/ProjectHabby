@@ -23,6 +23,11 @@ public class MeteorScript : MonoBehaviour
     float meteorRadius = 5f;
     public PlayerStatScriptableObject playerSO;
     public ClockSystem clock;
+    public AudioSource meteorAudioSource;
+    public AudioClip meteormovingSFX;
+    public AudioClip meteorExplosionSFX;
+
+
 
     public void Start()
     {
@@ -84,6 +89,8 @@ public class MeteorScript : MonoBehaviour
             }
         }
 
+     
+
     }
 
     public void UseUltimate()
@@ -128,5 +135,15 @@ public class MeteorScript : MonoBehaviour
     public void StartMoving()
     {
         isMoving = true;
+    }
+
+    public void MeteorMovingSFX()
+    {
+        meteorAudioSource.PlayOneShot(meteormovingSFX);
+    }
+
+    public void MeteorCrashingSFX()
+    {
+        meteorAudioSource.PlayOneShot(meteorExplosionSFX);
     }
 }

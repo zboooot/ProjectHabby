@@ -397,9 +397,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 221350691}
     - target: {fileID: 4808522481813150659, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: meteormovingSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: dac91c514d4ef6d4fb7a2ccdd18af89d, type: 3}
+    - target: {fileID: 4808522481813150659, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: playerStatusBars
       value: 
       objectReference: {fileID: 17487342}
+    - target: {fileID: 4808522481813150659, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: meteorAudioSource
+      value: 
+      objectReference: {fileID: 680746371}
+    - target: {fileID: 4808522481813150659, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+      propertyPath: meteorExplosionSFX
+      value: 
+      objectReference: {fileID: 8300000, guid: 9bf966af08144e044a4f04faf5ad0b43, type: 3}
     - target: {fileID: 6516790000295486545, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
       propertyPath: idling
       value: 
@@ -3328,6 +3340,107 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 649562142}
   m_CullTransparentMesh: 1
+--- !u!1 &680746369 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4808522481813150684, guid: 67f82c5ae35bda149bb78f56813931dd, type: 3}
+  m_PrefabInstance: {fileID: 61134887}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &680746371
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680746369}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &695009210
 GameObject:
   m_ObjectHideFlags: 0
@@ -4871,6 +4984,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 61134889}
+  meteorObject: {fileID: 680746369}
   deployScreen: {fileID: 199858857}
   barAnim: {fileID: 1671595073}
   gameStarted: 0

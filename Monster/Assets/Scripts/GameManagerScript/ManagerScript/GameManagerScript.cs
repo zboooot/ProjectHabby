@@ -7,6 +7,7 @@ using TMPro;
 public class GameManagerScript : MonoBehaviour
 {
     public GameObject player; // Prefab of the player
+    public GameObject meteorObject;
     public GameObject deployScreen;
     public Animator barAnim;
     public bool gameStarted = false;
@@ -25,6 +26,8 @@ public class GameManagerScript : MonoBehaviour
 
     private void Start()
     {
+
+        
         Time.timeScale = 1f;
         deployScreen.SetActive(true);
 
@@ -48,7 +51,6 @@ public class GameManagerScript : MonoBehaviour
         if (!gameStarted && Input.anyKeyDown)
         {
             StartGame();
-            meteor.isMoving = true;
         }
     }
 
@@ -86,9 +88,11 @@ public class GameManagerScript : MonoBehaviour
     }
     void StartGame()
     {
-
         // Call any other functions or actions to start your game
         deployScreen.SetActive(false);
+
+        meteor.isMoving = true;
+        meteor.MeteorMovingSFX();
 
         // Set the game as started
         gameStarted = true;
