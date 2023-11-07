@@ -53,7 +53,6 @@ public class CollateralScript : MonoBehaviour
                 carStat.Death();
                 break;
 
-
             case Targetable.EnemyType.Tree:
                 Trees treeStat = entity.GetComponent<Trees>();
                 treeStat.Death();
