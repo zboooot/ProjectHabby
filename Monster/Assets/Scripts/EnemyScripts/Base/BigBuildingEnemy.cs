@@ -44,6 +44,10 @@ public class BigBuildingEnemy : MonoBehaviour
     public Vector2 groundDispenseVelocity;
     public Vector2 verticalDispenseVelocity;
 
+    public AudioSource buildingAudioSource;
+    public AudioClip[] damageSFX;
+    public AudioClip[] deathSFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -61,6 +65,7 @@ public class BigBuildingEnemy : MonoBehaviour
         shakeScript.StartShake();
         SpawnCivilian();
         DamageEffect();
+        playDamageSFX();
 
         if (isOnFire != true)
         {
@@ -84,6 +89,7 @@ public class BigBuildingEnemy : MonoBehaviour
 
     public void Death()
     {
+        playDeathSFX();
         Destroy(fireHandler);
         TriggerLoot();
         buildingCollider.enabled = false;
@@ -113,7 +119,7 @@ public class BigBuildingEnemy : MonoBehaviour
         }
         //Add points
         levelManager.CalculateScore(destructionScore);
-        GameObject pointVFX = Instantiate(pointIndicatorVFX, transform.position, Quaternion.Euler(0f,0f,0f));
+        GameObject pointVFX = Instantiate(pointIndicatorVFX, transform.position, Quaternion.Euler(0f, 0f, 0f));
     }
 
     void DamageEffect()
@@ -132,12 +138,26 @@ public class BigBuildingEnemy : MonoBehaviour
             Vector3 spawnPos = transform.position + randomDirection * Random.Range(0.0f, spawnRadius);
             GameObject civilian = Instantiate(pfDelvin, spawnPos, Quaternion.identity);
             civilian.GetComponent<FakeHeightScript>().Initialize(Random.insideUnitCircle * Random.Range(groundDispenseVelocity.x, groundDispenseVelocity.y), Random.Range(verticalDispenseVelocity.x, verticalDispenseVelocity.y));
-  
+
             //Sets the civilian state upon initialization
             civilian.GetComponentInChildren<Civilian>().enemyState = Civilian.EnemyState.fall;
             civilian.transform.SetParent(civilianParent.transform);
         }
 
+    }
+
+    void playDamageSFX()
+    {
+       
+        AudioClip damagesoundtoPlay = damageSFX[Random.Range(0, damageSFX.Length)];
+        buildingAudioSource.PlayOneShot(damagesoundtoPlay);
+        Debug.Log("PlaySound");
+    }
+
+    void playDeathSFX()
+    {
+        AudioClip deathsoundtoPlay = deathSFX[Random.Range(0, deathSFX.Length)];
+        buildingAudioSource.PlayOneShot(deathsoundtoPlay);
     }
 
 }
