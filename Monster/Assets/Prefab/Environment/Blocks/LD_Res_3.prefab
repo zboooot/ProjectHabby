@@ -530,8 +530,7 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 8097360493170329478}
+  m_Children: []
   m_Father: {fileID: 8803872740345178636}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3049,84 +3048,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 9085308943246743592, guid: 458984d24c08ede4799245ca85ca1c29, type: 3}
   m_PrefabInstance: {fileID: 7949691777421782572}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &8122421799530502454
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 7979546490450162037}
-    m_Modifications:
-    - target: {fileID: 65084354280595120, guid: 033443f8447bd2c43ba34d8fd8b9292a, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65084354280595120, guid: 033443f8447bd2c43ba34d8fd8b9292a, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 65084354280595120, guid: 033443f8447bd2c43ba34d8fd8b9292a, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 65084354280595120, guid: 033443f8447bd2c43ba34d8fd8b9292a, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 65084354280595120, guid: 033443f8447bd2c43ba34d8fd8b9292a, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 9.61
-      objectReference: {fileID: 0}
-    - target: {fileID: 65084354280595120, guid: 033443f8447bd2c43ba34d8fd8b9292a, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 65084354280595120, guid: 033443f8447bd2c43ba34d8fd8b9292a, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65084354280595120, guid: 033443f8447bd2c43ba34d8fd8b9292a, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 65084354280595120, guid: 033443f8447bd2c43ba34d8fd8b9292a, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65084354280595120, guid: 033443f8447bd2c43ba34d8fd8b9292a, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65084354280595120, guid: 033443f8447bd2c43ba34d8fd8b9292a, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65084354280595120, guid: 033443f8447bd2c43ba34d8fd8b9292a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65084354280595120, guid: 033443f8447bd2c43ba34d8fd8b9292a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65084354280595120, guid: 033443f8447bd2c43ba34d8fd8b9292a, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 65084354280595120, guid: 033443f8447bd2c43ba34d8fd8b9292a, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3773491799863252778, guid: 033443f8447bd2c43ba34d8fd8b9292a, type: 3}
-      propertyPath: m_Name
-      value: Building24
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 033443f8447bd2c43ba34d8fd8b9292a, type: 3}
---- !u!4 &8097360493170329478 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 65084354280595120, guid: 033443f8447bd2c43ba34d8fd8b9292a, type: 3}
-  m_PrefabInstance: {fileID: 8122421799530502454}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8152387250605108357
 PrefabInstance:

@@ -23,7 +23,7 @@ public class BigBuildingEnemy : MonoBehaviour
     public GameObject pointIndicatorVFX;
     private GameObject fireHandler;
 
-    public GameObject destroyedBuilding;
+    public Sprite destroyedBuilding;
     private LevelManager levelManager;
     private Vector3 targetScale = new Vector3(2f, 0, 0);
 
@@ -93,13 +93,12 @@ public class BigBuildingEnemy : MonoBehaviour
         Destroy(fireHandler);
         TriggerLoot();
         buildingCollider.enabled = false;
-        spriteRenderer.enabled = false;
         Vector2 explosionLoc = new Vector2(transform.position.x, transform.position.y + 1.5f);
         GameObject explosion = Instantiate(deathVFX, explosionLoc, Quaternion.identity);
         GameObject smoke = Instantiate(smokeVFX, transform.position, Quaternion.identity);
-        GameObject rubble = Instantiate(destroyedBuilding, transform.position, Quaternion.identity);
+        //GameObject rubble = Instantiate(destroyedBuilding, transform.position, Quaternion.identity);
+        spriteRenderer.sprite = destroyedBuilding;
         Destroy(smoke, 1.5f);
-        Destroy(gameObject, 10f);
     }
 
     void TriggerLoot()
@@ -126,6 +125,7 @@ public class BigBuildingEnemy : MonoBehaviour
     {
         GameObject hit = Instantiate(damageVFX, transform.position, Quaternion.identity);
         GameObject hitEffect = Instantiate(hitVFX, transform.position, Quaternion.identity);
+        spriteRenderer.sprite = destroyedBuilding;
         Destroy(hit, 1f);
     }
 
