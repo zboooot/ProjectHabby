@@ -11,6 +11,7 @@ public class PowerPlant : MonoBehaviour
     public int explosionDamage;
     public int minEntities = 1; // Minimum number of entities to spawn
     public int maxEntities = 4; // Maximum number of entities to spawn
+    public int destructionScore = 5;
 
     private LevelManager levelManager;
     private ShakeScript shakeScript;
@@ -80,7 +81,7 @@ public class PowerPlant : MonoBehaviour
             coin.transform.Rotate(0, 0, 90);
         }
         //Add points
-        levelManager.CalculateScore(5);
+        levelManager.CalculateScore(destructionScore);
     }
 
     void DamageEffect()
@@ -96,6 +97,7 @@ public class PowerPlant : MonoBehaviour
         if (!isTriggered)
         {
             TriggerLoot();
+            GameObject explosion = Instantiate(explosionVFX, transform.position, Quaternion.identity);
             Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, explosionRange);
             foreach(Collider2D collider in hitColliders)
             {
@@ -150,7 +152,8 @@ public class PowerPlant : MonoBehaviour
                 }
             }
             isTriggered = true;
-            Destroy(gameObject);
+            Destroy(explosion, 1f);
+            Destroy(gameObject, 1.1f);
         }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Targetable : MonoBehaviour
 {
-    public enum EnemyType {  Building, Tank, BigBuilding, Car, Civilian, Soldier, Tree, PowerPlant, }
+    public enum EnemyType {  Building, Tank, BigBuilding, Car, Civilian, Soldier, Tree, PowerPlant, FoodBuilding, }
     public EnemyType enemyType;
 
     private NewEnemyScript tankEnemy;
@@ -12,6 +12,8 @@ public class Targetable : MonoBehaviour
     private BigBuildingEnemy bigBEnemy;
 
     private PowerPlant powerPlant;
+
+    private FoodBuilding foodBuilding;
 
     public PlayerHandler player;
 
@@ -36,6 +38,10 @@ public class Targetable : MonoBehaviour
             case EnemyType.PowerPlant:
                powerPlant = GetComponent<PowerPlant>();
                 break;
+
+            case EnemyType.FoodBuilding:
+                foodBuilding = GetComponent<FoodBuilding>();
+                break;
         }
     }
 
@@ -56,6 +62,10 @@ public class Targetable : MonoBehaviour
 
             case EnemyType.PowerPlant:
                 powerPlant.TakeDamage(player.playerData.attackDamage);
+                break;
+
+            case EnemyType.FoodBuilding:
+                //foodBuilding.TakeDamage(player.playerData.attackDamage);
                 break;
         }
     }

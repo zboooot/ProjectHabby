@@ -225,4 +225,4 @@ MonoBehaviour:
   countdown: 3
   damage: 5
   timer: 0
-  explosionVFX: {fileID: 0}
+  explosionVFX: {fileID: 7543519273518273561, guid: 1ee9f651f47e661468a6344fc2aadee0, type: 3}

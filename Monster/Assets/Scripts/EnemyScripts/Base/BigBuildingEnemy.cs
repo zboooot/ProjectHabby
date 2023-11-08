@@ -12,6 +12,7 @@ public class BigBuildingEnemy : MonoBehaviour
     private Collider2D buildingCollider;
     public PlayerHandler inputHandler;
     public GameObject civilianParent;
+    public int destructionScore = 5;
 
     //VFX
     public GameObject fireVFX;
@@ -31,6 +32,8 @@ public class BigBuildingEnemy : MonoBehaviour
     [SerializeField] private GameObject pfDelvin;
     public int minEntities = 1; // Minimum number of entities to spawn
     public int maxEntities = 4; // Maximum number of entities to spawn
+    public int minCoins = 1;
+    public int maxCoins = 4;
     public float spawnRadius = 3.0f; // Maximum distance from the current position
 
     private PlayerScoreScript playerScore;
@@ -50,7 +53,6 @@ public class BigBuildingEnemy : MonoBehaviour
         inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHandler>();
         civilianParent = GameObject.Find("---Civillian---");
         levelManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LevelManager>();
-        
     }
 
     public void TakeDamage(float damage)
@@ -101,7 +103,7 @@ public class BigBuildingEnemy : MonoBehaviour
             playerScore.EntityDestroyed();
         }
 
-        int numberOfEntities = Random.Range(minEntities, maxEntities + 1);
+        int numberOfEntities = Random.Range(minCoins, maxCoins + 1);
         for (int i = 0; i < numberOfEntities; i++)
         {
             //Spawn GNA
@@ -110,7 +112,7 @@ public class BigBuildingEnemy : MonoBehaviour
             coin.transform.Rotate(0, 0, 90);
         }
         //Add points
-        levelManager.CalculateScore(5);
+        levelManager.CalculateScore(destructionScore);
         GameObject pointVFX = Instantiate(pointIndicatorVFX, transform.position, Quaternion.Euler(0f,0f,0f));
     }
 
@@ -134,7 +136,6 @@ public class BigBuildingEnemy : MonoBehaviour
             //Sets the civilian state upon initialization
             civilian.GetComponentInChildren<Civilian>().enemyState = Civilian.EnemyState.fall;
             civilian.transform.SetParent(civilianParent.transform);
-
         }
 
     }
