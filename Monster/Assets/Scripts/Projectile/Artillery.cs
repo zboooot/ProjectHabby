@@ -20,9 +20,16 @@ public class Artillery : MonoBehaviour
     public GameObject explosionVFX;
     public GameObject impactCrater;
 
+    private GameObject storedData;
+
+
     [SerializeField]
     private List<Vector3> objectPositions = new List<Vector3>();
 
+    private void Start()
+    {
+        CircleIndicatorPrefab.GetComponent<Collider2D>();
+    }
 
     public IEnumerator SpawnArtilleryWithDelay()
     {
@@ -39,6 +46,7 @@ public class Artillery : MonoBehaviour
             circleIndicatorPositions.Add(randomPosition);
 
             GameObject circleIndicator = Instantiate(CircleIndicatorPrefab, randomPosition, Quaternion.identity);
+            storedData = circleIndicator;
             // Wait for 0.3 seconds before spawning the next circle indicator
             yield return new WaitForSeconds(0.3f);
         }
@@ -50,6 +58,9 @@ public class Artillery : MonoBehaviour
             Vector3 randomPosition = circleIndicatorPositions[i];
             GameObject artillery = Instantiate(artilleryPrefab, artilleryPos.position, Quaternion.identity);
             objectPositions.Add(randomPosition);
+
+
+            artillery.GetComponent<ArtilleryBullet>().GetData(storedData);
 
             Vector3 moveDirection = (randomPosition - artillery.transform.position).normalized;
             float angle = Mathf.Atan2(moveDirection.y, moveDirection.x);
@@ -89,36 +100,44 @@ public class Artillery : MonoBehaviour
         return false; // Not too close to any existing position
     }
 
-    private IEnumerator MoveToPosition(GameObject artillery, Transform transform, Vector3 targetPosition)
+    private IEnumerator MoveToPosition(GameObject artilleryBullet, Transform transform, Vector3 targetPosition)
     {
-        if (artillery != null)
+        if (artilleryBullet != null && transform != null)
         {
-           
             while (Vector3.Distance(transform.position, targetPosition) > 0.01f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
                 yield return null;
-
             }
-            artillery.GetComponent<ArtilleryBullet>().BlowUp();
-            // Destroy the artillery prefab instance
-            Destroy(artillery);
-            Vector2 spawnPos = new Vector2(artillery.transform.position.x, artillery.transform.position.y + 1.5f);
-            // Create and play the explosion VFX
-            GameObject explosion = Instantiate(explosionVFX, spawnPos, Quaternion.identity);
 
-            
-            // Wait for the VFX to finish playing
-            yield return new WaitForSeconds(0.1f);
+            if (artilleryBullet != null)
+            {
+                ArtilleryBullet artilleryBulletComponent = artilleryBullet.GetComponent<ArtilleryBullet>();
+                if (artilleryBulletComponent != null)
+                {
+                    artilleryBulletComponent.BlowUp();
+                }
 
-            GameObject impact = Instantiate(impactCrater, spawnPos, Quaternion.identity);
+                // Destroy the artillery prefab instance
+                Destroy(artilleryBullet);
+                Vector2 spawnPos = new Vector2(targetPosition.x, targetPosition.y + 1.5f);
 
+                // Create and play the explosion VFX
+                GameObject explosion = Instantiate(explosionVFX, spawnPos, Quaternion.identity);
+
+                // Wait for the VFX to finish playing
+                yield return new WaitForSeconds(0.1f);
+
+                GameObject impact = Instantiate(impactCrater, spawnPos, Quaternion.identity);
+            }
         }
         else
         {
+            Debug.LogWarning("ArtilleryBullet or Transform is null in MoveToPosition");
             yield return null;
         }
     }
+
 }
 
 

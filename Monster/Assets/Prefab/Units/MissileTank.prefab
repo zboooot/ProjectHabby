@@ -49,6 +49,7 @@ GameObject:
   - component: {fileID: -3853852632281148223}
   - component: {fileID: -5776955064508255607}
   - component: {fileID: 5467794155571811550}
+  - component: {fileID: -409975696642066335}
   m_Layer: 7
   m_Name: MissileTank
   m_TagString: Tank
@@ -112,7 +113,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 963744515
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 4192b05a896e5c946bc093ac1286cb6f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -156,6 +157,7 @@ MonoBehaviour:
   downSprite: {fileID: 21300000, guid: 58fa94b12ed7d2448a9516388a27f1fa, type: 3}
   leftSprite: {fileID: 21300000, guid: 4192b05a896e5c946bc093ac1286cb6f, type: 3}
   destroyedSprite: {fileID: 21300000, guid: 68294c2d08bc271478d49f1f029b568a, type: 3}
+  deathVFX: {fileID: 1134129239631916, guid: 7e48ba6b1b968764490bbc70b66e3fe1, type: 3}
   tempHealth: 0
   pfBullet: {fileID: 3755558009072592157, guid: 39d86a03e74232c49ac90bc087a303bf, type: 3}
   pfCoin: {fileID: 68998136515679623, guid: 97d85bc601e37404c8ddadc334626a85, type: 3}
@@ -172,7 +174,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.5}
+  m_Offset: {x: 0.014307976, y: 0.9864706}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.1543338}
@@ -183,7 +185,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3, y: 2}
+  m_Size: {x: 4.6311073, y: 2.9729416}
   m_EdgeRadius: 0
 --- !u!50 &3496340173255872741
 Rigidbody2D:
@@ -303,3 +305,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetType: {fileID: 0}
+--- !u!114 &-409975696642066335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3496340173255872740}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 665ff988097abfe4a8612c6f12b47d40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 4
+  delayFadeDuration: 5

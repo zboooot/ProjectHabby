@@ -22,7 +22,9 @@ TagManager:
   - Obstacle
   - Solider
   - FxTemporaire
-  - PostProcess
+  - Artillery
+  - VictoryScreen
+  - ArtiCollider
   layers:
   - Default
   - TransparentFX

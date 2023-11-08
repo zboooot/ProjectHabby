@@ -4,19 +4,22 @@ using UnityEngine;
 
 public class Targetable : MonoBehaviour
 {
-    public enum EnemyType {  Building, Tank, BigBuilding, Car, Civilian, Soldier, Tree, }
+    public enum EnemyType {  Building, Tank, BigBuilding, Car, Civilian, Soldier, Tree, PowerPlant, FoodBuilding, }
     public EnemyType enemyType;
 
     private NewEnemyScript tankEnemy;
 
     private BigBuildingEnemy bigBEnemy;
 
+    private PowerPlant powerPlant;
 
-    public PlayerInputHandler player;
+    private FoodBuilding foodBuilding;
+
+    public PlayerHandler player;
 
     private void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHandler>();
         CallScript(enemyType);
     }
 
@@ -31,6 +34,14 @@ public class Targetable : MonoBehaviour
             case EnemyType.BigBuilding:
                 bigBEnemy = GetComponent<BigBuildingEnemy>();
                 break;
+
+            case EnemyType.PowerPlant:
+               powerPlant = GetComponent<PowerPlant>();
+                break;
+
+            case EnemyType.FoodBuilding:
+                foodBuilding = GetComponent<FoodBuilding>();
+                break;
         }
     }
 
@@ -42,11 +53,19 @@ public class Targetable : MonoBehaviour
                 break;
 
             case EnemyType.Tank:
-                tankEnemy.TakeDamage(player.playerSO.attackDamage);
+                tankEnemy.TakeDamage(player.playerData.attackDamage);
                 break;
 
             case EnemyType.BigBuilding:
-                bigBEnemy.TakeDamage(player.playerSO.attackDamage);
+                bigBEnemy.TakeDamage(player.playerData.attackDamage);
+                break;
+
+            case EnemyType.PowerPlant:
+                powerPlant.TakeDamage(player.playerData.attackDamage);
+                break;
+
+            case EnemyType.FoodBuilding:
+                //foodBuilding.TakeDamage(player.playerData.attackDamage);
                 break;
         }
     }

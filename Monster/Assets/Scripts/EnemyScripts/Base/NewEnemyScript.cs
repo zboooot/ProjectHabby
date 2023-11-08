@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Pathfinding;
 
 public class NewEnemyScript : MonoBehaviour
 {
@@ -16,12 +17,16 @@ public class NewEnemyScript : MonoBehaviour
     public Sprite downSprite;
     public Sprite leftSprite;
     public Sprite destroyedSprite;
+    public GameObject deathVFX;
+    private GameObject explosionHandler;
+
     public float tempHealth;
     float attackCDLeft;
     private Collider2D entityCollider;
 
     private PlayerScoreScript playerScore;
     private PlayerInputHandler inputHandler;
+    private ObjectFadeEffect objectFader;
 
     [SerializeField] private Transform pfBullet;
     private Transform bulletSpawn;
@@ -29,9 +34,11 @@ public class NewEnemyScript : MonoBehaviour
     //Coin variables
     [SerializeField] private GameObject pfCoin;
     bool hasSpawned;
-    
+    private bool isExploding = false;
+
+    private AIBase aStar;
     //NavMeshProperties
-    
+
 
     void Start()
     {
@@ -42,9 +49,11 @@ public class NewEnemyScript : MonoBehaviour
         bulletSpawn = GetComponentInChildren<Transform>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         entityCollider = GetComponent<Collider2D>();
+        objectFader = GetComponent<ObjectFadeEffect>();
 
         playerScore = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PlayerScoreScript>();
         inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
+        aStar = GetComponent<AIBase>();
 
     }
 
@@ -111,9 +120,21 @@ public class NewEnemyScript : MonoBehaviour
 
     public void Death()
     {
+        aStar.canMove = false;
         entityCollider.enabled = false;
         spriteRenderer.sprite = destroyedSprite;
-        Destroy(gameObject, 3f);
+        if (isExploding != true)
+        {
+            SpawnExplosion();
+        }
+        objectFader.StartFading();
+    }
+
+    void SpawnExplosion()
+    {
+        GameObject explosion = Instantiate(deathVFX, transform.position, Quaternion.identity);
+        explosionHandler = explosion;
+        isExploding = true;
     }
 
     void DropLoot()

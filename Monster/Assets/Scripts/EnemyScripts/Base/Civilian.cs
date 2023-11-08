@@ -4,18 +4,26 @@ using UnityEngine;
 
 public class Civilian : MonoBehaviour
 {
-    public enum EnemyState { fall, run, death, walk,}
+    public enum EnemyState { fall, run, death, walk, }
 
     public EnemyState enemyState;
     SpriteRenderer spriteRenderer;
     public EnemyScriptableObject enemyData;
     Rigidbody2D rb;
     public float detectionDistance = 4f;
+
     private Collider2D entityCollider;
+
     public Transform player;
     public Animator anim;
+    public GameObject deathVFX;
+    public ObjectFadeEffect fadeEffect;
+
     private float lastPosX;
     private float runSpeed;
+
+    [SerializeField] private LevelManager levelManager;
+    bool isTriggered;
 
     //Wandering Variables
     public float changeDirectionInterval = 1.0f; // Time interval to change direction
@@ -23,11 +31,14 @@ public class Civilian : MonoBehaviour
 
     private Vector2 targetPosition;
     private float timeSinceLastDirectionChange = 0.0f;
-
     private PlayerScoreScript playerScore;
     private PlayerInputHandler inputHandler;
     private Transform blockingEntity;
+
     public bool isBlocked;
+    private bool hasSpawned;
+    public FakeHeightScript fakeheight;
+
 
     private void Awake()
     {
@@ -38,7 +49,12 @@ public class Civilian : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         playerScore = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerScoreScript>();
         inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
+
+        //Game Manager
+        levelManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LevelManager>();
+        fadeEffect = GetComponent<ObjectFadeEffect>();
     }
+
 
     // Start is called before the first frame update
     void Start()
@@ -47,7 +63,12 @@ public class Civilian : MonoBehaviour
 
         targetPosition = transform.position;
 
-        runSpeed = enemyData.speed * 2;
+        RandomizeSpeed(enemyData.speed);
+    }
+
+    private void RandomizeSpeed(float speed)
+    {
+        runSpeed = Random.Range(enemyData.speed, enemyData.speed + 2f);
     }
 
 
@@ -62,6 +83,7 @@ public class Civilian : MonoBehaviour
                 playerScore.EntityDestroyed();
             }
             enemyState = EnemyState.death;
+
         }
     }
 
@@ -74,17 +96,6 @@ public class Civilian : MonoBehaviour
         }
     }
 
-    void MimicFall()
-    {
-        if(enemyState == EnemyState.fall)
-        {
-            rb.AddForce(Vector3.down * Time.deltaTime * 120);
-        }
-        else
-        {
-            rb.velocity = Vector3.zero;
-        }
-    }
 
     void Run(Vector2 dir)
     {
@@ -115,7 +126,7 @@ public class Civilian : MonoBehaviour
             }
         }
 
-        else if(distanceToPlayer > newDistance)
+        else if (distanceToPlayer > newDistance)
         {
             ChangeWalkState();
         }
@@ -129,18 +140,20 @@ public class Civilian : MonoBehaviour
         if (distanceToPlayer < detectionDistance)
         {
             anim.SetBool("run", true);
+            anim.SetBool("walk", false);
             enemyState = EnemyState.run;
         }
 
         else
         {
             anim.SetBool("walk", true);
+            anim.SetBool("run", false);
             timeSinceLastDirectionChange += Time.deltaTime;
 
             // Check if it's time to change direction
             if (timeSinceLastDirectionChange >= changeDirectionInterval)
             {
-                if(isBlocked != true) 
+                if (isBlocked != true)
                 {
                     // Generate a random direction vector
                     Vector2 randomDirection = Random.insideUnitCircle.normalized;
@@ -172,24 +185,43 @@ public class Civilian : MonoBehaviour
     void ChangeRunState()
     {
         anim.SetBool("run", true);
+        anim.SetBool("walk", false);
         enemyState = EnemyState.run;
+        fakeheight.isGrounded = true;
     }
 
     void ChangeWalkState()
     {
         anim.SetBool("walk", true);
+        anim.SetBool("run", false);
         enemyState = EnemyState.walk;
     }
 
     void FallToRun()
     {
-        Invoke("ChangeRunState", 1.5f);
+        if(fakeheight.isGrounded == true)
+        {
+            ChangeRunState();
+        }
+        
     }
 
     public void Death()
     {
+        if (!isTriggered)
+        {
+            levelManager.CalculateScore(0.1f);
+            isTriggered = true;
+        }
         entityCollider.enabled = false;
-        Destroy(gameObject, 2f);
+
+        if (!hasSpawned)
+        {
+            Instantiate(deathVFX, transform.position, Quaternion.identity);
+            hasSpawned = true;
+        }
+
+        Destroy(transform.parent.gameObject, 5f);
     }
 
     void FlipSprite()
@@ -215,7 +247,6 @@ public class Civilian : MonoBehaviour
     void Update()
     {
         FlipSprite();
-        MimicFall();
 
         switch (enemyState)
         {

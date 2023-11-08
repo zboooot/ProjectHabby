@@ -71,8 +71,6 @@ public class PlayerScoreScript : MonoBehaviour
             isBombing = false;
 
         }
-
-
     }
 
     void BlinkingEffect()

@@ -13,11 +13,16 @@ public class CivilianSpawners : MonoBehaviour
 {
     public List<EnemySpawnInfo> enemySpawnInfoList; // List of enemy prefabs with spawn probabilities
     public int numberOfEnemiesToSpawn; // Number of enemies to spawn
+    public GameObject civiParent;
 
     // The minimum and maximum positions where enemies can spawn
     public Vector2 minSpawnPosition;
     public Vector2 maxSpawnPosition;
 
+    private void Awake()
+    {
+        civiParent = new GameObject("---Civillian---");
+    }
     void Start()
     {
         SpawnEnemies();
@@ -25,7 +30,6 @@ public class CivilianSpawners : MonoBehaviour
 
     void SpawnEnemies()
     {
-        GameObject civilianParent = new GameObject("---Civillian---");
         for (int i = 0; i < numberOfEnemiesToSpawn; i++)
         {
             // Generate a random value between 0 and 1
@@ -52,7 +56,7 @@ public class CivilianSpawners : MonoBehaviour
 
                 // Spawn the selected enemy prefab at the random position
                GameObject preFabtocreate = Instantiate(enemyPrefabToSpawn, spawnPosition, Quaternion.identity);
-                preFabtocreate.transform.parent = civilianParent.transform;
+                preFabtocreate.transform.parent = civiParent.transform;
      
             }
         }

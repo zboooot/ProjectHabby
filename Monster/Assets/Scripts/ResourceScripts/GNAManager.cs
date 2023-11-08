@@ -18,7 +18,7 @@ public class GNAManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gnaCounter.text = "GNA: " + gnaData.inGameGNA;
+        //gnaCounter.text = "GNA: " + gnaData.inGameGNA;
     }
 
     public void UpdateTotal()

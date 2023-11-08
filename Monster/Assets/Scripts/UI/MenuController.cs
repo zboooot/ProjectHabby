@@ -36,7 +36,7 @@ public class MenuController : MonoBehaviour
 
 	public void LoadGame()
 	{
-		SceneManager.LoadScene("GameplayScene");
+		SceneManager.LoadScene("ComicScene");
 	}
 
 	public void LeaveGame()

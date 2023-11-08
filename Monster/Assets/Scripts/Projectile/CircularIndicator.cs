@@ -11,11 +11,12 @@ public class CircularIndicator : MonoBehaviour
     public Color endColor = new Color(1.0f, 1.0f, 1.0f, 0.0f); // Color with alpha set to 0 for fully transparent
 
     private bool scalingUp = true;
+    public bool isInRange;
 
     private void Start()
     {
         StartCoroutine(FlashScale());
-        StartCoroutine(DestroyAfterDelay(5.0f)); // Destroy the object after 5 seconds
+        StartCoroutine(DestroyAfterDelay(10f)); // Destroy the object after 5 seconds
     }
 
     private IEnumerator FlashScale()
@@ -52,6 +53,22 @@ public class CircularIndicator : MonoBehaviour
     private IEnumerator DestroyAfterDelay(float delay)
     {
         yield return new WaitForSeconds(delay);
-        Destroy(gameObject); // Destroy the game object after the specified delay
+        gameObject.GetComponent<SpriteRenderer>().enabled = false;
+        Destroy(gameObject,10f);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            isInRange = true;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            isInRange = false;
+        }
     }
 }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5864335005334085720}
   - component: {fileID: -5336387388298040235}
   - component: {fileID: -8286827574673044184}
+  - component: {fileID: -6325918464651193665}
   m_Layer: 13
   m_Name: CarVariant1
   m_TagString: Car
@@ -31,7 +32,7 @@ Transform:
   m_GameObject: {fileID: 4411149530234238777}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -37.152718, y: 30.589981, z: 0}
-  m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -77,13 +78,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 963744515
   m_SortingLayer: 1
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 044902f0fdd0d7c41beaf82cc25f5aaf, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: 1202af7efa9bf604790e1f1773828944, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 3, y: 3}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -107,7 +108,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
+    newSize: {x: 3, y: 3}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -148,13 +149,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cbe182f70db5cd4ca43251f25027b9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelManager: {fileID: 0}
   roamRadius: 40
   roamInterval: 5
-  upSprite: {fileID: 21300000, guid: cf95b9021190dbc40b92ca13f1c052c4, type: 3}
-  downSprite: {fileID: 21300000, guid: b6d95caf78c3ada489393195a517e1ba, type: 3}
-  leftSprite: {fileID: 21300000, guid: 5d43bd111df78684fa382a3ebecb1012, type: 3}
-  rightSprite: {fileID: 21300000, guid: 7bc6b48389bc0ea438936e34f2c7fb65, type: 3}
-  destroyedSprite: {fileID: 21300000, guid: 8da3ee36a2faec14b9ff6da8fc1e5001, type: 3}
+  upSprite: {fileID: 21300000, guid: c09ee28a504866a44b77143460d6a6af, type: 3}
+  downSprite: {fileID: 21300000, guid: 00f5a0bedc37aab47811c74b5444b838, type: 3}
+  leftSprite: {fileID: 21300000, guid: 0d1ae091c500dc349bb702b1dd685783, type: 3}
+  rightSprite: {fileID: 21300000, guid: 1202af7efa9bf604790e1f1773828944, type: 3}
+  destroyedSprite: {fileID: 21300000, guid: 8fcc7072d632e1e4aafdf747c640971e, type: 3}
+  smokeVFX: {fileID: 141433446842962269, guid: 9fe8f8b3288e45a44af36ff8aa04486e, type: 3}
+  sparkVFX: {fileID: 1750940742320366, guid: ec1383a81f8b26e41bd5795fba065567, type: 3}
 --- !u!114 &-5336387388298040235
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,3 +186,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetType: {fileID: 0}
+--- !u!114 &-6325918464651193665
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4411149530234238777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 665ff988097abfe4a8612c6f12b47d40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fadeDuration: 4
+  delayFadeDuration: 5

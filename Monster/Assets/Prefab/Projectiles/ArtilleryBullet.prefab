@@ -75,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 963744515
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 3
   m_Sprite: {fileID: 21300000, guid: a589248f13c286b4796c95f7dbabaf48, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -99,9 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a07ea54a4020cf4cacf63884a7c1f70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyData: {fileID: 11400000, guid: 5297dc130569efa4fa1966661ab634ed, type: 2}
-  destroyTime: 10
-  explosionVFX: {fileID: 7543519273518273561, guid: 1ee9f651f47e661468a6344fc2aadee0, type: 3}
+  enemyData: {fileID: 11400000, guid: 08d669bf5a66e6f45b35b79c6cb0c199, type: 2}
+  explosionVFX: {fileID: 725748389856807714, guid: 4bda94453d2ca7444a0fff05b2d425f5, type: 3}
 --- !u!70 &2939362524460145714
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

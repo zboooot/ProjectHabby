@@ -2,56 +2,77 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInputHandler : MonoBehaviour
+public class PlayerInputHandler : MonoBehaviour, ISoundable
 {
     public Vector2 MovementInput { get; private set; }
     public Joystick joystick;
 
     public PlayerStatScriptableObject playerSO;
     private Rigidbody2D rb;
-    public bool attackNow;
-    public bool ultimating;
+    public Transform hitPos;
+    public Collider2D selectedEnemy;
+    public Transform detectionOrigin;
+    public PlayerHealthScript healthScript;
+    public UltimateButtonScript ultimateButtonScript;
+    private PlayerVFXManager playerVFXManager;
+    public GameObject[] feet; // Assign the feet GameObjects in the Inspector.
+    public GameObject player;
+    public GameObject skillRdyText;
+
     public float ultimateRadius = 20f;
     public float currentUltimateCharge;
 
     public Vector2 boxSize; // Adjust the size as needed.
+    public LayerMask enemyLayer;
     private float rangeX;
     private float rangeY;
-    public LayerMask enemyLayer;
-    public Collider2D selectedEnemy;
+
     bool facingLeft;
+    public bool attackNow;
+    public bool ultimating;
+
     public bool isAttacking;
     public bool isCollision;
-
-    public bool startScene = true;
-    public Transform detectionOrigin;
-    public PlayerHealthScript healthScript;
-
-    public GameObject player;
-    public GameObject hitVFX;
-    public Transform hitPos;
-    public GameObject ultimateVFX;
-
+    public bool isDead;
+    public bool canMove;
     public float move;
+    private bool hasSpawned = false;
 
+    public List<UltimateBase> utlimates = new List<UltimateBase>();
+    public List<AudioClip> listofSFX = new List<AudioClip>();
+    private AudioSource source;
+
+    //New hit detection
+    public float raycastDistance = 5f; // Maximum distance for the raycast
+    public Vector3 lastKnownVector;
 
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        healthScript = GetComponent<PlayerHealthScript>();
+        ultimateButtonScript = GameObject.Find("UltimateButton").GetComponent<UltimateButtonScript>();
+        source = GetComponent<AudioSource>();
+       
+   
+        boxSize = new Vector2(rangeX, rangeY);
         rangeX = playerSO.attackRange;
         rangeY = playerSO.attackRange;
-        boxSize = new Vector2(rangeX, rangeY);
-        healthScript = GetComponent<PlayerHealthScript>();
         move = playerSO.speed;
+
     }
 
     private void Update()
     {
-        if(!startScene || !isAttacking)
+        Cheats();
+        HightlightRange();
+        TriggerAttack();
+        CheckUltiRdy();
+        if (canMove)
         {
             CheckFlip();
             ProcessInput();
         }
+        else { return; }
         //AttackNearestEnemy();
     }
 
@@ -86,7 +107,10 @@ public class PlayerInputHandler : MonoBehaviour
 
     //    else { selectedEnemy = null; CheckAttack(false); }
     //}
-
+    public void TriggerImpactVFX(int footIndex)
+    {
+        playerVFXManager.SpawnImpactAtFoot(footIndex);
+    }
     public void TriggerAttack(Collider2D enemy)
     {
         selectedEnemy = enemy;
@@ -109,7 +133,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(!startScene)
+        if(canMove)
         {
             OnAnimationMove();
         }
@@ -122,11 +146,58 @@ public class PlayerInputHandler : MonoBehaviour
         float moveY = joystick.Vertical;
 
         MovementInput = new Vector2(moveX, moveY).normalized;
+        if(MovementInput.x != 0 && MovementInput.y != 0)
+        {
+            lastKnownVector = MovementInput;
+        }
     }
+
+    
 
     public void CheckAttack(bool canAttack)
     {
         attackNow = canAttack;
+    }
+
+    public void CheckUltiRdy()
+    {
+        if (!hasSpawned)
+        {
+            if (ultimateButtonScript.ultimateReady == true)
+            {
+                Vector2 textPos = new Vector2(transform.position.x, transform.position.y + 7f);
+                GameObject ultimateRdy = Instantiate(skillRdyText, textPos, Quaternion.Euler(0f, 0f, 0f));
+                hasSpawned = true;
+            }
+        }
+
+        if(currentUltimateCharge == 0)
+        {
+            hasSpawned = false;
+        }
+
+    }
+
+    void HightlightRange()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(detectionOrigin.position, lastKnownVector, playerSO.attackRange * 2, enemyLayer);
+
+        // Check if the raycast hits an object
+        if (hit.collider != null)
+        {
+            Debug.Log("Hit object: " + hit.collider.gameObject.name);
+        }
+    }
+
+    void TriggerAttack()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(detectionOrigin.position, lastKnownVector, playerSO.attackRange, enemyLayer);
+
+        // Check if the raycast hits an object
+        if (hit.collider != null)
+        {
+            TriggerAttack(hit.collider);
+        }
     }
 
     public void StopAttackAnimation()
@@ -138,6 +209,16 @@ public class PlayerInputHandler : MonoBehaviour
     {
         ultimating = false;
         currentUltimateCharge = 0;
+    }
+
+    public void DeactivateMove()
+    {
+        canMove = false;
+    }
+
+    public void ActivateMove()
+    {
+        canMove = true;
     }
 
     //private Collider2D FindNearestEnemy(Collider2D[] enemies)
@@ -165,82 +246,21 @@ public class PlayerInputHandler : MonoBehaviour
 
     //    return selectedEnemy;
     //}
-
-    public void UseUltimate()
+    
+    public void UseUltimate1()
     {
-        GameObject ultiVFX = Instantiate(ultimateVFX, player.transform.position, Quaternion.identity);
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(detectionOrigin.position, ultimateRadius);
-        foreach (Collider2D collider in hitColliders)
-        {
-            if (collider.CompareTag("Tank"))
-            {
-                NewEnemyScript tank = collider.GetComponent<NewEnemyScript>();
-                if (tank != null)
-                {
-                    tank.TakeDamage(playerSO.ultimateDamage);
-                }
-                else { return; }
-            }
+        utlimates[0].UseDamageUltimate(ultimateRadius, playerSO.ultimateDamage);
+    }
 
-            else if (collider.CompareTag("BigBuilding"))
-            {
-                BigBuildingEnemy bigBuilding = collider.GetComponent<BigBuildingEnemy>();
-                if (bigBuilding != null)
-                {
-                    bigBuilding.TakeDamage(playerSO.ultimateDamage);
-                }
-                else { return; }
-            }
-
-            else if (collider.CompareTag("Civilian"))
-            {
-                Civilian civilian = collider.GetComponent<Civilian>();
-                if (civilian != null)
-                {
-                    civilian.enemyState = Civilian.EnemyState.death;
-                }
-                else { return; }
-            }
-
-
-            else if (collider.CompareTag("Tree"))
-            {
-                Trees tree = collider.GetComponent<Trees>();
-                if (tree != null)
-                {
-                    tree.Death();
-                }
-                else { return; }
-            }
-
-            else if (collider.CompareTag("Car"))
-            {
-                CarAI car = collider.GetComponent<CarAI>();
-                if (car != null)
-                {
-                    car.Death();
-                }
-                else { return; }
-            }
-
-            else if (collider.CompareTag("Solider"))
-            {
-                HumanSoldier soldier = collider.GetComponent<HumanSoldier>();
-                if (soldier != null)
-                {
-                    soldier.isBurnt = true;
-                    soldier.Death();
-                }
-                else { return; }
-            }
-        }
+    public void UseUltimate2()
+    {
+        utlimates[1].UseUtilityUltimate();
     }
 
     public void Attack()
     {
         if (selectedEnemy != null)
         {
-            GameObject hitEffect = Instantiate(hitVFX, hitPos.transform.position, Quaternion.identity);
             selectedEnemy.GetComponent<Targetable>().TakeDamage();
         }
 
@@ -261,7 +281,7 @@ public class PlayerInputHandler : MonoBehaviour
     }
     public void CheckFlip()
     {
-        if (startScene)
+        if (!canMove)
         {
             return;
         }
@@ -296,6 +316,15 @@ public class PlayerInputHandler : MonoBehaviour
         rb.velocity = new Vector2(MovementInput.x * move, MovementInput.y * move);
     }
 
+    public void PlaySFX()
+    {
+        int index = Random.Range(0,2);
+        source.clip = listofSFX[index];
+        source.Play();
+    }
+
+    
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("BigBuilding") || collision.gameObject.CompareTag("Tank"))
@@ -309,6 +338,32 @@ public class PlayerInputHandler : MonoBehaviour
         if (collision.gameObject.CompareTag("BigBuilding") || collision.gameObject.CompareTag("Tank"))
         {
             isCollision = false;
+        }
+    }
+
+    private void Cheats()
+    {
+        if (Input.GetKeyUp(KeyCode.V))
+        {
+            CutSceneManager csManager = GameObject.FindGameObjectWithTag("VictoryScreen").GetComponent<CutSceneManager>();
+            GameManagerScript gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>();
+            gameManager.isVictory = true;
+            csManager.TriggerEnd();
+
+        }
+
+        if (Input.GetKeyUp(KeyCode.D))
+        {
+            CutSceneManager csManager = GameObject.FindGameObjectWithTag("VictoryScreen").GetComponent<CutSceneManager>();
+            GameManagerScript gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>();
+            gameManager.isVictory = false;
+            csManager.TriggerEnd();
+        }
+
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            Artillery artillery = GameObject.FindGameObjectWithTag("Artillery").GetComponent<Artillery>();
+            StartCoroutine(artillery.SpawnArtilleryWithDelay());
         }
     }
 }

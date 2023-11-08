@@ -10,32 +10,43 @@ public class BigBuildingEnemy : MonoBehaviour
     public Sprite damagedSprite;
     public Targetable buildingType;
     private Collider2D buildingCollider;
-    public PlayerInputHandler inputHandler;
+    public PlayerHandler inputHandler;
     public GameObject civilianParent;
+    public int destructionScore = 5;
+
+    //VFX
+    public GameObject fireVFX;
+    public GameObject deathVFX;
+    public GameObject damageVFX;
     public GameObject smokeVFX;
-    private GameObject smokeHandler;
-    public GameObject destroyedBuilding;
+    public GameObject hitVFX;
+    public GameObject pointIndicatorVFX;
+    private GameObject fireHandler;
+
+    public Sprite destroyedBuilding;
+    private LevelManager levelManager;
+    private Vector3 targetScale = new Vector3(2f, 0, 0);
 
     [SerializeField] private GameObject pfCoin;
 
     [SerializeField] private GameObject pfDelvin;
     public int minEntities = 1; // Minimum number of entities to spawn
     public int maxEntities = 4; // Maximum number of entities to spawn
+    public int minCoins = 1;
+    public int maxCoins = 4;
     public float spawnRadius = 3.0f; // Maximum distance from the current position
-
-    private float hitDarkeningAmount = 0.6f; // Amount to darken the sprite on each hit
-    private float minDarkness = 0.2f; // Minimum darkness level
-
-    private Color originalColor;
 
     private PlayerScoreScript playerScore;
     public ShakeScript shakeScript;
-    private OrbManager orbManager;
 
-    float pushForce = 2f;
-    float upForce = 5f;
+    bool isOnFire;
 
-    bool isSmoking;
+    public Vector2 groundDispenseVelocity;
+    public Vector2 verticalDispenseVelocity;
+
+    public AudioSource buildingAudioSource;
+    public AudioClip[] damageSFX;
+    public AudioClip[] deathSFX;
 
     // Start is called before the first frame update
     void Start()
@@ -43,50 +54,51 @@ public class BigBuildingEnemy : MonoBehaviour
         tempHealth = SO_enemy.health;
         buildingCollider = GetComponent<BoxCollider2D>();
         playerScore = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PlayerScoreScript>();
-        inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
-        orbManager = GetComponent<OrbManager>();
-        originalColor = spriteRenderer.color;
+        inputHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHandler>();
         civilianParent = GameObject.Find("---Civillian---");
-
+        levelManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<LevelManager>();
     }
 
     public void TakeDamage(float damage)
     {
         tempHealth -= damage;
-        //spriteRenderer.sprite = damagedSprite;
         shakeScript.StartShake();
         SpawnCivilian();
         DamageEffect();
+        playDamageSFX();
 
-        if (isSmoking != true)
+        if (isOnFire != true)
         {
-            SpawnSmoke();
+            SpawnFire();
         }
 
         if (tempHealth <= 0)
         {
-            TriggerLoot();
+            inputHandler.ChargeUltimate(10);
             Death();
         }
         else return;
     }
 
-    void SpawnSmoke()
+    void SpawnFire()
     {
-        GameObject smokeAnim = Instantiate(smokeVFX, transform.position, Quaternion.identity);
-        smokeHandler = smokeAnim;
-        isSmoking = true;
+        GameObject fireAnim = Instantiate(fireVFX, transform.position, Quaternion.identity);
+        fireHandler = fireAnim;
+        isOnFire = true;
     }
-
 
     public void Death()
     {
-        Destroy(smokeHandler);
+        playDeathSFX();
+        Destroy(fireHandler);
+        TriggerLoot();
         buildingCollider.enabled = false;
-        spriteRenderer.enabled = false;
-        Vector2 spawnLoc = new Vector2(transform.position.x, transform.position.y + 1.5f);
-        GameObject rubble = Instantiate(destroyedBuilding, spawnLoc, Quaternion.identity);
-        Destroy(gameObject, 10f);
+        Vector2 explosionLoc = new Vector2(transform.position.x, transform.position.y + 1.5f);
+        GameObject explosion = Instantiate(deathVFX, explosionLoc, Quaternion.identity);
+        GameObject smoke = Instantiate(smokeVFX, transform.position, Quaternion.identity);
+        //GameObject rubble = Instantiate(destroyedBuilding, transform.position, Quaternion.identity);
+        spriteRenderer.sprite = destroyedBuilding;
+        Destroy(smoke, 1.5f);
     }
 
     void TriggerLoot()
@@ -96,7 +108,7 @@ public class BigBuildingEnemy : MonoBehaviour
             playerScore.EntityDestroyed();
         }
 
-        int numberOfEntities = Random.Range(minEntities, maxEntities + 1);
+        int numberOfEntities = Random.Range(minCoins, maxCoins + 1);
         for (int i = 0; i < numberOfEntities; i++)
         {
             //Spawn GNA
@@ -104,24 +116,17 @@ public class BigBuildingEnemy : MonoBehaviour
             GameObject coin = Instantiate(pfCoin, transform.position, Quaternion.identity);
             coin.transform.Rotate(0, 0, 90);
         }
-
-        //Spawn Orbs
-        orbManager.DropOrbsOnKill();
-
-        inputHandler.ChargeUltimate(10);
+        //Add points
+        levelManager.CalculateScore(destructionScore);
+        GameObject pointVFX = Instantiate(pointIndicatorVFX, transform.position, Quaternion.Euler(0f, 0f, 0f));
     }
 
     void DamageEffect()
     {
-        Color currentColor = spriteRenderer.color;
-
-        // Reduce the brightness of the sprite by the specified amount
-        currentColor.r = Mathf.Max(minDarkness, currentColor.r - hitDarkeningAmount);
-        currentColor.g = Mathf.Max(minDarkness, currentColor.g - hitDarkeningAmount);
-        currentColor.b = Mathf.Max(minDarkness, currentColor.b - hitDarkeningAmount);
-
-        // Apply the new color to the sprite
-        spriteRenderer.color = currentColor;
+        GameObject hit = Instantiate(damageVFX, transform.position, Quaternion.identity);
+        GameObject hitEffect = Instantiate(hitVFX, transform.position, Quaternion.identity);
+        spriteRenderer.sprite = destroyedBuilding;
+        Destroy(hit, 1f);
     }
 
     private void SpawnCivilian()
@@ -132,14 +137,27 @@ public class BigBuildingEnemy : MonoBehaviour
             Vector3 randomDirection = Random.insideUnitCircle.normalized;
             Vector3 spawnPos = transform.position + randomDirection * Random.Range(0.0f, spawnRadius);
             GameObject civilian = Instantiate(pfDelvin, spawnPos, Quaternion.identity);
-            civilian.GetComponent<Rigidbody2D>().AddForce(Vector2.up * upForce, ForceMode2D.Impulse);
-            civilian.GetComponent<Rigidbody2D>().AddForce(randomDirection * pushForce, ForceMode2D.Impulse);
-            //Sets the civilian state upon initialization
-            civilian.GetComponent<Civilian>().enemyState = Civilian.EnemyState.fall;
-            civilian.transform.SetParent(civilianParent.transform);
+            civilian.GetComponent<FakeHeightScript>().Initialize(Random.insideUnitCircle * Random.Range(groundDispenseVelocity.x, groundDispenseVelocity.y), Random.Range(verticalDispenseVelocity.x, verticalDispenseVelocity.y));
 
+            //Sets the civilian state upon initialization
+            civilian.GetComponentInChildren<Civilian>().enemyState = Civilian.EnemyState.fall;
+            civilian.transform.SetParent(civilianParent.transform);
         }
 
+    }
+
+    void playDamageSFX()
+    {
+       
+        AudioClip damagesoundtoPlay = damageSFX[Random.Range(0, damageSFX.Length)];
+        buildingAudioSource.PlayOneShot(damagesoundtoPlay);
+        Debug.Log("PlaySound");
+    }
+
+    void playDeathSFX()
+    {
+        AudioClip deathsoundtoPlay = deathSFX[Random.Range(0, deathSFX.Length)];
+        buildingAudioSource.PlayOneShot(deathsoundtoPlay);
     }
 
 }

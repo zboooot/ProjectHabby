@@ -26,13 +26,21 @@ public class Trees : MonoBehaviour
 
     public void Death()
     {
-        entityCollider.enabled = false;
-        if (isShake != true)
+        if(entityCollider == null)
         {
-            shake.StartShake();
-            isShake = true;
+            return;
         }
-        spriteRenderer.sprite = destroyedSprite;
+
+        else
+        {
+            entityCollider.enabled = false;
+            if (isShake != true)
+            {
+                shake.StartShake();
+                isShake = true;
+            }
+            spriteRenderer.sprite = destroyedSprite;
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

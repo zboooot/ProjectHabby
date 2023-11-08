@@ -5,19 +5,47 @@ using UnityEngine;
 public class ArtilleryBullet : MonoBehaviour
 {
     public EnemyScriptableObject enemyData;
-    public float destroyTime = 10f;
-    private float currentTime = 0f;
     public GameObject explosionVFX;
+
+    private CircularIndicator storedData;
+    private Collider2D entityCollider;
+
+    private void Start()
+    {
+        entityCollider = GetComponent<Collider2D>();
+
+    }
+
     private void Update()
     {
-        currentTime += Time.deltaTime;
+        CheckTrigger();
 
-        if (currentTime >= destroyTime)
+    }
+
+    void CheckTrigger()
+    {
+        if (storedData.isInRange == true)
         {
-            Destroy(gameObject);
+            entityCollider.enabled = true;
         }
 
-        //BlowUp();
+        else
+        {
+            entityCollider.enabled = false;
+        }
+    }
+
+    public void GetData(GameObject data)
+    {
+        if (data)
+        {
+            storedData = data.GetComponent<CircularIndicator>();
+        }
+
+        else
+        {
+
+        }
     }
 
     public void BlowUp()
@@ -35,11 +63,21 @@ public class ArtilleryBullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject != null && collision.gameObject.CompareTag("Player"))
         {
-            GameObject bomb = Instantiate(explosionVFX, collision.transform.position, Quaternion.identity);
-            collision.gameObject.GetComponent<PlayerHealthScript>().TakeDamage(enemyData.attackDamage);
-            Destroy(gameObject);
+            if (gameObject != null)
+            {
+                GameObject bomb = Instantiate(explosionVFX, collision.transform.position, Quaternion.identity);
+
+                PlayerHealthScript playerHealth = collision.gameObject.GetComponent<PlayerHealthScript>();
+                if (playerHealth != null)
+                {
+                    playerHealth.TakeDamage(enemyData.attackDamage);
+                    Destroy(gameObject);
+                }
+
+                
+            }
         }
     }
 }

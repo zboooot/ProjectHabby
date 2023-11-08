@@ -14,12 +14,17 @@ public class PlayerHealthScript : MonoBehaviour
 
     public PlayerStatScriptableObject playerSO;
     public Slider healthSlider;
+    public Slider abilitySlider;
     public Image healthFill;
+    public Image abilityFill;
     public float lerpSpeed = 2f;
 
     private ShakeScript shakeMe;
     private float currentHealth;
     public HealthState healthState;
+
+    private GameManagerScript gameManager;
+    private PlayerHandler playerHandler;
 
     //Flash Effect
     private PlayerFlash flashEffect;
@@ -28,10 +33,10 @@ public class PlayerHealthScript : MonoBehaviour
 
     //Berserk mode Feedback
     private CanvasGroup berserkVignette;
-    private bool fadeIn;
-    private bool fadeOut;
-    public GameObject rageIndicator;
+    public CutSceneManager cutsceneManager;
 
+    [SerializeField] private bool isTriggered;
+    
     private void Start()
     {
         shakeMe = healthSlider.gameObject.GetComponent<ShakeScript>();
@@ -45,6 +50,10 @@ public class PlayerHealthScript : MonoBehaviour
         healthState = HealthState.normal;
 
         berserkVignette = GameObject.Find("Vignette").GetComponent<CanvasGroup>();
+        gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManagerScript>();
+        playerHandler = GetComponent<PlayerHandler>();
+
+        cutsceneManager = GameObject.FindGameObjectWithTag("VictoryScreen").GetComponent<CutSceneManager>();
     }
 
     void TriggerVignette()
@@ -53,16 +62,21 @@ public class PlayerHealthScript : MonoBehaviour
         {
             if (berserkVignette.alpha >= 0)
             {
-                rageIndicator.SetActive(false);
+                
                 berserkVignette.alpha -= Time.deltaTime;
             }
         }
 
         else
         {
+            if (!isTriggered)
+            {
+                playerHandler.DisableMovement(1);
+                isTriggered = true;
+            }
+
             if (berserkVignette.alpha < 1)
             {
-                rageIndicator.SetActive(true);
                 berserkVignette.alpha += Time.deltaTime;
             }
         }
@@ -78,6 +92,7 @@ public class PlayerHealthScript : MonoBehaviour
         }
 
         TriggerVignette();
+        UpdateAbilityBar();
     }
 
     void CheckHealthStatus(float playerhealth)
@@ -99,24 +114,40 @@ public class PlayerHealthScript : MonoBehaviour
     {
         shakeMe.StartShake();
         CheckHealthStatus(currentHealth);
-        if(healthState == HealthState.normal)
+        if(playerSO.health > 0)
         {
-            playerSO.health -= damage; // Adjust the damage amount as needed
+            if (healthState == HealthState.normal)
+            {
+                playerSO.health -= damage; // Adjust the damage amount as needed
+            }
+
+            else
+            {
+                playerSO.health -= damage * 2; // Player takes double damage when they are in berserk mode
+            }
+
+            int healthDifference = thresholdHealth - playerSO.health;
+            if (healthDifference >= triggerNumber)
+            {
+                //flashEffect.Flash();
+                thresholdHealth = playerSO.health;
+            }
         }
 
         else
         {
-            playerSO.health -= damage * 2; // Player takes double damage when they are in berserk mode
-        }
+            playerHandler.isEnd = true;
+            playerHandler.DisableMovement(3);
+            gameManager.isVictory = false;
+            cutsceneManager.TriggerEnd();
 
-        int healthDifference = thresholdHealth - playerSO.health;
-        if(healthDifference >= triggerNumber)
-        {
-            flashEffect.Flash();
-            thresholdHealth = playerSO.health;
         }
+    }
 
-        else { return; }
+    private void UpdateAbilityBar()
+    {
+        abilitySlider.value = playerHandler.currentUltimateCharge; // Update the slider's value
+        abilityFill.fillAmount = playerHandler.currentUltimateCharge; // Update the fill amount of the health bar
     }
 
     private void UpdateHealthBar()

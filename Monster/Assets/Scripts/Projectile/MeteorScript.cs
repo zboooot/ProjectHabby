@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MeteorScript : MonoBehaviour
 {
@@ -12,38 +13,37 @@ public class MeteorScript : MonoBehaviour
     private Animator animator;
     public bool isActive;
     public GameObject player;
-    public GameObject secondaryExplosion;
+    public GameObject playerStatusBars;
 
     private ShakeScript shakeScript;
     public GameObject crater;
 
-    public PlayerInputHandler playerData;
-    public GameObject objController;
-    public GameObject enemySpawner;
+    public PlayerHandler playerHandler;
 
-    float ultimateRadius = 10f;
+    float meteorRadius = 5f;
     public PlayerStatScriptableObject playerSO;
-    public GameObject hitcircle;
+    public ClockSystem clock;
+    public AudioSource meteorAudioSource;
+    public AudioClip meteormovingSFX;
+    public AudioClip meteorExplosionSFX;
+
 
 
     public void Start()
     {
         animator = GetComponent<Animator>();
         shakeScript = GameObject.Find("CM vcam1").GetComponent<ShakeScript>();
-        playerData = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerInputHandler>();
-        hitcircle = GameObject.Find("HitCircle");
-        player = GameObject.Find("Player");
-        objController = GameObject.Find("GameObjective");
+        playerHandler = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHandler>();
+        playerHandler.canMove = false;
         animator.SetBool("isMoving", true);
 
-        Vector2 landingPos = new Vector2(player.transform.position.x, player.transform.position.y + 6f);
+        Vector2 landingPos = new Vector2(player.transform.position.x + 0.9f, player.transform.position.y + 4f);
         targetPosition = landingPos;
 
         // Calculate the direction vector towards the target position
         direction = (targetPosition - (Vector2)transform.position).normalized;
-
-        objController.SetActive(false);
-        hitcircle.SetActive(false);
+        //hitcircle.SetActive(false);
+        playerStatusBars.SetActive(false);
     }
 
     public void Shake()
@@ -71,26 +71,31 @@ public class MeteorScript : MonoBehaviour
             // Rotate the object to face the movement direction
             transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
 
+
+
+
+
             // Check if the object has reached the target position
             if (Vector2.Distance(transform.position, targetPosition) <= 0f)
             {
+                isMoving = false;
+                transform.rotation = Quaternion.Euler(Vector3.zero);
+
                 // Object has reached the target, you can add further actions here if needed.
-                TransformMeteor();
+                PlayExplosion();
+                Vector2 explosionPos = new Vector2(transform.position.x, transform.position.y + 3f);
+                transform.position = explosionPos;
                 UseUltimate();
             }
         }
 
-    }
+     
 
-    public void SecondaryExplosion()
-    {
-        Vector2 spawnPos = new Vector2(player.transform.position.x, player.transform.position.y -0.5f);
-        Instantiate(secondaryExplosion, spawnPos, Quaternion.identity);
     }
 
     public void UseUltimate()
     {
-        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, ultimateRadius);
+        Collider2D[] hitColliders = Physics2D.OverlapCircleAll(transform.position, meteorRadius);
         foreach (Collider2D collider in hitColliders)
         {
             CollateralScript collateralTrigger = collider.GetComponent<CollateralScript>();
@@ -100,11 +105,9 @@ public class MeteorScript : MonoBehaviour
             }
         }
     }
-    public void TransformMeteor()
+    public void PlayExplosion()
     {
-        transform.rotation = Quaternion.Euler(Vector3.zero);
         animator.SetBool("isMoving", false);
-        // Spawn the player
     }
 
     public void DestroyMeteor()
@@ -114,18 +117,17 @@ public class MeteorScript : MonoBehaviour
 
     public void ActivatePlayer()
     {
-        playerData.startScene = false;
-        enemySpawner.SetActive(true);
+        playerHandler.canMove = true;
+        clock.startTime = true;
     }
 
     public void SpawnPlayer()
     {
-        objController.SetActive(true);
-        Vector2 spawnPos = new Vector2(player.transform.position.x, player.transform.position.y + 1.6f);
+        Vector2 spawnPos = new Vector2(player.transform.position.x, player.transform.position.y + 3f);
         Instantiate(crater, spawnPos, Quaternion.identity);
-        player.GetComponent<SpriteRenderer>().enabled = true;
-        hitcircle.SetActive(true);
 
+        player.GetComponent<MeshRenderer>().enabled = true;
+        playerStatusBars.SetActive(true);
     }
 
 
@@ -133,5 +135,15 @@ public class MeteorScript : MonoBehaviour
     public void StartMoving()
     {
         isMoving = true;
+    }
+
+    public void MeteorMovingSFX()
+    {
+        meteorAudioSource.PlayOneShot(meteormovingSFX);
+    }
+
+    public void MeteorCrashingSFX()
+    {
+        meteorAudioSource.PlayOneShot(meteorExplosionSFX);
     }
 }
